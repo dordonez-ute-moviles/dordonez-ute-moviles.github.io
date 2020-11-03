@@ -1,0 +1,439 @@
+<!DOCTYPE HTML>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<!--Poner el titulo de la clase-->
+		<title>Estado</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header id="header">
+			<a href="../index.html" class="logo"
+			  ><strong>Aplicaciones móviles</strong></a
+			>
+		  </header>
+		  <div>
+			<a href="../index.html" style="float:left; background-color: black; padding: 1rem;">Anterior</a>
+			<a href="Hilos y Sincronizacion.html" style="float: right; background-color: black; padding: 1rem;">Siguiente</a>
+		  </div>
+
+		<!-- Main -->
+			<section id="main">
+				
+				<div class="inner"><span class="image fit"><img src="../images/Diseñoydesarrollo/arqui1.jpg"height="350"alt="" /></span>
+					<!--Usar el siguiente div para poner imagenes en el doc-->
+					<div class="image fit"></div>
+					<!--Poner toda la informacion de la clase-->
+					<header>
+						<!--Poner el titulo de la clase-->
+						<h1>Estado</h1>
+						<!--Poner fecha de la clase-->
+						<p class="info">29 de Octubre del 2020</p>
+					</header>
+					<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+                    <ol>
+					<li><a href="">Interfaz de Usuario</a></li>
+					
+                    <li><a href="">Estilos y Temas</a></li>
+					<li><a href="ciclo_de_vida.html">Ciclo de vida</a></li>
+                    <li><a href="estado.html">Estado</a></li>
+									
+					
+									
+				</ol>
+<section id="two" class="wrapper style1 alt">
+         
+</section>
+
+	<section id="thirteen" class="wrapper style1 alt">
+		<center><h2>Cómo guardar estados de IU</h2></center>
+		<div class="inner">
+			<div class="spotlight">
+				<div class="contentmo">
+					<h3>Cómo guardar estados de IU</h3>
+                    <p align="justify">Preservar y restablecer de manera oportuna el estado de la IU de una actividad durante una
+actividad iniciada por el sistema o la destrucción de la aplicación es una parte fundamental de la
+experiencia del usuario. En esos casos, el usuario espera que se conserve el estado de la IU, pero el
+sistema destruye la actividad y elimina cualquier estado almacenado en ella.</p>
+<p align="justify">Sin importar el enfoque que adoptes, debes asegurarte de que tu app cumpla con las expectativas
+de los usuarios con respecto al estado de la IU, y de que proporcione una IU fluida y ágil (evita el
+retraso durante la carga de datos en la IU, en especial después de cambios de configuración
+frecuentes, como la rotación). En la mayoría de los casos, debes usar ViewModel y
+onSaveInstanceState().</p>
+<center><h2>Expectativas del usuario y comportamiento del sistema</h2></center>
+<h3>Descarte del estado de la IU iniciado por el usuario</h3>
+<p align="justify">El usuario espera que, cuando comience una actividad, el estado transitorio de la IU de esa actividad
+permanezca igual hasta que descarte por completo la actividad. El usuario puede descartar una
+actividad por completo con una de estas acciones:
+<li>presionar el botón Atrás</li>
+<li>deslizar la actividad hacia fuera de la pantalla Overview (Recents)</li>
+<li>navegar hacia arriba desde la actividad</li>
+<li>eliminar la aplicación de la pantalla Configuración</li>
+<li>completar algún tipo de actividad de "finalización" (que está respaldada por Activity.finish())</li>
+En estos casos de descartes completos, el usuario da por sentado que se alejó de manera
+permanente de la actividad, y que, si vuelve a abrirla, comenzará desde cero. El comportamiento
+
+subyacente del sistema coincide con la expectativa del usuario: se destruye la instancia de la
+actividad y se la quita de la memoria, junto con cualquier estado almacenado en ella y cualquier
+registro de estado de instancia guardado y asociado con la actividad.</p>
+				</div>
+				
+            <center><h2>Descarte del estado de la IU iniciado por el sistema</h2></center>
+            <p align="justify">El usuario espera que se conserve el estado de la IU de una actividad durante un cambio de
+configuración, como la rotación o el cambio al modo multiventana. Sin embargo, de forma
+predeterminada, el sistema destruye la actividad cuando se produce este cambio de configuración, y
+borra cualquier estado de IU almacenado en la instancia de la actividad.
+</p>
+<p align="justify">El usuario también espera que se conserve el estado de la IU de tu actividad si cambia
+temporalmente a una app diferente y vuelve a la app más tarde. Por ejemplo, el usuario hace una
+búsqueda y, luego, presiona el botón de inicio o responde una llamada telefónica. Cuando regresa a
+la actividad de búsqueda, espera encontrar la palabra clave de búsqueda y los resultados
+exactamente como estaban antes.</p>
+<h3>Opciones para preservar el estado de la IU</h3>
+<p align="justify">Cada una de las opciones para preservar el estado de la IU varía según las siguientes dimensiones
+que afectan la experiencia del usuario:</p>
+
+<table class="egt">
+
+  <tr>
+
+    <td> </td>
+
+    <td>ViewModel</td>
+
+    <td>Estado de instancia guardado</td>
+    <td>Almacenamiento
+persistente</td>
+
+  </tr>
+
+  <tr>
+
+    <td>Ubicación del
+almacenamiento </td>
+
+    <td>En la memoria</td>
+
+    <td>Serializado en disco</td>
+
+<td>En disco o red</td>
+
+  </tr>
+  <tr>
+
+    <td>Se mantiene tras el cambio de
+configuración</td>
+
+    <td>Sí</td>
+
+    <td>Sí</td>
+
+<td>Sí</td>
+
+  </tr>
+  <tr>
+
+    <td>Se mantiene tras el cierre de
+procesos iniciados por el
+sistema</td>
+
+    <td>No</td>
+
+    <td>Sí</td>
+
+<td>Sí</td>
+
+  </tr>
+  <tr>
+
+    <td>Se mantiene tras el descarte
+completo/onFinish() de la
+actividad realizado por el
+usuario</td>
+
+    <td>No</td>
+
+    <td>No</td>
+
+<td>Sí</td>
+
+  </tr>
+  <tr>
+
+    <td>Limitaciones de datos</td>
+
+    <td>Se aceptan objetos
+complejos, pero
+espacio limitado por
+la memoria disponible</td>
+
+    <td>Solo para tipos primitivos y
+objetos pequeños y simples,
+como strings</td>
+
+<td>Solo limitado por el espacio
+en disco o el costo/tiempo de
+recuperación del recurso de
+red</td>
+
+  </tr>
+  <tr>
+
+    <td>Tiempo de lectura/escritura</td>
+
+    <td>Rápido (solo acceso
+a memoria)</td>
+
+    <td>Lento (requiere
+serialización/deserialización y
+acceso al disco)</td>
+
+<td>Lento (requiere acceso a
+disco o transacción de red)</td>
+
+  </tr>
+
+</table>
+ 
+</div>
+            
+            
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <h1 class="card-title">Cómo usar ViewModel para manejar los cambios de configuración</h1>
+        <p class="card-text" align="justify">ViewModel es ideal para almacenar y administrar datos relacionados con la IU mientras el usuario
+usa la aplicación de manera activa. Permite un acceso rápido a los datos de la IU y te ayuda a evitar
+la recuperación de datos de la red o el disco durante la rotación, el cambio de tamaño de la ventana
+y otros cambios de configuración habituales.
+
+ </p>
+ <p align="justify">El sistema destruye ViewModels de forma automática cuando el usuario cancela tu actividad o
+fragmento, o si llamas a finish(), lo que indica que se borrará el estado, como el usuario espera en
+estas situaciones.
+A diferencia del estado de instancia guardado, los ViewModels se destruyen durante el cierre de un
+proceso iniciado por el sistema. Esta es la razón por la que debes usar los objetos ViewModel junto
+con onSaveInstanceState() (o alguna otra persistencia de disco), y reservar los identificadores en
+savedInstanceState para ayudar a que los modelos de vista vuelvan a cargar los datos después del
+cierre del sistema.</p>
+      </div>
+    </div>
+  </div>
+  <center><h1>Cómo usar onSaveInstanceState() como copia de seguridad para
+manejar el cierre de un proceso iniciado por el sistema</h1></center>
+<p align="justify">Se conservará el almacenamiento local persistente, como una base de datos o preferencias
+compartidas, mientras tu aplicación esté instalada en el dispositivo del usuario (a menos que el
+usuario borre los datos de tu app).</p>
+<p align="justify">Ni ViewModel ni el estado de instancia guardado son soluciones de almacenamiento a largo plazo y,
+por lo tanto, no reemplazan al almacenamiento local, como una base de datos. En cambio, debes
+usar estos mecanismos para almacenar temporalmente el estado transitorio de la IU y usar el
+almacenamiento persistente para otros datos de la app.</p>
+<center><h3>Cómo administrar el estado de la IU: divide y vencerás</h3></center>
+<p align="justify">Puedes guardar y restablecer de manera eficaz el estado de la IU dividiendo el trabajo entre los
+diversos tipos de mecanismos de persistencia. En la mayoría de los casos, cada uno de estos
+mecanismos debe almacenar un tipo diferente de datos utilizados en la actividad, en función de las
+compensaciones de la complejidad de los datos, la velocidad de acceso y el ciclo de vida:</p>
+
+<table class="egt">
+
+  <tr>
+
+    <td>Persistencia local:</td>
+
+    <td>Almacena todos los datos que no quieras perder cuando abras y cierres la actividad.</td>
+    <td>Ejemplo: una colección de canciones, que puede incluir archivos de audio y metadatos.</td>
+
+  </tr>
+
+  <tr>
+
+    <td>ViewModel:</td>
+
+    <td>almacena en la memoria todos los datos necesarios para mostrar el controlador de IU
+asociado.</td>
+
+    <td>Ejemplo: las canciones de la búsqueda más reciente y la consulta de búsqueda más reciente.</td>
+  </tr>
+  <tr>
+
+    <td>onSaveInstanceState():</td>
+
+    <td>Almacena una pequeña cantidad de datos necesarios para volver a
+cargar fácilmente el estado de una actividad si se detiene el sistema y, luego, vuelve a crear el
+controlador de IU. En lugar de almacenar objetos complejos en este lugar, consérvalos en un
+almacenamiento local y almacena un ID único para esos objetos en onSaveInstanceState().</td>
+
+    <td>Ejemplo: almacenar la consulta de búsqueda más reciente</td>
+  </tr>
+
+</table>
+</div>
+
+<h2>Cómo restablecer estados complejos: volver a ensamblar las
+piezas</h2>
+<p align="justify">Cuando sea el momento de que el usuario vuelva a la actividad, hay dos casos posibles para
+recrearla:</p>
+<table class="egt">
+
+  <tr>
+
+    <p align="justify"><td>Se recrea la actividad una vez que el sistema la detuvo. La actividad guarda la consulta en un
+paquete onSaveInstanceState() y debe pasar la consulta a ViewModel. El objeto ViewModel ve
+que no tiene resultados de la búsqueda en la memoria caché y delega la carga de los resultados
+mediante la búsqueda proporcionada.</td></p>
+
+    <p align="justify"><td>Se crea la actividad después de un cambio de configuración. La actividad tiene la consulta guardada
+en un paquete onSaveInstanceState(), y el ViewModel ya tiene los resultados de la búsqueda en
+caché. Pasa la consulta del paquete onSaveInstanceState() a ViewModel, que determina que ya
+cargó los datos necesarios y que no necesita volver a consultar la base de datos.</td></p>
+    
+
+  </tr>
+ </table>
+ <h2>Módulo de estado guardado para
+ViewModel Parte</h2>
+<p align="justify">Por lo general, se almacena el estado de la IU (o se hace referencia a él) en objetos ViewModel, no
+en actividades; por lo tanto, el uso de onSaveInstanceState() requiere algo de código estándar
+que este módulo puede ayudarte a administrar.
+Cuando el módulo está configurado, los objetos ViewModel reciben un objeto SavedStateHandle a
+través de su constructor. Este es un mapa de clave-valor que te permitirá escribir y recuperar objetos
+hacia el estado guardado y desde este. Estos valores persistirán una vez que el sistema anule el
+proceso y permanecerán disponibles en el mismo objeto.</p>
+<h2>Configuración y uso</h2>
+<p align="justify">Cuando usas Fragment 1.2.0 o su dependencia transitiva Activity 1.1.0, el valor predeterminado de
+fábrica para las instancias de ViewModel admite el SavedStateHandle apropiado para
+tu ViewModel, sin ninguna configuración adicional.</p>
+<img src="../images/Diseñoydesarrollo/config1.png" alt="" />
+<p align="justify">Luego, tu ViewModel puede tener un constructor que reciba un SavedStateHandle:</p>
+<img src="../images/Diseñoydesarrollo/config2.png"alt="" />
+<p align="justify">Cuando proporcionas una instancia ViewModelProvider.Factory personalizada, puedes habilitar el
+uso de SavedStateHandle extendiendo AbstractSavedStateViewModelFactory.</p>
+<h3>Cómo almacenar y recuperar valores</h3>
+<p align="justify">La clase SavedStateHandle tiene los métodos que esperas para un mapa de clave-valor:</p>
+<li>get(String key)</li>
+<li>contains(String key)</li>
+<li>remove(String key)</li>
+<li>set(String key, T value)</li>
+<li>keys()</li>
+<p align="justify">Además, hay un método especial, getLiveData(String key), que muestra el valor unido en un
+objeto LiveData observable.</p>
+<h3>Clases aceptables</h3>
+<table width="200" border="1">
+  <tr>
+    <td>Tipo/clase</td>
+    <td>Compatibilidad con arreglos</td>
+  </tr>
+  <tr>
+    <td>double</td>
+    <td>double[]</td>
+  </tr>
+  <tr>
+    <td>int</td>
+    <td>int[]</td>
+  </tr>
+  <tr>
+    <td>long</td>
+    <td>long[]</td>
+  </tr>
+  <tr>
+    <td>String</td>
+    <td>String[]</td>
+  </tr>
+  <tr>
+    <td>byte</td>
+    <td>byte[]</td>
+  </tr>
+  <tr>
+    <td>char</td>
+    <td>char[]</td>
+  </tr>
+  <tr>
+    <td>CharSequence</td>
+    <td>CharSequence[]</td>
+  </tr>
+  <tr>
+    <td>float</td>
+    <td>float[]</td>
+  </tr>
+  <tr>
+    <td>Parcelable</td>
+    <td>Parcelable[]</td>
+  </tr>
+  <tr>
+    <td>Serializable</td>
+    <td>Serializable[]</td>
+  </tr>
+  <tr>
+    <td>short</td>
+    <td>short[]</td>
+  </tr>
+  <tr>
+    <td>SparseArray</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Binder</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Bundle</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>ArrayList</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Size (only in API 21+)</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>SizeF (only in API 21+)</td>
+    <td></td>
+  </tr>
+</table>    
+	</section>
+
+
+			
+	</div></section>
+
+
+
+				</div>
+				
+			</section>
+			<div>
+				<a href="ciclo_de_vida.html" style="float:left; background-color: black; padding: 1rem;">Anterior</a>
+				<a href="" style="float: right; background-color: black; padding: 1rem;">Siguiente</a>
+			  </div>
+		<!-- Footer -->
+			<footer id="footer">
+				<p>
+					Trabajo del curso de Aplicaciones móviles <br />
+					<small>Universidad UTE</small>
+				  </p>
+			
+				  <div class="copyright">
+					Design: <a href="https://templated.co">TEMPLATED</a>
+				  </div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
