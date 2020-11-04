@@ -1,0 +1,394 @@
+<!DOCTYPE HTML>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<!--Poner el titulo de la clase-->
+		<title>layout,vistas,ciclo de vida, estado</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header id="header">
+			<a href="../index.html" class="logo"
+			  ><strong>Aplicaciones móviles</strong></a
+			>
+		  </header>
+		  <div>
+			<a href="../index.html" style="float:left; background-color: black; padding: 1rem;">Anterior</a>
+			<a href="Hilos y Sincronizacion.html" style="float: right; background-color: black; padding: 1rem;">Siguiente</a>
+		  </div>
+
+		<!-- Main -->
+			<section id="main">
+				
+				<div class="inner"><span class="image fit"><img src="../images/Diseñoydesarrollo/cicloini1.png" height="400" width="100" alt="" /></span>
+					<!--Usar el siguiente div para poner imagenes en el doc-->
+					<div class="image fit"></div>
+					<!--Poner toda la informacion de la clase-->
+					<header>
+						<!--Poner el titulo de la clase-->
+						<h1>Ciclo de vida</h1>
+						<!--Poner fecha de la clase-->
+						<p class="info">26 de Octubre del 2020</p>
+					</header>
+					<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+                    <ol>
+					<li><a href="layout.html">Interfaz de Usuario</a></li>
+					
+                    <li><a href="Estilosytemas.html">Estilos y Temas</a></li>
+					<li><a href="ciclo_de_vida.html">Ciclo de vida</a></li>
+                    <li><a href="estado.html">Estado</a></li>
+									
+					
+									
+				</ol>
+<section id="two" class="wrapper style1 alt">
+         
+</section>
+
+	<section id="thirteen" class="wrapper style1 alt">
+		<center><h1>Cómo interpretar el ciclo de vida de una
+actividad</h1></center>
+		<div class="inner">
+			<div class="spotlight">
+				<div class="contentmo">
+                <p align="justify">Cuando un usuario navega por tu app, sale de ella y vuelve a entrar, las instancias de Activity de tu app pasan por diferentes estados de su ciclo de vida.</p>
+                <h3>La clase Activity </h3>
+                <p align="justify">Proporciona una serie de
+devoluciones de llamada que permiten a la actividad saber que cambió un estado, es decir, que el
+sistema está creando, deteniendo o reanudando una actividad, o finalizando el proceso en el que se
+encuentra.</p>
+<p align="justify">Dentro de los métodos de devolución de llamada de ciclo de vida, puedes declarar el
+comportamiento que tendrá tu actividad cuando el usuario la abandone y la reanude.</p>	
+<h3>Ejemplo</h3>
+<img src="../images/Diseñoydesarrollo/cicloej.png">
+<p align="justify">Crear un reproductor de video en streaming, puedes pausar el video y cancelar la conexión de red
+cuando el usuario cambia a otra app. Cuando el usuario vuelve, puedes volver a establecer la
+conexión con la red y permitir que el usuario reanude el video desde el mismo punto. En otras
+palabras, cada devolución de llamada te permite realizar un trabajo específico que es apropiado para
+un cambio de estado en particular.</p>
+<p align="justify">Una buena
+implementación de las devoluciones de llamada de un ciclo de vida puede ayudar a garantizar que tu
+app:</p>
+<p class="pjustify">
+<li>No falle si el usuario recibe una llamada telefónica o cambia a otra app mientras usa la tuya.</li>
+<li>No consuma recursos valiosos del sistema cuando el usuario no la use de forma activa.</li>
+<li>No pierda el progreso del usuario si este abandona tu app y regresa a ella posteriormente.</li>
+<li>No falle ni pierda el progreso del usuario cuando se gire la pantalla entre la orientación
+horizontal y la vertical.</li></p>
+				</div>
+			</div>
+            <center><h2>Conceptos de los ciclos de vida de las actividades</h2></center>
+            <p align="justify">Para navegar por las transiciones entre las etapas del ciclo de vida de una actividad, la clase Activity
+proporciona un conjunto básico de seis devoluciones de
+llamadas:</p>
+
+<p align="justify">
+<li>onCreate()</li>
+<li>onStart()</li>
+<li>onResume()</li>
+<li>onPause()</li>
+<li>onStop()</li>
+<li>onDestroy()</li>
+</div>
+            
+            
+<div class="row">
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+      
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-body">
+        <center><h1 class="card-title">Devoluciones de llamada del ciclo de vida</h1></center>
+        <p align="justify">Algunas acciones, como llamar a setContentView(), pertenecen a los propios métodos del ciclo de
+vida de la actividad. Sin embargo, el código que implementa las acciones de un componente
+dependiente debe colocarse en el propio componente. Para ello, debes hacer que el componente
+dependiente priorice el ciclo de vida.</p>
+ <h3>onCreate()</h3>
+ <p align="justify">Debes implementar esta devolución de llamada, que se activa cuando el sistema crea la actividad
+por primera vez. Cuando se crea la actividad, esta entra en el estado Created. En el
+método onCreate(), ejecutas la lógica de arranque básica de la aplicación que debe ocurrir una sola
+vez en toda la vida de la actividad.</p>
+<p align="justify">Si tienes un componente que prioriza el ciclo de vida y que está conectado al ciclo de vida de tu
+actividad, recibirá el evento ON_CREATE.</p>
+ <h3>Ejemplo</h3>
+ <p align="justify">En el siguiente ejemplo del método onCreate(), se muestra la configuración básica de la actividad,
+como declarar la interfaz de usuario (definida en un archivo XML de diseño), definir las variables de
+miembro y configurar parte de la IU. En este ejemplo, se especifica el archivo de diseño XML
+haciendo pasar el ID de recurso del archivo R.layout.main_activity a setContentView().</p>
+ <center><img class="card-img-top" src="../images/Diseñoydesarrollo/create.png" alt="Card image cap" width="700"></center>
+  <center><img class="card-img-top" src="../images/Diseñoydesarrollo/create1.png" alt="Card image cap" width="700"></center>
+    <center><img class="card-img-top" src="../images/Diseñoydesarrollo/create2.png" alt="Card image cap" width="700"></center>
+    <p align="justify">Tu actividad no reside en el estado Created. Después de que se termina de ejecutar el
+método onCreate(), la actividad entra en el estado Started, y el sistema llama rápidamente a los
+métodos onStart() y onResume(). En la siguiente sección, se explica la devolución de
+llamada onStart().</p>
+        
+      </div>
+    </div>
+  </div>
+</div>
+<h3>onStart()</h3>
+<p align="justify">Cuando la actividad entra en el estado Started, el sistema invoca esta devolución de llamada. La
+llamada onStart() hace que el usuario pueda ver la actividad mientras la app se prepara para que
+esta entre en primer plano y se convierta en interactiva. Por ejemplo, este método es donde la app
+inicializa el código que mantiene la IU.
+Cuando la actividad pase al estado Started, cualquier componente que priorice el ciclo de vida
+vinculado al de la actividad recibirá el evento ON_START.
+El método onStart() se completa muy rápido y, al igual que con el estado Created, la actividad no
+permanece en el estado Started. Una vez finalizada esta devolución de llamada, la actividad entra en
+el estado Resumed, y el sistema invoca el método onResume().</p>
+<h3>onResume()</h3>
+<p align="justify">Cuando la actividad entra en el estado Resumed, pasa al primer plano y, a continuación, el sistema
+invoca la devolución de llamada onResume(). Este es el estado en el que la app interactúa con el
+usuario. La app permanece en este estado hasta que ocurre algún evento que la quita de foco.</p>
+<p align="justify">Cuando se reanude la actividad, cualquier componente que priorice el ciclo de vida vinculado al de la
+actividad recibirá el evento ON_RESUME. Aquí es donde los componentes del ciclo de vida pueden
+habilitar cualquier funcionalidad que necesite ejecutarse mientras el componente esté visible y en
+primer plano.</p>
+<p align="justify">Si la actividad regresa al estado Resumed desde Paused, el sistema volverá a llamar al
+método onResume(). Por esta razón, debes implementar onResume() para inicializar los
+componentes que lances en onPause() y tienes que realizar otras inicializaciones que deban
+ejecutarse cada vez que la actividad entre en el estado Resumed.</p>
+<h3>Ejemplo</h3>
+<center><img class="card-img-top" src="../images/Diseñoydesarrollo/resumen.png" alt="Card image cap" width="700"></center>
+<p align="justify">El código anterior inicializa la cámara una vez que LifecycleObserver recibe el evento
+ON_RESUME. Sin embargo, en el modo multiventana, tu actividad puede ser totalmente visible
+incluso cuando se encuentra en el estado Paused.</p>
+<h3>onPause()</h3>
+<p align="justify">El sistema llama a este método a modo de primera indicación de que el usuario está abandonando tu
+actividad, esto indica que la actividad
+ya no está en primer plano. Utiliza el método onPause() para pausar o ajustar las operaciones que no deben
+continuar (o que deben continuar con moderación) mientras Activity se encuentra en estado
+Paused y que esperas reanudar en breve. Hay varias razones por las que una actividad puede entrar
+en este estado. Por ejemplo:</p>
+<li>Algunos eventos interrumpen la ejecución de la app, como se describe en la
+sección onResume(). Este es el caso más común.</li>
+<li>En Android 7.0 (API nivel 24) o versiones posteriores, varias apps se ejecutan en el modo
+multiventana. Debido a que solo una de las apps (ventanas) tiene foco en cualquier momento,
+el sistema pausa todas las demás.</li>
+<li>Se abre una nueva actividad semitransparente (como un diálogo). Mientras la actividad siga
+siendo parcialmente visible, pero no esté en foco, se mantendrá pausada.</li>
+<p align="justify">También puedes utilizar el método onPause() para liberar recursos del sistema, controladores de
+sensores (como el GPS) o cualquier otro recurso que pueda afectar la duración de la batería
+mientras tu actividad esté en pausa y el usuario no los necesite.</p>
+<h3>Ejemplo</h3>
+<p align="justify">LifecycleObserver que reacciona ante el evento ON_PAUSE, que
+es la contrapartida del ejemplo del evento ON_RESUME anterior, se libera la cámara que se
+inicializó después de recibir el evento ON_RESUME:</p>
+<center><img class="card-img-top" src="../images/Diseñoydesarrollo/pause.png" alt="Card image cap" width="700"></center>
+<p align="justify">La ejecución de onPause() es muy breve y no necesariamente permite disponer de tiempo suficiente
+para realizar operaciones seguras. Por esta razón, no debes utilizar onPause() para guardar los
+datos de la aplicación o del usuario, realizar llamadas de red o ejecutar transacciones de la base de
+datos, ya que es posible que no se complete dicho trabajo antes de que finalice el método.</p>
+<p align="justify">La finalización del método onPause() no significa que la actividad abandone el estado Paused. Más
+bien, la actividad permanecerá en ese estado hasta que se reanude o se vuelva completamente
+invisible para el usuario. Si se reanuda la actividad, el sistema volverá a invocar la devolución de
+llamada onResume(). Si la actividad regresa del estado Paused a Resumed, el sistema mantendrá la
+instancia Activity en la memoria y la volverá a llamar cuando invoque onResume().</p>
+<h3>onStop()</h3>
+<p align="justify">Cuando el usuario ya no puede ver tu actividad, significa que ha entrado en el estado Stopped, y el
+sistema invoca la devolución de llamada onStop().</p>
+<p align="justify">En el método onStop(), la app debe liberar o ajustar los recursos que no son necesarios mientras
+no sea visible para el usuario. Por ejemplo, tu app podría pausar animaciones o cambiar de
+actualizaciones de ubicación detalladas a más generales. Usar onStop() en lugar
+de onPause() garantiza que continúe el trabajo relacionado con la IU, incluso cuando el usuario esté
+viendo tu actividad en el modo multiventana.</p>
+<h3>Ejemplo</h3>
+<center><img class="card-img-top" src="../images/Diseñoydesarrollo/stop.png" alt="Card image cap" width="700"></center>
+<center><img class="card-img-top" src="../images/Diseñoydesarrollo/stop1.png" alt="Card image cap" width="700"></center>
+<p align="justify">Cuando tu actividad entra en el estado Stopped, se mantiene el objeto Activity en la memoria.
+Mantiene toda la información de estado y de miembros, pero no está vinculada al administrador de
+ventanas. Cuando se reanuda la actividad, esta recuerda la información. No necesitas reinicializar
+los componentes que se crearon durante los métodos de devolución de llamada que llevan al estado
+Resumed. El sistema también lleva un registro del estado actual de cada objeto View en el diseño;
+por lo tanto, si el usuario ingresó texto en un widget EditText, se conserva ese contenido para que
+no necesites guardarlo ni restablecerlo.</p>
+<h3>onDestroy()</h3>
+<p align="justify">Cuando la actividad pase al estado Destroyed, cualquier componente que priorice el ciclo de vida
+vinculado al de la actividad recibirá el evento ON_DESTROY. Aquí es donde los componentes del ciclo
+de vida pueden recuperar cualquier elemento que se necesite antes de que finalice el objeto Activity. Se llama a onDestroy() antes de que finalice la actividad. El sistema invoca esta devolución de
+llamada por los siguientes motivos:</p>
+<li>La actividad está terminando (debido a que el usuario la descarta por completo o a que se
+llama a finish()).</li>
+<li>El sistema está finalizando temporalmente la actividad debido a un cambio de configuración
+(como la rotación del dispositivo o el modo multiventana).</li>
+<p align="justify">Si la actividad está terminando, onDestroy() es la devolución de llamada del ciclo de vida final que
+recibe la actividad. Si se llama a onDestroy() como resultado de un cambio de configuración, el
+sistema crea inmediatamente una nueva instancia de actividad y luego llama a onCreate() en esa
+nueva instancia en la nueva configuración.
+La devolución de llamada onDestroy() debe liberar todos los recursos que aún no han sido
+liberados por devoluciones de llamada anteriores, como onStop().</p>
+<h2>Estado de actividad y expulsión de memoria</h2>
+<p align="justify">El sistema nunca finaliza una actividad de forma directa para liberar memoria. En su lugar, finaliza el
+proceso en el que se ejecuta la actividad para eliminar no solo la actividad, sino también todo lo que
+se ejecuta en el proceso.</p>
+<center><img class="card-img-top" src="../images/Diseñoydesarrollo/proceso.png" alt="Card image cap" width="700"></center>
+<center><h1>Cómo guardar y restablecer el estado transitorio de la IU</h1></center>
+<p align="justify">El usuario espera que se conserve el estado de la IU de una actividad durante un cambio de
+configuración, como la rotación o el cambio al modo multiventana. Sin embargo, el sistema finaliza la
+actividad de forma predeterminada cuando se produce un cambio de configuración de este tipo, lo
+que elimina cualquier estado de la IU almacenado en la instancia de actividad.</p>
+<p align="justify">Cuando finaliza la actividad debido a restricciones del sistema, debes conservar el estado transitorio
+de la IU utilizando una combinación de ViewModel, onSaveInstanceState() o almacenamiento
+local.</p>
+<h2>Estado de la instancia</h2>
+<p align="justify">Existen algunas situaciones en las que finaliza tu actividad debido al comportamiento normal de la
+app, por ejemplo, cuando el usuario presiona el botón Atrás o tu actividad indica su propia
+finalización llamando al método finish().</p>
+<p align="justify">Los datos guardados que el sistema utiliza para restaurar el estado previo se denominan estado de
+instancia y son un conjunto de pares clave-valor almacenados en un objeto Bundle. De forma
+predeterminada, el sistema utiliza el Bundle de estado de instancia para guardar información de
+cada objeto View del diseño de tu actividad (por ejemplo, el valor de texto ingresado en un
+widget EditText).</p>
+<p align="justify">Un objeto Bundle no es apropiado para preservar más que una cantidad trivial de datos, debido a
+que requiere serialización en el subproceso principal y consume memoria del proceso del sistema.
+Para preservar más que una cantidad muy pequeña de datos, debes adoptar un enfoque combinado,
+utilizando el almacenamiento local persistente, el método onSaveInstanceState() y la
+clase ViewModel,</p>
+<h3>Cómo guardar un estado de IU simple y ligero usando onSaveInstanceState()</h3>
+<p align="justify">el sistema llama al
+método onSaveInstanceState() para que tu actividad pueda guardar la información del estado en
+un paquete de estado de instancia. La implementación predeterminada de ese método guarda
+información transitoria acerca del estado de la jerarquía de vistas de la actividad, como el texto de un
+widget EditText o la posición de desplazamiento de un widget ListView.
+Para guardar información adicional sobre el estado de la instancia de tu actividad, debes
+anular onSaveInstanceState() y agregar pares clave-valor al objeto Bundle que se guarda en
+caso de que tu actividad finalice de forma inesperada. Si sustituyes enSaveInstanceState(), debes
+llamar a la implementación de superclase si deseas que la implementación predeterminada guarde el
+estado de la jerarquía de vistas.</p>
+<h3>Ejemplo</h3>
+<center><img class="card-img-top" src="../images/Diseñoydesarrollo/guardar.png" alt="Card image cap" width="700"></center>
+<h3>Cómo restablecer el estado de la IU de la actividad utilizando el estado de la instancia
+guardada</h3>
+<p align="justify">Cuando se vuelve a crear tu actividad tras haber finalizado, puedes recuperar la instancia del estado
+guardado desde el Bundle que el sistema pasa a tu actividad. Los métodos de devolución de
+llamada onCreate() y onRestoreInstanceState() reciben el mismo Bundle que contiene la
+información del estado de la instancia.</p>
+<h3>Ejemplo</h3>
+<p align="justify">El siguiente fragmento de código muestra cómo puedes restablecer algunos datos del
+estado en onCreate():</p>
+<center><img class="card-img-top" src="../images/Diseñoydesarrollo/guardar1.png" alt="Card image cap" width="700"></center>
+<p align="justify">En lugar de restaurar el estado durante onCreate(), puedes optar por
+implementar onRestoreInstanceState(), al que el sistema llama después del método onStart().
+El sistema llama a onRestoreInstanceState() solo si hay un estado guardado para restablecer,
+por lo que no necesitas comprobar si Bundle es nulo:</p>
+<center><img class="card-img-top" src="../images/Diseñoydesarrollo/guardar2.png" alt="Card image cap" width="700"></center>
+
+<center><h2>Cómo iniciar una actividad desde otra</h2></center>
+<p align="justify">Es posible que una actividad necesite iniciar otra actividad en algún momento. Esta necesidad surge,
+por ejemplo, cuando una app necesita pasar de la pantalla actual a una nueva.
+En función de si la actividad desea recuperar el resultado de la nueva actividad que está a punto de
+comenzar, se puede iniciar la nueva actividad utilizando los
+métodos startActivity() o startActivityForResult(). En cualquier caso, debes pasar un
+objeto Intent.
+El objeto Intent especifica la actividad exacta que quieres iniciar o describe el tipo de acción que
+quieres realizar. Un objeto Intent también puede contener pequeñas cantidades de datos que utilizará la
+actividad que se inicie.</p>
+<table class="egt">
+
+  <tr>
+
+    <td>startActivity()</td>
+
+    <td>Si la actividad recién iniciada no necesita mostrar un resultado, la actividad actual puede iniciarla
+llamando al método startActivity().</td>
+
+  </tr>
+
+  <tr>
+
+    <td>EXTRA_EMAIL
+</td>
+
+    <td>Adicional agregado al intent es un arreglo de strings de direcciones de correo
+electrónico a las que se debe enviar el mensaje. Cuando una aplicación de correo electrónico
+responde a este intent, lee el arreglo de strings proporcionado en el objeto adicional y las coloca en
+el campo "Para" del formulario de composición de correo electrónico.
+</td>
+
+  </tr>
+    </tr>
+
+  <tr>
+
+    <td>startActivityForResult()
+</td>
+
+    <td>El parámetro entero identifica la llamada.
+Este identificador sirve para desambiguar entre varias llamadas
+a startActivityForResult(Intent, int) de la misma actividad. No es un identificador global y
+no corre el riesgo de entrar en conflicto con otras apps o actividades. El resultado se obtiene a través
+de tu método onActivityResult(int, int, Intent).
+Cuando se lleva a cabo una actividad secundaria, puedes llamar a setResult(int) para mostrarle
+los datos a la actividad superior.
+</td>
+
+  </tr>
+
+
+</table>
+<p align="justify">Cómo coordinar actividades
+Cuando una actividad inicia otra, ambas experimentan transiciones en su ciclo de vida. La primera
+actividad deja de funcionar y entra en el estado Paused o Stopped, mientras se crea la otra actividad.
+Si esas actividades comparten datos guardados en el disco o en alguna otra parte, es importante que
+entiendas que no se detiene la primera actividad por completo antes de que se cree la segunda. Más
+bien, el proceso de iniciar la segunda se superpone con el proceso de detener la primera.
+El orden de las devoluciones de llamada del ciclo de vida está bien definido, en especial cuando las
+dos actividades están en el mismo proceso (app) y una inicia la otra. Aquí te mostramos el orden de
+las operaciones que ocurren cuando la actividad A inicia la actividad B:
+<li>Se ejecuta el método onPause() de la actividad A.</li>
+<li>Los métodos onCreate(), onStart() y onResume() de la actividad B se ejecutan en
+secuencia. (Ahora la actividad B tiene la atención del usuario).</li>
+<li>Por lo tanto, si la actividad A deja de verse en pantalla, se ejecuta su método onStop().</li>
+Esta secuencia predecible de devoluciones de llamada del ciclo de vida te permite administrar la
+transición de información de una actividad a otra.</p>
+  
+	</section>
+
+
+			
+	</div></section>
+
+
+
+				</div>
+				
+			</section>
+			<div>
+				<a href="layout,vistas,ciclo.html" style="float:left; background-color: black; padding: 1rem;">Anterior</a>
+				<a href="estado.html" style="float: right; background-color: black; padding: 1rem;">Siguiente</a>
+			  </div>
+		<!-- Footer -->
+			<footer id="footer">
+				<p>
+					Trabajo del curso de Aplicaciones móviles <br />
+					<small>Universidad UTE</small>
+				  </p>
+			
+				  <div class="copyright">
+					Design: <a href="https://templated.co">TEMPLATED</a>
+				  </div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+
+	</body>
+</html>
