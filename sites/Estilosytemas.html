@@ -72,9 +72,9 @@
 
   <tr>
 
-    <td>Un estilo es una colección de atributos que especifican la apariencia de un solo estilo Vie Un estilo puede especificar antes, como el color de fuente, el tamaño de fuente, el color de fondo y mucho más.</td>
+    <td><p align="justify">Un estilo es una colección de atributos que especifican la apariencia de un solo estilo Vie Un estilo puede especificar antes, como el color de fuente, el tamaño de fuente, el color de fondo y mucho más.</p></td>
 
-    <td>Un tema es un tipo de estilo que se aplica a toda una aplicación, actividad o jerarquía visual, no solo a una vista individual. Cuando aplica su estilo como tema, cada vista en la aplicación o actividad aplica cada atributo de estilo que admite.</td>
+    <td><p align="justify">Un tema es un tipo de estilo que se aplica a toda una aplicación, actividad o jerarquía visual, no solo a una vista individual. Cuando aplica su estilo como tema, cada vista en la aplicación o actividad aplica cada atributo de estilo que admite.</p></td>
 
  
 
@@ -96,7 +96,7 @@ Por ejemplo, si define el siguiente estilo:<img src="../images/Diseñoydesarroll
 				</div>
 			</div>
             <center><h2>Amplíe y personalice el estilo</h2></center>
-            <p class="pjustify">Al crear sus propios estilos, siempre debe extender un estilo existente desde el marco o la biblioteca de soporte para mantener la compatibilidad con los estilos de la interfaz de usuario de la plataforma. Para extender un estilo, especifique el estilo que desea extender con el atributo principal. Luego puede anular los atributos de estilo heredados y agregue nuevos.
+            <p class="pjustify" align="justify">Al crear sus propios estilos, siempre debe extender un estilo existente desde el marco o la biblioteca de soporte para mantener la compatibilidad con los estilos de la interfaz de usuario de la plataforma. Para extender un estilo, especifique el estilo que desea extender con el atributo principal. Luego puede anular los atributos de estilo heredados y agregue nuevos.
 
 <li>Por ejemplo, puede heredar la apariencia de texto predeterminada de la plataforma Android y modificarla de la siguiente manera: <img src="../images/Diseñoydesarrollo/est4.PNG"></li>
 <li>Para heredar estilos de una biblioteca o de su propio proyecto, declare el nombre del estilo principal sin @android: style  Por ejemplo, el siguiente ejemplo hereda estilos de apariencia de texto de la biblioteca de soporte:<img src="../images/Diseñoydesarrollo/est5.PNG"></li>
@@ -134,35 +134,37 @@ Por ejemplo, si define el siguiente estilo:<img src="../images/Diseñoydesarroll
 <p>6. Aplicar un tema a una colección de Vistas, una actividad o toda la aplicación</p>
 <p> 7. Aplicar cierto estilo específico de Vista, como establecer TextAppearance en una vista de texto<img src="../images/Diseñoydesarrollo/est9.PNG"></p>
  <h2>Apariencia del texto</h2>
- <p>Una limitación de los estilos es que solo puede aplicar un estilo a una vista. En un TextView, sin embargo, también puede especificar un atributo Textåppearance que funciona de manera similar a un estilo, como se muestra en el siguiente ejemplo:<img src="../images/Diseñoydesarrollo/est10.PNG"></p>
- <p>TextAppearance le permite definir un estilo específico de texto mientras deja el estilo de una vista disponible para otros usos. Sin embargo, tenga en cuenta que si define cualquier atributo de texto directamente en la vista o en un estilo, esos valores anularán los valores de TextAppearance.</p>
- <p>TextAppearance Admite un subconjunto de atributos de estilo que: textView ofrece. Para ver la lista completa de atributos,ver TexAppearance</p>
+ <p align="justify">Una limitación de los estilos es que solo puede aplicar un estilo a una vista. En un TextView, sin embargo, también puede especificar un atributo Textåppearance que funciona de manera similar a un estilo, como se muestra en el siguiente ejemplo:<img src="../images/Diseñoydesarrollo/est10.PNG"></p>
+ <p align="justify">TextAppearance le permite definir un estilo específico de texto mientras deja el estilo de una vista disponible para otros usos. Sin embargo, tenga en cuenta que si define cualquier atributo de texto directamente en la vista o en un estilo, esos valores anularán los valores de TextAppearance.</p>
+ <p align="justify">TextAppearance Admite un subconjunto de atributos de estilo que: textView ofrece. Para ver la lista completa de atributos,ver TexAppearance</p>
  <li>Algunos atributos comunes de TextView no incluidos están en vuelo (Multiplier Extral, Linea breakStrategy. y frecuencia de paso. Textappearance funciona a nivel de carácter y no de párrafo nivel, por lo que los atributos que afectan a todo el diseño no son compatibles.</li>
+ <br>
  <h2>Personaliza el tema predeterminado</h2>
- <p>Cuando creas un proyecto con Android Studio, aplica un tema de diseño de materiales a tu aplicación de forma predeterminada, como se define en el archivo styles.xml de tu proyecto. Este estilo AppTheme extiende un tema de la biblioteca de soporte e incluye anulaciones para los atributos de color que utilizan los elementos clave de la interfaz de usuario, como la barra de la aplicación y el botón de acción flotante (si se usa). Para que pueda personalizar rápidamente el color de su aplicación diseño actualizando los colores proporcionados.</p>
+ <p align="justify">Cuando creas un proyecto con Android Studio, aplica un tema de diseño de materiales a tu aplicación de forma predeterminada, como se define en el archivo styles.xml de tu proyecto. Este estilo AppTheme extiende un tema de la biblioteca de soporte e incluye anulaciones para los atributos de color que utilizan los elementos clave de la interfaz de usuario, como la barra de la aplicación y el botón de acción flotante (si se usa). Para que pueda personalizar rápidamente el color de su aplicación diseño actualizando los colores proporcionados.</p>
 
 <li>Por ejemplo, su archivo styles.xml debería verse similar a esto:<img src="../images/Diseñoydesarrollo/est11.PNG"></li>
 
-<p>Observe que los valores de estilo son en realidad referencias a otros recursos de color, definidos en el archivo res / values / colors.xml del proyecto. Ese es el archivo que debes editar para cambiar los colores. Pero antes de comenzar a cambiar estos colores, obtenga una vista previa de sus colores con la herramienta Color del material. Esta herramienta le ayuda a elegir colores de la paleta de materiales y obtener una vista previa de cómo se verán en una aplicación.</p>
+<p align="justify">Observe que los valores de estilo son en realidad referencias a otros recursos de color, definidos en el archivo res / values / colors.xml del proyecto. Ese es el archivo que debes editar para cambiar los colores. Pero antes de comenzar a cambiar estos colores, obtenga una vista previa de sus colores con la herramienta Color del material. Esta herramienta le ayuda a elegir colores de la paleta de materiales y obtener una vista previa de cómo se verán en una aplicación.</p>
 
-<li>Una vez que conozca sus colores, actualice los valores en res / values / colors.xml:<img src="../images/Diseñoydesarrollo/est12.PNG"></li>
+<li>Una vez que conozca sus colores, actualice los valores en res / values / colors.xml:
+<img src="../images/Diseñoydesarrollo/est2.png"></li>
 <p>Y luego puede anular cualquier otro estilo que desee. Por ejemplo, puede cambiar el color de fondo de la actividad de la siguiente manera:<img src="../images/Diseñoydesarrollo/est13.PNG"></p>
 <table class="egt">
 
   <tr>
 
-    <td>Para obtener una lista de atributos que puede usar en su tema, consulte la tabla de atributos en R.styleable.Theme. Y al agregar estilos para las vistas en su diseño, también puede buscar atributos mirando la "tabla de atributos XML en las referencias de dass de vista. </td>
+    <td><p align="justify">Para obtener una lista de atributos que puede usar en su tema, consulte la tabla de atributos en R.styleable.Theme. Y al agregar estilos para las vistas en su diseño, también puede buscar atributos mirando la "tabla de atributos XML en las referencias de dass de vista.</p> </td>
 
-    <td>La mayoría de los atributos se aplican a tipos específicos de vistas y algunos se aplican a todas las vistas. Sin embargo, algunos Atributos del tema enumerados en R.styleable El tema se aplica a la ventana de actividad, no a las vistas en el diseño. </td>
+    <td><p align="justify">La mayoría de los atributos se aplican a tipos específicos de vistas y algunos se aplican a todas las vistas. Sin embargo, algunos Atributos del tema enumerados en R.styleable El tema se aplica a la ventana de actividad, no a las vistas en el diseño. </p></td>
 
-    <td>La biblioteca de compatibilidad de Android también proporciona otros atributos que puede usar para personalizar su tema extendido desde AppCompat (como el atributo colorPrimary que se muestra arriba).</td>
+    <td><p align="justify">La biblioteca de compatibilidad de Android también proporciona otros atributos que puede usar para personalizar su tema extendido desde AppCompat (como el atributo colorPrimary que se muestra arriba).</p></td>
 
   </tr>
   <tr>
 
     <td>Por ejemplo, todas las vistas admiten atributos XML desde la clase de vista base</td>
 
-    <td>Por ejemplo, windowBackground cambia el fondo de la ventana y ventana Entertransition define una animación de transición para usar cuando se inicia la actividad (para detalles, consulte Iniciar una actividad con una animación)</td>
+    <td><p align="justify">Por ejemplo, windowBackground cambia el fondo de la ventana y ventana Entertransition define una animación de transición para usar cuando se inicia la actividad (para detalles, consulte Iniciar una actividad con una animación)</p></td>
 
     <td> Estos se ven mejor en el archivo attrs xml de la biblioteca</td>
 
@@ -170,7 +172,7 @@ Por ejemplo, si define el siguiente estilo:<img src="../images/Diseñoydesarroll
 
 </table>
 <h2>Agregar estilos específicos de la versión</h2>
-<p>Si una nueva versión de Android agrega atributos de tema que desea usar, puede agregarlos a su tema sin dejar de ser compatible con versiones anteriores. Todo lo que necesita es otro archivo styles.xml guardado en un valor, directorio que incluye el calificador de la versión del recurso. Por ejemplo:</p>
+<p align="justify">Si una nueva versión de Android agrega atributos de tema que desea usar, puede agregarlos a su tema sin dejar de ser compatible con versiones anteriores. Todo lo que necesita es otro archivo styles.xml guardado en un valor, directorio que incluye el calificador de la versión del recurso. Por ejemplo:</p>
 <p>res/values/styles.xml.</p>
 <p>#themes for all versions</p>
 <p>res/values-v21/styles.xml.</p>
@@ -181,10 +183,10 @@ Por ejemplo, si define el siguiente estilo:<img src="../images/Diseñoydesarroll
 <p>Luego agregue los estilos específicos de la versión en zes / values-v21 / styles.xml de la siguiente manera:<img src="../images/Diseñoydesarrollo/est15.PNG"></p>
 <p>Ahora puede aplicar AppTheme en su archivo de manifiesto y el sistema selecciona los estilos disponibles para cada versión del sistema. Para obtener más información sobre el uso de recursos alternativos para diferentes dispositivos.</p>
 <h2>Personalizar estilos de widgets</h2>
-<p>Cada widget en el marco y la biblioteca de soporte tiene un estilo predeterminado. Por ejemplo, cuando diseña su aplicación usando un tema del soporte Ibrary, una instancia de Button se diseña usando el estilo del widget AppCompat.Button. Si desea aplicar un estilo de widget diferente a un botón, puede hacerlo con el atributo de estilo en su archivo de diseño. Por ejemplo, lo siguiente aplica el estilo de botón sin bordes de la biblioteca:<img src="../images/Diseñoydesarrollo/est16.PNG"></p>
+<p align="justify">Cada widget en el marco y la biblioteca de soporte tiene un estilo predeterminado. Por ejemplo, cuando diseña su aplicación usando un tema del soporte Ibrary, una instancia de Button se diseña usando el estilo del widget AppCompat.Button. Si desea aplicar un estilo de widget diferente a un botón, puede hacerlo con el atributo de estilo en su archivo de diseño. Por ejemplo, lo siguiente aplica el estilo de botón sin bordes de la biblioteca:<img src="../images/Diseñoydesarrollo/est16.PNG"></p>
 <p>Y si desea aplicar este estilo a todos los botones, puede declararlo en el buttonStyle de su tema como sigue:<img src="../images/Diseñoydesarrollo/est17.PNG"></p>
-<p>También puede extender los estilos de widget, al igual que extender cualquier otro estilo, y luego aplicar su estilo de widget personalizado en su diseño o en su tema.</p>
-<p>Para descubrir todos los estilos de widgets alternativos disponibles en la biblioteca de soporte, consulte la referencia de estilo R. para los campos que comienzan con Widget. (Ignore los estilos que comienzan con Base Widget.) Recuerde reemplazar todos los guiones bajos con puntos cuando use el nombre del estilo en sus recursos.</p>
+<p align="justify">También puede extender los estilos de widget, al igual que extender cualquier otro estilo, y luego aplicar su estilo de widget personalizado en su diseño o en su tema.</p>
+<p align="justify">Para descubrir todos los estilos de widgets alternativos disponibles en la biblioteca de soporte, consulte la referencia de estilo R. para los campos que comienzan con Widget. (Ignore los estilos que comienzan con Base Widget.) Recuerde reemplazar todos los guiones bajos con puntos cuando use el nombre del estilo en sus recursos.</p>
         
       </div>
     </div>
