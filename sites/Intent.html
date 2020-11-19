@@ -54,7 +54,7 @@
 			  <!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
 			  <h2></h2>
 			  <hr />
-			
+
 				 <h3>Qué es un Intent?</h3>
 
         <div class="card mb-3" style="max-width: 1000px">
@@ -70,14 +70,14 @@
             </div>
             <div class="col-md-8 pt-5">
               <div class="card-body col-lg-12 pt-5">
-              
+
                     UN INTENT ES UN OBJETO DE ACCIÓN QUE PUEDES USAR PARA SOLICITAR UNA ACCIÓN DE OTRO COMPONENTE DE LA APLICACIÓN.
-                 
+
               </div>
             </div>
           </div>
     </div>
-				
+
 		<h3>CASOS DE USO DE INTENTS</h3>
 
         <div class="card mb-3" style="max-width: 1000px">
@@ -145,7 +145,7 @@ Para enviar mensajes a otras apps pasando una INTENT a sendBroadcast().<br></br>
               <div class="card-body">
                 <ul>
                   <p align="center">
-           
+
 				 <img
                 src="../images/Intent/tipos.jpg"
                 alt="..."
@@ -160,7 +160,7 @@ Para enviar mensajes a otras apps pasando una INTENT a sendBroadcast().<br></br>
                   <li>Componentes se deben iniciar mediante su nombre(nombre de la calse completamente calificado)</li>
                   <li>Usuario usa una INTENT explícita para iniciar un componente en su propia aplicación ya que conoce el nombre de la actividad o servicio que desea iniciar.</li>
                   <li>Iniciar actividad en respuesta a la acción del usuario.</li>
-					
+
 					<br />
 				<h3 >INTENTS IMPLÍCITAS:</h3>
                   <br />
@@ -173,23 +173,345 @@ Para enviar mensajes a otras apps pasando una INTENT a sendBroadcast().<br></br>
             </div>
           </div>
         </div>
-				
+
+				<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+
+				  <div class="col-md-6">
+					<div class="card-body">
+						<h3 >Crear un temporizador</h3>
+					  <ul>
+						<br />
+						<li>Esta intent se agrego en Android 4.4 (nivel de API 19)</li>
+						<br />
+						<li>
+							Accion: ACTION_SET_TIMER
+							Extra<br>
+							EXTRA_LENGTH. La duración del temporizador en segundos.<br>
+							EXTRA_MESSAGE. Un mensaje personalizado para identificar el temporizador.<br>
+							EXTRA_SKIP_UI. Booleano que especifica si la aplicación que
+							responde debe omitir su IU al establecer el temporizador.
+						</li>
+					  </ul>
+					</div>
+				  </div>
+				  <div class="col-md-6">
+					<img
+					  src="../images/Intent/temp_intent.jpeg"
+					  alt="..."
+					  width="767"
+					  height="272"
+					  class="card-img"
+					/>
+				  </div>
+				</div>
+			  </div>
+
+				<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+					<div class="col-md-6">
+					<img
+					  src="../images/Intent/con_intent.jpeg"
+					  alt="..."
+					  width="767"
+					  height="272"
+					  class="card-img"
+					/>
+				  </div>
+				  <div class="col-md-6">
+					<div class="card-body">
+						<h3 >Calendario</h3>
+					  <ul>
+						<br />
+						<li>Accion: ACTION_INSERT</li>
+						<br />
+						<li>URI de datos: Events.CONTENT_URI</li>
+						<br />
+						<li>Tipo de MIME: "vnd.android.cursor.dir/event"</li>
+						<br />
+						<li>Extra<br>
+							EXTRA_EVENT_ALL_DAY. Booleano que especifica si este es un evento de dia completo.<br>
+							EXTRA_EVENT_BEGIN_TIME. La hora de inicio del evento (milisegundos desde el epoch).<br>
+							EXTRA_EVENT_END_TIME. La hora de finalización del evento (milisegundos desde el epoch).<br>
+							TITLE. El título del evento.<br>
+							DESCRIPTION. La descripción del evento.<br>
+							EVENT_LOCATION. La ubicación del evento.<br>
+							EXTRA_EMAIL. Una lista separada por comas de direcciones de correo electronico que especifican invitados.
+						</li>
+					  </ul>
+					</div>
+				  </div>
+				</div>
+			  </div>
+
+				<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+				  <div class="col-md-4">
+					<div class="card-body">
+						<h3 >Camara</h3>
+					  <ul>
+						<br />
+						<li>Accion: ACTION_IMAGE_CAPTURE  -  ACTION_VIDEO_CAPTURE</li>
+						<br />
+						<li>Extra<br>
+							EXTRA_OUTPUT. La ubicacion del URI donde te gustaria que la
+							aplicacion de camara guarde la foto o el video (como un objeto URI).
+						</li>
+						<br />
+						<li>Nota: Cuando se usa la accion de la camara para capturar una foto
+							esta tambien muestra una copia reducida en el Intent, quardada como
+							Bitmap en el campo “data”.</li>
+					  </ul>
+					</div>
+				  </div>
+				  <div class="col-md-8">
+					<img
+					  src="../images/Intent/cam_intent01.jpeg"
+					  alt="..."
+					  width="767"
+					  height="272"
+					  class="card-img"
+					/>
+					<img
+					  src="../images/Intent/cam_intent02.jpeg"
+					  alt="..."
+					  width="767"
+					  height="272"
+					  class="card-img"
+					/>
+				  </div>
+				</div>
+			  </div>
+
+				<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+					<div class="col-md-8">
+					<img
+						src="../images/Intent/img_intent.jpeg
+						"
+						alt="..."
+						width="767"
+						height="272"
+						class="card-img"
+					/>
+					</div>
+					<div class="col-md-4">
+					<div class="card-body">
+						<h3 >Iniciar una aplicacion de camara en modo imagen detenida</h3>
+						<ul>
+						<br />
+						<li>Accion: INTENT_ACTION_STILL_IMAGE_CAMERA</li>
+						</ul>
+					</div>
+					</div>
+				</div>
+				</div>
+
+				<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+					<div class="col-md-4">
+					<div class="card-body">
+						<h3 >Iniciar una aplicacion de camara en modo video</h3>
+						<ul>
+						<br />
+						<li>Accion: INTENT_ACTION_VIDEO_CAMERA</li>
+						</ul>
+					</div>
+					</div>
+					<div class="col-md-8">
+					<img
+						src="../images/Intent/vid_intent.jpeg
+						"
+						alt="..."
+						width="767"
+						height="272"
+						class="card-img"
+					/>
+					</div>
+				</div>
+				</div>
+
+				<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+					<div class="col-md-6">
+					<img
+					  src="../images/Intent/apc_intent.jpeg"
+					  alt="..."
+					  width="767"
+					  height="272"
+					  class="card-img"
+					/>
+				  </div>
+				  <div class="col-md-6">
+					<div class="card-body">
+						<h3 >Aplicacion Personas/Contactos</h3>
+					  <ul>
+						<br />
+						<li>Accion: ACTION_PICK</li>
+						<br />
+						<li>Tipo de MIME: Contacts.CONTENT_TYPE</li>
+					  </ul>
+					</div>
+				  </div>
+				</div>
+			  </div>
+
+				<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+				  <div class="col-md-4">
+					<div class="card-body">
+						<h3 >Seleccionar datos de un contacto</h3>
+					  <ul>
+							<br />
+							<li>Accion: ACTION_PICK</li>
+							<br />
+							<li>Tipo de MIME<br>
+								CommonDataKinds.Phone.CONTENT_TYPE<br>
+								CommonDataKinds.Email.CONTENT_TYPE<br>
+								CommonDataKinds.StructuredPostal.CONTENT_TYPE</li>
+					  </ul>
+					</div>
+				  </div>
+				  <div class="col-md-8">
+					<img
+					  src="../images/Intent/sdc_intent.jpeg"
+					  alt="..."
+					  width="767"
+					  height="272"
+					  class="card-img"
+					/>
+				  </div>
+				</div>
+			  </div>
+
+				<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+					<div class="col-md-8">
+					<img
+					  src="../images/Intent/verc_intent.jpeg"
+					  alt="..."
+					  width="767"
+					  height="272"
+					  class="card-img"
+					/>
+				  </div>
+				  <div class="col-md-4">
+					<div class="card-body">
+						<h3 >Ver un contacto</h3>
+					  <ul>
+						<br />
+						<li>Accion: ACTION_VIEW</li>
+						<br />
+						<li>Esquema de URI de datos: content: URI></li>
+					  </ul>
+					</div>
+				  </div>
+				</div>
+			  </div>
+
+				<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+				  <div class="col-md-4">
+					<div class="card-body">
+						<h3 >Editar un contacto existente</h3>
+					  <ul>
+							<br />
+							<li>Accion: ACTION_EDIT</li>
+							<br />
+							<li>Esquema de URI de datos: content: URI></li>
+							<br />
+							<li>Extras: ContactsContract.Intents.Insert</li>
+					  </ul>
+					</div>
+				  </div>
+				  <div class="col-md-8">
+					<img
+					  src="../images/Intent/ece_intent.jpeg"
+					  alt="..."
+					  width="767"
+					  height="272"
+					  class="card-img"
+					/>
+				  </div>
+				</div>
+			  </div>
+
+				<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+					<div class="col-md-8">
+					<img
+					  src="../images/Intent/ins_intent.jpeg"
+					  alt="..."
+					  width="767"
+					  height="272"
+					  class="card-img"
+					/>
+				  </div>
+				  <div class="col-md-4">
+					<div class="card-body">
+						<h3 >Insertar un contacto</h3>
+					  <ul>
+						<br />
+						<li>Accion: ACTION_INSERT</li>
+						<br />
+						<li>Tipo de MIME: Contacts.CONTENT_TYPE</li>
+						<br />
+						<li>Extras: ContactsContract.Intents.Insert</li>
+					  </ul>
+					</div>
+				  </div>
+				</div>
+			  </div>
+
+				<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+				  <div class="col-md-6">
+					<div class="card-body">
+						<h3 >Correo electrónico</h3>
+					  <ul>
+							<br />
+							<li>Acción: ACTION_SENDTO<br>ACTION_SEND<br>ACTION_SEND_MULTIPLE</li>
+							<br />
+							<li>Tipo de MIME: “text/plain” - “*/*”</li>
+							<br />
+							<li>Extras<br>
+								Intent.EXTRA_EMAIL<br>
+								Intent.EXTRA_CC<br>
+								Intent.EXTRA_BCC<br>
+								Intent.EXTRA_SUBJECT<br>
+								Intent.EXTRA_TEXT<br>
+								Intent.EXTRA_STREAM</li>
+					  </ul>
+					</div>
+				  </div>
+				  <div class="col-md-6">
+					<img
+					  src="../images/Intent/mail_intent.jpeg"
+					  alt="..."
+					  width="767"
+					  height="272"
+					  class="card-img"
+					/>
+				  </div>
+				</div>
+			  </div>
+
     <h3>Acciones Locales</h3>
-	  
+
 			  <div class="card mb-3" style="max-width: 1000px">
 				<div class="row no-gutters">
-				 
+
 				  <div class="col-md-8">
 					<div class="card-body">
 					  <ul>
 						<br />
 						<li>Google voice actions:
-							“Conseguir un taxi”, 
+							“Conseguir un taxi”,
 							“Pedir un auto”
 							</li>
 						<br />
 						<li>
-							Para pedir un taxi, utiliza la acción ACTION_RESERVE_TAXI_RESERVATION.  
+							Para pedir un taxi, utiliza la acción ACTION_RESERVE_TAXI_RESERVATION.
 						</li>
 						<br />
 						<li>
@@ -209,14 +531,14 @@ Para enviar mensajes a otras apps pasando una INTENT a sendBroadcast().<br></br>
 				  </div>
 				</div>
 			  </div>
-	  
+
 			  <hr />
-	  
+
 			  <h3>Mapas</h3>
-	  
+
 			  <div class="card mb-3" style="max-width: 1000px">
 				<div class="row no-gutters">
-				 
+
 				  <div class="col-md-8">
 					<div class="card-body">
 					  <ul>
@@ -225,33 +547,33 @@ Para enviar mensajes a otras apps pasando una INTENT a sendBroadcast().<br></br>
 						<p><b>Esquemas de URI datos</b></p>
 						<li>Mostrar el mapa en la longitud y latitud dadas
 							<ul><li>
-								geo: latitude, longitude  (Ejemplo: geo:47.6,-122.3)	
+								geo: latitude, longitude  (Ejemplo: geo:47.6,-122.3)
 							</li></ul>
 						</li>
 						<br />
 						<li>Mostrar el mapa en la longitud y latitud dadas en un nivel de zoom determinado. (zoom= 1 muestra toda la tierra centrada en la longitud y latitud dadas, zoom=23 es el más cercano).
 							<ul><li>
-								geo: latitude, longitude?z=zoom (Ejemplo: geo: 47.6,-122.3?z=11)	
+								geo: latitude, longitude?z=zoom (Ejemplo: geo: 47.6,-122.3?z=11)
 							</li></ul>
 						</li>
 						<br />
 						<li>Mostrar el mapa en la longitud y latitud dadas con una etiqueta de string.
 							<ul><li>
-								geo: 0,0?=lat,lng(label) (Ejemplo: geo: 0,0?q=34.99,-106.61(Treasure))	
+								geo: 0,0?=lat,lng(label) (Ejemplo: geo: 0,0?q=34.99,-106.61(Treasure))
 							</li></ul>
 						</li>
 						<br />
 						<li>Mostrar la ubicación para “mi dirección postal” (puede ser una consulta de ubicación o dirección específica).
 							<ul><li>
-								geo: 0,0?q=my+street+address (Ejemplo: geo:0,0?q=1600+Amphitheatre+Parkway%2C+CA)	
+								geo: 0,0?q=my+street+address (Ejemplo: geo:0,0?q=1600+Amphitheatre+Parkway%2C+CA)
 							</li></ul>
 						</li>
-						
+
 					  </ul>
 					  <p>
 						Nota: Todas las strings deben estar codificadas, por ejemplo:
-1st & Pike, Seattle. debe codificar a: 1st%20%26%20Pike%2C%20Seattle. 
-Los espacios de ls string pueden codificarse con %20 o reeplazarse por el signo más(+).  
+1st & Pike, Seattle. debe codificar a: 1st%20%26%20Pike%2C%20Seattle.
+Los espacios de ls string pueden codificarse con %20 o reeplazarse por el signo más(+).
 
 					</p>
 					</div>
@@ -267,14 +589,14 @@ Los espacios de ls string pueden codificarse con %20 o reeplazarse por el signo 
 				  </div>
 				</div>
 			  </div>
-	  
+
 			  <hr />
 
 			  <h3>Música o videos</h3>
-	  
+
 			  <div class="card mb-3" style="max-width: 1000px">
 				<div class="row no-gutters">
-				 
+
 				  <div class="col-md-8">
 					<div class="card-body">
 					  <ul>
@@ -283,10 +605,10 @@ Los espacios de ls string pueden codificarse con %20 o reeplazarse por el signo 
 						</li>
 						<br />
 						<p><b>Esquemas de URI datos</b></p>
-						
+
 							<li>
 								file: < URI >
-																		
+
 							</li>
 							<li>
 								content: < URI >
@@ -294,29 +616,29 @@ Los espacios de ls string pueden codificarse con %20 o reeplazarse por el signo 
 							<li>
 								http: < URL >
 							</li>
-								
+
 						<br />
 						<p><b>Tipos de MIME(Extensiones multipropósito de correo de internet)</b></p>
-						
+
 							<li>
 								“audio/*”
-						
+
 							</li>
 							<li>
 								“application/ogg”
-							</li>	
+							</li>
 						    <li>
 								“application/x-ogg”
-							
+
 							</li>
 							<li>
 								“application/itunes”
-								
+
 							</li>
 							<li>
 								O cualquier otro que pueda requerir la aplicación
 							</li>
-								
+
 						<br />
 					  </ul>
 					</div>
@@ -332,27 +654,27 @@ Los espacios de ls string pueden codificarse con %20 o reeplazarse por el signo 
 				  </div>
 				</div>
 			  </div>
-	  
+
 			  <hr />
 			  <h3>Otros</h3>
-	  
+
 			  <div class="card mb-3" style="max-width: 1000px">
 				<div class="row no-gutters">
-				 
+
 				  <div class="col-md-8">
 					<div class="card-body">
 					  <ul>
-					
+
 						<li>
-						Nota nueva.	
+						Nota nueva.
 						</li>
 						<br />
 						<li>
-						Teléfono	
+						Teléfono
 						</li>
 						<br />
 						<li>
-						Buscar	
+						Buscar
 						</li>
 						<br />
 						<li>
@@ -360,23 +682,23 @@ Los espacios de ls string pueden codificarse con %20 o reeplazarse por el signo 
 						</li>
 						<br />
 						<li>
-							Mensajería de texto. 	
+							Mensajería de texto.
 						</li>
 						<br />
 						<li>
-							Navegador web.	
+							Navegador web.
 						</li>
-						
+
 					  </ul>
 					</div>
 				  </div>
-				
+
 				</div>
 			  </div>
 		  </section>
 
 			<div>
-				
+
 				<a
         href=""
         style="float: left; background-color: black; padding: 1rem"
@@ -394,7 +716,7 @@ Los espacios de ls string pueden codificarse con %20 o reeplazarse por el signo 
 			  Trabajo del curso de Aplicaciones Móviles <br />
 			  <small>Universidad UTE</small>
 			</p>
-	  
+
 			<div class="copyright">
 			  Design: <a href="https://templated.co">TEMPLATED</a>
 			</div>
