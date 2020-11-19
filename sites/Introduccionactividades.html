@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<!--Poner el titulo de la clase-->
-		<title>Layout,vistas,ciclo de vida, estado</title>
+		<title>Actividades</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
@@ -27,7 +27,7 @@
         >Anterior</a
       >
       <a
-        href="Estilosytemas.html"
+        href="actividadyexpulsion.html"
         style="float: right; background-color: black; padding: 1rem"
         >Siguiente</a
       >
@@ -39,12 +39,12 @@
 				<div class="inner">
 					<!--Usar el siguiente div para poner imagenes en el doc-->
 					<div class="image fit">
-						<img src="../images/Introactividades/Aplicaciones-Móviles-Aplicaciones-Móviles.png"height="350"alt="" />
+						<img src="../images/Introactividades/activity.png"height="410" width="300"alt="" />
 					</div>
 					<!--Poner toda la informacion de la clase-->
 					<header>
 						<!--Poner el titulo de la clase-->
-						<h1>Introducción a las Actividades</h1>
+						<h1>Actividades</h1>
 						<!--Poner fecha de la clase-->
 						<p class="info">16 de Noviembre del 2020</p>
 					</header>
@@ -54,21 +54,172 @@
 					
                     <li><a href="actividadyexpulsion.html">Estado de actividad y expulsión de memoria</a></li>
 					<li><a href="">Información sobre las tareas y pila de actividades</a></li>
-                    
 									
 									
 				</ol>
 					
+					<h2 align="center">Introducción a las actividades</h2><br><br>
+					
+	
+	<h2>Concepto de actividades</h2><br>
+	<p align="justify"><li>Una actividad proporciona la ventana en la que la app dibuja su IU.</li>
+<li>En una app se especifica como la actividad principal.</li></p>
+
+<p align="justify">Por ejemplo, la actividad principal de una app de correo electrónico simple podría proporcionar una pantalla en la que se muestra una casilla de correo electrónico. A partir de aquí, la actividad principal podría iniciar otras actividades que proporcionan pantallas para tareas como redactar correos y abrir correos electrónicos individuales.</p>
+<p align="center"><img src="../images/Introactividades/eje1.png" alt="..." width="780" height="400"></p>
+
+<h2>Class Activity</h2><br>
+<p align="justify"><li>Componente clave de una app para Android, fundamental del modelo de aplicación de la plataforma.</li>
+<li>Android inicia el código en una instancia de Activity.</li>
+<li>Proporciona una serie de devoluciones de llamada que permiten a la actividad saber que cambió un estado.</li>
+</p>
+
+<h2>Cómo declarar actividades</h2>
+<p align="justify">Para declarar la actividad, abrir el archivo de manifiesto y agrega el elemento <activity> como objeto secundario del elemento <application> </p>
+<center><p align="center"><img src="../images/Introactividades/declarar.png" width="500"></p></center><br>
+<p align="justify">El único atributo obligatorio para este elemento es android:name, que especifica el nombre de la clase de la actividad. También puedes agregar atributos que definan las características de la actividad, como una etiqueta, un ícono o un tema de IU.</p>
+
+<h2>Cómo declarar filtros</h2>
+<p align="justify">Estos proporcionan la capacidad de iniciar una actividad no solo en función de una solicitud explícita, sino también de una implícita.</p>
+<center><p align="center"><img src="../images/Introactividades/filtro.png" width="500"></p></center><br>
+<p align="justify">Por ejemplo, una solicitud explícita podría indicar al sistema que debe "Iniciar la actividad 'Enviar correo electrónico' en la app de Gmail". En cambio, una solicitud implícita le indica al sistema que debe "Iniciar una pantalla 'Enviar correo electrónico' en cualquier actividad que pueda realizar la tarea".
+En este ejemplo, el elemento <action> especifica que esta actividad envía datos. La declaración del elemento <category> como DEFAULT permite a la actividad recibir solicitudes de inicio. El elemento <data> especifica el tipo de datos que puede enviar esta actividad.
+</p>
+<h2>Cómo declarar permisos</h2>
+<p align="justify">Una actividad superior no puede iniciar una actividad secundaria, a menos que ambas tengan los mismos permisos en su manifiesto.
+Puedes usar la etiqueta <activity> del manifiesto para controlar qué apps pueden iniciar una actividad en particular. Una actividad superior no puede iniciar una actividad secundaria, a menos que ambas tengan los mismos permisos en su manifiesto. Si declaras un elemento <uses-permission> para una actividad principal, cada actividad secundaria debe tener un elemento <uses-permission>.
+</p>
+<p align="justify">Por ejemplo, si tu app quiere usar una app hipotética llamada SocialApp para compartir una publicación en las redes sociales, SocialApp debe definir el mismo permiso que la app que la llama debe tener:
+</p>
+<center><p align="center"><img src="../images/Introactividades/permiso1.png" width="500"></p></center><br>
+<p align="justify">Para poder llamar a SocialApp, tu app debe tener el mismo permiso que se estableció en el manifiesto de SocialApp.</p>
+<center><p align="center"><img src="../images/Introactividades/permiso2.png" width="500"></p></center><br>	
+	<h2>Cómo administrar el ciclo de vida de una actividad</h2><br>
+    <p align="center"><img src="../images/Introactividades/ciclo.jpg" width="500"></p><br>
+					
+					
+				  <br>
+					
+					<h4 align="center">onCreate()</h4><br><br>
+					
+					<div class="card mb-3"><br><br>
+  <p align="center"><img src="../images/Introactividades/create.png" alt="..." width="220" height="120" ></p>
+  <div class="card-body">
+    <p class="card-text" ><p align="justify"><li>Implementar esta devolución de llamada, que se activa cuando el sistema crea tu actividad. </li>
+<li>La implementación debe inicializar los componentes esenciales.</li>
+<li>Cuando onCreate() finaliza, la siguiente devolución de llamada siempre es onStart().</li>
+</p></p><br>
+  </div>
+</div><br>
+					
+					
+					<h4 align="center">onStart()</h4><br><br>
+					
+					<div class="card mb-3"><br><br>
+  <p align="center"><img src="../images/Introactividades/start.png" alt="..." width="200" height="110"></p>
+  <div class="card-body">
+    <p class="card-text" ><p align="justify"><li>La actividad pasa al estado Iniciada y se vuelve visible para el usuario.</li>
+<li>Esta devolución de llamada contiene los preparativos finales de la actividad para pasar al primer plano y convertirse en interactiva.</li>
+</p></p><br>
+  </div>
+</div><br>
+					
+					
+					
+					<h4 align="center">onResume()</h4><br><br>
+					
+					<div class="card mb-3"><br><br>
+  <p align="center"><img src="../images/Introactividades/resume.png" alt="..." width="220" height="130"></p>
+  <div class="card-body">
+   <p class="card-text" ><p align="justify"><li>La actividad comience a interactuar con el usuario. </li>
+<li>La actividad es la primera de la pila de actividades y captura todo lo que el usuario ingresa.</li>
+<li> La mayor parte de la funcionalidad principal de una app se implementa en el método onResume().</li>
+</p></p>
+  </div>
+</div>
 					
 
+				  <br>				
+					
+					<h2 align="center">onPause()</h2><br><br>
+					
+					<div class="card mb-3" style="max-width: 1000px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="../images/Introactividades/multimedia.jpg" width="500" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text"><p align="justify">El sistema llama a onPause() cuando la actividad pierde el foco y pasa al estado Detenida. Este estado se produce, por ejemplo, cuando el usuario presiona el botón Atrás o Recientes. </p>
+		  <p align="justify">Cuando el sistema llama a onPause() para tu actividad, significa que esta aún está parcialmente visible, pero, a menudo, indica que el usuario está saliendo de la actividad y que esta pronto pasará al estado Detenida o Reanudada.
+</p>
 
-				 
-			
+<p align="justify">No debes usar para guardar datos de la aplicación o del usuario, realizar llamadas de red o ejecutar transacciones de base de datos
+</p>
 
+<p align="justify">Entre los ejemplos de tal actividad, se incluye mostrar una pantalla de mapa de navegación o la reproducción de un reproductor multimedia. Incluso si estas actividades pierden el foco, el usuario espera que su IU continúe actualizándose.
+</p>
+		  
+		  
+		  </p>
+      </div>
+    </div>
+  </div>
+</div><br><br>
+<h4 align="center">onStop()</h4><br><br>
+					
+					<div class="card mb-3"><br><br>
+  <p align="center"><img src="../images/Introactividades/stop.png" alt="..." width="190" height="90"></p>
+  <div class="card-body">
+   <p class="card-text" ><p align="justify">El sistema llama a onStop() cuando la actividad ya no es visible para el usuario, lo cual puede ocurrir porque se está eliminando la actividad, porque se inicia una nueva o porque una ya existente pasa al estado Reanudada y cubre la actividad que se detuvo. En todos estos casos, la actividad detenida ya no está visible en absoluto.
+La siguiente devolución de llamada que el sistema invoca puede ser onRestart() si la actividad vuelve a interactuar con el usuario o onDestroy() si esta actividad finaliza por completo.
+</p></p>
+  </div>
+</div>
 
+<h4 align="center">onRestart()</h4><br>
+					
+					<div class="card mb-3"><br><br>
+  <p align="center"><img src="../images/Introactividades/restar.png" alt="..." width="190" height="90"></p>
+  <div class="card-body">
+   <p class="card-text" ><p align="justify"><li>La  actividad en estado Detenida está por volver a iniciarse.</li>
+<li>onRestart() restaura el estado de la actividad desde el momento en que esta se detuvo.</li>
+<li>Luego de esta devolución de llamada, siempre sigue onStart().</li>
+</p></p>
+  </div>
+</div>
 
+<h4 align="center">onDestroy()</h4><br>
+					
+					<div class="card mb-3"><br><br>
+  <p align="center"><img src="../images/Introactividades/destroy.png" alt="..." width="243" height="100"></p>
+  <div class="card-body">
+   <p class="card-text" ><p align="justify"><li>El sistema invoca esta devolución de llamada antes de que se elimine una actividad.
+</li>
+<li>Esta devolución de llamada es la última que recibe la actividad. onDestroy() suele implementarse a fin de garantizar que todos los recursos de una actividad se liberen cuando esta, o el proceso que la contiene, se elimina.
+</li>
+</p></p>
+  </div>
+</div>
+				 <br> <h2 align="center">Cómo administrar el ciclo de vida de una actividad</h2><br><br>
+				
+				<div class="card mb-3" style="max-width: 1000px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="../images/Introactividades/celular.jpg" alt="..." width="767" height="272""" class="card-img"...>
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text"><br><p align="justify">Una buena implementación de las devoluciones de llamada de un ciclo de vida puede ayudar a garantizar que tu app:.</p>
 
-	
+<p align="justify"><li>No consuma recursos valiosos del sistema cuando el usuario no la use de forma activa.</li>
+<li>No pierda el progreso del usuario si este abandona tu app y regresa a ella posteriormente.</li>
+<li>No falle ni pierda el progreso del usuario cuando se gire la pantalla entre la orientación horizontal y la vertical.</li>
+</p></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 				
 				
@@ -103,12 +254,12 @@
 			<div>
 				
 				<a
-        href="histomov.html"
+        href=""
         style="float: left; background-color: black; padding: 1rem"
         >Anterior</a
       >
       <a
-        href="Estilosytemas.html"
+        href="actividadyexpulsion.html"
         style="float: right; background-color: black; padding: 1rem"
         >Siguiente</a
       >
