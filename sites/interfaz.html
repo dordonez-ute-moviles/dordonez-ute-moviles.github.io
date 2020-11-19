@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Aplicaciones Móviles</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <style media="screen">
+
+      h2{
+        color:#FCA400;
+      }
+       body .back{
+        background-image: url(../images/HistoMov/back.jpg);
+       background-repeat: no-repeat;
+       background-size: 100%;
+       background-attachment: fixed;
+       padding-top: 50px;
+       padding-bottom: 40px;
+       padding-left: 40px;
+       padding-right: 60px;
+
+      }
+      .uno{
+        background-color: rgba(255, 255, 255, 0.8);
+        color:black;
+        padding:20px;
+      }
+      .dos{
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding:20px;
+      }
+
+      .tres{
+        background-color: rgba(255, 255, 255, 0.8);
+        color:black;
+        padding:20px;
+      }
+
+      .cuatro{
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding:20px;
+      }
+      .cinco{
+        background-color: rgba(255, 255, 255, 0.8);
+        color:black;
+        padding:20px;
+      }
+
+      .uno h3{
+        color: #2FBC8D;
+      }
+
+    .dos h3{
+      color:#078FAE;
+      text-decoration:underline;
+    }
+
+    .tres h3{
+      color:#1EC69F;
+    }
+
+    .cuatro h3{
+      color:#576CBE;
+    }
+    .cuatro h4{
+      color:#267C83
+    }
+
+    .cinco h3{
+    color:#E5702A;
+    }
+
+    body{
+      text-align: justify;
+    }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a
+        href="diseñoydesarrollomovil.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="layout.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img src="../images/Interfaz/interfaz.jpg" alt="" width="600" height="350"/>
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1>Interfaz</h1>
+          <!--Poner fecha de la clase-->
+          <p class="info">16 de Noviembre del 2020</p>
+        </header>
+        <!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+      <div class="back">
+
+
+
+
+        <h2 align="center" style="background-color:#E4D9F0;">Diseños</h2>
+
+          <div class="uno">
+        <p>
+          Un diseño define la estructura de una interfaz de usuario en la aplicación, como, por ejemplo, en una actividad.
+          Todos los elementos del diseño se crean usando una jerarquía de objetos View y ViewGroup.
+          <center><img src="../images/Interfaz/disenio.png" alt=""/></center>
+        </p>
+        <p>
+          <h3>Declarar un diseño</h3>
+
+          <p>
+            <h4>Declarar elementos de la IU en XML</h4> 
+            Android proporciona un vocabulario XML simple que coincide 
+            con las clases y subclases de vistas, como las que se usan 
+            para widgets y diseños.
+          </p>
+
+          <p>
+            <h4>Crear una instancia de elementos de diseño </h4>
+            Durante el tiempo de ejecución. La aplicación puede crear 
+            objetos View y ViewGroup (y manipular sus propiedades) de 
+            forma programática.
+          </p>
+         
+          <center><img src="../images/Interfaz/declara.png" alt=""/></center>
+        </p>
+
+        <p>
+          <h3>Escribe en XML</h3>
+          Al usar vocabulario XML de Android, puedes crear rápidamente diseños 
+          de IU y de los elementos de pantalla que contienen, de la misma manera 
+          que creas páginas web en HTML, con una serie de elementos anidados.
+
+          <center><img src="../images/Interfaz/escribe.png" alt=""/></center>
+
+          
+          <p>
+            <h4>Carga del recurso XML</h4>
+            <ul>
+              <li>Cuando se compila la aplicación, cada archivo de diseño XML se compila en un recurso View.</li>
+              <li>Se debe cargar el recurso de diseño desde el código de tu aplicación, en la implementación de devolución de llamada Activity.onCreate().</li>
+              <li>El marco de trabajo de Android llama al método de devolución de llamada onCreate() en la actividad cuando esta se lanza.</li>
+            </ul>
+          </p>
+
+          <p>
+            <h4>Atributos</h4>
+            Cada objeto View y ViewGroup admite su propia variedad de atributos XML. 
+            Algunos atributos son específicos de un objeto View (por ejemplo, TextView 
+            admite el atributo textSize).
+            <br>
+            Otros atributos se consideran "parámetros de diseño" y son atributos que 
+            describen ciertas orientaciones de diseño del objeto View, tal como lo 
+            define el objeto principal ViewGroup de ese objeto.
+          </p>
+
+          <p>
+            <h4>ID</h4>
+            Cualquier objeto View puede tener un ID entero asociado para identificarse de forma única dentro del árbol
+            <br>
+            Cuando se compila la aplicación, se hace referencia a este ID como un número entero, pero el ID se asigna normalmente en el archivo XML de diseño como una string del atributo id.
+            <center><img src="../images/Interfaz/id.png" alt=""/></center>
+          </p>
+        </p>
+
+        <p>
+          <h3>Parámetros de diseño</h3>
+          Los atributos de diseño XML denominados layout_something definen parámetros de diseño para el objeto View que son adecuados para el objeto ViewGroup en el que reside. 
+          <center><img src="../images/Interfaz/parametros.png" alt=""/></center>
+          Generalmente, usarás una de estas constantes para establecer el ancho o la altura:
+          <ul>
+            <li><b>wrap_content:</b>  Indica a tu vista que modifique su tamaño conforme a los requisitos de este contenido.</li>
+            <li><b>match_parent:</b> Indica a tu vista que se agrande tanto como lo permita su grupo de vistas principal.</li>
+          </ul>
+        </p>
+
+        <p>
+          <h4>Posición del diseño</h4>
+          La geometría de una vista es la de un rectángulo. Una vista tiene una ubicación, expresada como un par de coordenadas izquierda y superior, y dos dimensiones, expresadas como un ancho y una altura. La unidad para la ubicación y las dimensiones es el píxel.
+          <br>
+          
+          <h4>Tamaño, relleno y márgenes</h4>
+          El tamaño de una vista se expresa con un ancho y una altura. En realidad, una vista tiene dos pares de valores de ancho y altura.
+          <br>
+          El relleno se expresa en píxeles para las partes izquierda, superior, derecha e inferior de la vista. El relleno se puede usar para desplazar el contenido de la vista una determinada cantidad de píxeles. Por ejemplo, un relleno izquierdo de 2 empuja el contenido de la vista 2 píxeles hacia la derecha del borde izquierdo.
+          <br>
+          Si bien una vista puede definir un relleno, no proporciona ningún tipo de compatibilidad para márgenes. No obstante, los grupos de vistas si la proporcionan.
+        </p>
+
+        <p>
+          <h3>Diseños comunes</h3>
+          <ul>
+            <li><b>Diseño lineal.- </b>Un diseño que organiza sus elementos secundarios en una sola fila horizontal o vertical. Si la longitud de la ventana supera la de la pantalla, crea una barra de desplazamiento.</li>
+            <center><img src="../images/Interfaz/lineal.png" alt=""/></center>
+            <li><b>Diseño relativo.- </b>Te permite especificar la ubicación de los objetos secundarios en función de ellos mismos (el objeto secundario A a la izquierda del objeto secundario B) o en función del elemento primario (alineado con la parte superior del elemento primario).</li>
+            <center><img src="../images/Interfaz/relativo.png" alt=""/></center>
+            <li><b>Vista Web.- </b>Muestra páginas web.</li>
+            <center><img src="../images/Interfaz/vistaweb.png" alt=""/></center>
+          </ul>
+          
+        </p>
+
+        <p>
+         <h3>Cómo agregar ConstraintLayout a tu proyecto</h3>
+         ConstraintLayout te permite crear diseños grandes y complejos con una jerarquía de vistas plana (sin grupos de vistas anidadas).
+
+         <ol>
+          <li>Tener el repositorio maven.google.com declarado en el archivo build.gradle de nivel de módulo:
+          </li>
+          <center><img src="../images/Interfaz/cons1.png" alt=""/></center>
+
+          <li>Agrega la biblioteca como una dependencia en el mismo archivo build.gradle, como se muestra en el siguiente ejemplo.
+          </li>
+          <center><img src="../images/Interfaz/cons2.png" alt="" width="500"/></center>
+
+          <li>En la barra de herramientas o notificación de sincronización, haz clic en Sync Project with Gradle Files.
+            Ya está todo listo para crear el diseño con ConstraintLayout.
+            </li>
+          <center><img src="../images/Interfaz/cons3.png" alt=""/></center>
+
+         </ol>
+        </p>
+
+        <p>
+          <h3>Cómo convertir un diseño</h3>
+          Para convertir un diseño existente en uno de ConstraintLayout, sigue estos pasos:
+ 
+          <ol>
+           <li>Abre el diseño existente en Android Studio y haz clic en la pestaña Design, en la parte inferior de la ventana del editor.
+           </li>
+ 
+           <li>En la ventana Component Tree, haz clic con el botón derecho en el diseño y, luego, en Convert layout to ConstraintLayout.
+           </li>
+           <center><img src="../images/Interfaz/convd1.png" alt=""/></center>
+ 
+           <li>En la barra de herramientas o notificación de sincronización, haz clic en Sync Project with Gradle Files.
+             Ya está todo listo para crear el diseño con ConstraintLayout.
+             </li>
+           <center><img src="../images/Interfaz/cons3.png" alt=""/></center>
+ 
+          </ol>
+         </p>
+
+         <p>
+          <h3>Para agregar una restricción</h3>
+ 
+          <ol>
+           <li>Se arrastra una vista desde la ventana Palette hasta el editor.
+           </li>
+           Cuando se agrega una vista en un ConstraintLayout, se muestra un cuadro de límite con controladores de cambio de tamaño cuadrados en cada esquina y controladores de restricciones circulares en cada lado.
+ 
+           <li>Se da clic en la vista para seleccionarla.
+           </li>
+ 
+           <li>Se hace clic en un controlador de restricción y arrástralo hasta un punto de anclaje disponible. Ese punto puede ser el borde de otra vista, el borde del diseño o una guía.
+             </li>
+
+           <li>Se hace Clic en uno de los botones <img src="../images/Interfaz/icon.png" alt="">  de Create a connection en la sección Layout de la ventana Attributes
+           </li>
+           <center><img src="../images/Interfaz/cons3.png" alt=""/></center>
+           
+          </ol>
+          <center><video src="../images/Interfaz/constraint-layout-constrain-left.mov" autoplay loop></video></center>
+
+          Cuando se crea la restricción, el editor le otorga un margen predeterminado para separar las dos vistas.
+          <center><img src="../images/Interfaz/cons4.png" alt=""/></center>
+         </p>
+
+         <p>
+          <h3>Para borrar una restricción</h3>
+ 
+          <ol>
+           <li>Se hace clic en una restricción para seleccionarla y, luego, Delete.
+           </li>
+           <center><img src="../images/Interfaz/delr1.png" alt=""/></center>
+ 
+           <li>Se mantiene presionado Control (Command en macOS) y, luego, haz clic en un anclaje de restricción. Cuando la restricción se muestra de color rojo, puedes hacer clic para borrarla.
+           </li>
+ 
+           <li>En la sección Layout de la ventana Attributes, haz clic en un anclaje de restricción.
+             </li>
+          <center><img src="../images/Interfaz/delr2.png" alt=""/></center>
+
+           <li>Si agregas restricciones opuestas en una vista, las líneas de restricción se vuelven onduladas como un resorte para indicar las fuerzas opuestas.
+           </li>
+           <center><video src="../images/Interfaz/2.mov" autoplay loop></video></center>
+           
+          </ol>
+         </p>
+
+         <p>
+           <h4>Posición superior</h4>
+           Se restringe el lado de una vista al borde correspondiente del diseño.
+           <center><img src="../images/Interfaz/possup.png" alt=""/></center>
+           <br>
+
+           <h4>Posición de orden</h4>
+           Define el orden de aparición de dos vistas, ya sea de manera horizontal o vertical
+           <center><img src="../images/Interfaz/posord.png" alt=""/></center>
+           <br>
+
+           <h4>Alineación</h4>
+           Alinea el borde de una vista con el mismo borde de otra vista.
+           <center><img src="../images/Interfaz/ali1.png" alt=""/></center>
+           <center><img src="../images/Interfaz/ali2.png" alt=""/></center>
+           <br>
+
+           <h4>Alineación de línea de base</h4>
+           Alinea la línea de base de texto de una vista con la línea de base de texto de otra.
+           <center><img src="../images/Interfaz/alisb.png" alt=""/></center>
+           <br>
+
+           <h4>Cómo aplicar una restricción a una guía</h4>
+           Se puede agregar una guía vertical u horizontal en la que sea posible restringir las vistas; la guía será invisible para los usuarios de la aplicación. 
+           <center><img src="../images/Interfaz/resgui.png" alt=""/></center>
+           <br>
+
+           <h4>Cómo aplicar una restricción a una barrera</h4>
+           Una barrera es una línea invisible respecto de la cual puedes restringir vistas. Sin embargo, la barrera no define su propia posición, sino que se desplaza en función de la posición de las vistas que contiene. 
+           <center><img src="../images/Interfaz/resba1.png" alt=""/></center>
+           <br>
+
+           <h4>Cómo ajustar el sesgo de restricciones</h4>
+           Para ajustar el sesgo, se arrastra el control deslizante en la ventana Attributes o arrastra la vista.
+           <center><video src="../images/Interfaz/3.mov" autoplay loop width="700"></video></center>
+           <br>
+
+           <h4>Cómo ajustar el tamaño de la vista</h4>
+           Se puede usar los controladores de las esquinas para cambiar el tamaño de una vista, pero esta acción fija el tamaño dentro del código a fin de que la vista no cambie de tamaño para diferentes contenidos o tamaños de pantalla.
+           <center><img src="../images/Interfaz/tamvis.png" alt="" width="500"/></center>
+           <br>
+
+           <h4>Cómo ajustar los márgenes de la vista</h4>
+           Para asegurarnos de que todas las vistas estén espaciadas de manera uniforme, se puede hacer clic en Margin   en la barra de herramientas a fin de seleccionar el margen predeterminado para cada vista que se agregue al diseño.
+           <center><img src="../images/Interfaz/ajuvis.png" alt="" width="500"/></center>
+           <br>
+
+           <h4>Cómo controlar grupos lineales con una cadena</h4>
+           Una cadena es un grupo de vistas que están vinculadas entre sí con restricciones de posición bidireccionales. Dentro de una cadena, se pueden distribuir las vistas de manera horizontal o vertical.
+           <br>
+           Las cadenas se pueden diseñar de una de las siguientes maneras:
+           <ol>
+             <li> <b>Spread:</b>  Las vistas se distribuyen uniformemente (tras restar los márgenes). Es el valor predeterminado</li>
+             <li> <b>Spread inside:</b> La primera y la última vista se fijan a las restricciones de cada extremo de la cadena y el resto se distribuye de manera uniforme.</li>
+             <li> <b>Weighted:</b> La vista con el valor de ponderación más alto obtiene la mayor cantidad de espacio; las vistas que tengan la misma ponderación obtendrán la misma cantidad de espacio.</li>
+             <li> <b>Packed:</b> Se agrupan las vistas (una vez que se restan los márgenes). Luego puedes ajustar el sesgo de toda la cadena (izquierda/derecha o arriba/abajo) cambiando el sesgo de la vista de extremo de la cadena.</li>
+           </ol>
+           <center><img src="../images/Interfaz/gruplin.png" alt=""/></center>
+           <br>
+
+           <h3>Cómo crear restricciones automáticamente</h3>
+
+           <br>
+           <h4>Infer Constraints</h4>
+           Analiza el diseño a fin de determinar el conjunto de restricciones más efectivo para todas las vistas. Su tarea es restringir las vistas a sus posiciones actuales y, al mismo tiempo, brindar flexibilidad.
+
+           <br>
+           <h4>Autoconnect to parent</h4>
+           Cuando se agrega vistas secundarias a una superior, esta función creará automáticamente dos o más restricciones para cada vista a medida que se las agregue al diseño, pero solo cuando sea apropiado restringir la vista al diseño de nivel superior. La conexión automática no crea restricciones para otras vistas del diseño.
+         </p>
+
+        
+
+         <br><br>
+         </div>
+         <h2 align="center" style="background-color:#E4D9F0;">Estilos y Temas</h2>
+
+         <div class="dos">
+         <p>Permiten separar los detalles de diseño de tu app de la estructura y el comportamiento de la IU, de forma similar a las hojas de estilo en el diseño web.</p>
+         <center><img src="../images/Interfaz/temas.png" alt="" width="800"></center>
+
+
+
+         <p>
+           <h3>Estilos</h3>
+           Un estilo es una colección de atributos que especifican la apariencia de un solo View. Especifica atributos como color, tamaño de fuente, color de fondo y más.
+         </p>
+
+         <p>
+           <h3>Temas</h3>
+           Un tema es un tipo de estilo que se aplica a toda una app, actividad o jerarquía de vistas, no solo a una vista individual.
+         </p>
+
+         <p>
+          Los estilos y los temas se declaran en un archivo de recursos de estilo en res/values/, generalmente llamado styles.xml.
+         </p>
+
+         <p>
+           <h4>Crear y aplicar un estilo
+          </h4>
+          <ul>
+            <li>Para crear un nuevo estilo o tema primero se debe abrir el archivo res/values/styles.xml </li>
+            <li>En segundo lugar agregar un elemento style con un nombre exclusivo para identificar el estilo.</li>
+            <li>Y se debe agregar un elemento item para cada atributo de estilo.</li>
+          </ul>
+          El name en cada elemento especifica un atributo que normalmente se usaría como atributo XML en el diseño. Ahora el valor del elemento item es el valor de ese atributo.
+          <br>
+          Para crearlo así sería un ejemplo:
+          <center><img src="../images/Interfaz/defest.png" alt="" width="600"></center>
+
+          <br>
+          Mientras que para aplicarlo se lo haría así:
+          <center><img src="../images/Interfaz/apliest.png" alt="" width="600"></center>
+          Cada atributo especificado en el estilo se aplica a la vista si esta lo acepta. Caso contrario simplemente los ignora.
+         </p>
+
+         <p>
+           <h3>Extender y personalizar un estilo</h3>
+           Cuando se crea un estilo propio, este siempre debe ser extendido del marco de trabajo o biblioteca de compatibilidad para mantener la compatibilidad con los estilos de IU de la plataforma.
+           <br> 
+           Para extender un estilo, se especifica el que se va a extender con el atributo parent. Luego se pueden anular sus atributos de estilo heredados y agregar nuevos.
+           <br>
+           Un ejemplo sería heredar la apariencia de texto predeterminada de la plataforma de Android y modificarla así:
+           <center><img src="../images/Interfaz/herest.png" alt="" width="600"></center>
+           <br><br>
+           Para heredar estilos de una biblioteca, los cuales suelen tener un nombre similar a los estilos de la plataforma añadido AppCompat, se declara el nombre del estilo principal sin la parte @android:style/ como en el ejemplo anterior y debe ser parecido al siguiente ejemplo:
+           <center><img src="../images/Interfaz/herest1.png" alt="" width="600"></center>
+           <br><br>
+           También pueden ser heredados estilos (excepto los de la plataforma) extendiendo el nombre del estilo con una notación de puntos en vez de usar parent. Esto quiere decir que se prefija el nombre del estilo nuevo con el que se desea heredar, separados por un punto.
+           <br>
+           Esto se hace cuando se extiende los estilos propios y no de otras bibliotecas.
+           <br>
+           Por ejemplo, el siguiente estilo hereda todos los estilos del estilo anterior y se aumenta el tamaño del texto:
+           <center><img src="../images/Interfaz/herest2.png" alt="" width="600"></center>
+           Se puede heredar estilos como el del ejemplo tantas veces como se quiera encadenar más nombres.
+           <br>
+           Para descubrir qué atributos se pueden declarar con una etiqueta item, se debe consultar la tabla “Atributos XML” en las distintas referencias de clase.
+          </p>
+
+         <p>
+           <h3>Aplicar un estilo como un tema</h3>
+           Un tema puede ser creado de la misma forma que un estilo, la diferencia está en su aplicación, ya que un tema se lo aplica con el atributo android:theme en la etiqueta application o en una etiqueta activity en el archivo AndroidManifest.xml
+             <br>
+           Un ejemplo de cómo aplicar el tema ‘oscuro’ de material design de la biblioteca de compatibilidad de Android a toda la app:
+           <center><img src="../images/Interfaz/aplitem.png" alt="" width="600"></center>
+           Para aplicarlo a una sola actividad se lo debe hacer así:
+           <center><img src="../images/Interfaz/aplitem1.png" alt="" width="600"></center>
+
+          </p>
+
+         <p>
+           <h3>Jerarquía de estilos</h3>
+           Al momento de diseñar una app se debe tener en cuenta la jerarquía de estilos. Se debe usar temas y estilos tanto como sea posible para mantener la coherencia.
+           <br>
+           Si se especifica los mismos atributos en varios lugares, la siguiente lista determina qué atributos se aplican. Esta lista está ordenada de mayor a menor prioridad:
+
+           <ol>
+             <li>Aplicación de estilo a nivel de carácter o párrafo a través de intervalos de texto a clases derivadas de TextView.</li>
+             <li>Aplicación de atributos de forma programática.</li>
+             <li>Aplicación de atributos individuales directamente a una vista.</li>
+             <li>Aplicación de un estilo a una vista.</li>
+             <li>Estilo predeterminado.</li>
+             <li>Aplicación de un tema a una colección de vistas, una actividad o toda tu app.</li>
+             <li>Aplicación de un estilo determinado específico de la vista, como la configuración de un TextAppearance en un TextView.</li>
+           </ol>
+
+         </p>
+
+         <p>
+           <h3>Personalizar el tema predeterminado</h3>
+           Al crear un proyecto, se aplica un tema de material design a la app de forma predeterminada, como se define en el archivo styles.xml del proyecto.
+           <center><img src="../images/Interfaz/pertem.png" alt="" width="600"></center>
+           <br>
+           Para personalizar este estilo se comienza por los colores, los cuales pueden ser modificados en el archivo res/values/colors.xml
+           <center><img src="../images/Interfaz/pertem1.png" alt="" width="600"></center>
+           <br>
+           Luego se puede anular o modificar cualquier otro estilo que se quiera 
+           <center><img src="../images/Interfaz/pertem2.png" alt="" width="600"></center>
+
+         </p>
+
+         <p>
+           <h3>Agregar estilos estilos específicos de una versión</h3>
+           En caso de que una nueva versión de Android agregue atributos de tema que se deseen usar, estos pueden ser agregados a nuestros temas sin que dejen ser compatibles con versiones anteriores.
+           <br>
+           Solo se necesita otro archivo styles.xml guardado en un directorio values que incluya el calificador de versión del recurso. Por ejemplo:
+           <center><img src="../images/Interfaz/estesp.png" alt="" width="600"></center>
+           <br>
+           Debido a que estilos del archivo values/styles.xml están disponibles para todas las versiones, los temas en values-v21/styles.xml pueden heredarlos. Así se evita duplicar estilos comenzando con un tema “base” y, luego, extenderlo en los estilos específicos de nuestra versión.
+           <br>
+           El tema base podría verse así:
+           <center><img src="../images/Interfaz/estesp1.png" alt="" width="600"></center>
+          <br>
+          Y los estilos específicos agregados en la otra versión podrían verse así:
+          <center><img src="../images/Interfaz/estesp2.png" alt="" width="600"></center>
+          Ahora se puede aplicar AppTheme en el archivo de manifiesto y el sistema selecciona los estilos disponibles para cada versión del sistema.
+         </p>
+
+         <p>
+           <h3>Personalizar estilos de widget</h3>
+           Cada widget del marco de trabajo y la biblioteca de compatibilidad tiene un estilo predeterminado.
+           <br>
+           Si se desea aplicar un estilo de widget diferente a un botón, se puede hacerlo con el atributo style del archivo de diseño.
+           <br>
+           Por ejemplo:
+           <center><img src="../images/Interfaz/widget.png" alt="" width="600"></center>
+           <br>
+           Si se desea aplicar este estilo a todos los botones, se lo declara en el buttonStyle de tu tema de la siguiente manera:
+           <center><img src="../images/Interfaz/widget1.png" alt="" width="600"></center>
+           Se pueden extender los estilos de los widgets, como se extiende cualquier otro estilo, y luego aplicar el estilo de widget personalizado en tu diseño o tema.
+
+         </p>
+</div>
+
+  </div>
+
+
+      </div>
+    </section>
+    <div>
+      <a
+        href="diseñoydesarrollomovil.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="layout.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p>
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+
+      <div class="copyright">
+        Design: <a href="https://templated.co">TEMPLATED</a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
