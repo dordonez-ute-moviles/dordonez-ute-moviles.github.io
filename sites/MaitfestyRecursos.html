@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Aplicaciones Móviles</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>MaifestyRecursos</strong></a
+      >
+    </header>
+
+    <div>
+      <a
+        href=""
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href=""
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img src="../images/Mainfest/m1.png" height="350"alt="" /></span>
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1>Manifest y Recursos</h1>
+          <!--Poner fecha de la clase-->
+          <p class="info">3 days ago</p>
+        </header>
+        <!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+        <h1>Información general de recursos</h1>
+        <p >
+          Con el fin de brindar compatibilidad, es útil externalizar recursos como imágenes y strings,
+          estos se organizan en el directorio “res/” del proyecto en el cual se crean subdirectorios para poder organizar los diferentes
+          recursos y tipo de configuración.
+
+          Esto ayuda a que nuestro proyecto se adapte a diferentes idiomas o tipos de pantalla
+          ya que hoy en día hay mucha variedad de dispositivos con android y cada uno posee características
+          distintas.
+
+        </p>
+        <h2>Diseño de app predeterminado para todos los dispositivos</h2>
+          <img src="../images/Mainfest/14.png" height="350"alt="" /></span>
+          <h2>Diseño de app distinto según el tamaño de la pantalla de los dispositivos</h2>
+          <img src="../images/Mainfest/13.png" height="350"alt="" /></span>
+        <p>
+          En cualquier tipo de recurso , puedes especificar recursos predeterminados y
+          varios recursos aternativos para la aplicacion
+        </p>
+        <ol>
+            <li>Los recursos son los que debes usar sin importar la configuracion del dispositivoo cuando no hay recursos alternativos que conicidan con la configuracion actual </li>
+            <li>Los recursos alternativos son los que diseñaste para usar sin importar la configuracion especifica A fin de especificar que grupo de recursos es uan configuracion especifica</li>
+        </ol>
+        <h2>Tipos de recursos</h2>
+        <ul>
+            <li><b>Recursos predeterminados:</b> Son los que se usan sin importar la configuración del dispositivo o cuando no hay recursos alternativos que coincidan con la configuración actual. </li>
+            <li><b>Recursos alternativos:</b> Son los diseñados para una configuración en específico, esto para tener configuraciones apropiadas según el tipo de dispositivo en el que se usa la aplicación
+</li>
+        </ul>
+        <p><b>Ejemplo</b></p>
+        <p>
+          Si se guarda un diseño en “res/layout/” este sería un recurso predeterminado, pero se puede especificar que si la
+           pantalla está en horizontal se usaría el diseño guardado en “res/layout-land/”.</p>
+  <p>Android aplica automáticamente los recursos si ve una coincidencia entre la configuración actual del dispositivo y los nombres de los recursos.
+        </p>
+        <h4><b>Provisión de recursos</b></h4>
+        <p>
+          Al externalizar los recursos de nuestro proyecto se puede acceder a ellos mediante un identificador que se generan en la clase “R” del proyecto
+        </p>
+        <h4><b>Agrupación de tipos de recursos</b></h4>
+        <p>
+        Hay que separar cada tipo de recursos en el directorio “res” para tener más ordenado todo y poder acceder de manera más fácil, podemos tener subdirectorios para imágenes, strings, íconos, etc.
+        Es importante tener los nombres correctos en los directorios.
+        </p>
+          <h4><b>Nombres para directorios de recursos </b></h4>
+          <img src="../images/Mainfest/12.png" height="250"alt="" /></span>
+          <img src="../images/Mainfest/11.png" height="250"alt="" /></span>
+          <h4><b>Advertencia</b></h4>
+          <p>Nunca se debe guardar un archivo de recursos en el directorio “res/” porque se producirá un error en el compilador, es importante organizar los recursos
+             de la mejor manera para tener un proyecto más ordenado.</p>
+          <p >Es necesario guardar los recursos alternativos en el mismo directorio en el que están los recursos predeterminados y con el mismo nombre (hdpi significa que es una configuración
+            para dispositivos con pantalla de alta densidad)</p>
+            <img src="../images/Mainfest/10.png" height="250"alt="" /></span>
+              <h4>MCC y MNC</h4>
+              <ul>
+                  <li>MCC es el código de país del dispositivo móvil y MNC es el código de red </li>
+                    <li>Un ejemplo sería “mcc208-mnc00” que quiere decir un dispositivo en Francia con la compañía telefónica Orange.</li>
+                    <li>Si el dispositivo usa conexión GSM, los valores de MCC y MNC vienen de la tarjeta SIM.</li>
+                    <li>Se puede usar solo el MCC para incluir recursos legales de un país en específico para la aplicación.</li>
+              </ul>
+              <h4>Idioma y Región</h4>
+              <p>Se define mediante un código de idioma de dos letras  (ISO 639-1) seguido por un código de region de dos letras (ISO 3166-1-alfa-2) de dos letras precedido por un “r” en minúscula.</p>
+              <p>Ejemplo: en-rUS</p>
+              <p>El prefijo “r” se usa para distinguir la región del idioma.
+                Esto se puede cambiar en el ciclo de vida de la app si el usuario decide cambiarlo </p>
+                  <h4>Dirección del diseño</h4>
+                  <p>LDRTL significa “dirección del diseño de derecha a izquierda” y LDLTR “dirección del diseño de derecha a izquierda”;esto se puede aplicar a recursos como diseños, elementos de diseño o valores.
+                  </p>
+                  <h4>smallestWidth</h4>
+                  <p>Es la parte más pequeña del largo y ancho de la pantalla de un dispositivo, esto se puede usar para asegurar que sin importar la orientación de la pantalla,
+                    la aplicación tenga reservada n dps de ancho disponible para la interfaz.</p>
+                    <p>Por ejemplo si configuramos para que la dimensión más pequeña sea siempre de  al menos 600dp se puede usar para crear los recursos necesarios en “res/layout/layout-sw600dp/”, la app aplicará esos recursos si el ancho o alto mínimo de la pantalla es de 600dp, es una característica fija,
+                      es decir que no se modifica cuando la orientación de la pantalla del dispositivo cambia. </p>
+                      <h4>Ancho disponible</h4>
+                      <ul>
+                          <li>Este especifica el ancho de pantalla mínimo disponible en unidades “dp” en las cuales se debe de usar el recurso definido por el valor '<N>'.</li>
+                            <li>Este valor de configuración se modificará cuando la orientación cambia entre horizontal y vertical para coincidir con el ancho real actual.</li>
+                            <li>Cuando proporcione directorios de múltiples recursos con valores diferentes para esta configuración el sistema utilizará el más cercano al ancho de pantalla actual del dispositivo.</li>
+                      </ul>
+                      <h4>Altura disponible </h4>
+                      <ul>
+                            <li>Especifica la altura de pantalla mínima disponible en unidades “dp” en las cuales se debe de usar el recurso definido por el valor '<N>.</li>
+                        <li>Este valor de configuración se modificará cuando la orientación cambia entre horizontal y vertical para coincidir con el ancho real actual.</li>
+                        <li>Cuando proporcione directorios de múltiples recursos con valores diferentes para esta configuración el sistema utilizará el más cercano a la altura de pantalla actual del dispositivo.</li>
+                      </ul>
+                      <h4>Tamaño de pantalla</h4>
+                      <ul>
+                        <li><b>Small:</b> Pantallas que son de tamaño similar a una pantalla QVGA de baja densidad. El tamaño de diseño es de 320x426 unidades dp.</li>
+                        <li>  <b>Normal</b>Pantallas que son similar a las pantallas HVGA de densidad media. El tamaño de diseño es de 320x470 unidades dp. </li>
+                        <li>  <b>Large</b>Pantallas que son de tamaño similar a una pantalla VGA de densidad media. El tamaño de diseño es de 480x640 unidades dp.</li>
+                        <li> <b>Xlarge</b>Pantallas que son considerablemente más grandes que la pantalla HVGA de densidad media tradicional. El tamaño de diseño es de 720x960 </li>
+                      </ul>
+                      <h4>Pantalla</h4>
+                      <ul>
+                        <h5>Aspecto de pantalla: </h5>
+                        <li>Long: Pantallas largas WQVGA, WVGA, FWVGA</li>
+                        <li>NotLong: Pantallas que no son largas como QVGA, HVGA Y VGA</li>
+                        <h5>Pantalla circular: </h5>
+                        <li>Round: Pantallas circulares, como dispositivos wearable circular</li>
+                        <li>NotRound: Pantallas rectangulares como los teléfonos y tablets</li>
+                        <h5>Orientación de la pantalla:</h5>
+                        <li>Port: El dispositivo está en orientación vertical</li>
+                        <li>Land: El dispositivo está en orientación horizontal</li>
+                      </ul>
+                      <h4>Modelo de IU</h4>
+                      <ul>
+                        <li>Car: El dispositivo se muestra en un conector para autos.</li>
+                        <li>Desk: El dispositivo se muestra en un conector para escritorio</li>
+                      <li>Televisión: El dispositivo se muestra en una televisión y proporciona una experiencia de “diez pies” en la que su UI esta en una pantalla grande de la cual el usuario se encuentra alejado.</li>
+                      <li>Appliance: El dispositivo se utiliza como un aparato, sin pantalla.</li>
+                      <li>Watch: El dispositivo tiene una pantalla y se usa en la muñeca</li>
+                                            </ul>
+                          <h4>Densidades de píxeles de la pantalla</h4>
+                          <ul>
+                            <li>ldpi: Pantallas de baja densidad, aproximadamente 120 dpi</li>
+                            <li>mdpi: Pantallas de densidad media, aproximadamente 160 dpi</li>
+                            <li>hdpi: Pantallas de alta densidad, aproximadamente de 240 dpi</li>
+                            <li>xhdpi: Pantallas de densidad extra alta, aproximadamente 320 dpi</li>
+                            <li>xxhdpi: Pantallas de densidad extra extra alta, aproximadamente 480 dpi</li>
+                            <li>xxxhdpi: Pantallas de densidad extra extra extra alta, aproximadamente 640 dpi</li>
+                            <li>nodpi: Se puede utilizar para los recursos de mapas de bits que no se desea que se escalen para que coincidan con la densidad del dispositivo</li>
+                            <li>tvdpi: Entre mdpi y hdpi, aproximadamente de 213 dpi</li>
+                          </ul>
+                          <h4>Disponibilidad del teclado</h4>
+                          <p><b>keysexposed:</b> Dispositivo que tiene teclado disponible, se puede utilizar el teclado de software incluso cuando el teclado de hardware no está expuesto al usuario</p>
+                          <p><b>keyshidden:</b> El dispositivo tiene un teclado de hardware disponible, pero está oculto y el dispositivo no tiene un teclado de software habilitado. </p>
+                          <p> <b>keysoft:</b> El dispositivo tiene un teclado de software habilitado, sea visible o no</p>
+                          <h4>Método principal de entrada de texto</h4>
+                          <p>  <b>nokeys</b>  El dispositivo no tiene teclas de hardware para le entrada de texto.
+                        </p>
+                        <p> <b>querty</b> El dispositivo tiene un teclado qwerty de hardware que puede ser visible para usuario o no.
+                            </p>
+                          <p>  <b>12key:</b> El dispositivo tiene un teclado de hardware de 12 teclas, que puede ser visible para el usuario o no </p>
+                          <h4>Disponibilidad de las teclas de navegación</h4>
+                          <ul>
+                            <li>navexposed: Las teclas de navegación están disponibles para el usuario</li>
+                            <li>navhidden: Las teclas de navegación no están disponibles</li>
+                          </ul>
+                          <h4>Método principal de navegación no táctil</h4>
+                          <ul>
+                            <li>nonav: El dispositivo no tiene otro recurso de navegación que no sea el uso de la pantalla táctil</li>
+                            <li>dpad: El dispositivo tiene un controlador de dirección para la navegación</li>
+                            <li>trackball: El dispositivo tiene una bola de seguimiento para la navegación</li>
+                            <li>wheel: El dispositivo tiene una rueda de dirección para la navegación</li>
+                            </ul>
+                          <h3>Manifiesto de la app</h3>
+                            <p>Todas la aplicaciones deben tener un archivo AndroidManifest.xml en su directorio raíz ;Este archivo proporciona información que el sistema debe tener para ejecutar el código de la app</p>
+                            <h4>El Manifest hace lo siguiente </h4>
+                            <ul>
+                              <li>Nombra el paquete java para la aplicación(este nombre servirá de identificador único)</li>
+                              <li>Describe los componentes de la aplicación tales como actividades , servicios , receptores de mensajes y los proveedores de contenido que la integran ; también nombra las clases que implementan cada uno de los componentes  y publican sus capacidades (como los mensajes Intent)</li>
+                              <li>Determinan los procesos que alojan los componentes de la app</li>
+                              <li>Declaran los permisos que debe tener la aplicación para acceder a la partes protegidas de la API e interactuar con otras apps</li>
+                              <li>Enumera las clases Instrumentation  que proporcionan un perfil y otra información  mientras la aplicación se ejecuta  (la misma que se eliminará antes de la publicación de esta )</li>
+                              <li>Declara el nivel mínimo de Android API que  requiere la aplicación </li>
+                              <li>Enumera las  bibliotecas con las que se debe estar vinculada la aplicación0</li>
+
+                            </ul>
+                            <h3>Estructura del archivo Manifest </h3>
+                                <img src="../images/Mainfest/9.png" height="650"alt="200" /></span>
+                          <h3>Convenciones  del archivo Manifest </h3>
+                          <h4>Elementos </h4>
+                          <ul>
+                            <li>Solo se requiere los elementos <'manifest>  y <'application>' .al menos  uno de ellos debe estar presente y solo puede ocurrir una vez ; la mayoría de los otros elementos pueden ocurrir varias veces o ninguna vez sin embargo al menos uno de ellos debe estar presente para que el archivo manifest se autil</li>
+                              <li>Si un elemento contiene algo ,serán otros elementos ; todos los valores se establecen mediante atributos en lugar de datos de carácter  en un elemento
+por lo general lo elementos de un mismo nivel  no están ordenado pero siempre un elemento <'activity-alias> debe seguir de un <'activity> y un elemento <'application> debe ser un elemento del <manifest> </li>
+                          </ul>
+                          <h3>Atributos</h3>
+                          <ul>
+                            <li>En general todos los atributos son opcionales pero existen algunos que deben especificarse para que un elemento cumpla su propósito </li>
+                            <li>Para los atributos  realmente opcionales , se menciona un valor predeterminado o se indica lo que sucede si no se especifica algún valor</li>
+                            <li>A excepción de los atributos  del  elemento raíz <manifest>  , todos los nombres de atributos comienzan por  el prefijo android</li>
+                              <p>Ejemplo android:alwaysRetainTakState debido a que este prefijo es universal </p>
+                          </ul>
+                          <h3>Declaración de nombres de clases</h3>
+                          <ul>
+                            <li>Muchos elementos corresponden a objetos Java , incluidos los elementos para la aplicación en sí y sus componentes principales :actividades ,servicios ,receptores de mensajes y proveedores de contenido</li>
+                            <li>Si definimos un subcase , como se lo hace generalmente para las clases de componentes (Activity,Service,BroadcastReceiver y ContentProvicer), la subclase se declara mediante un atributo  name  ; el nombre  debe incluir  la designación completa del paquete </li>
+
+
+                          <img src="../images/Mainfest/8.png" height="250"alt="" /></span>
+                          <li>Sin embargo , si el primer caracter string es un punto , el nombre del paquete de la aplicación (tal como lo especifica el atributo package) se adjunta al string   </li>
+                          <img src="../images/Mainfest/7.png" height="250"alt="" /></span>
+                          <li>Cuando un componenete inicia, el sistema android crea una instancia de la subclase mencionada .Sino se especifica una subclase ,crea una instancia de la clase base</li>
+
+                          </ul>
+                          <h3>Varios valores </h3>
+                          <ul>
+                            <p>Se puede especificar más de un valor , el elemento se repite casi siempre, en algún lugar de enumerar varios valores en un único elemento </p>
+                          </ul>
+                            <img src="../images/Mainfest/76.png" height="250"alt="" /></span>
+                            <h3>Valores de recursos</h3>
+                            <ul>
+                              <li>Algunos atributos tienen valores qe se pueden mostrar a los usuarios , como una etiqueta y un icono para una actividad . Los valores deben localizarse y establecerse desde un recurso  o tema  (deben expresarse de la siguiente manera ) </li>
+                              <p>@[<i> pakage </i>:]<i>type</i><i>name</i></p>
+                              <li>Se puede omitir el pakage  si el recurso se encuentra en el mismo paquete de la aplicación ;type es un tipo de recurso ,como string o drawable (elemento de diseño ). name que identifica al recurso específico </li>
+                              <p><'activity  android:icon”@dawble/smallPic” . . . ></p>
+                              <li>Los valores de un tema se expresan de manera similar , aunque con un ? al inicio en lugar del @</li>
+                              <p>?[<i> pakage </i>:]<i>type</i><i>name</i></p>
+                            </ul>
+                            <h3>Valores de string</h3>
+                            <p>Cuando el valor de un atributo sea un sin debes usar dole barr invertida \\        para diferenciarlo de los caracteres \\n para una nueva línea o \\uxxx paran caracter Unicode </p>
+                            <h4>Funciones del archivo </h4>
+                            <h3>Filtros de intents</h3>
+                            <ul>
+                              <li>Los componentes centrales de una app se activan mediante intents</li>
+                              <li> Los componentes anuncian los tipos de intents que pueden responde  mediante filtros  estos mismo se especifican usando <'inten-filter></li>
+                            </ul>
+                            <h3>Iconos y etiquetas </h3>
+                            <ul>
+                              <li>Varios elementos tienen atributos icon y label para  el uso de los usuarios (se puede incluir un atributo descripción )</li>
+                              <li>El icono y la etiqueta establecidos para un filtro de intents se usan para representar un componente </li>
+                            </ul>
+
+                            <h3>Permisos</h3>
+                            <ul>
+                              <li>Un permiso es una restricción que limita el acceso a una parte el código</li>
+                              <li>Si una aplicación necesita acceso a una característica debe declarar que la requiere usando <'uses-permission>  </li>
+                            </ul>
+                            <h3>Bibliotecas </h3>
+                            <ul>
+                              <li>Toda aplicación está vinculada con las bibliotecas  predeterminada de Android esta misma incluye paquetes básicos para crear las apps</li>
+                              <li>Para su  vinculación se debe solicitarse explícitamente mediante un elemento <'uses-library> </li>
+
+                            </ul>
+                            <h4>Provisión de la mejor compatibilidad de dispositivos con recursos</h4>
+                            <p>Para qué la aplicación admita varias configuraciones de dispositivos, es importante siempre proporcionar recurso predeterminadas para cada tipo de recurso utilizado por tu aplicación.</p>
+                            <p>Proporcionar recursos predeterminados es importante no sólo porque la aplicación podría ejecutarse en una configuración qué no se había previsto, sino también porque las nuevas versiones a veces agregan calificadores de configuración que las versiones anteriores no admiten.</p>
+                            <h4>Cómo Android encuentra el recurso de coincidencia óptima</h4>
+                            <p>Cuando se solicita un recurso para el cual se proporciona alternativas Android selecciona qué recurso alternativo utilizar en tiempo de ejecución según la configuración del dispositivo actual</p>
+                            <h3>Cómo Android encuentra el recurso de coincidencia óptima</h3>
+                            <img src="../images/Mainfest/21.png" height="400"alt="" /></span>
+                            <img src="../images/Mainfest/22.png" height="400"alt="" /></span>
+                            <h3>Acceso </h3>
+                            <p>Una vez que se proporciona un recurso en la aplicación , se lo puede aplicar al hacer referencia a su ID de recurso. Todos los ID de recursos se definen en la clase R del proyecto que la herramienta aapt genera automáticamente.</p>
+                            <p>Para cada tipo de recurso hay una subclase R y para cada recurso de este tipo hay un valor entero estático.</p>
+                            <p>El ID del recurso siempre está compuesto por el tipo de recurso (string, drawable y layout) y el nombre del recurso</p>
+
+                            <h4>Acceso a recursos en código</h4>
+                            <p>Se puede usar un recurso en código al pasar el ID de recurso cómo un parámetro del método.</p>
+                            <img src="../images/Mainfest/23.png" height="70"alt="" /></span>
+                            <h4>Acceso a archivos originales</h4>
+                            <p>Existen casos donde se podría necesitar acceder a los archivos y directorios originales. Estos archivos no se pueden guardar en res/ ya que el único elemento que permite leer un recurso desde res/ es el ID de recurso. Cómo alternativa se puede guardar estos recursos en el directorio assets/.</p>
+                            <img src="../images/Mainfest/24.png" height="70"alt="" /></span>
+                            <h4>Acceso a recursos desde XML</h4>
+                            <p>Se puede definir valores para algunos atributos y elementos XML usando una referencia a un recurso existente.</p>
+                            <img src="../images/Mainfest/25.png" height="200"alt="" /></span>
+                            <h4>Referencia a atributos de estilo</h4>
+                            <p>Un recurso de atributo de estilo te permite hacer referencia al valor de un atributo en el tema aplicado actualmente.</p>
+                            <img src="../images/Mainfest/266.png" height="100"alt="" /></span>
+
+
+    </section>
+    <div>
+      <a
+        href=""
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href=""
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p>
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+
+      <div class="copyright">
+        Design: <a href="https://templated.co">TEMPLATED</a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+
+
+
+</html>
