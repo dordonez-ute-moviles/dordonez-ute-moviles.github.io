@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Información sobre las tareas y pila de actividades
+</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <style>
+      p {
+        text-align: justify;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a href="actividadyexpulsion.html" style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a href="" style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img
+            src="../images/pilasytareas/maxresdefault.jpg"
+            alt=""
+            width="750"
+            height="450"
+          />
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1 align="center">Información sobre las tareas y pila de actividades
+</h1>
+          <!--Poner fecha de la clase-->
+          <p class="info">17 de Noviembre de 2020</p>
+        </header>
+        <!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+        
+        
+        <h3>¿Qué Es Una Tarea?</h3>
+
+        <div class="card mb-3" style="max-width: 1000px">
+          <div class="row no-gutters">
+            <div class="col-md-4">
+              <img
+                src="../images/pilasytareas/ejemplo-task-back-stack.png"
+                alt="..."
+                width="367"
+                height="172"
+                class="card-img"
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <ul>
+                  <br />
+                  <p align="justify">Una tarea (task) es una colección de actividades en una app con las que el usuario tiene interacción.</p>
+
+<p align="justify">Para cada tarea Android usa una pila (back stack) LIFO como mecanismo de registro para recordar que la posición en que las actividades fueron creadas.</p>
+                 
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr /><br>
+
+        <h3>Navigation Bar Y Tasks</h3><br>
+		  <center><img src="../images/pilasytareas/android-navigation-bar-nombre-botones.png"/></center><br>
+		  <p align="justify">Una de las formas más amigables en que el usuario puede intercambiar y eliminar tareas es usando la barra de navegación de Android.</p>
+		  
+		  <h3>El Back Button</h3><br>
+		  <center><img src="../images/pilasytareas/back-button-stack-android.png"/></center><br>
+		  <p align="justify">El botón Volver es la interfaz para navegar hacia atrás. Esto quiere decir que remueve la actividad de la parte superior (TOS) de la tarea en primer plano.</p><br>
+		  
+		  <h3>Home Button Y Tasks En Segundo Plano</h3><br>
+		  
+		  <p align="justify">Envía la tarea actual a segundo plano conservando la pila intacta y hace visible la pantalla del home. Lo que significa pasar a primer plano la tarea del Launcher.</p>
+		  <p align="justify">Un ejemplo de esto sería al presionar Home estando en nuestra app de chats y luego iniciar nuestra app de correos electrónicos:</p><br>
+		  
+	    <center><img src="../images/pilasytareas/home-button-back-stack-android.png"/></center><br>
+		  
+		  <h3>Overview Button Y El Intercambio Entre Tareas</h3><br>
+		  
+		  <p align="justify">Inicia una sección de UI llamada pantalla de recientes. Aquí se muestran en recuadros flotantes las tareas (la miniatura es la de su actividad en la parte superior) que se han iniciado en orden de acceso.</p>
+		  <p align="justify">Esta utilidad para el usuario le permite swipear horizontalmente para elegir una tarea que traer el foreground, swiper verticalmente para eliminar la tarea y eliminar todas las tareas si así lo desea.</p><br>
+		  
+	    <center><img src="../images/pilasytareas/overview-button-android-recent-apps.gif"/></center><br>
+		  
+		  <p align="justify">La pantalla principal del dispositivo es el punto de partida de la mayoría de las tareas. Cuando el usuario toca un ícono en el selector de apps (o un acceso directo en la pantalla principal), la tarea de esa app pasa a primer plano. Si no existe ninguna tarea para la app (porque esta no se usó recientemente), entonces se crea una nueva tarea y la actividad "principal" de esa app se abre como la actividad raíz de la pila.</p>
+		  
+	    <p align="justify">Cuando la actividad actual inicia otra, la nueva actividad se coloca en la parte superior de la pila y toma el foco. La actividad anterior permanece en la pila, pero se detiene.</p> Cuando una actividad se detiene, el sistema retiene el estado actual de su interfaz de usuario. Cuando el usuario presiona el botón Atrás, se quita la actividad actual de la parte superior de la pila (se elimina la actividad) y se reanuda la actividad anterior (se restablece el estado anterior de su IU).</p> <p align="justify">Las actividades de la pila nunca se reordenan, solo se insertan o se quitan (se insertan en la pila cuando la actividad actual las inicia y se quitan cuando el usuario sale de ellas presionando el botón Atrás). </p><p align="justify">Como tal, la pila de actividades funciona como una estructura de objetos "último en entrar, primero en salir". En la Figura 1, se muestra este comportamiento con una línea de tiempo que muestra el progreso entre actividades junto con la pila de actividades actual en cada punto en el tiempo.</p>
+		
+		<center><img src="../images/pilasytareas/diagram_backstack.png" width="726" height="318"/></center>
+
+
+       
+
+		<hr />
+        <h3>¿Cómo administrar tareas?</h3><br>
+		<center><img src="../images/pilasytareas/450_1000.jpg" width="592" height="290"/></center><br><br>
+
+        <div class="card mb-3" style="max-width: 1000px">
+          <div class="row no-gutters">
+          </div>
+              <div class="card-body">
+                  <p align="justify">
+                    Colocando las actividades en orden sucesivo en la misma tarea en una pila de "último en
+					  entrar, primero en salir", pero se puede decidir qué quieres interrumpir esto.</p>
+<p align="justify">Tal vez quieras que una actividad de tu app comience una nueva tarea cuando se inicie; o,
+al iniciar una actividad, se quiera mover una de sus instancias existentes un nivel adelante;
+o tal vez se quiera quitar todas las actividades de la pila, salvo la actividad principal, cuando
+	el usuario salga de la tarea.</p><p align="justify">
+Puedes realizar estas y otras acciones, con atributos en el elemento del manifiesto
+activity y con marcas en el intent que quieras pasar a startActivity(). </p>
+				  <br /><li>taskAffinity.- Define la tarea con la cual la actividad tendrá afinidad.</li><br />
+				  <li>launchMode.- Instrucción para el inicio de una actividad.
+</li><br /><li>allowTaskReparenting.- Define si la actividad puede pasar de la tarea que la inició a
+la tarea con la que tiene afinidad cuando dicha tarea se traiga a primer plano la
+próxima vez
+</li><br /><li>clearTaskOnLaunch.- Define si todas las actividades se quitarán de la tarea, salvo la
+actividad raíz, cuando se vuelva a iniciar desde la pantalla de inicio </li><br /><li>alwaysRetainTaskState.- Define si el sistema siempre conservará el estado de la
+tarea donde se encuentra la actividad
+</li><br /><li>finishOnTaskLaunch.- Define si se debe cerrar (finalizar) una instancia existente de
+la actividad cuando el usuario vuelve a iniciar la tarea (selecciona la tarea en la
+pantalla de inicio).
+</li>
+		  </div></div>
+
+        <hr />
+        <h3>¿Cómo definir los modos de inicio?</h3><br>
+			<center><img src="../images/pilasytareas/Aplicaciones-Móviles-Aplicaciones-Móviles.png" width="592" height="290"/></center><br><br>
+
+        <div class="card mb-3" style="max-width: 1000px">
+          <div class="row no-gutters">
+          </div>
+              <div class="card-body">
+                  <p align="justify">
+                    Los modos de inicio te permiten definir cómo una nueva instancia de una actividad se
+asocia con la tarea actual. Puedes definir diferentes modos de inicio de dos maneras:</p>
+				  <br /><li>Mediante el archivo de manifiesto.- Cuando declaras una actividad en tu archivo de
+manifiesto, puedes especificar cómo la actividad debe asociarse con las tareas
+cuando se inicia.</li><br />
+				  <li>Mediante las marcas de intents.- Cuando llamas a startActivity(), puedes incluir una
+marca en el Intent que declara cómo la nueva actividad debería asociarse con la
+tarea actual (o si debe hacerlo o no).
+
+</li><br />
+				  <p align="justify">Por ejemplo, si la actividad A inicia la actividad B, la actividad B puede definir en su
+manifiesto cómo debería asociarse con la tarea actual y la actividad A también puede
+solicitar la manera en que la actividad B debería asociarse con la tarea actual. </p>        </div></div>
+
+        <hr />
+        <h3>¿Cómo usar el archivo de manifiesto?</h3><br>
+			<center><img src="../images/pilasytareas/Ruta-de-AndroidManifest-en-Android-Studio-1.png"/></center><br><br>
+
+        <div class="card mb-3" style="max-width: 1000px">
+          <div class="row no-gutters">
+          </div>
+              <div class="card-body">
+                  <p align="justify">
+                    Cuando declaras una actividad en el archivo de manifiesto, puedes especificar cómo la
+actividad debe asociarse con una tarea por medio del atributo launchMode del elemento activity</p><p align="justify">El atributo launchMode especifica una instrucción sobre cómo la actividad debe
+iniciarse dentro de una tarea. Hay cuatro modos de inicio diferentes que puedes asignar
+al atributo launchMode:
+</p>
+				  <br /><li>"standard" (el modo predeterminado)
+El sistema crea una nueva instancia de la actividad en la tarea desde la que se
+inició y dirige el intent a esta. 
+</li><br />
+				  <li>"singleTop"
+Si una instancia de una actividad ya existe en la parte superior de la tarea actual,
+el sistema dirige el intent a esa instancia mediante un llamado a su método
+onNewIntent(), en lugar de crear una nueva instancia de la actividad. 
+</li><br /><li>"singleTask"
+El sistema crea una nueva tarea y también instancias de la actividad en la raíz de
+la nueva tarea.  
+</li><br /><li>"singleInstance".
+Es igual que "singleTask", salvo que el sistema no inicia otras actividades en la
+tarea que contiene la instancia.
+
+		  </li>  </div></div>
+        <hr /><h3>¿Cómo usar marcas de intents?</h3><br>
+			<center><img src="../images/pilasytareas/maxresdefault (1).jpg" width="550" height="463"/></center><br><br>
+
+        <div class="card mb-3" style="max-width: 1000px">
+          <div class="row no-gutters">
+          </div>
+              <div class="card-body">
+                  <p align="justify">
+                    Cuando inicias una actividad, puedes modificar la asociación predeterminada de una
+actividad con su tarea al incluir marcas en el intent que envías a startActivity(). Las
+marcas que puedes usar para modificar el comportamiento predeterminado son las
+siguientes:
+</p>
+				  <br /><li>FLAG_ACTIVITY_NEW_TASK
+Inicia la actividad en una nueva tarea. Si una tarea de la actividad que quieres
+iniciar ya está en ejecución, esta pasa al primer plano con el último estado
+restablecido y la actividad recibe un nuevo intent en onNewIntent().
+
+</li><br />
+				  <li>FLAG_ACTIVITY_SINGLE_TOP
+Si la actividad que se inicia es la actividad actual (en la parte superior de la pila
+de actividades), la instancia existente recibe una llamada a onNewIntent(), en lugar de crear una nueva instancia de la actividad.
+</li><br /><li>FLAG_ACTIVITY_CLEAR_TOP
+Si la actividad que se inicia ya está en ejecución en la tarea actual, entonces, en
+lugar de iniciar una nueva instancia de esa actividad, se eliminan todas las demás
+actividades encima de esta.
+ 
+				  </li>  </div></div>
+        <hr />
+			
+			
+			
+			<h3>¿Cómo administrar afinidades?</h3><br>
+			<center><img src="../images/pilasytareas/notificaciones.jpg" width="437" height="396"/></center><br><br>
+
+        <div class="card mb-3" style="max-width: 1000px">
+          <div class="row no-gutters">
+          </div>
+              <div class="card-body">
+                  <p align="justify">La afinidad indica a qué tarea prefiere pertenecer una actividad, todas las actividades
+de la misma app tienen afinidad entre ellas, se puede modificar la afinidad
+predeterminada de una actividad. </p><p align="justify">Las actividades definidas en diferentes apps pueden compartir una afinidad, o se les
+pueden asignar diferentes afinidades de tareas a las actividades definidas en la misma
+app.</p><p align="justify">Puedes modificar la afinidad de una actividad determinada con el atributo taskAffinity
+del elemento <activity>.</p><p>La afinidad entra en juego en dos circunstancias:
+</p>
+				  <br /><li>Cuando el intent que inicia una actividad contiene la marca
+FLAG_ACTIVITY_NEW_TASK. Se inicia una nueva actividad en la tarea de la
+actividad que llamó a startActivity(). Se coloca en la misma pila de actividades
+que el emisor
+
+</li><br />
+				  <li>Cuando una actividad tiene el atributo allowTaskReparenting establecido en
+"true". La actividad puede moverse desde la tarea que inicia hasta aquella por la
+que tiene afinidad cuando esa tarea pasa al primer plano.
+
+</li> </div>
+        <hr />
+			<h3>¿Cómo borrar la pila de actividades?</h3><br>
+			<center><img src="../images/pilasytareas/1366_2000.jpg" width="582" height="504"/></center><br><br>
+
+        <div class="card mb-3" style="max-width: 1000px">
+          <div class="row no-gutters">
+          </div>
+              <div class="card-body">
+                  <p align="justify">Si el usuario sale de una tarea por un tiempo prolongado, el sistema borra la tarea de
+todas las actividades, salvo la actividad raíz. Cuando el usuario vuelve a la tarea, solo se
+restablece la actividad raíz. El sistema se comporta de esta manera porque, luego de un
+tiempo prolongado, es probable que los usuarios hayan abandonado lo que estaban
+haciendo antes y vuelvan a la tarea para realizar una nueva acción.
+</p><p align="justify">Existen algunos atributos de actividades que puedes usar para modificar este
+comportamiento:
+</p><p align="justify">Puedes modificar la afinidad de una actividad determinada con el atributo taskAffinity
+del elemento <activity>.</p><p>La afinidad entra en juego en dos circunstancias:
+</p>
+				  <br /><li>alwaysRetainTaskState Si este atributo se configura en "true", La tarea retiene todas las actividades en
+su pila, incluso luego de un período prolongado.
+</li><br />
+				  <li>clearTaskOnLaunch
+Si este atributo se establece en "true" en la actividad raíz de una tarea, se borrará
+toda la pila, salvo la actividad raíz, cada vez que el usuario salga de la tarea y
+vuelva a ella. El usuario siempre vuelve a la tarea en su estado inicial, incluso si
+sale de ella solo un momento.
+
+
+</li><br /><li>finishOnTaskLaunch
+Cuando se configura en "true", la actividad permanece como parte de la tarea
+solo durante la sesión actual. Si el usuario sale y vuelve a ingresar, ya no estará
+presente.
+				  </li> </div></div>
+			
+			
+			
+	
+    </section>
+    <div>
+      <a href="actividadyexpulsion.html" style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a href="" style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p style="text-align: center !important; color: white">
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
