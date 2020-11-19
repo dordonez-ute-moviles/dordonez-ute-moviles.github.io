@@ -54,7 +54,127 @@
 			  <!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
 			  <h2></h2>
 			  <hr />
-			  <h3>Acciones Locales</h3>
+			
+				 <h3>Qué es un Intent?</h3>
+
+        <div class="card mb-3" style="max-width: 1000px">
+          <div class="row no-gutters">
+            <div class="col-md-4 col-lg-4">
+              <img
+				   src="../images/Intent/intent1.png"
+                alt="..."
+                width="767"
+                height="272"
+                class="card-img"
+              />
+            </div>
+            <div class="col-md-8 pt-5">
+              <div class="card-body col-lg-12 pt-5">
+              
+                    UN INTENT ES UN OBJETO DE ACCIÓN QUE PUEDES USAR PARA SOLICITAR UNA ACCIÓN DE OTRO COMPONENTE DE LA APLICACIÓN.
+                 
+              </div>
+            </div>
+          </div>
+    </div>
+				
+		<h3>CASOS DE USO DE INTENTS</h3>
+
+        <div class="card mb-3" style="max-width: 1000px">
+          <div class="row no-gutters">
+            <div class="col-md-8 col-lg-6">
+              <div class="card-body col-lg-12">
+                <ul>
+                  <br />
+                  <li>
+                    COMENZAR UNA ACTIVIDAD:
+                    <p>
+						Una actividad representa una única pantalla en una aplicación.<br></br>
+						Para iniciar una nueva instancia de una actividad pasando una INTENT a startActivity().<br></br>
+						La INTENT describe la actividad que se debe iniciar y contiene los datos necesarios.<br></br>
+						Recibir un resultado al finalizar la actividad usar starActivityForResult()<br></br>
+                    </p>
+                  </li>
+                  <br />
+                  <li>
+                    INICIAR SERVICIO:
+                    <p>
+                      Servicio, componente que realiza operaciones en segundo plano sin una interfaz de usuario.<br></br>
+Para iniciar un servicio que realice una operación única(descargar archivo) pasan una INTENT a startService().<br></br>
+La INTENT describe el servicio que se debe iniciar y contiene los datos necesarios.<br></br>
+
+                    </p>
+                  </li>
+                  <br />
+                  <li>
+                    ENTREGAR UN MENSAJE:
+                    <p>
+Mensaje, aviso que cualquier aplicación puede recibir.<br></br>
+El sistema envía varios mensajes de eventos del sistema(sistema arranca o comienza carga).<br></br>
+Para enviar mensajes a otras apps pasando una INTENT a sendBroadcast().<br></br>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-4 col-lg-6 pt-5 pt-5">
+              <img
+                src="../images/Intent/intent2.jpg"
+                alt="..."
+                width="350"
+                height="350"
+                class="card-img"
+              />
+				              <img
+                src="../images/Intent/intent3.png"
+                alt="..."
+                width="350"
+                height="350"
+                class="card-img"
+              />
+            </div>
+          </div>
+        </div>
+
+
+        <h3>TIPOS DE INTENTS</h3>
+
+        <div class="card mb-3" style="max-width: 1000px">
+          <div class="row no-gutters">
+            <div class="col-md-8">
+              <div class="card-body">
+                <ul>
+                  <p align="center">
+           
+				 <img
+                src="../images/Intent/tipos.jpg"
+                alt="..."
+                width="550"
+                height="300"
+                class="card-img"
+					  align="center"/>
+                  </p>
+
+                  <h3 >INTENTS EXPLÍCITAS:</h3>
+                  <br />
+                  <li>Componentes se deben iniciar mediante su nombre(nombre de la calse completamente calificado)</li>
+                  <li>Usuario usa una INTENT explícita para iniciar un componente en su propia aplicación ya que conoce el nombre de la actividad o servicio que desea iniciar.</li>
+                  <li>Iniciar actividad en respuesta a la acción del usuario.</li>
+					
+					<br />
+				<h3 >INTENTS IMPLÍCITAS:</h3>
+                  <br />
+                  <li>No se nombre el componente específicamente.</li>
+                  <li>Se declara una acción general para realizar.</li>
+                  <li>Un componente de otr aplicación lo maneja.</li>
+					<li>Si desea mostrar al usuario una ubicación en un mapa, puede usar una intect para solicitar que otra aplicación capaz muestre dicha ubicación.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+				
+    <h3>Acciones Locales</h3>
 	  
 			  <div class="card mb-3" style="max-width: 1000px">
 				<div class="row no-gutters">
