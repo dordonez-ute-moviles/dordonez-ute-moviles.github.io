@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Cómo comunicarse con el subproceso de IU
+</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <style>
+      p {
+        text-align: justify;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a
+        href="actividadyexpulsion.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="interfaz.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+      
+      
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img
+            src=""
+            alt=""
+            width="750"
+            height="450"
+          />
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1 align="center">Cómo comunicarse con el subproceso de IU</h1> 
+		  <!--Poner fecha de la clase-->
+          <p class="info">30 de Noviembre de 2020</p>
+        </header>
+					<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+                    <ol>
+					<li><a href="Introduccionactividades.html"></a></li>
+					
+                    <li><a href="actividadyexpulsion.html"></a></li>
+					<li><a href="subproceso de IU.html">Cómo comunicarse con el subproceso de IU</a></li><br>
+                    
+									
+  <p align="justify">Enviar datos desde la tarea a objetos que se ejecutan en el subproceso de interfaz de usuario (IU). Esta función permite que las tareas se ejecuten en segundo plano y, luego, se muevan los resultados a elementos de IU como mapas de bits.</p>
+<p align="justify">Cada aplicación tiene su propio subproceso especial que ejecuta objetos de IU (como objetos View), conocido como subproceso de IU.</p> <p align="justify">Solo los objetos que se ejecutan en el subproceso de IU tienen acceso a otros objetos de ese subproceso. 
+Para mover datos de un subproceso en segundo plano al subproceso de IU, usa el objeto Handler que se ejecuta en este último.
+</p><hr/>		  
+  <h3>Cómo definir un controlador en el subproceso de IU</h3><br>
+		  <center><img src="../images/IU/images.png"/></center><br>
+		  <p align="justify">Handler forma parte del marco de trabajo del sistema Android para la administración de subprocesos. Un objeto Handler recibe mensajes y ejecuta código a fin de administrarlos. </P>
+<p align="justify">Creas un Handler para un nuevo subproceso, pero también puedes crear un Handler que esté conectado a un subproceso existente. </p>
+<p align="justify">Cuando conectas un Handler a tu subproceso de IU, el código que administra los mensajes se ejecuta en ese subproceso. 
+	
+	
+	
+	
+	<imagen></imagen>
+	
+	
+	
+	
+</p><p align="justify">Crea instancias del objeto Handler durante la construcción de la clase que crea tus conjuntos de subprocesos; luego, se almacena el objeto en una variable global. </p>
+<p align="justify">Crea instancias con el constructor Handler(Looper) para conectar el objeto al subproceso de IU.</p>
+<p align="justify">Este constructor usa un objeto Looper.- Clase utilizada para ejecutar un bucle de mensaje para un hilo. Los subprocesos por defecto no tienen un bucle de mensaje asociado a ellos; para crear uno, llame prepare()al hilo que ejecutará el bucle y luego haga loop()que procese los mensajes hasta que se detenga el bucle.
+  </p><br><hr/>
+		  
+		  
+		  
+		  
+		  imagene
+		  
+		  
+		  <p align="justify">La mayor parte de la interacción con un bucle de mensajes se realiza a través de la Handler clase.
+Cuando creas una instancia de Handler basada en una instancia específica de Looper, se ejecuta Handler en el mismo subproceso que Looper. </p>
+<p align="justify">El sistema Android invoca este método cuando recibe mensajes nuevos para un subproceso que administra; todos los objetos Handler de un subproceso específico reciben el mismo mensaje. Por ejemplo:
+</p>
+		  
+		  
+		  
+		  imagen
+		  
+		  <hr/>
+		  
+  <h3>Cómo mover datos desde una tarea al subproceso de IU</h3><br>
+		  
+		  <p align="justify">Para mover datos de un objeto de tarea que se ejecuta en un subproceso en segundo plano a un objeto en el subproceso de IU, comienza por almacenar referencias a los datos y el objeto de IU en el objeto de tarea.</p> 
+<p align="justify">Pasa el objeto de tarea y un código de estado al objeto en el que se crearon instancias de Handler. En este objeto, envía un Message que contenga el estado y el objeto de tarea a Handler. Como Handler se ejecuta en el subproceso de IU, puede mover los datos al objeto de IU.
+</p><br><hr/>
+		  
+		  <h3>Cómo almacenar datos en el objeto de tarea</h3><br>
+		  
+		  <p align="justify">Por ejemplo, aquí se muestra un objeto Runnable, que se ejecuta en un subproceso en segundo plano, que decodifica un Bitmap y lo almacena en su objeto principal PhotoTask. El objeto Runnable también almacena el código de estado DECODE_STATE_COMPLETED.</p>
+<p align="justify">PhotoTask también contiene un controlador para ImageView que muestra el objeto Bitmap. </p>
+<p align="justify">Enviamos el estado al objeto PhotoTask.
+	
+	
+	imageen
+	
+	
+	
+	
+		  
+  <hr/><h3>Cómo enviar el estado para que escale en la jerarquía de objetos</h3>
+		  
+  <p align="justify">PhotoTask es el siguiente objeto más arriba en la jerarquía. Contiene referencias a los datos decodificados y al objeto View que te mostrará los datos. Recibe el código de estado de PhotoDecodeRunnable y lo pasa al objeto que contiene los conjuntos de subprocesos y crea instancias de Handler:</p><br>
+		  
+	    imageeennn
+		  
+		  <hr/>
+		  <h3>Cómo mover datos a la IU</h3>
+		  <p align="justify">Desde el objeto PhotoTask, el objeto PhotoManager recibe un código de estado y un controlador para PhotoTask. Como el estado es TASK_COMPLETE, este crea un Message que contiene el estado y el objeto de tarea. Luego, lo envía a Handler:</p><br>
+		  
+		  
+		  
+		  imageen
+		  
+		  
+		  <p align="justify">Por último, Handler.handleMessage() comprueba el código de estado de cada Message entrante. Si es TASK_COMPLETE, entonces la tarea ha finalizado y el objeto PhotoTask en el Message incluye tanto un Bitmap como un ImageView. Como Handler.handleMessage() se ejecuta en el subproceso de IU.</p><br>
+		  
+		  
+		  imagen
+		  
+		  
+		  <hr/>
+		  <h3>Cómo mantener la capacidad de respuesta de tu app</h3>
+		  <br><center><img src="../images/IU/whatsapp-no-responde.jpg" width="457" height="292"></center><br>
+		  
+		  
+		  <p align="justify">Es posible escribir código que pase todas las pruebas de rendimiento existentes, pero que, aun así, sea lento, se bloquee o tarde demasiado tiempo en procesar los datos de entrada. El peor escenario que puede presentarse es que tu app responda con un cuadro de diálogo del tipo "Aplicación no responde" (ANR).</p>
+ <p align="justify">En Android, para protegerse contra aplicaciones que no tienen la capacidad de respuesta suficiente por un período de tiempo, el sistema muestra un diálogo que informa que tu app dejó de responder.</p>
+ <p align="justify">Si la aplicación no respondió durante un tiempo, el sistema le ofrece al usuario la opción de salir de la app. Es fundamental diseñar la capacidad de respuesta de la aplicación para que el sistema nunca muestre un diálogo de ANR al usuario.
+</p>
+
+
+       
+
+  <hr />
+        <h3>¿Qué activa un ANR?</h3><br>
+		imageeeen
+		  
+		  <p align="justify">Generalmente, el sistema muestra un error de ANR si una aplicación no responde a los datos de entrada del usuario. </p>
+<p align="justify">Por ejemplo, si una app bloquea alguna operación de I/O (normalmente, un acceso a la red) en el procesamiento de IU, el sistema no puede procesar los eventos de entrada del usuario. También puede suceder que la app tarde demasiado creando una estructura en memoria elaborada o calculando el siguiente movimiento en un juego en el procesamiento de IU. Es importante asegurarse de que estos cálculos sean eficientes (aunque incluso el código más eficiente requiere tiempo para ejecutarse).</p>
+<p align="justify">Si una aplicación realiza una operación potencialmente larga, no se debe realizar el trabajo en el procesamiento de IU, sino crear un subproceso de trabajo y realizar la mayor parte del trabajo en él. </p>
+<p align="justify">De esta forma, el procesamiento de IU sigue ejecutándose y evita que el sistema llegue a la conclusión de que se bloqueó el código. </p>
+<p align="justify">En Android, los servicios de sistema Administrador de ventanas y Administrador de actividades supervisan la capacidad de respuesta de una aplicación. Android mostrará el cuadro de diálogo ANR para una aplicación específica cuando detecte una de las siguientes condiciones:
+</p><ul>
+<li >No se produce una respuesta a un evento de entrada (como presionar la pantalla o usar las teclas) después de 5 segundos.</li>
+<li>No terminó de ejecutarse un elemento BroadcastReceiver después de 10 segundos.
+		  </li></ul>
+        
+
+        <hr />
+        <h3>¿Cómo evitar los ANR?</h3><br>
+			
+                  <p align="justify">
+                   Las aplicaciones de Android normalmente se ejecutan completamente en un solo subproceso. Cualquier actividad que esté ejecutando la aplicación en el procesamiento de IU que tarda mucho tiempo en completarse puede activar el cuadro de diálogo ANR.</p>
+<p align="justify">Por lo tanto, cualquier método que se ejecute en el subproceso de IU debe realizar el menor trabajo posible en ese subproceso. </p>
+<p align="justify">Las operaciones de larga duración (como las de red o base de datos) deben realizarse en un subproceso de trabajo o, mediante una solicitud asíncrona.</p>
+<p align="justify">La forma más eficaz de crear un subproceso de trabajo para operaciones más largas es con la clase AsyncTask.</p> <p align="justify">Simplemente extiende AsyncTask e implementa el método doInBackground() para realizar el trabajo. Si quieres publicar cambios en el progreso para el usuario, puedes llamar a publishProgress(), que invoca el método de devolución de llamada onProgressUpdate(). Puedes enviar una notificación al usuario desde la implementación de onProgressUpdate().</p>
+		  
+		  imageeen
+		  
+		  <p align="justify">Para ejecutar este subproceso de trabajo, simplemente debes crear una instancia y llamar a execute():
+</p>
+		  imageen
+		  
+		  <hr/>
+
+<h3>Cómo reforzar la capacidad de respuesta</h3><br>
+				  <p align="justify">Por lo general, los usuarios percibirán lentitud en una aplicación si la capacidad de respuesta es superior a 100 y 200 ms. La capacidad de respuesta de tu aplicación es la adecuada:</p>
+<p align="justify">Si tu app realiza tareas en segundo plano como respuesta a una entrada del usuario, muestra el progreso (por ejemplo, con un elemento ProgressBar en la IU).</p>
+<p align="justify">En el caso de los juegos, realiza los cálculos de los movimientos en un subproceso de trabajo.</p>
+<p align="justify">Si tu aplicación tiene una fase inicial que consume mucho tiempo, considera mostrar una pantalla de presentación o procesar la vista principal lo más pronto posible, indicar que la aplicación está cargando y completar la información de forma asíncrona. En cualquier caso, de alguna manera deberías mostrar el progreso para que el usuario sepa que la aplicación no se bloqueó.
+ </p>  <br>  <center><img src="../images/IU/71YIfutOTyL._AC_SX355_.jpg"></center><br>    </div></div>
+
+        </div></div>
+			
+			
+			
+	
+    </section>
+    <div>
+      <a
+        href="actividadyexpulsion.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="interfaz.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+      
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p style="text-align: center !important; color: white">
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
