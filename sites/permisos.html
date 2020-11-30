@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Aplicaciones Móviles</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a
+        href="interfaz.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a href="" style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img src="../images/pic11.jpg" alt="" />
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1>Permisos</h1>
+          <!--Poner fecha de la clase-->
+          <p class="info">23 de Noviembre de 2020</p>
+        </header>
+        <!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+        <p>
+          El objetivo principal es proteger la privacidad del usuario. Las apps
+          solicitan permiso para acceder a datos sensibles. Ninguna app tiene
+          permisos para hacer daño a otras.
+        </p>
+        <h2>Aprobación de permisos</h2>
+        <p>
+          Se solicita usando etiquetas &lt;uses-permission&gt; en el archivo
+          Manifest Si en el Manifest se pide permisos normales el sistema los
+          otorgará automáticamente, si estos en cambio son riesgosos el sistema
+          le pedirá al usuario su aprobación explícita
+        </p>
+        <h2>Solicitudes riesgosas</h2>
+        <p>
+          Solo estos requieren la aprobación del usuario. En Android 6 o
+          posteriores y la targetSDKVersion 23 el usuario no recibe
+          notificaciones de permisos. En Android 5.1.1 o anteriores la
+          targetSDKVersion 22 se pedirán los permisos al momento de la
+          instalación
+        </p>
+        <div class="image fit">
+          <img src="../images/Permisos/img5.PNG" alt="" />
+        </div>
+        <h2>Permisos para funciones de hardware opcionales</h2>
+        <p>
+          Para acceder a el hardware en nuestro Manifest usaremos la etiqueta
+          &lt;uses-futures&gt;&lt;/uses-futures&gt;. Si usamos “android
+          :required =false” nos permite la instalación de nuestra app sin es
+          función , para comprobar si se tiene esta función usamos
+          PackaManager.hasSystemFuture()
+        </p>
+        <h2>Aplicación de Permisos</h2>
+        <h3>Permisos de actividad</h3>
+        <p>
+          Aplicados usando la etiqueta &lt;activity&gt; y se verifican usando
+          Context.startActivity() y Activity.startActivity For Results()
+        </p>
+        <h3>Permisos de servicio</h3>
+        <p>
+          Aplicados usando la etiqueta &lt;service> y se verifican usando
+          Context.startService() , Context.stopService() y Context.bindService()
+        </p>
+        <h3>Permisos de emisión</h3>
+        <p>
+          Usamos la etiqueta &lt;receiver> se verifica usando
+          Context.sendBroadcast() en caso de errores de emisión simplemente no
+          mostrará el intent
+        </p>
+        <h3>Permisos de proveedores de contenido</h3>
+        <p>
+          Usamos la etiqueta &lt;provider>, a diferencia de los otros
+          componentes pueden establecer dos atributos separados
+          android:readpermission (al proveedor de contenido) y
+          android:Whitepermission(cambios en los datos que administra el
+          proveedor)
+        </p>
+        <h3>Permisos de URI</h3>
+        <p>
+          El sistema de permisos estándar suele no ser suficiente cuando se usa
+          con proveedores de contenido. Los clientes directos también deben
+          proporcionar URI específicas a otras apps para que puedan operar en
+          ellas.
+        </p>
+        <ul>
+          <li>
+            Para obtener una URI a usarse se debe establecer un Intent.FLAG
+            GRANT READ URI PERMMISION o Intent. FLAG GRANT WRITE URI PERMMISION
+            estos dan acceso a un URI de un intent
+          </li>
+          <li>
+            Para asignar este tipo de permisos usaremos el atributo
+            android:grantUriPermissions o la etiqueta
+            &lt;grant-uri-permmisions>&lt;/grant-uri-permmisions>
+          </li>
+        </ul>
+        <h2>Aplicación de otros permisos</h2>
+        <p>
+          Para aplicar otro tipo de permiso se usará el método
+          Context.chekCalling.Permission(). Este hace una llamada con la string
+          de permiso, que mostrará un número entero que indicará si se otorgó
+          ese permiso al proceso de llamada actual
+        </p>
+        <h2>Ajustes automáticos</h2>
+        <p>
+          Estos se aplican cuando existen restricciones por las versiones de
+          android mas actuales. Para tener dichos permisos necesitaremos el
+          atributo targetSdkVersion este mismo nos dará el permiso si este se
+          agregó recientemente
+        </p>
+        <h2>Niveles de protección</h2>
+        <ul>
+          <li><strong>Permisos normales: </strong>Uso de recursos</li>
+          <li>
+            <strong>Permisos de firma (de instalación): </strong>Al momento de
+            instalación
+          </li>
+          <li>
+            <strong>Permisos riesgosos: </strong>Requieren información privada
+            del usuario
+          </li>
+          <li>
+            <strong>Permisos especiales: </strong>Estos no se comportan como los
+            otros tipos y muy pocas son las que los utilizan.
+          </li>
+        </ul>
+        <h2>Grupos de permisos</h2>
+        <p>
+          Se organizan en grupos relacionados con las capacidades o funciones de
+          un dispositivo. Un grupo de permisos individuales corresponde a varias
+          declaraciones. Agrupar los permisos ayuda al usuario a tomar
+          decisiones más concretas sin la necesidad de tener que aceptar
+          permisos complejos que no va a entender.
+        </p>
+        <p>
+          Al momento de que el sistema operativo muestra el mensaje solicitando
+          que el usuario permita el acceso a ciertos permisos, los que se
+          muestran son los grupos de permisos, más no los permisos por separado.
+        </p>
+        <p>
+          Si una app no tiene los permisos necesarios, android mostrará un
+          mensaje en el cual la aplicación solicitará que el usuario conceda los
+          permisos necesarios, por ejemplo si el usuario concede el permiso de
+          leer contactos a una aplicación, el sistema operativo sin la necesidad
+          también concederá acceso a la app a otros tipos de permisos que
+          pertenezcan a ese grupo como por ejemplo escribir contactos, sin la
+          necesidad de que el usuario lo haga, esto porque está en el mismo
+          grupo de permisos que leer contactos.
+        </p>
+        <p>
+          Todo esto también depende de la versión de android, si esta es
+          inferior a la 5.1, el sistema operativo solicitará los permisos al
+          momento de instalar la app y no al momento de que la app quiera hacer
+          alguna actividad que requiera los grupos de permisos.
+        </p>
+        <h2>¿Cómo ver los permisos de un app?</h2>
+        <h3>Para usuarios</h3>
+        <ul>
+          <li>Ir a configuración</li>
+          <li>Ir a aplicaciones</li>
+          <li>Elegir la aplicación para ver sus permisos</li>
+          <li>Pulsar en permisos</li>
+        </ul>
+        <h3>Para desarolladores</h3>
+        <p>
+          Para ver todos los permisos de una aplicación en la app de
+          configuración digitar el comando “adb shell pm list permissions -s”
+        </p>
+        <p>
+          Con el comando “adb shell install -g MyApp.apk” cuando se instale una
+          app, el sistema operativo le concederá todos los permisos.
+        </p>
+        <h2>¿Cómo solicitar los permisos de la app?</h2>
+        <p>
+          Todas las apps en android pueden trabajar en un entorno limitado, si
+          desean acceder a funciones que requieren ciertos permisos en
+          específico, el sistema preguntará al usuario si desea conceder dichos
+          permisos, si es así entonces la app podrá trabajar con lo que
+          solicita, caso contrario no lo hará.
+        </p>
+        <p>
+          Para que el mensaje de conceder o denegar permisos se muestre al
+          usuario debemos incluirlo en el manifiesto de la app y solicitar al
+          usuario que conceda o niegue los permisos necesarios, todo esto en
+          tiempo de ejecución y es permitido a partir de la versión 6.0 de
+          android.
+        </p>
+        <div class="image fit">
+          <img src="../images/Permisos/img1.PNG" alt="" />
+        </div>
+        <h2>¿Cómo agregar permisos al manifiesto?</h2>
+        <p>
+          En todas las versiones de android, para agregar permisos en el
+          manifest es necesario el elemento “&lt;uses-permission>” dentro del
+          elemento “&lt;manifest>”.
+        </p>
+        <p>
+          Es importante agregar permisos esenciales para la aplicación y que
+          estos sean claros para el usuario, nada de tecnicismos que puedan
+          confundirlo. Una app que necesite permisos para tener acceso a
+          internet se vería de la siguiente forma:
+        </p>
+        <div class="image fit">
+          <img src="../images/Permisos/img2.PNG" alt="" />
+        </div>
+        <p>
+          Si el permiso es considerado “normal” el sistema operativo le otorgará
+          a la app estos permisos, pero si ya son considerados “peligrosos” se
+          mostrará como un mensaje al usuario para que este decida si lo permite
+          o no.
+        </p>
+        <h2>¿Cómo verificar si la app tiene permisos?</h2>
+        <p>
+          Si la app necesita algún permiso peligroso para realizar alguna
+          acción, cada vez que se realice dicha acción se debe comprobar que se
+          tiene el permiso necesario. A partir de android 6.0 los usuarios
+          pueden quitar permisos a las aplicaciones cuando ellos deseen. Es
+          importante no comprobar los permisos al iniciar la app, sino
+          únicamente al momento de realizar alguna acción que requiera de los
+          permisos.
+        </p>
+        <p>
+          Para verificar si el usuario ya otorgó un permiso en particular a tu
+          app, pasa ese permiso al método ContextCompat.checkSelfPermission().
+          este método muestra PERMISSION_GRANTED o PERMISSION_DENIED, segun si
+          tu app tiene el permiso o no.
+        </p>
+        <p>
+          En caso de que el resultado usando el método anterior sea denegado,
+          entonces hay que llamar al método
+          “shouldShowRequestPermissionRationale()” que solicitará al usuario el
+          permiso necesario. Si el resultado es que los permisos son otorgados
+          entonces la app procederá con la acción que estaba haciendo ya que
+          cuenta con los permisos necesarios.
+        </p>
+        <h2>RequestPermission</h2>
+        <p>
+          Está incluida en la biblioteca de androidX y permite al sistema
+          administrar el código de solicitud de permiso y esto simplifica la
+          lógica, es recomendable usarlo siempre. Para utilizarlo es necesario
+          integrar la dependencia de androidx.activity en el archivo
+          build.gradle. Una vez hecho esto se pueden utilizar las siguientes
+          clases:
+        </p>
+        <ul>
+          <li><strong>RequestPermission; </strong>solicita un solo permiso</li>
+          <li>
+            <strong>RequestMultiplePermissions: </strong>solicita varios
+            permisos a la vez
+          </li>
+        </ul>
+        <h2>Controlar la denegación de permisos</h2>
+        <p>
+          En caso de que el usuario niegue a la app los permisos necesarios para
+          poder trabajar correctamente, es importante hacerle saber las
+          consecuencias que esto tendrá, es decir que debemos notificarle que la
+          app se verá limitada ya que para funcionar al 100% necesita ciertos
+          permisos, para esto podemos tener en cuenta un mensaje de advertencia
+          en el cual se explique de manera clara que funciones no estarán
+          disponibles sin el permiso necesario, es incorrecto mostrar un mensaje
+          en toda la pantalla que impida el uso de la app, simplemente hay que
+          avisar al usuario que pasará y que él decida si dará o no los
+          permisos.
+        </p>
+        <h2>¿Cómo declarar permisos por nivel de API?</h2>
+        <p>
+          En versiones de android 6.0 o superiores con nivel de API 23 se usa la
+          etiqueta “uses-permission-sdk-23”, caso contrario se usa la etiqueta
+          “uses-permission”.
+        </p>
+        <h2>Permisos</h2>
+        <p>
+          Existen apps que necesitan el acceso a la información sensible del
+          usuario que se relaciona con el registro de llamadas y mensajes SMS,
+          para obtener estos permisos se deben de solicitar al usuario que
+          configure la app como controlador predeterminado para una función
+          principal del sistema, antes de solicitar los permisos en tiempo de
+          ejecución.
+        </p>
+        <p>
+          Los dispositivos con Android 6.0 o superior admiten permisos durante
+          el tiempo de ejecución, para ello se puede usar dos etiquetas. Cuando
+          se usan una de esas dos etiquetas se puede establecer el atributo
+          maxSdkVersion que especifica qué dispositivos que ejecuten versiones
+          posteriores, no se necesita ningún permiso en particular.
+        </p>
+        <h2>Solicitar permisos durante el tiempo de ejecución</h2>
+        <p>
+          Desde Android 6.0 los usuarios conceden permisos a las apps mientras
+          se ejecutan, no cuando instalan la app. Esto para simplificar el
+          proceso de instalación, ya que el usuario no necesita solicitar
+          permisos cuando instala la app o la actualiza. Los permisos del
+          sistema se dividen en dos categorías. Los permisos normales no ponen
+          en riesgo la privacidad del usuario de forma directa. Los permisos
+          riesgosos pueden permitir que la app acceda a información confidencial
+          del usuario. Para estos permisos el usuario tiene que autorizarlos.
+        </p>
+        <h2>Comprobar si existen permisos</h2>
+        <p>
+          Para ello se llama al método ContextCompat.chekSelfPermission(). Si la
+          app tiene el permiso el método muestra PackageManager.PERMISSION
+          GRANTED y este puede continuar con la operación, caso contrario
+          muestra PERMISSION DENIED y la app debe de solicitar el permiso.
+        </p>
+        <h2>Principio básicos del trabajo con permisos de Android</h2>
+        <ol>
+          <li>Solo se usan los permisos para el funcionamiento de tu app.</li>
+          <li>
+            Presta atención a los permisos que se requieren para las
+            bibliotecas.
+          </li>
+          <li>Sé transparente</li>
+          <li>Explica los accesos al sistema</li>
+        </ol>
+        <h2>Permisos en Android 6.0 y versiones posteriores</h2>
+        <ol>
+          <li>Mayor contexto situacional</li>
+          <li>Mayor flexibilidad al otorgar permisos</li>
+          <li>Mayor carga de transacciones</li>
+        </ol>
+        <h2>No abrumes al usuario</h2>
+        <p>
+          Si se expone al usuario con muchas solicitudes de permisos al mismo
+          tiempo el usuario se puede abrumar y hacer que deje de usar la app. Se
+          debe solicitar permisos a medida que los necesites. Cuando uno o más
+          permisos son absolutamente esenciales para la app lo recomendado es
+          solicitar todos los permisos apenas se inicie la app. Si la app tiene
+          un instructivo se recomienda solicitar los permisos esenciales cuando
+          finalice.
+        </p>
+        <h2>Detén el contenido cuando se pierda el foco de audio</h2>
+        <p>
+          La app debe ejecutarse en segundo plano cuando el usuario recibe una
+          llamada telefónica y volver a ajustar el foco cuando esta finalice.
+          Esto puede ser un problema ya que requiere el permiso READ_PHONE_STATE
+          el cual tienen muchas secciones de datos sensibles. Se puede detectar
+          si se está realizando una llamada con AudioFocus ya que este no
+          requiere de permisos explícitos.
+        </p>
+        <h2>Conoce las bibliotecas con las que trabajas</h2>
+        <p>
+          En ciertos casos las bibliotecas que usan la app requieren permisos
+          para implementar su funcionalidad. Los desarrolladores deben revisar
+          sus bibliotecas y seleccionar SDK de terceros que no usen permisos
+          innecesarios.
+        </p>
+        <h2>Explica por qué se necesitan los permisos</h2>
+        <p>
+          En el diálogo de permisos que muestra el sistema se especifica el
+          permiso que necesita la app pero no el motivo. Es recomendable que se
+          explique porque la app necesita estos permisos antes de mostrar el
+          diálogo de permiso.
+        </p>
+        <h2>Permisos que sólo se usan en controladores predeterminados</h2>
+        <p>
+          Para proteger la privacidad y brindar a los usuarios más control sobre
+          la información que proporciona a las apps, Google Play restringe el
+          acceso de las apps a los grupos de permisos relacionados con la
+          información. Para esto es necesario que la app esté registrado cómo el
+          controlador predeterminado del usuario para la función principal del
+          dispositivo relacionada con ese permiso.
+        </p>
+        <h2>Sigue los requisitos para los controladores predeterminados</h2>
+        <p>
+          La app debe cumplir con los siguientes requisitos para convertirse en
+          controlador predeterminado:
+        </p>
+        <ol>
+          <li>
+            La app debe poder realizar la función para la que es un controlador
+            predeterminado.
+          </li>
+          <li>La app debe proporcionar una política de privacidad.</li>
+          <li>
+            La app debe dejar en claro cuál es su función principal en la
+            descripción de Play Store.
+          </li>
+          <li>
+            La app debe declarar permisos que sean apropiados para su caso
+            práctico.
+          </li>
+          <li>
+            La app debe solicitar convertirse en un controlador predeterminado
+            antes de solicitar los permisos asociados.
+          </li>
+        </ol>
+        <h2>Solicita el consentimiento del usuario</h2>
+        <div class="image fit">
+          <img src="../images/Permisos/img3.PNG" alt="" />
+        </div>
+        <h2>Cómo definir y aplicar permisos</h2>
+        <p>
+          Los permisos primero se deben declarar en el archivo
+          AndroidManifest.xml.
+        </p>
+        <div class="image fit">
+          <img src="../images/Permisos/img4.PNG" alt="" />
+        </div>
+        <p>
+          El atributo protection level le dice al sistema cómo debe informar al
+          usuario de las apps que requieren el permiso. El atributo permission
+          group es opcional y sólo se usa para ayudar al sistema a mostrar
+          permisos al usuario. Se debe proporcionar una etiqueta y una
+          descripción para el permiso.
+        </p>
+        <h2>Recomendaciones de permisos personalizados</h2>
+        <p>
+          Las apps pueden definir sus propios permisos personalizados y
+          solicitar permisos personalizados de otras apps definiendo elementos
+          &lt;uses-permission>. Esto se debe evaluar cuidadosamente para
+          determinar si es necesario que la app lo haga. Se debe ver si se está
+          diseñando un conjunto de apps que exponen funcionalidades entre sí.
+        </p>
+      </div>
+    </section>
+    <div>
+      <a
+        href="interfaz.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a href="" style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p>
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+
+      <div class="copyright">
+        Design: <a href="https://templated.co">TEMPLATED</a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
