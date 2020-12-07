@@ -1,0 +1,406 @@
+<!DOCTYPE HTML>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<!--Poner el titulo de la clase-->
+		<title>Actividades</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header id="header">
+			<a href="../index.html" class="logo"
+			  ><strong>Aplicaciones móviles</strong></a
+			>
+		  </header>
+		  <div>
+			<a
+        href="Introduccionactividades.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="tareasypilas.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+		  </div>
+
+		<!-- Main -->
+			<section id="main">
+				
+				<div class="inner">
+					<!--Usar el siguiente div para poner imagenes en el doc-->
+					<div class="image fit">
+						<img src="../images/Hilos/m1.jpg"height="350"alt="" />
+					</div>
+					<!--Poner toda la informacion de la clase-->
+					<header>
+						<!--Poner el titulo de la clase-->
+						<h1>Creando un administrador para múltiples Hilos</h1>
+						<!--Poner fecha de la clase-->
+						<p class="info">30 de Noviembre del 2020</p>
+					</header>
+					<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+                    <ol>
+					<li><a href="Introduccionactividades.html">El concepto de Actividades</a></li>
+					
+                    <li><a href="multipleshilos.html">Creando un administrador para múltiples Hilos</a></li>
+					<li><a href="tareasypilas.html">Información sobre las tareas y pila de actividades</a></li>
+                    
+									
+									
+				</ol>
+					
+					<h2 align="center">¿Que se necesita?</h2><br><br>
+					
+	
+	
+	<p align="justify"><li>UnIntentService: Ejecutar una tarea repetidamente en diferentes conjuntos de datos, pero solo necesita una ejecución a la vez.
+<li>Colección administrada de subprocesos.</li>
+<li>Para ejecutar una tarea, todo lo que tiene que hacer es agregarla a la cola.</li>
+<li>Un grupo de subprocesos puede ejecutar varias instancias paralelas de una tarea, por lo que debe asegurarse de que su código sea seguro para subprocesos.
+</li>
+<li>Incluya las variables a las que puede acceder más de un hilo en un bloque asincronizado.
+</li></p>
+
+
+					
+					<h4>Cuadro de probabilidades</h4><br><br>
+					
+                    <table class="egt">
+                    <tr>
+
+    <td>Probabilidad de que finalice</td>
+
+    <td>Estado del proceso</td>
+
+    <td>Estado de la actividad</td>
+
+  </tr>
+
+  <tr>
+
+    <td>Menos</td>
+
+    <td>Primer plano(en foco o por estar en él)</td>
+
+    <td>Created
+Started
+Resumed
+</td>
+
+  </tr>
+  <tr>
+
+    <td>Más</td>
+
+    <td>Segundo plano(foco perdido)</td>
+
+    <td>Pausado</td>
+
+  </tr>
+  <tr>
+
+    <td>Mayor</td>
+
+    <td>Segundo plano(no visible)</td>
+
+    <td>Detenido</td>
+
+  </tr>
+  
+  <tr>
+
+    <td></td>
+
+    <td>Vacío</td>
+
+    <td>Finalizado</td>
+
+  </tr>
+
+</table>
+                    
+                    
+                    
+
+					<div class="card mb-3"><br><br>
+  <p align="center"><img src="../images/Introactividades/2.jpg" width="404" height="304" ></p>
+  <div class="card-body">
+    <p class="card-text" ><p align="justify">El usuario espera que se conserve el estado de una actividad durante un cambio de configuración, como la rotación o el cambio al modo multiventana. Sin embargo, el sistema finaliza la actividad de forma predeterminada cuando se produce un cambio de configuración de este tipo, lo que elimina cualquier estado almacenado en la instancia de actividad.
+<table class="egt">
+
+  <tr>
+
+    <td bgcolor="#FFFF99">Un usuario espera que el estado de la IU siga siendo el mismo si cambia temporalmente de su app a una diferente y, luego, regresa a su app.
+</td>
+
+    
+
+
+  </tr>
+
+  <tr>
+
+    <td bgcolor="#FFCCCC">Cuando finaliza la actividad debido a restricciones del sistema.</td>
+
+   
+
+  </tr>
+
+</table>
+ <br>
+  </div>
+</div><br>
+					
+					
+					<h4 align="center">Estado de la instancia</h4><br><br>
+					
+					<div class="card mb-3"><br><br>
+
+  <p align="center"><img src="../images/Introactividades/3.jpg" alt="..." width="378" height="386"></p>
+  <div class="card-body">
+    <p class="card-text" ><p align="justify"><li>Cuando el usuario presiona el botón Atrás o tu actividad indica su propia finalización llamando al método finish().</li>
+
+<li>Cuando el usuario presiona Atrás o la actividad se finaliza a sí misma, se pierde para siempre el concepto de esa instancia Activity del sistema y del usuario. </li><li>El sistema finaliza la actividad debido a restricciones (como un cambio de configuración o presión de memoria), entonces, aunque haya desaparecido la instancia real Activity, el sistema recuerda que existía.</li> 
+
+<li>Los datos guardados que el sistema utiliza para restaurar el estado previo se denominan estado de instancia y son un conjunto de pares clave-valor almacenados en un objeto Bundle.</li></p><br>
+  </div>
+</div><br>
+					
+					
+					
+					<h4 align="center">Cómo guardar un estado de IU simple y ligero usando onSaveInstanceState()</h4><br><br>
+					
+					<div class="card mb-3"><br><br>
+  <p align="center"><img src="../images/Introactividades/4.png" width="504" height="304"></p>
+  <div class="card-body">
+   <p class="card-text" ><p align="justify">
+   
+   <table class="egt">
+
+  <tr>
+
+    <td bgcolor="#FFFF99">Método onSaveInstancestatet) para que su actividad pueda guardar la información del estado en un paquete de estado de instancia.
+</td>
+
+    
+
+  </tr>
+
+  <tr>
+
+    <td bgcolor="#FFCCCC">La implementación predeterminada de ese método guarda información transitoria acerca del estado de la jerarquía de vistas de la actividad.</td>
+
+   
+
+  </tr>
+  
+  <tr>
+
+    <td bgcolor="#FF9966">Para guardar información adicional sobre el estado de la instancia de tu actividad, debes anular onsaveinstancestate 0 y agregar pares clave-valor al objeto Bundle.</td>
+
+   
+
+  </tr>
+
+</table>
+   <img src="../images/Introactividades/5.png">
+   <li>En lugar de restaurar el estado durante onCreate(), puedes optar por implementar onRestoreInstanceState(), al que el sistema llama después de método onStart().</li>
+<li>El sistema llama solo si hay un estado guardado para restablecer.
+</li>
+<img src="../images/Introactividades/6.png"></p>
+   </p>
+  </div>
+</div>
+					
+
+				  <br><br>
+				
+	<h2 align="center">Navegación entre atividades </h2><br><br>
+					<p align="center">Es probable que una app entre en una actividad y salga de ella, muchas veces durante su ciclo de vida</p>
+					
+					<h3>Por ejemplo:</h3>
+		<p align="justify">El usuario puede presionar el botón atrás del dispositivo, o la actividad puede necesitar lanzar una actividad diferente</p> <img src="../images/Introactividades/7.jpg" width="504" height="304"><br>
+					
+				
+					
+					
+					
+					
+					
+					<br><br>
+					
+					<div class="card mb-3" style="max-width: 1000px;">
+                    <h2 align="center">Cómo iniciar una actividad desde otra.</h2>
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="../images/Introactividades/8.jpg" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text"><p align="justify"><li>startActivity() o startActivityForesult(). </li></p>
+		  <p align="justify"><li>El objeto Intent especifica la actividad exacta que quieres iniciar o describe el tipo de acción que quieres realizar</li></p>
+
+		  
+		  
+		  </p>
+      </div>
+    </div>
+  </div>
+</div><br><br>
+					
+					
+			<h2 align="center">StartActivity()</h2><br><br>
+					<p class="card-text"><p align="justify"><li>Si la actividad recién iniciada no necesita mostrar un resultado, la actividad actual puede iniciarla llamando al método startActivity(). </li><img src="../images/Introactividades/9.png" class="card-img" alt="..."></p>
+                    
+                    <p class="card-text"><p align="justify"><li>Usuario envie un mensaje de correo electrónico
+ </li><img src="../images/Introactividades/10.png" class="card-img" alt="..."></p>
+ 
+ <p class="card-text"><p align="justify"><li>Cuando se lleva a cabo una actividad secundaria, puedes llamar a setResult (int) para mostrarle los datos a la actividad superior. </li>
+
+
+
+<li>La actividad superior utiliza el método onActivityResult (int, int, Intent), junto con el identificador entero que la actividad superior brindó originalmente, para recibir la información.
+ </li></p>
+ 
+ 
+ <h2 align="center">Cómo administrar los cambios de estado de la actividad
+</h2>
+		<div class="card-body">
+    <p class="card-text" ><p align="justify">
+    <li>Series de eventos que pueden activar una configuración.</li>
+<li>Cuando se produce un cambio, la actividad se elimina y vuelve a crear.</li>
+<li>La instancia original devuelve: onPause(), onStop() y onDestroy().</li>
+<li>Cuando la actividad cubierta vuelve al primer plano y obtiene el foco, llama a onResume().
+
+
+<li>Si aparecen en primer plano :
+
+Cuando la misma instancia de la actividad cubierta vuelve al primer plano, el sistema llama a onRestart(), onStart() y onResume().</li>
+
+<table class="egt">
+
+  <tr>
+
+    <td bgcolor="#FFFF99">El usuario toca el botón Atrás
+
+<li>Si una actividad está en primer plano y el usuario toca el botón Atrás.</li>
+
+<li>La actividad pasa por las devoluciones de llamadas onPause(), onStop()y onDestroy().</li>
+
+</td>
+
+    
+
+  </tr>
+
+  <tr>
+
+    <td bgcolor="#FFCCCC">El sistema elimina el proceso de la app
+
+<li>El sistema elimina lo que se encuentre en segundo plano.</li>
+</td>
+
+   
+
+  </tr>
+
+</table>
+
+ <h2 align="center">Conclusión</h2>
+ <p class="card-text"><p align="justify"><li>En conclusión se puede decir que se logro analizar como funcionan los distintos procesos en el ambito aplicativo inteligente, el mismo que desarrolla varias funciones, pero sus procesos dependen mucho del usuario y del procesamiento</li></p>
+ <br>
+  </div>
+</div><br>							
+  </div>
+</div><br>
+
+
+
+
+
+
+
+				
+				
+			
+      </div>
+    </div>
+  </div>
+</div>
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+					
+					
+					
+					
+	
+
+			
+	</div></section>
+<section>
+	
+	
+	
+	
+	
+	
+
+</section>
+			<div>
+				
+				<a
+        href="Introduccionactividades.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="tareasypilas.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+			  </div>
+		<!-- Footer -->
+		<footer id="footer">
+			<p style="color: white;">
+			  Trabajo del curso de Aplicaciones Móviles <br />
+			  <small>Universidad UTE</small>
+			</p>
+	  
+			<div class="copyright">
+			  Design: <a href="https://templated.co">TEMPLATED</a>
+			</div>
+		  </footer>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+	</body>
+</html>
