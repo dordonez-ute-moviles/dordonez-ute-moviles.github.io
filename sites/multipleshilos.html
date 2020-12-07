@@ -73,151 +73,56 @@
 
 
 					
-					<h4>Cuadro de probabilidades</h4><br><br>
+					<h2 align="center">Definir la clase del grupo de subprocesos</h2><br><br>
 					
-                    <table class="egt">
-                    <tr>
-
-    <td>Probabilidad de que finalice</td>
-
-    <td>Estado del proceso</td>
-
-    <td>Estado de la actividad</td>
-
-  </tr>
-
-  <tr>
-
-    <td>Menos</td>
-
-    <td>Primer plano(en foco o por estar en él)</td>
-
-    <td>Created
-Started
-Resumed
-</td>
-
-  </tr>
-  <tr>
-
-    <td>Más</td>
-
-    <td>Segundo plano(foco perdido)</td>
-
-    <td>Pausado</td>
-
-  </tr>
-  <tr>
-
-    <td>Mayor</td>
-
-    <td>Segundo plano(no visible)</td>
-
-    <td>Detenido</td>
-
-  </tr>
-  
-  <tr>
-
-    <td></td>
-
-    <td>Vacío</td>
-
-    <td>Finalizado</td>
-
-  </tr>
-
-</table>
+                    <h3>ThreadPoolExecutor</h3><p align="justify"><li>Usa variables estáticas para grupos de subprocesos.
+<li>Desee una instancia única de un grupo de subprocesos para su aplicación.</li>
+<li>Su configuración puede ser compleja pero brinda flixibilidad.</li>
+</p>
                     
                     
                     
 
 					<div class="card mb-3"><br><br>
-  <p align="center"><img src="../images/Introactividades/2.jpg" width="404" height="304" ></p>
+  <p align="center"><img src="../images/Hilos/m2.png" width="400" height="300" ></p>
   <div class="card-body">
-    <p class="card-text" ><p align="justify">El usuario espera que se conserve el estado de una actividad durante un cambio de configuración, como la rotación o el cambio al modo multiventana. Sin embargo, el sistema finaliza la actividad de forma predeterminada cuando se produce un cambio de configuración de este tipo, lo que elimina cualquier estado almacenado en la instancia de actividad.
-<table class="egt">
-
-  <tr>
-
-    <td bgcolor="#FFFF99">Un usuario espera que el estado de la IU siga siendo el mismo si cambia temporalmente de su app a una diferente y, luego, regresa a su app.
-</td>
-
-    
-
-
-  </tr>
-
-  <tr>
-
-    <td bgcolor="#FFCCCC">Cuando finaliza la actividad debido a restricciones del sistema.</td>
-
-   
-
-  </tr>
-
-</table>
+    <p class="card-text" ><p align="justify"><h3>Usar un constructor privado</h3>Hacer que el constructor sea privado asegura que sea un singleton, lo que significa que no tiene que encerrar accesos a la clase en un bloque sincronizado.
+    <div class="card mb-3"><br><br>
+  <p align="center"><img src="../images/Hilos/m3.png" width="400" height="300" ></p>
+  <p class="card-text" ><p align="justify">Comience sus tareas llamando a métodos en la clase de grupo de subprocesos,defina un método en la clase de grupo de subprocesos que agrega una tarea a la cola de un grupo de subprocesos.
+  <div class="card mb-3"><br><br>
+  <p align="center"><img src="../images/Hilos/m4.png" width="400" height="300" ></p>
  <br>
   </div>
 </div><br>
 					
+                    
+                    
 					
-					<h4 align="center">Estado de la instancia</h4><br><br>
+					<h4 align="center">Determinar los parámetros del grupo de subprocesos </h4><br><br>
 					
 					<div class="card mb-3"><br><br>
 
-  <p align="center"><img src="../images/Introactividades/3.jpg" alt="..." width="378" height="386"></p>
+  <p align="center"><img src="../images/Hilos/m5.jpg" alt="..." width="378" height="386"></p>
   <div class="card-body">
-    <p class="card-text" ><p align="justify"><li>Cuando el usuario presiona el botón Atrás o tu actividad indica su propia finalización llamando al método finish().</li>
+    <p class="card-text" ><p align="justify">Para instanciar aThreadPoolExecutor, necesita los siguientes valores:
 
-<li>Cuando el usuario presiona Atrás o la actividad se finaliza a sí misma, se pierde para siempre el concepto de esa instancia Activity del sistema y del usuario. </li><li>El sistema finaliza la actividad debido a restricciones (como un cambio de configuración o presión de memoria), entonces, aunque haya desaparecido la instancia real Activity, el sistema recuerda que existía.</li> 
 
-<li>Los datos guardados que el sistema utiliza para restaurar el estado previo se denominan estado de instancia y son un conjunto de pares clave-valor almacenados en un objeto Bundle.</li></p><br>
+<li>Tamaño de la piscina inicial y tamaño máximo de la piscina. </li>
+<li>El número inicial de subprocesos para asignar al grupo y el número máximo permitido.</li> 
+<li>La cantidad de subprocesos que puede tener en un grupo de subprocesos depende principalmente de la cantidad de núcleos disponibles para su dispositivo.</li><p align="center"><img src="../images/Hilos/m6.png" alt="..." width="500" height="300"></p></p><br>
   </div>
 </div><br>
 					
 					
 					
-					<h4 align="center">Cómo guardar un estado de IU simple y ligero usando onSaveInstanceState()</h4><br><br>
+					<h4 align="center">Una cola de tareas</h4><br><br>
 					
 					<div class="card mb-3"><br><br>
-  <p align="center"><img src="../images/Introactividades/4.png" width="504" height="304"></p>
+  <p align="center"></p>
   <div class="card-body">
-   <p class="card-text" ><p align="justify">
-   
-   <table class="egt">
-
-  <tr>
-
-    <td bgcolor="#FFFF99">Método onSaveInstancestatet) para que su actividad pueda guardar la información del estado en un paquete de estado de instancia.
-</td>
-
-    
-
-  </tr>
-
-  <tr>
-
-    <td bgcolor="#FFCCCC">La implementación predeterminada de ese método guarda información transitoria acerca del estado de la jerarquía de vistas de la actividad.</td>
-
-   
-
-  </tr>
-  
-  <tr>
-
-    <td bgcolor="#FF9966">Para guardar información adicional sobre el estado de la instancia de tu actividad, debes anular onsaveinstancestate 0 y agregar pares clave-valor al objeto Bundle.</td>
-
-   
-
-  </tr>
-
-</table>
-   <img src="../images/Introactividades/5.png">
-   <li>En lugar de restaurar el estado durante onCreate(), puedes optar por implementar onRestoreInstanceState(), al que el sistema llama después de método onStart().</li>
-<li>El sistema llama solo si hay un estado guardado para restablecer.
-</li>
-<img src="../images/Introactividades/6.png"></p>
+   <p class="card-text" ><p align="justify">La cola de entrada de la que ThreadPoolExecutor toma objetos Runnable. Para iniciar el código en un subproceso, un administrador de grupo de subprocesos toma un objeto ejecutable de una cola de primero en entrar, primero en salir y lo adjunta al subproceso</p>.
+   <img src="../images/Hilos/m7.png">
    </p>
   </div>
 </div>
@@ -225,11 +130,23 @@ Resumed
 
 				  <br><br>
 				
-	<h2 align="center">Navegación entre atividades </h2><br><br>
-					<p align="center">Es probable que una app entre en una actividad y salga de ella, muchas veces durante su ciclo de vida</p>
+	<h2 align="center">Crear un grupo de Hilos </h2><br><br>
+    
+<li>Cree una instancia de un administrador del grupo de subprocesos llamando a ThreadPoolExecutor (). </li>
+
+<li> Esto crea y administra un grupo restringido de subprocesos.Esto crea y administra un grupo restringido de subprocesos. Debido a que el tamaño del grupo inicial y el tamaño máximo del grupo son iguales, ThreadPoolExecutor crea todos los objetos de subproceso cuando se crea una instancia.
+</li>
+
 					
-					<h3>Por ejemplo:</h3>
-		<p align="justify">El usuario puede presionar el botón atrás del dispositivo, o la actividad puede necesitar lanzar una actividad diferente</p> <img src="../images/Introactividades/7.jpg" width="504" height="304"><br>
+                    
+
+
+                   
+					
+					<h2 align="center">Ejecutar código en un subproceso de grupo de subproceso  </h2>
+		<p align="justify">Cuando un hilo está disponible, el ThreadPoolExecutor toma una tarea de la cola y la ejecuta en el hilo.</p> 
+        <h3>Por ejemplo:</h3><p align="justify">Si está descargando imágenes de la red y utilizando un caché, probablemente desee detener una tarea si detecta que una imagen ya está presente en el caché. Dependiendo de cómo escriba su aplicación, es posible que no pueda detectar esto antes de iniciar la descarga.
+</p><img src="../images/Hilos/m8.jpg" width="504" height="304"><br>
 					
 				
 					
@@ -240,84 +157,38 @@ Resumed
 					<br><br>
 					
 					<div class="card mb-3" style="max-width: 1000px;">
-                    <h2 align="center">Cómo iniciar una actividad desde otra.</h2>
+                    <h2 align="center">Ejecutar una tarea en un hilo del grupo de hilos</h2>
   <div class="row no-gutters">
     <div class="col-md-4">
-      <img src="../images/Introactividades/8.jpg" class="card-img" alt="...">
+    <img src="../images/Hilos/m9.png" width="504" height="304"><br>
+      
     </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <p class="card-text"><p align="justify"><li>startActivity() o startActivityForesult(). </li></p>
-		  <p align="justify"><li>El objeto Intent especifica la actividad exacta que quieres iniciar o describe el tipo de acción que quieres realizar</li></p>
+        <p class="card-text"><p align="justify"><li>Para iniciar un objeto de tarea en un subproceso en un grupo de subprocesos en particular, pase el Runnable a ThreadPoolExecutor.execute (). </li></p>
+		  <p align="justify"><li>Esta llamada agrega la tarea a la cola de trabajo del grupo de subprocesos.</li></p>
+<p align="justify"><li>Cuando un hilo inactivo está disponible, el administrador toma la tarea que ha estado esperando por más tiempo y la ejecuta en el hilo.
+</li></p>
 
 		  
 		  
 		  </p>
-      </div>
-    </div>
+      
   </div>
 </div><br><br>
 					
 					
-			<h2 align="center">StartActivity()</h2><br><br>
-					<p class="card-text"><p align="justify"><li>Si la actividad recién iniciada no necesita mostrar un resultado, la actividad actual puede iniciarla llamando al método startActivity(). </li><img src="../images/Introactividades/9.png" class="card-img" alt="..."></p>
+			<h2 align="center">Interrumpir código en ejecución</h2><br><br>
+					<p align="justify">Para detener una tarea, debe interrumpir el hilo de la tarea. Para prepararse para hacer esto, necesita almacenar un identificador para el hilo de la tarea cuando crea la tarea. Por ejemplo:</p>
+<img src="../images/Hilos/m10.png" width="504" height="304"><br>
                     
-                    <p class="card-text"><p align="justify"><li>Usuario envie un mensaje de correo electrónico
- </li><img src="../images/Introactividades/10.png" class="card-img" alt="..."></p>
+                    <p class="card-text"><p align="justify"><li>Para detener una tarea, debe interrumpir el hilo de la tarea. Para prepararse para hacer esto, necesita almacenar un identificador para el hilo de la tarea cuando crea la tarea. Por ejemplo:
+ </li><img src="../images/Hilos/m12.png" class="card-img" alt="..."></p>
  
- <p class="card-text"><p align="justify"><li>Cuando se lleva a cabo una actividad secundaria, puedes llamar a setResult (int) para mostrarle los datos a la actividad superior. </li>
+ <p class="card-text"><p align="justify">En la mayoría de los casos, Thread.interrupt () detiene el hilo inmediatamente. Sin embargo, solo detiene los subprocesos que están esperando y no interrumpirá las tareas de la CPU o de la red. Para evitar ralentizar o bloquear el sistema, se aprueba las solicitudes de interrupción pendientes antes de intentar una operación:<img src="../images/Hilos/m13.png" width="504" height="304">
 
 
-
-<li>La actividad superior utiliza el método onActivityResult (int, int, Intent), junto con el identificador entero que la actividad superior brindó originalmente, para recibir la información.
- </li></p>
- 
- 
- <h2 align="center">Cómo administrar los cambios de estado de la actividad
-</h2>
-		<div class="card-body">
-    <p class="card-text" ><p align="justify">
-    <li>Series de eventos que pueden activar una configuración.</li>
-<li>Cuando se produce un cambio, la actividad se elimina y vuelve a crear.</li>
-<li>La instancia original devuelve: onPause(), onStop() y onDestroy().</li>
-<li>Cuando la actividad cubierta vuelve al primer plano y obtiene el foco, llama a onResume().
-
-
-<li>Si aparecen en primer plano :
-
-Cuando la misma instancia de la actividad cubierta vuelve al primer plano, el sistema llama a onRestart(), onStart() y onResume().</li>
-
-<table class="egt">
-
-  <tr>
-
-    <td bgcolor="#FFFF99">El usuario toca el botón Atrás
-
-<li>Si una actividad está en primer plano y el usuario toca el botón Atrás.</li>
-
-<li>La actividad pasa por las devoluciones de llamadas onPause(), onStop()y onDestroy().</li>
-
-</td>
-
-    
-
-  </tr>
-
-  <tr>
-
-    <td bgcolor="#FFCCCC">El sistema elimina el proceso de la app
-
-<li>El sistema elimina lo que se encuentre en segundo plano.</li>
-</td>
-
-   
-
-  </tr>
-
-</table>
 
  <h2 align="center">Conclusión</h2>
- <p class="card-text"><p align="justify"><li>En conclusión se puede decir que se logro analizar como funcionan los distintos procesos en el ambito aplicativo inteligente, el mismo que desarrolla varias funciones, pero sus procesos dependen mucho del usuario y del procesamiento</li></p>
+ <p class="card-text"><p align="justify"><li>En conclusión se puede decir que se logro entender la manera en la que funcionan cada una de las actividades y a su vez como estas se van ejecutando conforme las acciones en el sistema, cada uno de los metodos nos permite captar su funcionamiento y de esta manera permiten generar el desarrollo de los mismos.</li></p>
  <br>
   </div>
 </div><br>							
