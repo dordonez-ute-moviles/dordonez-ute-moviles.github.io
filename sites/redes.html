@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Aplicaciones Móviles</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <style media="screen">
+
+      h2{
+        color:#FCA400;
+      }
+       body .back{
+        background-image: url(../images/Redes/back.jpg);
+       background-repeat: no-repeat;
+       background-size: 100%;
+       background-attachment: fixed;
+       padding-top: 50px;
+       padding-bottom: 40px;
+       padding-left: 40px;
+       padding-right: 60px;
+
+      }
+      .uno{
+        background-color: rgba(255, 255, 255, 0.8);
+        color:black;
+        padding:20px;
+      }
+      .dos{
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding:20px;
+      }
+
+      .tres{
+        background-color: rgba(255, 255, 255, 0.8);
+        color:black;
+        padding:20px;
+      }
+
+      .cuatro{
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding:20px;
+      }
+      .cinco{
+        background-color: rgba(255, 255, 255, 0.8);
+        color:black;
+        padding:20px;
+      }
+
+      .uno h3{
+        color: #2FBC8D;
+      }
+
+    .dos h3{
+      color:#078FAE;
+      text-decoration:underline;
+    }
+
+    .tres h3{
+      color:#1EC69F;
+    }
+
+    .cuatro h3{
+      color:#576CBE;
+    }
+    .cuatro h4{
+      color:#267C83
+    }
+
+    .cinco h3{
+    color:#E5702A;
+    }
+
+    body{
+      text-align: justify;
+    }
+    </style>
+
+
+
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a
+        href=""
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href=""
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img src="../images/Redes/port.jpg" alt="" height="300px" />
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1>Red</h1>
+          <!--Poner fecha de la clase-->
+          <p class="info">03 de diciembre de 2020</p>
+        </header>
+        <!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+
+        <div class="back">
+
+
+
+
+            <div class="uno">
+
+          <p>
+          <h3>Conectarse a la Red</h3>
+
+            <p>
+            Antes de empezar a crear una app con conexión a internet, se debe incluir los siguientes permisos en el manifiesto.
+              <center><img src="../images/Redes/uno.png" alt=""/></center>
+            </p>
+
+            <p>
+              Estos permisos permitirán que se pueda llevar a cabo operaciones de red en la app. Ambos permisos serán detallados en la administración del uso de la red más adelante.
+  Ahora bien, para poder acceder a la red debemos tomar en cuenta los siguientes aspectos:
+
+            </p>
+
+          </p>
+
+          <p>
+            <h4>Diseñar una comunicación de red segura</h4>
+          <p>Es importante que antes de agregar cualquier funcionalidad de red a nuestra app, nos debemos asegurar de que los datos y la información que contenga la misma permanezcan seguros cuando se transmitan a través de una red.
+Las prácticas recomendadas para la seguridad en red son:
+<li>
+    Minimizar la cantidad de datos sensibles o personales que se transmiten en la red.
+</li>
+
+  <li>
+    Enviar todo el tráfico de red de la app a través de SSL (capa de conexión segura)
+  </li>
+  <li>
+    Crear configuraciones de seguridad de la red, que permitan a la app confiar en CA (Certificados de Autoridad) personalizadas o bien restringir en el conjunto de CA del sistema.
+</li>
+
+          </p>
+
+
+
+            <p>
+              <h4>Elegir un cliente HTTP</h4>
+            Ya que la mayoría de apps para Android conectadas a redes utilizan HTTP para enviar y recibir datos. Android Studio incluye la clase HttpsURLConnection, la cual admite TLS, cargas y descargas de transmisión, tiempos de espera configurables, IPv6 y agrupaciones de conexiones. También pueden ser usadas otras clases.
+            </p>
+
+            <p>
+              <h4>Buscar DNS</h4>
+            Para dispositivos con versiones de Android 9 o menores, el agente de resolución de DNS de la plataforma solo admite registros A y AAAA, lo que permite buscar sólo direcciones IP asociadas con un nombre, pero no admite ningún otro tipo de registro.
+              <br>
+            En dispositivos con Android 10 y posteriores, ya está agregada la compatibilidad nativa para búsqueda de DNS especializadas, haciendo uso de Cleartext y un modo de DNS mediante TLS. La API que permite buscar registros SRV, NAPTR y otros es DnsResolver la cual proporciona una resolución asincrónica genérica.
+            </p>
+
+            <p>
+              <h4>Introducir operaciones de red en un subproceso independiente</h4>
+
+              Para evitar crear un interfaz de usuario sin respuesta lo más recomendable es no llevar a cabo operaciones de red en el subproceso de dicha IU.
+  De forma predeterminada Android 3.0 (API nivel 11) y versiones posteriores requieren que las operaciones de red se realicen en subprocesos de IU que no sean el principal. De lo contrario se mostrará un NetworkOnMainThreadException.
+  Excepción que se produce cuando una aplicación intenta realizar una operación de red en su hilo principal.
+  El siguiente fragmento de Activity usa un Fragment sin interfaz gráfica para encapsular las operaciones de red asíncronas.
+
+              <br>
+
+              <center><img src="../images/Redes/dos.png" alt=""/></center>
+              Indica que el manejador de llamadas necesita actualizar su apariencia o información basada en el resultado de la tarea. Se espera que sea llamado desde el hilo principal.
+              <center><img src="../images/Redes/tres.png" alt=""/></center>
+              Obtener el estado de red activo del dispositivo en forma de un objeto NetworkInfo.
+              <center><img src="../images/Redes/cuatro.png" alt=""/></center>
+              Indica al responsable de la llamada cualquier actualización de los progresos.
+              <center><img src="../images/Redes/cinco.png" alt=""/></center>
+              Indica que la operación de descarga ha terminado. Este método se llama incluso si la descarga no se ha completado con éxito.
+              <center><img src="../images/Redes/seis.png" alt=""/></center>
+              Ahora se agrega las siguientes implementaciones de los métodos de la interfaz de DownloadCallback en la Activity:
+              Actualiza la UI aquí basado en el resultado de la descarga.
+              <center><img src="../images/Redes/siete.png" alt=""/></center>
+              Obtenemos el estado de red activo del dispositivo
+
+              <center><img src="../images/Redes/ocho.png" alt=""/></center>
+              Se puede añadir el comportamiento de la interfaz de usuario para las actualizaciones de progreso aquí.
+
+              <center><img src="../images/Redes/nueve.png" alt=""/></center>
+              Termina la operación de descarga.
+              <center><img src="../images/Redes/diez.png" alt=""/></center>
+
+            <h4>Implementar un fragmento sin interfaz gráfica para encapsular operaciones de red</h4>
+            Ya que NetworkFragment se ejecuta en el subproceso de IU de forma predeterminada, este usa AsyncTask para ejecutar operaciones de red en un subproceso en segundo plano.
+Este Fragment no hace referencia a ningún elemento de la IU y se lo usa para encapsular la lógica y gestionar los eventos de ciclo de vida, y así se deja que el elemento Activity del host actualice la IU.
+Es importante que cuando se usa la subclase AsyncTask para ejecutar operaciones de red, se tenga cuidado de no crear una fuga de memoria en el caso de que se destruya la Activity a la que hace referencia AsyncTask antes de que esta termine su trabajo en segundo plano.
+<br>Para entender mejor nuestro NetworkFragment se analizará cada una de las partes importantes de esta clase.
+Implementación de un fragmento que ejecuta una tarea asíncrona para obtener datos de la red.
+
+              <center><img src="../images/Redes/once.png" alt=""/></center>
+Inicializador estático para NetworkFragment que establece la URL del host del que se descargará.
+
+              <center><img src="../images/Redes/doce.png" alt=""/></center>
+Creación inicial del fragmento
+              <center><img src="../images/Redes/trece.png" alt=""/></center>
+
+              La actividad del host se encargará de las devoluciones de llamada de la tarea. Cancelamos la tarea cuando se destruya el fragmento.
+
+              <center><img src="../images/Redes/catorce.png" alt=""/></center>
+
+              Si no hay conectividad, se cancela la tarea y actualiza la devolución de llamada con datos nulos. Define el trabajo a realizar en el hilo de fondo.
+              <center><img src="../images/Redes/quince.png" alt=""/></center>
+              Actualiza el Callback de descarga con el resultado.
+              <center><img src="../images/Redes/dieciseis.png" alt=""/></center>
+            Anula para añadir un comportamiento especial para la tarea de sincronización cancelada.
+              <center><img src="../images/Redes/diecisiete.png" alt=""/></center>
+
+    <h4>Usar HttpsUrlConnection para obtener datos</h4>
+    En el fragmento anterior, se ejecuta el método doInBackground() el cual es un subproceso en segundo plano que invoca al método de ayuda downloadUrl(). Este método toma una URL y la usa para realizar una solicitud HTTP GET.
+<br>
+Ya que se establece la conexión, se usa el método getInputStream() para recuperar los datos como InputStream. Para lograr todo esto se hace uso de la API HttpsURLConnection y se puede observar en el siguiente ejemplo:
+
+                  <center><img src="../images/Redes/dieciocho.png" alt=""/></center>
+                  Este método si se le da una URL, establece una conexión y obtiene el cuerpo de respuesta HTTP del servidor.
+<br>
+Si la petición de la red tiene éxito, devuelve el cuerpo de respuesta en forma de cadena. De lo contrario, lanzará una IOExcepción.
+<br>
+Dentro de todo este método encontramos distintos parámetros y acciones como son:
+
+    <ul>
+      <li>Tiempo de espera para leer InputStream</li>
+      <li>Tiempo de espera para la conexión</li>
+      <li>Establecer el método HTTP en GET</li>
+      <li>La conexión por defecto es true pero se lo estable así por si acaso, y debe ser así ya que esta petición lleva un cuerpo de entrada (respuesta)</li>
+      <li>Se abre un enlace de comunicaciones (aquí se producirá el tráfico de la red).</li>
+      <li>Recupera el cuerpo de respuesta como un InputStream.</li>
+      <li>Convierte el Stream en string con una longitud máxima de 500</li>
+      <li>Cierra el stream y desconecta la conexión HTTPS</li>
+    </ul>
+
+
+        <h4>Convertir InputStream en una String</h4>
+        Ya que un InputStream es una fuente legible de bytes, cuando se obtiene un elemento de estos, es común decodificarlo o convertirlo en un tipo de datos de destino.
+<br>
+En este caso el ejemplo muestra cómo transformar un InputStream en una string que la Activity puede mostrar en la IU.
+<center><img src="../images/Redes/diecinueve.png" alt=""/></center>
+En síntesis, la secuencia de eventos del ejemplo presentado fue:
+<ol>
+  <li>La Activity inicia un NetworkFragment y pasa una URL especificada.</li>
+  <li>Cuando una acción del usuario activa el método downloadData() de la Activity, NetworkFragment ejecuta la DownloadTask.</li>
+  <li>El método AsyncTask de onPreExecute() se ejecuta primero (en el subproceso de IU) y cancela la tarea si el dispositivo no está conectado a Internet.</li>
+  <li>Luego, se ejecuta el método AsyncTask de doInBackground() en un subproceso en segundo plano y llama al método downloadUrl().</li>
+  <li>El método downloadUrl() toma una string de URL como parámetro y usa un objeto HttpsURLConnection para obtener el contenido web como InputStream.</li>
+  <li>Se pasa InputStream al método readStream(), que convierte la transmisión en una string.</li>
+  <li>Finalmente, cuando se completa el trabajo en segundo plano, se ejecuta el método onPostExecute() de AsyncTask en el subproceso de IU y se usa la DownloadCallback para enviar el resultado de vuelta a la IU como una string.</li>
+</ol>
+
+<h4>Conservar la actividad después de hacer cambios en la configuración</h4>
+La implementación de una Activity que lleva a cabo una operación de red en el ejemplo anterior es correcta, pero, si el usuario decide cambiar la configuración del dispositivo (como un giro de pantalla de 90 grados) mientras se ejecuta doInBackground() en el proceso de segundo plano, la Activity se destruirá y se recreará, por lo que vuelve a ejecutarse onCreate() y se hará referencia a un NetworkFragment nuevo. Por lo tanto, el AsyncTask del NetworkFragment original tendrá un DownloadCallback que hará referencia a la Activity original que ya no puede actualizar la IU.
+<br>
+De este modo, se habrá desperdiciado el trabajo en red realizado en un subproceso en segundo plano.
+<br>
+Para solucionar esto se pueden hacer los siguientes cambios en el código:
+<br>Primero, en el NetworkFragment se debería llamar a setRetainInstance(true) en su método onCreate(), como se muestra en la siguiente muestra de código:
+
+
+                  <center><img src="../images/Redes/veinte.png" alt=""/></center>
+                  Esto hace que se retenga este fragmento a través de los cambios de configuración en la actividad del anfitrión.
+<br>
+Luego, se modifica la manera en que se inicializa NetworkFragment en el método estático getInstance():
+<br>
+
+  <center><img src="../images/Redes/veintiuno.png" alt=""/></center>
+
+Lo que se hace es recuperar NetworkFragment en caso de que estemos recreando la Actividad debido a un cambio de configuración.
+<br>
+Esto es necesario porque NetworkFragment podría tener una tarea que comenzó a ejecutarse antes de que se produjera el cambio de configuración y que aún no ha terminado.
+<br>
+El NetworkFragment es recuperable porque llama al setRetainInstance(true).
+<br>
+Ahora la app puede obtener correctamente datos desde Internet.<br>
+
+            </p>
+          </p>
+
+          <p>
+            <h3>Cómo administrar el uso de la red</h3>
+        Se describe la forma de escribir aplicaciones que controlan minuciosamente el uso de recursos de red. Si la aplicación realiza muchas operaciones, debes proporcionar opciones de configuración que permitan a los usuarios controlar los hábitos de datos de tu app, como la frecuencia con la que sincroniza datos, si realiza cargas y descargas solo cuando hay conexión Wi-Fi, si usa datos con el servicio de itinerancia, etc. Con estos controles a nuestra disposición, es mucho menos probable que los usuarios inhabiliten el acceso de la app a los datos en segundo plano, ya que pueden controlar con precisión la cantidad de datos que usa la app.
+
+          </p>
+
+<p>  <h3>Cómo comprobar la conexión de red de un dispositivo</h3>
+  Un dispositivo puede tener varios tipos de conexiones de red. En esta lección, nos centraremos en el uso de una conexión de red Wi-Fi o móvil.
+  <br>
+  La conexión Wi-Fi suele ser más rápida. Además, los datos móviles suelen ser de uso medido, lo que puede resultar costoso. Una estrategia común para las apps es buscar una gran cantidad de datos solo si hay una red Wi-Fi disponible. Si no hay una conexión de red disponible, tu aplicación debería responder de forma correcta. Para verificar la conexión de red, por lo general, se usan las siguientes clases:
+  <ul>
+    <li>ConnectivityManager: Responde consultas sobre el estado de la conexión de red. También notifica a las aplicaciones cuando cambia la conectividad de red.</li>
+    <li>NetworkInfo: Describe el estado de una interfaz de red de un tipo determinado (actualmente, móvil o Wi-Fi).</li>
+
+  </ul>
+  En este fragmento de código, se prueba la conectividad de red para Wi-Fi y redes móviles.
+
+                      <center><img src="../images/Redes/22.png" alt=""/></center>
+  Siempre debes verificar isConnected() antes de realizar operaciones de red, ya que isConnected() se encarga de aspectos como redes móviles inestables, el modo de avión y datos restringidos en segundo plano.
+
+                      <center><img src="../images/Redes/23.png" alt=""/></center></p>
+  <h3>Cómo administrar el uso de la red</h3>
+
+                      <p>Puedes implementar una actividad de preferencias que brinde a los usuarios un control explícito sobre el uso de los recursos de red de tu app.</p>
+                      <ul>
+                        <li>Se pueden permitir que los usuarios carguen videos solo cuando el dispositivo esté conectado a una red Wi-Fi</li>
+                        <li>Se puede sincronizar la aplicación (o no) según criterios específicos, como la disponibilidad de la red, el intervalo de tiempo, etc.</li>
+
+                      </ul>
+                      Para escribir una app que admite el acceso a la red y administración del uso de la red, tu manifiesto debe tener los permisos correctos y filtros de intents.
+                      El extracto de manifiesto que se muestra a continuación incluye los siguientes permisos:
+                      <ul>
+                        <li>android.permission.INTERNET: Les permite a las aplicaciones abrir sockets de red.</li>
+                        <li>android.permission.ACCESS_NETWORK_STATE: Les permite a las aplicaciones acceder a información sobre redes.</li>
+
+                      </ul>
+                                          <center><img src="../images/Redes/24.png" alt=""/></center>
+
+                                          <h3>Cómo detectar cambios de conexión</h3>
+                                          <p>La pieza final del rompecabezas es la subclase de BroadcastReceiver, NetworkReceiver. Cuando cambia la conexión de red del dispositivo, NetworkReceiver intercepta la acción CONNECTIVITY_ACTION, determina el estado de la conexión de red y establece los indicadores wifiConnected y mobileConnected en verdadero o falso. El resultado es que, la próxima vez que el usuario regrese a la app, está solo descargara el feed más reciente y actualizará la pantalla si NetworkActivity.refreshDisplay se establece en true.
+<br> En este caso, es NetworkReceiver:</p>
+
+
+                                          <center><img src="../images/Redes/25.png" alt=""/></center>
+                                          <h3>Cómo optimizar el uso de datos de red</h3>
+                                          <p>A partir de Android 7.0 (nivel de API 24), los usuarios pueden habilitar Ahorro de datos en todo el dispositivo para optimizar el uso de datos y consumir menos.
+Cuando un usuario habilita Ahorro de datos en la Configuración y el dispositivo está conectado a una red de uso medido, el sistema bloquea el uso de datos en segundo plano y les indica a las apps que usen menos datos en primer plano siempre que sea posible.
+</p>
+
+<h3>Cómo verificar las preferencias de Ahorro de datos</h3>
+<p>En Android 7.0 (API nivel 24), las apps pueden usar la API de ConnectivityManager para determinar las restricciones de uso de datos que se aplican. Con el método getRestrictBackgroundStatus(), se muestra uno de los siguientes valores:</p>
+<ul>
+  <li>RESTRICT_BACKGROUND_STATUS_DISABLED: Ahorro de datos está inhabilitado.
+</li>
+<li>RESTRICT_BACKGROUND_STATUS_ENABLED: El usuario habilitó Ahorro de datos para esta app. Las apps deberían esforzarse por limitar el uso de datos en primer plano y manejar con facilidad las restricciones de uso de datos en segundo plano.</li>
+<li>RESTRICT_BACKGROUND_STATUS_WHITELISTED:El usuario habilitó Ahorro de datos, pero la app se encuentra en la lista blanca. Igualmente, las apps deben esforzarse por limitar el uso de datos en primer y segundo plano.</li>
+
+</ul>
+<h3>Cómo solicitar permisos de la lista blanca
+</h3>
+<p>Si la app necesita utilizar datos en segundo plano, esta puede solicitar permisos de lista blanca mediante el envío de un intent Settings.ACTION_IGNORE_BACKGROUND_DATA_RESTRICTIONS_SETTINGS que contenga un URI del nombre de paquete de la app, como package:MY_APP_ID.
+</p>
+<h3>Descripción general de Volley</h3>
+<p>Volley es una biblioteca HTTP que facilita y agiliza el uso de redes en apps para Android. Volley está disponible en GitHub.
+
+<ul>
+  Beneficios:
+  <li>Programación automática de solicitudes de red</li>
+  <li>Varias conexiones de red simultáneas</li>
+  <li>Almacenamiento de respuestas en caché y en disco transparentes con coherencia de caché en HTTP estándar</li>
+  <li>Compatibilidad con la priorización de solicitudes</li>
+  <li>API de cancelación de solicitudes (permite cancelar una única solicitud, o bien establecer bloques o grupos de solicitudes para cancelar)</li>
+  <li>Personalización sencilla, por ejemplo, de reintentos o retiradas</li>
+  <li>Ordenamiento sólido que permite completar correctamente la IU con datos recuperados de forma asíncrona de la red</li>
+  <li>Herramientas de depuración y rastreo</li>
+</ul>
+
+La manera más fácil de incorporar Volley en tu proyecto es agregar la siguiente dependencia al archivo build.gradle:
+</p>
+  <center><img src="../images/Redes/26.png" alt=""/></center>
+<h4>Cómo enviar una solicitud simple</h4>
+<p>En un nivel alto, puedes usar Volley para crear una RequestQueue y pasarle objetos Request. La RequestQueue administra los subprocesos de trabajo para ejecutar las operaciones de red, leer la caché y escribir en ella, y analizar las respuestas.</p>
+<h4>Cómo agregar el permiso de INTERNET</h4>
+<p>Para usar Volley, debe agregar el permiso android.permission.INTERNET al manifiesto de la app. Sin este permiso, la app no podrá conectarse a la red.</p>
+<h4>Cómo enviar una solicitud</h4>
+<p>Para enviar una solicitud, simplemente debes crearla y agregarla a la RequestQueue con add(). Esta pasa por la canalización, se envía, se analiza su respuesta sin procesar y se entrega.</p>
+<p>Cuando se llama a add(), Volley ejecuta un subproceso de procesamiento de caché y un conjunto de subprocesos de despacho de redes. Cuando agregas una solicitud a la cola, el subproceso de caché la toma y clasifica: si esta puede realizarse desde la caché, la respuesta almacenada en caché se analiza en el subproceso de caché y la respuesta analizada se entrega en el subproceso principal. Si la solicitud no puede realizarse desde la caché, se coloca en la cola de red. A continuación, el primer subproceso de red disponible toma la solicitud de la cola, realiza la transacción de HTTP, analiza la respuesta en el subproceso de trabajo, escribe la respuesta en la caché y devuelve la respuesta analizada al subproceso principal para su entrega.
+</p>
+
+
+    <center><img src="../images/Redes/27.png" alt=""/></center>
+<h4>Cómo cancelar una solicitud</h4>
+<p>Para cancelar una solicitud, llama al cancel() en tu objeto Request. Una vez que la canceles, Volley garantizará que nunca se llame a tu controlador de respuestas, lo que en la práctica significa que puedes cancelar todas las solicitudes pendientes en el método onStop() de tu actividad y no tienes que llenar tus controladores de respuestas con verificaciones para getActivity() == null, en caso de que ya se haya llamado a onSaveInstanceState(), o bien a otro código estándar defensivo.
+</p>
+<h4>Cómo configurar una red y una caché</h4>
+<p>En este fragmento, se muestran los pasos para configurar una RequestQueue:
+<center><img src="../images/Redes/28.png" alt=""/></center>
+</p>
+<h4>Realizar una solicitud estándar</h4>
+<p>Los tipos de solicitudes comunes que admite Volley:
+<ul>
+  <li>StringRequest: Especifica una URL y recibe una string sin procesar como respuesta.</li>
+  <li>JsonObjectRequest y JsonArrayRequest: (ambas son subclases de JsonRequest). Especifica una URL y obtén un objeto o un arreglo JSON (respectivamente) como respuesta.
+</li>
+</ul>
+</p>
+<h4>Cómo escribir una solicitud personalizada</h4>
+<p>La mayoría de las solicitudes incluyen implementaciones listas para usar en la caja de herramientas.
+<ul>
+  <li>Se extiende la clase Request<T>, en la que <T> representa el tipo de respuesta analizada que espera la solicitud. Por lo tanto, si, por ejemplo, la respuesta analizada es una string, se debe extender Request< String > para crear la solicitud personalizada.</li>
+    <li>Implementa los métodos abstractos parseNetworkResponse() y deliverResponse()</li>
+</ul>
+
+</p>
+
+           <br><br>
+         </div>
+    </div>
+
+      </div>
+    </section>
+    <div>
+      <a
+        href=""
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href=""
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p>
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+
+      <div class="copyright">
+        Design: <a href="https://templated.co">TEMPLATED</a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
