@@ -7,7 +7,7 @@
 <html>
 	<head>
 		<!--Poner el titulo de la clase-->
-		<title>Actividades</title>
+		<title>Concurrencia</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="../assets/css/main.css" />
@@ -39,42 +39,210 @@
 				<div class="inner">
 					<!--Usar el siguiente div para poner imagenes en el doc-->
 					<div class="image fit">
-						<img src="../images/Introactividades/activity.png"height="410" width="300"alt="" />
+						<img src="../images/Hilos/procesos.png"height="250" width="500" alt="" />
 					</div>
 					<!--Poner toda la informacion de la clase-->
 					<header>
 						<!--Poner el titulo de la clase-->
-						<h1>Hilos</h1>
+						<h1>Concurrencia</h1>
 						<!--Poner fecha de la clase-->
-						<p class="info">16 de Noviembre del 2020</p>
+						<p class="info">30 de Noviembre del 2020</p>
 					</header>
 					<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
                    <ol>
-					<li><a href="Introduccionactividades.html">El concepto de Actividades</a></li>
+					<li><a href="Hilos.html">Procesos y subprocesos</a></li>
 					
-                    <li><a href="multipleshilos.html">Creando un administrador para múltiples Hilos</a></li>
+                    <li><a href="multipleshilos.html">Creando un administrador para múltiples hilos</a></li>
 					<li><a href="tareasypilas.html">Información sobre las tareas y pila de actividades</a></li>
-                    
 									
 									
 				</ol>
 					
+					<h2 align="center">Procesos</h2><br>
 					
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-					
-					
+	<p align="justify">Cuando se inicia un componente de la aplicación y esta no tiene ningún otro componente ejecutándose, el sistema de Android inicia un nuevo proceso para la aplicación con un único subproceso de ejecución.
+Si se inicia el componente de una aplicación y ya existe un proceso para la aplicación el componente se inicia dentro de ese proceso y usa el mismo subproceso de ejecución.</p>
+
+<p align="justify">El elemento application también admite un atributo android:process para establecer un valor que se aplica a todos los componentes.
+
+Android puede decidir finalizar un proceso en algún momento, cuando la memoria es baja y la requieren otros procesos que son inmediatamente más necesarios para lo que desea el usuario. En si un proceso se inicia de nuevo para esos componentes cuando vuelve a haber trabajo para ellos.</p>
+
+<p align="justify">Cuando decides qué procesos cancelar, el sistema Android pondera su importancia relativa para el usuario. Por ejemplo, cierra más rápido un proceso que aloja actividades que ya no se ven en la pantalla que un proceso que aloja actividades visibles. La decisión de si se debe finalizar un proceso, por lo tanto, depende del estado de los componentes que se ejecutan en él.
+</p>
+<p align="center"><img src="../images/Hilos/android.jpg" alt="..." width="780" height="400"></p>
+<br>
+
+<center><h2>Ciclo de vida de los procesos</h2></center><br>
+<p align="justify">En la mayoría de los casos, cada aplicación para Android se ejecuta en su propio proceso. Se crea este proceso para la aplicación cuando es necesario ejecutar parte de su código, y seguirá ejecutándose hasta que ya no sea necesario y el sistema necesite recuperar su memoria a fin de que la usen otras aplicaciones.</p>
+<p align="justify">Una característica poco común y fundamental de Android es que la duración del proceso de una aplicación no se controla directamente desde la aplicación. En su lugar, el sistema la determina mediante una combinación de las partes de la aplicación que el sistema sabe que se están ejecutando, la importancia de estas para el usuario y la cantidad total de memoria disponible en el sistema.</p>
+<p align="justify">El sistema Android trata de  mantener el proceso de una aplicación el mayor tiempo posible pero finalmente necesita quitar los procesos viejos a fin de recuperar memoria para procesos nuevos o mas importantes
+</p>
+
+<p align="justify">Para determinar que procesos mantener y cuales finalizar el sistema coloca cada proceso en una jerrarquia de importancia</p>
+
+
+<div class="card mb-3" style="max-width: 1000px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="../images/Hilos/ciclov.png" width="500" height="350" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text"><p align="justify">La jerarquía de importancia tiene 5 niveles a fin de determinar que procesos deben eliminarse cuando haya poca memoria, Android coloca cada proceso en una jerarquía de importancia.
+Los tipos de procesos son los siguientes según el orden de importancia .
+</p>
+
+<li>Proceso en primer plano: es uno que se requiere para lo que el usuario esta haciendo actualmente.</li>
+<li>Proceso visible donde realiza una tarea sobre la que el usuario tiene conocimiento.</li>
+<li>Proceso de servcio: Procesos "pendientes" de alguna tarea.</li>
+<li>Segundo plano: Una tarea interrumpida que puede ser reanudada, o no.</li>
+<li>Procesos vacíos: Una tarea que se supone finalizada, pero se mantiene porque puede utilizarse en breve.</li>
+
+		  
+		  
+		  </p>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+<center><h2>Características</h2></center><br>
+<table width="200" border="1">
+    <th scope="row">primer plano </th>
+    <td><p align="justify">Ejecuta una Activity en la parte superior de la pantalla con la que el usuario está interactuando (se llamó a su método onResume()).</p>
+<p align="justify">Tiene un BroadcastReceiver que actualmente está en ejecución (se está ejecutando su método BroadcastReceiver.onReceive()).</p>
+<p align="justify">Tiene un Service que actualmente está ejecutando código en una de sus devoluciones de llamadas (Service.onCreate(), Service.onStart() o Service.onDestroy()).</p>
+<p align="justify">Solo habrá unos pocos procesos de este tipo en el sistema, y solo se eliminarán como último recurso si la memoria es tan baja que ni siquiera estos pueden continuar ejecutándose. En general, en este punto, el dispositivo alcanzó un estado de paginación de memoria, por lo que esta acción es necesaria para que la interfaz de usuario responda.</p></td>
+  </tr>
+  <tr>
+    <th scope="row">Proceso visible</th>
+    <td><p align="justify">Ejecuta una Activity que es visible para el usuario en pantalla, pero no en primer plano (se llamó a su método onPause()), lo cual puede ocurrir, por ejemplo, si la actividad en primer plano se muestra como un diálogo que permite ver la actividad anterior detrás de ella.</p>
+<p align="justify">Tiene un Service que se ejecuta como servicio en primer plano por medio de Service.startForeground() (que le pide al sistema que trate el servicio como algo que el usuario conoce o que es esencialmente visible para este).</p>
+<p align="justify">La cantidad de procesos que se ejecutan en el sistema es menos limitada que los procesos en primer plano, pero aún está relativamente controlada. Estos procesos se consideran sumamente importantes y no se eliminarán a menos que sea necesario para mantener en ejecución todos los procesos en primer plano.</p></td>
+  </tr>
+  <tr>
+    <th scope="row">Proceso de servicio</th>
+    <td><p align="justify">Si bien estos procesos no son directamente visibles para el usuario, generalmente están realizando tareas que le interesan (como la carga o descarga de datos de la red en segundo plano), por lo que el sistema siempre los mantendrá en ejecución a menos que no haya suficiente memoria para retener todos los que estén visibles y en primer plano.</p>
+<p align="justify">Es posible que se descienda el nivel de importancia de los servicios que han estado ejecutándose por un tiempo prolongado (como 30 minutos o más) a fin de permitir que sus procesos se incluyan en la lista de LRU almacenada en caché que se describe a continuación. De esta manera, se evitan situaciones en las que los servicios de duración prolongada con pérdidas de memoria o algún otro problema consuman tanta memoria RAM que impidan que el sistema use los procesos almacenados en caché de manera eficaz.</p>
+</td>
+  </tr>
+  <tr>
+    <th scope="row">Segundo plano</th>
+    <td><p align="justify"> Estos procesos no tienen un efecto directo en la esperiencia del usuario, y el sistema puede finalizarlos en cualquier momento para recuperar memoria .</p>
+    <p align="justify"> Por lo general se ejecutan muchos procesos en segundo plano por lo que se los antienen en una lista LRU para garantizar que el proceso con la actividad que el usuario vio masreciente se la última en finalizarse</p></td>
+  </tr>
+  <tr>
+    <th scope="row">Procesos vacíos</th>
+    <td><p align="justify">Él único motivo para matener este tipo de proceso activo es por fines de la memoria caché, para mejorar el tiempo de inicio la siguiente vez.</p>
+    <p align="justify"> El sistema suele finalizar estos proceso para equlibrar los recursos generales del sistema entre las memorias caché de procesos y las memoria caché de kernel subyacentes.</p></td>
+  </tr>
+</table>
+
+<center><h2>Subprocesos</h2></center><br>
+<p align="justify">Cuando se inicia una aplicación, el sistema crea un subproceso de ejecución, que se denomina "principal". Este subproceso es muy importante porque está a cargo de distribuir eventos a los widgets correspondientes de la interfaz de usuario, incluidos los eventos de dibujo. 
+Por esto, el subproceso principal también se suele denominar subproceso de IU. Sin embargo, en circunstancias especiales, es posible que el subproceso principal de una app no sea el de la IU.
+</p>
+<p align="justify">El sistema no crea un subproceso separado para cada instancia de un componente. Se crean instancias de todos los componentes que se ejecutan en el mismo proceso del subproceso de IU, y las llamadas del sistema a cada componente se distribuyen desde ese subproceso. 
+</p>
+
+<p align="justify">Cuando se bloquea el subproceso, no se pueden distribuir los eventos, ni siquiera los de dibujo. Desde la perspectiva del usuario, la aplicación no responde. Aún peor, si se bloquea el subproceso de IU durante más de unos segundos específicamente, unos 5, al usuario se le presenta el infame cuadro de diálogo "la aplicación no responde"
+Además, el paquete de herramientas de la IU de Android no es seguro para subprocesos.
+</p>
+<center><p align="center"><img src="../images/Hilos/cerrar.png" width="500"></p></center><br>
+
+<p align="justify">Por lo tanto, solo existen dos reglas para el modelo de subproceso único de Android:</p>
+<center><p align="center"><img src="../images/Hilos/reglas.png" width="500" height="290"></p></center><br>
+<li>No bloquear el subproceso de IU</li>
+<li>No acceder al paquete de herramientas de la IU de Android desde fuera del subproceso de IU</li><br>
+
+
+<h2>Subprocesos de trabajo</h2>
+<p align="justify">Si se tiene que realizar operaciones que no son inmediatas, se debe asegurar de hacerlo en subprocesos separados como segundo plano" o "de trabajo").
+Sin embargo se debe tener en cuenta que no podemos actualizar la IU desde ningún otro subproceso que no sea el de la IU o el "principal".
+Para solucionar este problema, Android ofrece varias maneras de acceder al subproceso de IU desde otros subprocesos. 
+</p>
+<center><p align="center"><img src="../images/Hilos/trabajo.png" width="500"></p></center><br>
+<h2>AsyncTask</h2>
+<p align="justify">AsyncTask permite realizar trabajos asíncronos en la interfaz de usuario. Realiza las operaciones de bloqueo en un subproceso de trabajo y, luego, publica los resultados en el subproceso de IU sin que se deba administrar los subprocesos.</p>
+<p align="justify">Para usarla, se debe crear una subclase de AsyncTask e implementar el método de devolución de llamada doInBackground(), que se ejecuta en un grupo de subprocesos en segundo plano.</p>
+<p align="justify">El método doInBackground(),  se ejecuta automáticamente en un subproceso de trabajo.</p> 
+<p align="justify">OnprogressUpdate se invocan en el subproceso de la IU.</p>
+<p align="justify">El valor que devuelve doInBackground() se envia a onPostExecute</p>
+<center><p align="center"><img src="../images/Hilos/as.png" width="500"></p></center><br>
+
+<h3>Cuando se ejecuta una tarea asincrónica, la tarea pasa por 4 pasos:</h3><br>
+
+<table width="200" border="1">
+  <tr>
+    <th scope="row">onPreExecute()</th>
+    <td><p align="justify">invocado en el subproceso de la interfaz de usuario antes de que se ejecute la tarea. Este paso se utiliza normalmente para configurar la tarea, por ejemplo, mostrando una barra de progreso en la interfaz de usuario.</p></td>
+  </tr>
+    <th scope="row">doInBackground(Params...)</th>
+    <td><p align="justify">invocado en el subproceso de fondo inmediatamente después de que onPreExecute()termine de ejecutarse. Este paso se utiliza para realizar cálculos en segundo plano que pueden llevar mucho tiempo. Los parámetros de la tarea asincrónica se pasan a este paso. Este paso debe devolver el resultado del cálculo y se pasará al último paso. Este paso también se puede utilizar publishProgress(Progress...)para publicar una o más unidades de progreso. Estos valores se publican en el subproceso de la interfaz de usuario, en el onProgressUpdate(Progress...)paso.</p></td>
+  </tr>
+  <tr>
+    <th scope="row">onProgressUpdate(Progress...)</th>
+    <td><p align="justify">invocado en el hilo de la interfaz de usuario después de una llamada a publishProgress(Progress...). El momento de la ejecución no está definido. Este método se utiliza para mostrar cualquier forma de progreso en la interfaz de usuario mientras el cálculo en segundo plano aún se está ejecutando. Por ejemplo, se puede utilizar para animar una barra de progreso o mostrar registros en un campo de texto.</p></td>
+  </tr>
+   <tr>
+    <th scope="row">onPostExecute(Result)</th>
+    <td><p align="justify"><p align="justify">invocado en el subproceso de la interfaz de usuario después de que finaliza el cálculo en segundo plano. El resultado del cálculo de fondo se pasa a este paso como parámetro.</p></td>
+  </tr>
+</table>
+
+<h2>Tipos genéricos de AsyncTask</h2>
+<p align="justify">Los tres tipos utilizados por una tarea asincrónica son los siguientes:</p>
+
+<li>Params, el tipo de parámetros enviados a la tarea al ejecutarse.</li>
+<li>Progress, el tipo de unidades de progreso publicadas durante el cálculo de fondo.</li>
+<li>Result, el tipo de resultado del cálculo de fondo.</li>
+<p align="justify">No todos los tipos se utilizan siempre en una tarea asincrónica. Para marcar un tipo como no utilizado, simplemente use el tipo Void:</p>
+
+<center><p align="center"><img src="../images/Hilos/act.png" width="500"></p></center><br>
+
+
+<h3>Reglas de subprocesamiento</h3><br>
+<p align="justify">Hay algunas reglas de subprocesamiento que se deben seguir para que esta clase funcione correctamente:</p>
+
+<p align="justify">La clase AsyncTask debe cargarse en el subproceso de la interfaz de usuario. Esto se hace automáticamente a partir del Build.VERSION_CODES.JELLY_BEAN.</p>
+<p align="justify">La instancia de la tarea debe crearse en el subproceso de la interfaz de usuario.
+execute(Params...) debe invocarse en el hilo de la interfaz de usuario.</p>
+<p align="justify">No llame onPreExecute(), onPostExecute(Result), doInBackground(Params...), onProgressUpdate(Progress...)manualmente.</p>
+<p align="justify">La tarea se puede ejecutar solo una vez (se lanzará una excepción si se intenta una segunda ejecución).</p><br>
+
+<center><h2>Envío de operaciones a varios subprocesos</h2></center><br>
+
+<div class="card mb-3" style="max-width: 1000px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="../images/Hilos/cpu.png" width="500" height="200" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text"><p align="justify">La velocidad y la eficiencia de una operación intensiva de datos de larga duración a menudo mejora cuando se divide en operaciones más pequeñas que se ejecutan en varios subprocesos. En un dispositivo que tiene una CPU con varios procesadores (núcleos), el sistema puede ejecutar los subprocesos en paralelo, en lugar de hacer que cada suboperación espere una oportunidad para ejecutarse.
+		  </p>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+
+
+<center><h2>Especificar el código para ejecutar en un subproceso</h2></center><br>
+<p align="justify">Thread y runnable son clases básicas que, por sí solas, tienen un poder limitado. En cambio, son la base de poderosas clases de Android como HandlerThread, AsyncTask e IntentService Thread y Runnable 
+también son la base de la clase ThreadPoolExecutor. Esta clase administra automáticamente subprocesos y colas de tareas, e incluso puede ejecutar varios subprocesos en paralelo.</p>
+
+<center><h2>Implementar el método run()</h2>
+
+<div class="card mb-3"><br><br>
+  <p align="center"><img src="../images/Hilos/run.png" alt="..." width="800" height="500" ></p>
+  <div class="card-body">
+    <p class="card-text" ><p align="justify">Cualquier cosa está permitida en un Runnable. Sin embargo no se ejecutará en el subproceso de la interfaz de usuario, por lo que no puede modificar directamente los objetos de la interfaz de usuario, como los objetos View.
+al comienzo del método run (), configure el hilo para usar la prioridad de fondo llamando a Process.setThreadPriority () con THREAD PRIORITY BACKGROUD. Este enfoque reduce la competencia de recursos entre el subproceso del objeto Runnable y el subproceso de la interfaz de usuario.También debe almacenar una referencia al objeto Runnable es Thread en el propio Runnable, llamando a Thread.currentThread ().
+</p><br>
+  </div>
+</div><br>
+
 					
 					
 	
