@@ -137,6 +137,226 @@
         </div>
 
 
+		<h4>Cómo usar el almacenamiento interno</h4>
+				<p>
+				<li>Los archivos, son privados para tu app y cuando desinstalas la app, estos archivos se borran.</li>
+				<b>Crear y escribir un archivo privado en el almacenamiento interno</b>
+				
+				<li>LLama a openFileOutput() mediante el nombre del archivo y modo de operación. Esto muestra un FileOutputStream.</li>
+				<li>Realiza operaciones de escritura en el archivo con write().</li>
+			<li>Cierra el flujo con close().</li>	
+			</p>
+		<h4>Leer un archivo desde el almacenamiento interno</h4>	
+				<p>
+				<li>LLama a openFileInput() y usa el nombre del archivo que deseas leer. Esto muestra un FIleInputStream.
+				</li>
+				<li>Lee los bytes del archivo con read().</li>
+				<li>A continuación, cierra el flujo con close(). 
+				</li>
+				</p>
+				
+		<h4>Guardar archivos de caché</h4>	
+				<p>
+				<li>utilizamos getCacheDir().</li>
+				</p>
+
+				<div class="card mb-3" style="max-width: 1000px">
+					<div class="row no-gutters">
+						<div class="col-md-4 col-lg-6">
+							<img
+							  src="../images/Persistencia/Persistencia5.jpg"
+							  alt="..."
+							  width="350"
+							  height="350"
+							  class="card-img"
+							/>
+						  </div>
+					  <div class="col-md-8 col-lg-6">
+						  
+						<div class="card-body col-lg-12 pt-5">
+							<h4>Otros métodos útiles</h4>
+		<li>getFilesDir(), obtiene la ruta de acceso a tus archivos internos. </li>
+		  <li>getDir(), crea un directorio o lo abre en el caso de que exista. </li>
+		  <li>deleteFile(), quita un archivo guardado en el almacenamiento.</li>
+		  <li>fileList(), Muestra un conjunto de archivos que tu aplicación guarda</li>
+						</div>
+					  </div>
+					  
+					</div>
+				  </div>		
+
+				  <h4>Cómo usar el almacenamiento externo</h4>
+				  <p>
+				    <h4>Acceso al almacenamiento externo</h4>
+					<li>Debemos obtener los permisos del sistema del READ_EXTERNAL_STORAGE o WRITE_EXTERNAL_STORAGE.</li>
+		
+			  </p>
+			  
+			  <p>
+				<h4>Comprobar la disponibilidad de medios</h4>
+				<li>Debemos llamar a getExternalStorageState(), para comprobar que el medio esté disponible.</li>
+		 <li> Este método muestra otros estados como el uso compartido de los medio, la falla total, eliminación incorrecta,etc.
+		</li>
+			</p>
+			 
+		  <p>
+			<h4>Guardar archivos que se pueden compartir con otras apps.</h4>
+			<li>Debemos llamar a getExternalStoragePublicDirectory() y usar el tipo de directorio que deseemos, como por ejemplo: DIRECTORY_MUSIC, DIRECTORY_PICTURES, etc
+			</li>
+	  </p>
+	  <div class="card mb-3" style="max-width: 1000px">
+		<div class="row no-gutters">
+			
+		  <div class="col-md-8 col-lg-6">
+			  
+			<div class="card-body col-lg-12 pt-5">
+				<h4>Utilizar las bases de datos
+				</h4>
+<p>Android ofrece compatibilidad con las bases de datos SQLite.
+	para crear una base de datos debemos crear una sub clases de SQLiteOpenHelper y anular el método de onCreate()</p>
+			</div>
+		  </div>
+		  <div class="col-md-4 col-lg-6">
+			<img
+			  src="../images/Persistencia/Persistencia6.jpg"
+			  alt="..."
+			  width="350"
+			  height="350"
+			  class="card-img"
+			/>
+		  </div>
+		</div>
+	  </div>
+
+	  <p>
+			<li>Para realizar operaciones de lectura y escritura llamaremos a
+			getWritableDatabase() y getReadableDatabase().
+			</li>
+  </p>
+
+  <p>
+	<h4>Depuración de la base de datos
+	</h4>
+	<p>El android SDK incluye una herramienta de base de datos sqlite3, que permite explorar contenido de tablas, ejecutar comandos de sql.</p>
+  </p>
+
+  <p>
+	<h4>Usar una conexión de red</h4>
+	<p>Puedes usar la red para almacenar y obtener datos de tus propios servicios basados en la web.</p>
+<p>Para realizar operaciones en la red use las clases de los paquetes: </p>
+<li>java.net.*</li>
+<li>android.net.*</li>
+
+</p>
+
+<p>
+	<h4>Room (Biblioteca de persistencias Room )</h4>
+	<p>Brinda una capa de abstracción para SQLite que permite acceder a la base de datos sin problemas y al mismo tiempo, aprovecha toda la potencia de SQLite. </p>
+<p>Te ayuda a crear una memoria caché de los datos en un dispositivo que ejecute tu app.</p>
+</p>
+
+<p>
+	<h4>guardar contenido en una base de datos local con Room</h4>
+<li>Base de datos: Contiene el titular de la base y sirve como punto de acceso principal para la conexión subyacente a los datos persistentes y relacionales de la app.</li>	
+<p>La clase anotada con @Database debería cumplir con:</p>
+<li>Ser un clase abstracta que extienda Room Database </li>
+<li>Incluir la lista de entidades asociadas con la base de datos dentro de la anotación.</li>
+<li>Contener un método abstracto que tenga 0 argumentos y muestre la clasea anotada @Dao</li>
+<p>Durante el tiempo de ejecución, puedes adquirir una instancia de Database llamando a RoomdatababeBuilder() o Room.inMemoryDatabaseBuilder().</p>
+<li>Entidad: Representa una tabla dentro de la base de datos.</li>
+<li>DAO: Contiene los métodos utilizados para acceder a la base de datos.</li>
+
+</p>
+
+<div class="card mb-3" style="max-width: 1000px">
+	<div class="row no-gutters">
+		
+	  <div class="col-md-12 col-lg-12">
+		  
+		<div class="card-body col-lg-12 pt-5">
+			<h4>Arquitectura de Room
+			</h4>
+		</div>
+	  </div>
+	  <div class="col-md-12 col-lg-12">
+		<img
+		  src="../images/Persistencia/Persistencia7.png"
+		  alt="..."
+		  width="350"
+		  height="350"
+		  class="card-img"
+		/>
+	  </div>
+	</div>
+  </div>
+<h4>Configuración de la Base de datos</h4>
+  <div class="card mb-3" style="max-width: 1000px">
+	<div class="row no-gutters">
+		
+	  <div class="col-md-12 col-lg-12">
+		  
+		<div class="card-body col-lg-12 pt-5">
+			<h4>User
+			</h4>
+		</div>
+	  </div>
+	  <div class="col-md-12 col-lg-12">
+		<img
+		  src="../images/Persistencia/Persistencia8.png"
+		  alt="..."
+		  width="350"
+		  height="350"
+		  class="card-img"
+		/>
+	  </div>
+	</div>
+  </div>
+
+  <div class="card mb-3" style="max-width: 1000px">
+	<div class="row no-gutters">
+		
+	  <div class="col-md-12 col-lg-12">
+		  
+		<div class="card-body col-lg-12 pt-5">
+			<h4>User Dao
+			</h4>
+		</div>
+	  </div>
+	  <div class="col-md-12 col-lg-12">
+		<img
+		  src="../images/Persistencia/Persistencia9.png"
+		  alt="..."
+		  width="350"
+		  height="350"
+		  class="card-img"
+		/>
+	  </div>
+	</div>
+  </div>
+
+  <div class="card mb-3" style="max-width: 1000px">
+	<div class="row no-gutters">
+		
+	  <div class="col-md-12 col-lg-12">
+		  
+		<div class="card-body col-lg-12 pt-5">
+			<h4>AppDatabase
+			</h4>
+		</div>
+	  </div>
+	  <div class="col-md-12 col-lg-12">
+		<img
+		  src="../images/Persistencia/Persistencia10.png"
+		  alt="..."
+		  width="350"
+		  height="350"
+		  class="card-img"
+		/>
+	  </div>
+	</div>
+  </div>
+
+
 		  </section>
 
 			<div>
