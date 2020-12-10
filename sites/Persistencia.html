@@ -56,9 +56,9 @@
 			  <hr />
 
 				 <h3>Cómo guardar datos</h3>
-				
+
 				<p align="justify">
-				
+
 					<li>La mayoría de las apps de Android necesitan guardar datos, así sea para guardar información del estado durante el método onPause() para no perder el progreso del usuario.</li>
 					<li>guardar la configuración del usuario. </li>
 					<li>Administrar grandes cantidades de información en archivos o bases de datos. </li>
@@ -91,37 +91,36 @@
             </div>
           </div>
     </div>
-		
-		<h4>Obtener manejador de preferencias compartidas</h4>	
+
+		<h4>Obtener manejador de preferencias compartidas</h4>
 				<p>
 				<li>getSharedPreferences() - obtener múltiples archivos compartidos identificados por un nombre, desde cualquier instancia Context.</li>
 				<li>getPreferences() – desde la instancia Activity  para utilizar un solo archivo compartido para la actividad, no necesario especificar nombre.</li>
 				</p>
-		<h4>Escribir en preferencias compartidas</h4>	
+		<h4>Escribir en preferencias compartidas</h4>
 				<p>
 				<li>Para la operación de escritura en el archivo de preferencias compartidas es necesario crear un método SharedPreferences.Editor 	llamando a edit() en tu SharedPreferences</li>
 				<li>Pasar las claves y los valores que desees escribir con los métodos putInt() y putString()</li>
 				<li>Llamar al método commit() para guardar los cambios.</li>
 				</p>
-				
-		<h4>Leer de preferencias compartidas</h4>	
+
+		<h4>Leer de preferencias compartidas</h4>
 				<p>
 				<li>Para recuperar valores de archivos de preferencia compartida, llamar a los métodos getInt() y getString(), dando la clave del valor que desees. </li>
 				<li>Opcionalmente, ingresar un valor predeterminado para mostrar si no se encuentra la clave antes establecida.</li>
 
 				</p>
 		<h3>Consulta Espacio Libre</h3>
-				
-		
+
+
 
         <div class="card mb-3" style="max-width: 1000px">
           <div class="row no-gutters">
             <div class="col-md-8 col-lg-6">
               <div class="card-body col-lg-12 pt-5">
-				<li>Se puede comprobar si hay suficiente espacio disponible sin causar una IOException llmando a getFreeSpace() o getTotalSpace().</li>
-<li>Estor métodos proporcionan el espacio disponible actual y el espacio total del volumen de almacenamiento.</li>
-<li>No es obligatorio comprobar el espacio disponible antes de guardar un archivo</li>
-
+								<li>Se puede comprobar si hay suficiente espacio disponible sin causar una IOException llmando a getFreeSpace() o getTotalSpace().</li>
+								<li>Estor métodos proporcionan el espacio disponible actual y el espacio total del volumen de almacenamiento.</li>
+								<li>No es obligatorio comprobar el espacio disponible antes de guardar un archivo</li>
               </div>
             </div>
             <div class="col-md-4 col-lg-6">
@@ -139,23 +138,20 @@
 
 		<h4>Cómo usar el almacenamiento interno</h4>
 				<p>
-				<li>Los archivos, son privados para tu app y cuando desinstalas la app, estos archivos se borran.</li>
-				<b>Crear y escribir un archivo privado en el almacenamiento interno</b>
-				
-				<li>LLama a openFileOutput() mediante el nombre del archivo y modo de operación. Esto muestra un FileOutputStream.</li>
-				<li>Realiza operaciones de escritura en el archivo con write().</li>
-			<li>Cierra el flujo con close().</li>	
-			</p>
-		<h4>Leer un archivo desde el almacenamiento interno</h4>	
-				<p>
-				<li>LLama a openFileInput() y usa el nombre del archivo que deseas leer. Esto muestra un FIleInputStream.
-				</li>
-				<li>Lee los bytes del archivo con read().</li>
-				<li>A continuación, cierra el flujo con close(). 
-				</li>
+					<li>Los archivos, son privados para tu app y cuando desinstalas la app, estos archivos se borran.</li>
+					<b>Crear y escribir un archivo privado en el almacenamiento interno</b>
+					<li>LLama a openFileOutput() mediante el nombre del archivo y modo de operación. Esto muestra un FileOutputStream.</li>
+					<li>Realiza operaciones de escritura en el archivo con write().</li>
+					<li>Cierra el flujo con close().</li>
 				</p>
-				
-		<h4>Guardar archivos de caché</h4>	
+		<h4>Leer un archivo desde el almacenamiento interno</h4>
+				<p>
+					<li>LLama a openFileInput() y usa el nombre del archivo que deseas leer. Esto muestra un FIleInputStream.</li>
+					<li>Lee los bytes del archivo con read().</li>
+					<li>A continuación, cierra el flujo con close().</li>
+				</p>
+
+		<h4>Guardar archivos de caché</h4>
 				<p>
 				<li>utilizamos getCacheDir().</li>
 				</p>
@@ -172,7 +168,7 @@
 							/>
 						  </div>
 					  <div class="col-md-8 col-lg-6">
-						  
+
 						<div class="card-body col-lg-12 pt-5">
 							<h4>Otros métodos útiles</h4>
 		<li>getFilesDir(), obtiene la ruta de acceso a tus archivos internos. </li>
@@ -181,24 +177,24 @@
 		  <li>fileList(), Muestra un conjunto de archivos que tu aplicación guarda</li>
 						</div>
 					  </div>
-					  
+
 					</div>
-				  </div>		
+				  </div>
 
 				  <h4>Cómo usar el almacenamiento externo</h4>
 				  <p>
 				    <h4>Acceso al almacenamiento externo</h4>
 					<li>Debemos obtener los permisos del sistema del READ_EXTERNAL_STORAGE o WRITE_EXTERNAL_STORAGE.</li>
-		
+
 			  </p>
-			  
+
 			  <p>
 				<h4>Comprobar la disponibilidad de medios</h4>
 				<li>Debemos llamar a getExternalStorageState(), para comprobar que el medio esté disponible.</li>
 		 <li> Este método muestra otros estados como el uso compartido de los medio, la falla total, eliminación incorrecta,etc.
 		</li>
 			</p>
-			 
+
 		  <p>
 			<h4>Guardar archivos que se pueden compartir con otras apps.</h4>
 			<li>Debemos llamar a getExternalStoragePublicDirectory() y usar el tipo de directorio que deseemos, como por ejemplo: DIRECTORY_MUSIC, DIRECTORY_PICTURES, etc
@@ -206,9 +202,9 @@
 	  </p>
 	  <div class="card mb-3" style="max-width: 1000px">
 		<div class="row no-gutters">
-			
+
 		  <div class="col-md-8 col-lg-6">
-			  
+
 			<div class="card-body col-lg-12 pt-5">
 				<h4>Utilizar las bases de datos
 				</h4>
@@ -257,7 +253,7 @@
 
 <p>
 	<h4>guardar contenido en una base de datos local con Room</h4>
-<li>Base de datos: Contiene el titular de la base y sirve como punto de acceso principal para la conexión subyacente a los datos persistentes y relacionales de la app.</li>	
+<li>Base de datos: Contiene el titular de la base y sirve como punto de acceso principal para la conexión subyacente a los datos persistentes y relacionales de la app.</li>
 <p>La clase anotada con @Database debería cumplir con:</p>
 <li>Ser un clase abstracta que extienda Room Database </li>
 <li>Incluir la lista de entidades asociadas con la base de datos dentro de la anotación.</li>
@@ -270,9 +266,9 @@
 
 <div class="card mb-3" style="max-width: 1000px">
 	<div class="row no-gutters">
-		
+
 	  <div class="col-md-12 col-lg-12">
-		  
+
 		<div class="card-body col-lg-12 pt-5">
 			<h4>Arquitectura de Room
 			</h4>
@@ -292,9 +288,9 @@
 <h4>Configuración de la Base de datos</h4>
   <div class="card mb-3" style="max-width: 1000px">
 	<div class="row no-gutters">
-		
+
 	  <div class="col-md-12 col-lg-12">
-		  
+
 		<div class="card-body col-lg-12 pt-5">
 			<h4>User
 			</h4>
@@ -314,9 +310,9 @@
 
   <div class="card mb-3" style="max-width: 1000px">
 	<div class="row no-gutters">
-		
+
 	  <div class="col-md-12 col-lg-12">
-		  
+
 		<div class="card-body col-lg-12 pt-5">
 			<h4>User Dao
 			</h4>
@@ -336,9 +332,9 @@
 
   <div class="card mb-3" style="max-width: 1000px">
 	<div class="row no-gutters">
-		
+
 	  <div class="col-md-12 col-lg-12">
-		  
+
 		<div class="card-body col-lg-12 pt-5">
 			<h4>AppDatabase
 			</h4>
@@ -356,6 +352,311 @@
 	</div>
   </div>
 
+			<div class="card mb-3" style="max-width: 1000px">
+			<div class="row no-gutters">
+
+				<div class="col-md-6">
+				<div class="card-body">
+					<h3 >Crear objetos anidados</h3>
+					<ul>
+					<br />
+					<p>
+						Se utiliza la anotación @Embedded para expresar una entidad u
+						objeto de datos como un solo elemento integral de la base de datos
+						aun si este posee varios campos.
+					</p>
+					</ul>
+				</div>
+				</div>
+				<div class="col-md-6">
+				<img
+					src="../images/Persistencia/anid.png"
+					alt="..."
+					width="767"
+					height="272"
+					class="card-img"
+				/>
+				</div>
+			</div>
+			</div>
+
+			<div class="card mb-3" style="max-width: 1000px">
+			<div class="row no-gutters">
+
+				<div class="col-md-6">
+					<img
+						src="../images/Persistencia/vartovar01.png"
+						alt="..."
+						width="767"
+						height="272"
+						class="card-img"
+					/>
+				</div>
+				<div class="col-md-6">
+				<div class="card-body"><br/>
+					<h3 >Relaciones varios a varios</h3>
+					<ul>
+					<br/>
+					<p>
+						En una base de datos relacional hay otro tipo de relación que es
+						la de varios a varios entre 2 entidades donde cada un puede
+						vincular a cero o más instancias de la otra.
+					</p>
+					</ul>
+				</div>
+				</div>
+
+				<div class="col-md-6">
+				<div class="card-body">
+					<h3 >Relaciones varios a varios</h3>
+					<ul>
+					<br />
+					<p>
+						Para modelar esta relación se usa estos objetos:
+						<li>Una clase entidad para las playlist</li>
+						<li>Una clase entidad para las canciones</li>
+						<li>Una clase entidad que tenga la información de las canciones en
+						cada playlist</li>
+					</p>
+					</ul>
+				</div>
+				</div>
+				<div class="col-md-6">
+					<img
+						src="../images/Persistencia/vartovar02.png"
+						alt="..."
+						width="767"
+						height="272"
+						class="card-img"
+					/>
+				</div>
+
+				<div class="col-md-6">
+					<img
+						src="../images/Persistencia/vartovar03.png"
+						alt="..."
+						width="767"
+						height="272"
+						class="card-img"
+					/>
+				</div>
+				<div class="col-md-6">
+				<div class="card-body">
+					<h3 >Relaciones varios a varios</h3>
+					<ul>
+					<br />
+					<p>
+						Asi se realiza un modelo de varios a varios para consultar las
+						playlist por canción o las canciones por playlist.
+					</p>
+					</ul>
+				</div>
+				</div>
+			</div>
+			</div>
+
+			<div class="card mb-3" style="max-width: 1000px">
+			<div class="row no-gutters">
+
+				<div class="col-md-4">
+				<div class="card-body">
+					<h3 >Crear una vista</h3>
+					<ul>
+					<br />
+					<p>
+						Para crear una vista, se agrega la anotación @DatabaseView
+					</p>
+					</ul>
+				</div>
+				</div>
+				<div class="col-md-8">
+				<img
+					src="../images/Persistencia/view01.png"
+					alt="..."
+					width="767"
+					height="272"
+					class="card-img"
+				/>
+				</div>
+
+				<div class="col-md-8">
+				<img
+					src="../images/Persistencia/view02.png"
+					alt="..."
+					width="767"
+					height="272"
+					class="card-img"
+				/>
+				</div>
+				<div class="col-md-4">
+				<div class="card-body">
+					<h3 >Asociar una vista con tu base de datos</h3>
+					<ul>
+					<br />
+					<p>
+						Para incluir una vista como parte de la base de datos de la app
+						se incluye la propiedad “views” en la anotación @Database de la app.
+					</p>
+					</ul>
+				</div>
+				</div>
+			</div>
+			</div>
+
+			<div class="card mb-3" style="max-width: 1000px">
+			<div class="row no-gutters">
+
+				<div class="col-md-6">
+				<div class="card-body">
+					<h3 >Insertar</h3>
+					<ul>
+					<br />
+					<p>
+						Al crear un método DAO con la anotación @Insert, el Room genera
+						una implementación que inserta todo en una sola transacción
+					</p>
+					</ul>
+				</div>
+				</div>
+				<div class="col-md-6">
+				<img
+					src="../images/Persistencia/insert.png"
+					alt="..."
+					width="767"
+					height="272"
+					class="card-img"
+				/>
+				</div>
+			</div>
+			</div>
+
+			<div class="card mb-3" style="max-width: 1000px">
+			<div class="row no-gutters">
+
+				<div class="col-md-6">
+				<img
+					src="../images/Persistencia/update.png"
+					alt="..."
+					width="767"
+					height="272"
+					class="card-img"
+				/>
+				</div>
+				<div class="col-md-6">
+				<div class="card-body">
+					<h3 >Actualizar</h3>
+					<ul>
+					<br />
+					<p>
+						El método de conveniencia Update modifica un conjunto de entidades,
+						proporcionadas como parámetros.
+					</p>
+					</ul>
+				</div>
+				</div>
+			</div>
+			</div>
+
+			<div class="card mb-3" style="max-width: 1000px">
+			<div class="row no-gutters">
+
+				<div class="col-md-6">
+				<div class="card-body">
+					<h3 >Borrar</h3>
+					<ul>
+					<br />
+					<p>
+						El método de conveniencia Delete quita un conjunto de entidades,
+						proporcionadas como parámetros.
+					</p>
+					</ul>
+				</div>
+				</div>
+				<div class="col-md-6">
+				<img
+					src="../images/Persistencia/delete.png"
+					alt="..."
+					width="767"
+					height="272"
+					class="card-img"
+				/>
+				</div>
+			</div>
+			</div>
+
+			<div class="card mb-3" style="max-width: 1000px">
+			<div class="row no-gutters">
+
+				<div class="col-md-6">
+				<img
+					src="../images/Persistencia/consim.png"
+					alt="..."
+					width="767"
+					height="272"
+					class="card-img"
+				/>
+				</div>
+				<div class="col-md-6">
+				<div class="card-body">
+					<h3 >Consultas simples</h3>
+					<ul>
+					<br />
+					<p>
+						En la compilación, Room sabe que se está consultando todas las
+						columnas de la tabla usuarios.
+					</p>
+					</ul>
+				</div>
+				</div>
+			</div>
+			</div>
+
+			<div class="card mb-3" style="max-width: 1000px">
+			<div class="row no-gutters">
+
+				<div class="col-md-6">
+				<div class="card-body">
+					<h3 >Parametros a una consulta</h3>
+					<ul>
+					<br />
+					<p>
+						Para hacerlo se usa los parámetros en la anotación Room.
+					</p>
+					</ul>
+				</div>
+				</div>
+				<div class="col-md-6">
+				<img
+					src="../images/Persistencia/par01.png"
+					alt="..."
+					width="767"
+					height="272"
+					class="card-img"
+				/>
+				</div>
+
+				<div class="col-md-6">
+				<img
+					src="../images/Persistencia/par02.png"
+					alt="..."
+					width="767"
+					height="272"
+					class="card-img"
+				/>
+				</div>
+				<div class="col-md-6">
+				<div class="card-body">
+					<ul>
+					<br />
+					<p>
+						Room hace coincidir el parámetro de vinculación “:minAge” con el
+						parámetro del método “minAge”
+					</p>
+					</ul>
+				</div>
+				</div>
+			</div>
+			</div>
 
 		  </section>
 
