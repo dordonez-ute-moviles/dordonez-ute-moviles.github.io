@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Guía para el procesamiento de datos en segundo plano
+</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+
+  <body style="text-align: justify">
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a
+        href="multipleshilos.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="redes.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+      
+      
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img
+            src="../images/2plano/1.jpg"
+            alt=""
+            width="750"
+            height="450"
+          />
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1 align="center">Guía para el procesamiento de datos en segundo plano</h1> 
+		  <!--Poner fecha de la clase-->
+          <p class="info">4 de Enero de 2021</p>
+        </header>
+					<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+                    <ol>
+					<li><a href="process 2 plano.html">Guía para el procesamiento de datos en segundo plano</a></li>
+					
+                    <li><a href="multipleshilos.html"></a></li>
+					<li><a href="subproceso de IU.html"></a></li><br>
+                    
+									
+  <p align="justify">El procesamiento de datos en segundo plano es una parte importante a la hora de crear una aplicación que sea eficaz para los usuarios y funcione de manera adecuada en la plataforma de Android.</p>
+						
+  <h3>Categorías de tareas en segundo plano</h3>
+<p align="justify">Las tareas en segundo plano se dividen en las siguientes categorías principales:
+</p> 
+						<ul><li>Intermedia</li>
+						<li>Diferida</li>
+						<li>Exacta</li></ul><br>
+						
+						<p align="justify">A fin de categorizar una tarea se responden algunas preguntas</p>	
+						<ul><li>¿La tarea debe completarse mientras el usuario está interactuando con la aplicación?</li><br>Si es así, esa tarea debería clasificarse como inmediata. De lo contrario, pasa a la segunda pregunta.<br>
+						<br><li>¿La tarea debe ejecutarse en un momento exacto?</li><br>Si necesitas ejecutarla en un momento preciso, clasifica la tarea como exacta.<br>
+</ul><br>
+	<p align="justify">La mayoría de las tareas no necesitan ejecutarse en un momento exacto. Por lo general, las tareas admiten algunas variaciones cuando se ejecutan en función de ciertas condiciones, como la disponibilidad de la red y la batería restante. Las tareas que no necesitan ejecutarse en un momento exacto deben clasificarse como diferidas.
+  </P><br>
+		  <center><img src="../images/2plano/2.png" width="631" height="429"></center><br>
+						
+	<hr/>					
+  <h3>Algunas soluciones recomendadas para cada tipo de tarea en segundo plano.</h3><br>
+		  <h5>Tareas inmediatas</h5>	<br>
+<p align="justify">Para tareas que necesitan ejecutarse de inmediato y procesarse de forma continua, incluso cuando el usuario coloca la aplicación en segundo plano o se reinicia el dispositivo, te recomendamos que uses WorkManager y su versión compatible con las tareas de larga duración. </p>
+<p align="justify">En casos específicos, como la reproducción de contenido multimedia o la navegación activa, te recomendamos que uses directamente los servicios en primer plano.</p><br>
+		  
+<h5>Tareas diferidas</h5><br>
+	
+</p><p align="justify">Toda tarea que no esté conectada a una interacción del usuario de forma directa y pueda ejecutarse en cualquier momento puede ser diferida. La solución recomendada para las tareas diferidas es WorkManager. </p>
+<p align="justify">WorkManager facilita la programación de tareas diferibles y asíncronas que se deben ejecutar incluso si se cierra la app o se reinicia el dispositivo. </p><br>
+  <h5>Tareas exactas</h5><br>
+<p align="justify">Una tarea que debe ejecutarse en un momento exacto puede usar AlarmManager.
+
+  </p><br>
+		
+		<h3>Cómo ejecutar tareas de Android en subprocesos en segundo plano</h3><br>
+		  
+  <p align="justify">Todas las apps para Android usan un subproceso principal para controlar las operaciones de la IU. Llamar a operaciones de larga duración desde este subproceso principal puede generar bloqueos y faltas de respuesta.  </p>
+<p align="justify">Puedes crear subprocesos en segundo plano adicionales para controlar operaciones de larga duración mientras el subproceso principal continúa controlando las actualizaciones de la IU.
+</p><br>
+		<h3>Resumen de ejemplos</h3>	<br>	  
+  <p align="justify">Se realiza una solicitud de red y se muestra el resultado en el subproceso principal de modo que la app pueda mostrar ese resultado en la pantalla.<p> 
+<p align="justify">Específicamente, el ViewModel llama a la capa del repositorio del subproceso principal para activar la solicitud de red. La capa del repositorio se encarga de quitar la ejecución de la solicitud de red del subproceso principal y enviar el resultado al subproceso principal mediante una devolución de llamada.</p>
+  <p align="justify">Para quitar la ejecución de la solicitud de red del subproceso principal, debemos crear otros subprocesos en nuestra app.</p><hr/>
+		<h3>Cómo crear varios subprocesos</h3><br>
+<p align="justify">Un conjunto de subprocesos es una colección administrada de subprocesos que ejecuta tareas en paralelo desde una cola. Se ejecutan las tareas nuevas en los subprocesos existentes a medida que quedan inactivas. Para enviar una tarea a un conjunto de subprocesos, usa la interfaz ExecutorService. </p>
+<p align="justify">Crear subprocesos es costoso, por lo que debes crear un conjunto de subprocesos solamente una vez cuando se inicializa tu app. Asegúrate de guardar la instancia de ExecutorService en tu clase Application o en un contenedor de inyección de dependencias. </p>
+		<p align="justify">Se crea un conjunto de subprocesos que podemos usar para ejecutar tareas en segundo plano.</p>
+	
+	
+	<center><img src="../images/2plano/1app.png" width="468" height="79"></center><br>
+	
+		  
+  <hr/><h3>Cómo ejecutar en un subproceso en segundo plano</h3><br>
+		  
+  <p align="justify">Cuando haces una solicitud de red en el subproceso principal, esta espera o se bloquea hasta que recibe una respuesta. Como el subproceso está bloqueado, el SO no puede llamar a onDraw() y la app se detiene, lo que podría generar un diálogo Aplicación no responde (ANR). Para evitar esto, se ejecuta esta operación en un subproceso en segundo plano.
+</p>
+		<p align="justify">Primero, veamos nuestra clase Repository y cómo realiza la solicitud de red, la función realiza la petición de red y bloquea el hilo actual.</p>
+		  
+	    <center><img src="../images/2plano/2app.png" width="558" height="440"></center><br>
+
+		  <p align="justify">La clase makeLoginRequest() es síncrona y bloquea el subproceso de llamada. Para modelar la respuesta de la solicitud de red, tenemos nuestra propia clase Result.
+</p>
+		 <p align="justify">ViewModel activa la solicitud de red cuando el usuario presiona, por ejemplo, un botón:</p>
+<br>  
+		  
+		  <center><img src="../images/2plano/3app.png"></center><br>
+		  
+		  
+  <p align="justify">Con el código anterior, LoginViewModel bloquea el subproceso principal cuando realiza la solicitud de red. </p>
+		<p align="justify">Podemos usar el conjunto de subprocesos del que creamos una instancia para mover la ejecución a un subproceso en segundo plano. Primero LoginRepository toma una instancia de Executor, en lugar de ExecutorService, porque ejecuta código y no administra subprocesos:
+</p><br>
+		  
+		  
+		  <center><img src="../images/2plano/4app.png"></center><br>
+		
+		<p>El método execute() del ejecutor toma una interfaz Runnable. Runnable es una interfaz de método único (SAM) con un método run() que se ejecuta en un subproceso cuando se lo invoca.</p>
+		
+		<center><img src="../images/2plano/5pp.png" width="623" height="233"></center><br>
+		<p>Dentro del método execute(), creamos una interfaz Runnable nueva con el bloque de código que queremos ejecutar en el subproceso en segundo plano; en nuestro caso, el método de solicitud de red síncrona. De forma interna, el ExecutorService administra la interfaz Runnable y la ejecuta en un subproceso disponible. </p>
+		  
+		  
+  <hr/>
+		  <h3>Cómo mantener la capacidad de respuesta de tu app</h3>
+		  <br><center><img src="../images/IU/whatsapp-no-responde.jpg" width="457" height="292"></center><br>
+		  
+		  
+		  <p align="justify">Es posible escribir código que pase todas las pruebas de rendimiento existentes, pero que, aun así, sea lento, se bloquee o tarde demasiado tiempo en procesar los datos de entrada. El peor escenario que puede presentarse es que tu app responda con un cuadro de diálogo del tipo "Aplicación no responde" (ANR).</p>
+ <p align="justify">En Android, para protegerse contra aplicaciones que no tienen la capacidad de respuesta suficiente por un período de tiempo, el sistema muestra un diálogo que informa que tu app dejó de responder.</p>
+ <p align="justify">Si la aplicación no respondió durante un tiempo, el sistema le ofrece al usuario la opción de salir de la app. Es fundamental diseñar la capacidad de respuesta de la aplicación para que el sistema nunca muestre un diálogo de ANR al usuario.
+</p>     
+
+  <hr />
+			 <h3>ANR</h3><br>
+				  <p align=justify>Cuando se bloquea durante demasiado tiempo el subproceso de IU de una app para Android, se activa un error del tipo "Aplicación no responde" (ANR). Si la app está en primer plano, el usuario podrá ver un diálogo del sistema, como se observa en la figura 1. Este diálogo de error de ANR le permite forzar el cierre de la app.</p><br>
+				  <center><img src="../images/IU/anr-example-framed.png"></center><br>
+				  
+				  <p align="justify">Los errores de ANR representan un problema porque el subproceso principal de la app, que se encarga de actualizar la IU, no puede procesar eventos de entrada ni obtener datos, lo que le genera frustración al usuario. Para obtener más información sobre el subproceso principal de la app, consulta Procesos y subprocesos.</p>
+
+<p align="justify">Se activará un error de ANR en tu app cuando ocurra una de las siguientes condiciones:</p>
+
+<ul><li><p align="justify">No se produce una respuesta a un evento de entrada (como tocar la pantalla o presionar las teclas) o a BroadcastReceiver después de 5 segundos mientras tu actividad está en primer plano.</p></li>
+<li><p align="justify">No terminó de ejecutarse tu componente BroadcastReceiver después de un tiempo considerable mientras tu actividad no está en primer plano.</p></li>
+<li><p align="justify">Si tu app presenta errores de ANR, puedes seguir las indicaciones que se incluyen en este artículo para diagnosticar el problema y corregirlo.</p></li></p>
+				  
+				  
+				  <hr/>
+        <h3>¿Qué activa un ANR?</h3><br>
+		<center><img src="../images/IU/duty.png"></center><br>
+<p align="justify">Generalmente, el sistema muestra un error de ANR si una aplicación no responde a los datos de entrada del usuario. </p>
+<p align="justify">Por ejemplo, si una app bloquea alguna operación de I/O (normalmente, un acceso a la red) en el procesamiento de IU, el sistema no puede procesar los eventos de entrada del usuario. También puede suceder que la app tarde demasiado creando una estructura en memoria elaborada o calculando el siguiente movimiento en un juego en el procesamiento de IU. Es importante asegurarse de que estos cálculos sean eficientes (aunque incluso el código más eficiente requiere tiempo para ejecutarse).</p>
+<p align="justify">Si una aplicación realiza una operación potencialmente larga, no se debe realizar el trabajo en el procesamiento de IU, sino crear un subproceso de trabajo y realizar la mayor parte del trabajo en él. </p>
+<p align="justify">De esta forma, el procesamiento de IU sigue ejecutándose y evita que el sistema llegue a la conclusión de que se bloqueó el código. </p>
+        
+
+        <hr />
+        <h3>¿Cómo evitar los ANR?</h3><br>
+			
+                  <p align="justify">
+                   Las aplicaciones de Android normalmente se ejecutan completamente en un solo subproceso. Cualquier actividad que esté ejecutando la aplicación en el procesamiento de IU que tarda mucho tiempo en completarse puede activar el cuadro de diálogo ANR.</p>
+<p align="justify">Por lo tanto, cualquier método que se ejecute en el subproceso de IU debe realizar el menor trabajo posible en ese subproceso. </p>
+<p align="justify">Las operaciones de larga duración (como las de red o base de datos) deben realizarse en un subproceso de trabajo o, mediante una solicitud asíncrona.</p>
+<p align="justify">La forma más eficaz de crear un subproceso de trabajo para operaciones más largas es con la clase AsyncTask.</p> <p align="justify">Simplemente extiende AsyncTask e implementa el método doInBackground() para realizar el trabajo. Si quieres publicar cambios en el progreso para el usuario, puedes llamar a publishProgress(), que invoca el método de devolución de llamada onProgressUpdate(). Puedes enviar una notificación al usuario desde la implementación de onProgressUpdate().</p>
+		  
+		  <center><img src="../images/IU/9.png"></center><br>
+		  
+		  <p align="justify">Para ejecutar este subproceso de trabajo, simplemente debes crear una instancia y llamar a execute():
+</p><br>
+		 <center><img src="../images/IU/8.png"></center>
+		  
+		  <hr/>
+
+<h3>Cómo reforzar la capacidad de respuesta</h3><br>
+				  <center><img src="../images/IU/71YIfutOTyL._AC_SX355_.jpg"></center><br> 
+  <p align="justify">Por lo general, los usuarios percibirán lentitud en una aplicación si la capacidad de respuesta es superior a 100 y 200 ms. La capacidad de respuesta de tu aplicación es la adecuada:</p>
+<p align="justify">Si tu app realiza tareas en segundo plano como respuesta a una entrada del usuario, muestra el progreso (por ejemplo, con un elemento ProgressBar en la IU).</p>
+<p align="justify">En el caso de los juegos, realiza los cálculos de los movimientos en un subproceso de trabajo.</p>
+<p align="justify">Si tu aplicación tiene una fase inicial que consume mucho tiempo, considera mostrar una pantalla de presentación o procesar la vista principal lo más pronto posible, indicar que la aplicación está cargando y completar la información de forma asíncrona. En cualquier caso, de alguna manera deberías mostrar el progreso para que el usuario sepa que la aplicación no se bloqueó.
+ </p> 
+				  <p align="justify">Usa herramientas de rendimiento, como Systrace y Traceview, para determinar cuellos de botella en la capacidad de respuesta de tu app.</p>
+				  <br>  
+				  
+				  <h4>Inspecciona registros de seguimiento con Traceview</h4><br>
+				  <center><img src="../images/IU/trace.png" width="844" height="241"></center><br>
+				  <p align="justify">Traceview es una herramienta que ofrece representaciones gráficas de los registros de seguimiento. Para generar los registros, instrumenta tu código con la clase Debug. Este método de seguimiento es muy preciso, ya que puedes especificar exactamente en qué lugar del código deseas comenzar a registrar datos de seguimiento y dejar de hacerlo. Si todavía no generaste registros de seguimiento ni los copiaste desde el dispositivo conectado a tu máquina local, ve a Cómo generar registros de seguimiento por medio de la instrumentación de tu app. Inspeccionar estos registros con Traceview te ayudará a depurar la app y perfilar su rendimiento.</p>
+
+<p align="justify">Sugerencia: Puedes usar dmtracedump desde la línea de comandos para generar diagramas gráficos de pila de llamadas de tus archivos de registro de seguimiento.</p>
+
+<p align="justify">Si no necesitas ver los registros de seguimiento que guardaste por medio de la instrumentación de tu app con la clase Debug, puedes usar la herramienta CPU Profiler incluida en Android Studio 3.0 y versiones posteriores para inspeccionar los subprocesos y registros de seguimiento de métodos de la app.</p>
+				  
+				  <h4>Systrace</h4><br>
+				  
+				  <center><img src="../images/IU/sys.png"></center><br>
+				  
+				  <p align="justify">El proceso de registrar la actividad del dispositivo durante un período corto se conoce como registro del sistema. Este registro produce un archivo que se puede usar para generar un informe del sistema, que te ayuda a identificar la mejor manera de optimizar el rendimiento de tu app o juego.</p>
+
+				  <p align="justify">La plataforma de Android ofrece varias opciones para capturar registros:</p>
+
+<ul><li><p align="justify">El Generador de perfiles de CPU de Android Studio</p></li>
+<li><p align="justify">La app de Registro del sistema</p></li>
+<li><p align="justify">La herramienta de línea de comandos Systrace</p></li>
+	<li><p align="justify">La herramienta de línea de comandos de Perfetto</p></li>
+<p align="justify">El Generador de perfiles de CPU de Android Studio inspecciona el uso de la CPU y la actividad de los subprocesos en tiempo real mientras interactúas con tu app. También puedes inspeccionar los detalles en los seguimientos de métodos registrados, los registros de funciones y los registros del sistema.</p>
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+				  
+  </div></div>
+
+        </div></div>
+			
+			
+			
+	
+    </section>
+    <div>
+      <a
+        href="multipleshilos.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="redes.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+      
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p style="text-align: center !important; color: white">
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
