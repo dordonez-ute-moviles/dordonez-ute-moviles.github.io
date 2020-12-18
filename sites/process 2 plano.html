@@ -62,7 +62,10 @@
                     <li><a href="multipleshilos.html"></a></li>
 					<li><a href="subproceso de IU.html"></a></li><br>
                     
-									
+								<h3>Tareas en segundo plano (background)</h3>	<br>
+						<p>Cualquier componente de Android se ejecuta en el hilo principal. Este es el encargado de mostrar la interfaz de usuario por lo que si necesitamos realizar procesos más costosos puede quedar bloqueado, dando sensación de lentitud al usuario.</p><p>Para evitar este tipo de situaciones, Android proporciona una serie de clases, que permiten trabajar en background ó segundo plano: AsyncTAsk, Thread y Handler</p><br>
+						
+						<center><img src="../images/2plano/Poster_TareasBackground.jpg"></center><br>
   <p align="justify">El procesamiento de datos en segundo plano es una parte importante a la hora de crear una aplicación que sea eficaz para los usuarios y funcione de manera adecuada en la plataforma de Android.</p>
 						
   <h3>Categorías de tareas en segundo plano</h3>
@@ -193,7 +196,18 @@
 <p align="justify">Es importante comprender los conceptos básicos de los subprocesos y sus mecanismos subyacentes. Sin embargo, hay muchas bibliotecas populares que ofrecen abstracciones de nivel superior, en comparación con estos conceptos, y servicios listos para usar a fin de pasar datos entre subprocesos. Entre estas bibliotecas, se incluyen Guava y RxJava para los usuarios del lenguaje de programación Java, además de las corrutinas, que recomendamos para los usuarios de Kotlin.
 </p>
 <p align="justify">En la práctica, debes elegir la que funcione mejor para tu app y tu equipo de desarrollo, aunque las reglas de los subprocesos son las mismas.
-</p>
+</p><hr/>
+		<h3>Corrutinas de Kotlin en Android</h3><br>
+		<p>Una corrutina es un patrón de diseño de simultaneidad que puedes usar en Android para simplificar el código que se ejecuta de forma asíncrona. Las corrutinas se agregaron a Kotlin en la versión 1.3 y se basan en conceptos establecidos de otros lenguajes.</p>
+		<p>En Android, las corrutinas ayudan a administrar tareas de larga duración que, de lo contrario, podrían bloquear el subproceso principal y hacer que tu app dejara de responder. Más del 50% de los desarrolladores profesionales que usan corrutinas informaron que vieron un aumento en la productividad. En este tema, se describe cómo puedes usar las corrutinas de Kotlin para solucionar estos problemas, lo que te permite escribir código de apps más limpio y conciso.</p><br>
+		
+		<h3>Funciones</h3>
+		<p>Las corrutinas son nuestra solución recomendada para la programación asíncrona en Android. Las funciones más importantes son las siguientes:</p>
+		<ul><li><b>Ligereza:</b> Puedes ejecutar muchas corrutinas en un solo subproceso debido a la compatibilidad con la suspensión, que no bloquea el subproceso en el que se ejecuta la corrutina. Ahora, la suspensión ahorra más memoria que el bloqueo y admite muchas operaciones simultáneas.</li><br>
+			<li><b>Menos fugas de memoria: </b>Usa la simultaneidad estructurada para ejecutar operaciones dentro de un alcance.</li><br>
+			<li><b>Compatibilidad con cancelación incorporada: </b>Se propaga automáticamente la cancelación a través de la jerarquía de corrutinas en ejecución.</li><br>
+			<li><b>Integración con Jetpack:</b> Muchas bibliotecas de Jetpack incluyen extensiones que proporcionan compatibilidad total con corrutinas. Además, algunas bibliotecas proporcionan su propio alcance de corrutina, que puedes usar para la simultaneidad estructurada.</li><br></ul>
+		
 
   </div></div>
 
