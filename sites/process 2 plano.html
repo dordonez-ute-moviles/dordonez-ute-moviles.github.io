@@ -140,105 +140,61 @@
 		
 		<center><img src="../images/2plano/5pp.png" width="623" height="233"></center><br>
 		<p>Dentro del método execute(), creamos una interfaz Runnable nueva con el bloque de código que queremos ejecutar en el subproceso en segundo plano; en nuestro caso, el método de solicitud de red síncrona. De forma interna, el ExecutorService administra la interfaz Runnable y la ejecuta en un subproceso disponible. </p>
-		  
+		  <br>
+		<h3>Consideraciones</h3><br>
+		
+		<p>Cualquier subproceso de tu app puede ejecutarse en paralelo con otros subprocesos, incluido el subproceso principal, por lo que debes asegurarte de que tu código sea seguro para los subprocesos. </p><br><p>Si necesitas compartir el estado entre subprocesos, se debe tener cuidado y administrar el acceso desde los subprocesos mediante mecanismos de sincronización, como bloqueos. Siempre que sea posible, se debe evitar compartir el estado mutable entre subprocesos.</p>	
 		  
   <hr/>
-		  <h3>Cómo mantener la capacidad de respuesta de tu app</h3>
-		  <br><center><img src="../images/IU/whatsapp-no-responde.jpg" width="457" height="292"></center><br>
+		  <h3>Cómo establecer la comunicación con el subproceso principal</h3>
+		  <br>
 		  
 		  
-		  <p align="justify">Es posible escribir código que pase todas las pruebas de rendimiento existentes, pero que, aun así, sea lento, se bloquee o tarde demasiado tiempo en procesar los datos de entrada. El peor escenario que puede presentarse es que tu app responda con un cuadro de diálogo del tipo "Aplicación no responde" (ANR).</p>
- <p align="justify">En Android, para protegerse contra aplicaciones que no tienen la capacidad de respuesta suficiente por un período de tiempo, el sistema muestra un diálogo que informa que tu app dejó de responder.</p>
- <p align="justify">Si la aplicación no respondió durante un tiempo, el sistema le ofrece al usuario la opción de salir de la app. Es fundamental diseñar la capacidad de respuesta de la aplicación para que el sistema nunca muestre un diálogo de ANR al usuario.
-</p>     
+		  <p>La función makeLoginRequest() debe tomar una devolución de llamada como parámetro para mostrar un valor de forma asíncrona. Se llama a la devolución de llamada con el resultado cada vez que se completa la solicitud de red o se produce una falla. </p><br>
+		
+		
+		<center><img src="../images/2plano/app.png"></center><br>
+ <p align="justify">Ahora, el ViewModel debe implementar la devolución de llamada. Puede usar una lógica diferente según el resultado:</p>
+		<center><img src="../images/2plano/cod.png"></center><br>
+ <p align="justify">En este ejemplo, se ejecuta la devolución de llamada en el subproceso de llamada, que es un subproceso en segundo plano. Por lo tanto, no puedes modificar la capa de IU ni comunicarte directamente con ella hasta que vuelvas al subproceso principal.</p>  
 
   <hr />
-			 <h3>ANR</h3><br>
-				  <p align=justify>Cuando se bloquea durante demasiado tiempo el subproceso de IU de una app para Android, se activa un error del tipo "Aplicación no responde" (ANR). Si la app está en primer plano, el usuario podrá ver un diálogo del sistema, como se observa en la figura 1. Este diálogo de error de ANR le permite forzar el cierre de la app.</p><br>
-				  <center><img src="../images/IU/anr-example-framed.png"></center><br>
+			 <h3>Cómo usar controladores</h3><br>
+				  <p align=justify>Puedes usar un Handler para poner en cola una acción que se ejecutará en un subproceso diferente. Para especificar el subproceso en el que se ejecutará la acción, crea el Handler usando un Looper para el subproceso.</p><br>
+		<p>Un Looper es un objeto que ejecuta el bucle de mensajes para un subproceso asociado. Una vez que hayas creado un Handler, puedes usar el método post(Runnable) para ejecutar un bloque de código en el subproceso correspondiente.
+		</p><p>Looper incluye una función auxiliar, getMainLooper(), que recupera el objeto Looper del subproceso principal. Puedes ejecutar código en el subproceso principal con este Looper para crear un Handler. Como es algo que puedes hacer con bastante frecuencia, también puedes guardar una instancia del Handler en el mismo lugar en que guardaste el ExecutorService:</p><br>
+				  <center><img src="../images/2plano/cod2.png"></center><br>
 				  
-				  <p align="justify">Los errores de ANR representan un problema porque el subproceso principal de la app, que se encarga de actualizar la IU, no puede procesar eventos de entrada ni obtener datos, lo que le genera frustración al usuario. Para obtener más información sobre el subproceso principal de la app, consulta Procesos y subprocesos.</p>
+				  <p align="justify">Se recomienda insertar el controlador en el Repository, ya que brinda más flexibilidad. Es posible que se requiera pasar un Handler diferente para programar tareas en un subproceso separado. Si siempre se comunica con el mismo subproceso, se puede pasar el Handler al constructor del Repository.</p><br>
+		<center><img src="../images/2plano/cod3.png"></center><br>
 
-<p align="justify">Se activará un error de ANR en tu app cuando ocurra una de las siguientes condiciones:</p>
+<p align="justify">Como alternativa, si buscas mayor flexibilidad, puedes pasar un controlador a cada función:
+</p><br>
+		
+<center><img src="../images/2plano/cod4.png"></center><br>
+		
+		<p>La devolución de llamada que se pasó a la llamada makeLoginRequest del repositorio se ejecuta en el subproceso principal. De esta forma, puedes modificar directamente la IU desde la devolución de llamada o usar LiveData.setValue() para comunicarte con la IU.</p><hr/>
+	  <h3>Cómo configurar un conjunto de subprocesos</h3><br>
+	  <p>Se puede crear un conjunto de subprocesos usando una de las funciones de ayuda Executor con configuraciones predefinidas. Como alternativa, si deseas personalizar los detalles del conjunto de subprocesos, puedes crear una instancia usando directamente ThreadPoolExecutor. Se puede configurar los siguientes detalles:</p>
 
-<ul><li><p align="justify">No se produce una respuesta a un evento de entrada (como tocar la pantalla o presionar las teclas) o a BroadcastReceiver después de 5 segundos mientras tu actividad está en primer plano.</p></li>
-<li><p align="justify">No terminó de ejecutarse tu componente BroadcastReceiver después de un tiempo considerable mientras tu actividad no está en primer plano.</p></li>
-<li><p align="justify">Si tu app presenta errores de ANR, puedes seguir las indicaciones que se incluyen en este artículo para diagnosticar el problema y corregirlo.</p></li></p>
-				  
+				
+<ul><li><p align="justify">Tamaño inicial y máximo del conjunto.</p></li>
+<li><p align="justify">Tiempo de mantenimiento de conexión y unidad de tiempo. El tiempo de mantenimiento de actividad es la duración máxima que un subproceso puede permanecer inactivo antes de cerrarse.
+</p></li>
+<li><p align="justify">Una cola de entrada que conserve tareas del objeto Runnable. Esta cola debe implementar la interfaz BlockingQueue. Para cumplir con los requisitos de tu app, puedes elegir entre las implementaciones de cola disponibles. Si quieres obtener más información sobre estas, consulta la descripción general de la clase de ThreadPoolExecutor.</p></li></p><br>
+		
+				  <p>Este es un ejemplo en el que se especifica el tamaño del conjunto de subprocesos en función de la cantidad total de núcleos de procesador, un tiempo de mantenimiento de actividad de un segundo y una cola de entrada.</p>
+		<center><img src="../images/2plano/cod5.png"></center><br>		
+		
 				  
 				  <hr/>
-        <h3>¿Qué activa un ANR?</h3><br>
-		<center><img src="../images/IU/duty.png"></center><br>
-<p align="justify">Generalmente, el sistema muestra un error de ANR si una aplicación no responde a los datos de entrada del usuario. </p>
-<p align="justify">Por ejemplo, si una app bloquea alguna operación de I/O (normalmente, un acceso a la red) en el procesamiento de IU, el sistema no puede procesar los eventos de entrada del usuario. También puede suceder que la app tarde demasiado creando una estructura en memoria elaborada o calculando el siguiente movimiento en un juego en el procesamiento de IU. Es importante asegurarse de que estos cálculos sean eficientes (aunque incluso el código más eficiente requiere tiempo para ejecutarse).</p>
-<p align="justify">Si una aplicación realiza una operación potencialmente larga, no se debe realizar el trabajo en el procesamiento de IU, sino crear un subproceso de trabajo y realizar la mayor parte del trabajo en él. </p>
-<p align="justify">De esta forma, el procesamiento de IU sigue ejecutándose y evita que el sistema llegue a la conclusión de que se bloqueó el código. </p>
-        
+        <h3>Bibliotecas de simultaneidad</h3><br>
+	
+<p align="justify">Es importante comprender los conceptos básicos de los subprocesos y sus mecanismos subyacentes. Sin embargo, hay muchas bibliotecas populares que ofrecen abstracciones de nivel superior, en comparación con estos conceptos, y servicios listos para usar a fin de pasar datos entre subprocesos. Entre estas bibliotecas, se incluyen Guava y RxJava para los usuarios del lenguaje de programación Java, además de las corrutinas, que recomendamos para los usuarios de Kotlin.
+</p>
+<p align="justify">En la práctica, debes elegir la que funcione mejor para tu app y tu equipo de desarrollo, aunque las reglas de los subprocesos son las mismas.
+</p>
 
-        <hr />
-        <h3>¿Cómo evitar los ANR?</h3><br>
-			
-                  <p align="justify">
-                   Las aplicaciones de Android normalmente se ejecutan completamente en un solo subproceso. Cualquier actividad que esté ejecutando la aplicación en el procesamiento de IU que tarda mucho tiempo en completarse puede activar el cuadro de diálogo ANR.</p>
-<p align="justify">Por lo tanto, cualquier método que se ejecute en el subproceso de IU debe realizar el menor trabajo posible en ese subproceso. </p>
-<p align="justify">Las operaciones de larga duración (como las de red o base de datos) deben realizarse en un subproceso de trabajo o, mediante una solicitud asíncrona.</p>
-<p align="justify">La forma más eficaz de crear un subproceso de trabajo para operaciones más largas es con la clase AsyncTask.</p> <p align="justify">Simplemente extiende AsyncTask e implementa el método doInBackground() para realizar el trabajo. Si quieres publicar cambios en el progreso para el usuario, puedes llamar a publishProgress(), que invoca el método de devolución de llamada onProgressUpdate(). Puedes enviar una notificación al usuario desde la implementación de onProgressUpdate().</p>
-		  
-		  <center><img src="../images/IU/9.png"></center><br>
-		  
-		  <p align="justify">Para ejecutar este subproceso de trabajo, simplemente debes crear una instancia y llamar a execute():
-</p><br>
-		 <center><img src="../images/IU/8.png"></center>
-		  
-		  <hr/>
-
-<h3>Cómo reforzar la capacidad de respuesta</h3><br>
-				  <center><img src="../images/IU/71YIfutOTyL._AC_SX355_.jpg"></center><br> 
-  <p align="justify">Por lo general, los usuarios percibirán lentitud en una aplicación si la capacidad de respuesta es superior a 100 y 200 ms. La capacidad de respuesta de tu aplicación es la adecuada:</p>
-<p align="justify">Si tu app realiza tareas en segundo plano como respuesta a una entrada del usuario, muestra el progreso (por ejemplo, con un elemento ProgressBar en la IU).</p>
-<p align="justify">En el caso de los juegos, realiza los cálculos de los movimientos en un subproceso de trabajo.</p>
-<p align="justify">Si tu aplicación tiene una fase inicial que consume mucho tiempo, considera mostrar una pantalla de presentación o procesar la vista principal lo más pronto posible, indicar que la aplicación está cargando y completar la información de forma asíncrona. En cualquier caso, de alguna manera deberías mostrar el progreso para que el usuario sepa que la aplicación no se bloqueó.
- </p> 
-				  <p align="justify">Usa herramientas de rendimiento, como Systrace y Traceview, para determinar cuellos de botella en la capacidad de respuesta de tu app.</p>
-				  <br>  
-				  
-				  <h4>Inspecciona registros de seguimiento con Traceview</h4><br>
-				  <center><img src="../images/IU/trace.png" width="844" height="241"></center><br>
-				  <p align="justify">Traceview es una herramienta que ofrece representaciones gráficas de los registros de seguimiento. Para generar los registros, instrumenta tu código con la clase Debug. Este método de seguimiento es muy preciso, ya que puedes especificar exactamente en qué lugar del código deseas comenzar a registrar datos de seguimiento y dejar de hacerlo. Si todavía no generaste registros de seguimiento ni los copiaste desde el dispositivo conectado a tu máquina local, ve a Cómo generar registros de seguimiento por medio de la instrumentación de tu app. Inspeccionar estos registros con Traceview te ayudará a depurar la app y perfilar su rendimiento.</p>
-
-<p align="justify">Sugerencia: Puedes usar dmtracedump desde la línea de comandos para generar diagramas gráficos de pila de llamadas de tus archivos de registro de seguimiento.</p>
-
-<p align="justify">Si no necesitas ver los registros de seguimiento que guardaste por medio de la instrumentación de tu app con la clase Debug, puedes usar la herramienta CPU Profiler incluida en Android Studio 3.0 y versiones posteriores para inspeccionar los subprocesos y registros de seguimiento de métodos de la app.</p>
-				  
-				  <h4>Systrace</h4><br>
-				  
-				  <center><img src="../images/IU/sys.png"></center><br>
-				  
-				  <p align="justify">El proceso de registrar la actividad del dispositivo durante un período corto se conoce como registro del sistema. Este registro produce un archivo que se puede usar para generar un informe del sistema, que te ayuda a identificar la mejor manera de optimizar el rendimiento de tu app o juego.</p>
-
-				  <p align="justify">La plataforma de Android ofrece varias opciones para capturar registros:</p>
-
-<ul><li><p align="justify">El Generador de perfiles de CPU de Android Studio</p></li>
-<li><p align="justify">La app de Registro del sistema</p></li>
-<li><p align="justify">La herramienta de línea de comandos Systrace</p></li>
-	<li><p align="justify">La herramienta de línea de comandos de Perfetto</p></li>
-<p align="justify">El Generador de perfiles de CPU de Android Studio inspecciona el uso de la CPU y la actividad de los subprocesos en tiempo real mientras interactúas con tu app. También puedes inspeccionar los detalles en los seguimientos de métodos registrados, los registros de funciones y los registros del sistema.</p>
-				  
-				  
-				  
-				  
-				  
-				  
-				  
-				  
-				  
-				  
-				  
-				  
-				  
-				  
-				  
-				  
   </div></div>
 
         </div></div>
