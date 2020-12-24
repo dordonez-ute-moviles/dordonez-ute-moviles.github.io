@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Estados y alarmas</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <style media="screen">
+
+      h2{
+        color:#FCA400;
+      }
+       body .back{
+        background-image: url(../images/estado/4.png);
+       background-repeat: no-repeat;
+       background-size: 100%;
+       background-attachment: fixed;
+       padding-top: 50px;
+       padding-bottom: 40px;
+       padding-left: 40px;
+       padding-right: 60px;
+
+      }
+
+      dt{
+         color: #4F4D52;
+      }
+      ul, li{
+         padding-left: 40px;
+      }
+      .uno{
+        background-color: rgba(255, 255, 255, 0.8);
+        color:black;
+        padding:20px;
+      }
+      .dos{
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding:20px;
+      }
+
+      .tres{
+        background-color: rgba(255, 255, 255, 0.8);
+        color:black;
+        padding:20px;
+      }
+
+      .cuatro{
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding:20px;
+      }
+      .cinco{
+        background-color: rgba(255, 255, 255, 0.9);
+        color:black;
+        padding:20px;
+      }
+
+      .uno h3{
+        color: #4F4D52;
+      }
+
+    .dos h3{
+      color:#078FAE;
+      text-decoration:underline;
+    }
+
+    .tres h3{
+      color:#1EC69F;
+    }
+
+    .cuatro h3{
+      color:#576CBE;
+    }
+    .cuatro h4{
+      color:#267C83
+    }
+
+    .cinco h3{
+    color:#E5702A;
+    }
+
+    body{
+      text-align: justify;
+    }
+    </style>
+
+
+
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a
+        href="process 2 plano.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="../index.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img src="../images/estado/2.jpg" alt="" height="300px" />
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1>Estados y Alarmas</h1>
+          <!--Poner fecha de la clase-->
+          <p class="info">04 de Enero de 2021</p>
+        </header>
+        <!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+
+        <div class="back">
+
+
+
+
+            <div class="uno">
+
+          <p>
+          <h1>Cómo administrar el estado activo del dispositivo</h1>
+
+            <p>
+            Cuando un dispositivo Android esté inactivo, primero se atenuará la pantalla, que luego se apagará, y, por último, también se apagará la CPU.Sin embargo, hay algunas situaciones en las que tu app puede requerir un comportamiento diferente:
+            <ul>
+
+               <li>Es posible que apps como las de juegos o cine necesiten mantener la pantalla encendida</li>
+               <li>Es posible que otras apps no necesiten mantener la pantalla encendida, pero requieran que la CPU siga en ejecución hasta que se complete una operación crítica.</li>
+            </ul></p>
+   <h4>Lecciones</h4>
+   <dl>
+
+   <dt>Cómo mantener activo el dispositivo</dt>
+
+   <dd>Obtén información sobre cómo mantener activa la pantalla o la CPU según sea necesario y, al mismo tiempo, minimizar el impacto en la duración de batería.</dd>
+   <dt>Cómo programar alarmas repetitivas</dt>
+
+   <dd>Obtén información sobre cómo usar alarmas repetitivas para programar operaciones que se ejecutan fuera del ciclo de vida de la app, incluso si esta no está en ejecución y el dispositivo está inactivo.</dd>
+   </dl>
+
+
+
+
+
+            <h3>Cómo mantener activo el dispositivo</h3>
+          <p>A fin de evitar que se agote la batería, un dispositivo Android que está inactivo se suspende rápidamente. Sin embargo, hay situaciones en las que una app necesita activar la pantalla o la CPU y mantenerla encendida para completar algunas tareas.</p>
+          <h4>Alternativas al uso de bloqueos de activación</h4>
+          <p>
+      <li>Si tu app realiza descargas de HTTP prolongadas, considera usar DownloadManager</li>
+      <li>Si tu app sincroniza datos desde un servidor externo, considera crear un adaptador de sincronización.</li>
+      <li>Si tu app se basa en servicios en segundo plano, considera usar JobScheduler o Firebase Cloud Messaging a fin de activar estos servicios en intervalos específicos.</li></p>
+
+
+
+
+
+              <h3>Cómo mantener encendida la pantalla</h3>
+            <p>Ciertas apps necesitan mantener la pantalla encendida, como las apps de juegos o de cine. La mejor manera de hacerlo es usar FLAG_KEEP_SCREEN_ON en tu actividad
+               <center><img src="../images/estado/5.jpg" alt=""/></center>
+            </p>
+
+            <p>La ventaja de este enfoque es que, a diferencia de los bloqueos de activación (que se explican en Cómo mantener encendida la CPU), no requiere un permiso especial y la plataforma administra correctamente el movimiento del usuario entre aplicaciones sin que tu app deba preocuparse por liberar recursos que no se usan.</p>
+
+
+              <h3>Cómo mantener encendida la CPU</h3>
+            <p>La creación y administración de los bloqueos de activación puede afectar significativamente la duración de la batería del dispositivo host. Por lo tanto, deberías usarlos solo cuando sean estrictamente necesarios y conservarlos el menor tiempo posible. Por ejemplo, nunca deberías necesitar un bloqueo de activación en una actividad. Como se describió antes, si quieres mantener la pantalla encendida en tu actividad, usa FLAG_KEEP_SCREEN_ON.
+              <br>
+            Un caso legítimo para implementar un bloqueo de activación puede ser un servicio en segundo plano que necesita uno para mantener la CPU en ejecución a fin de realizar una tarea mientras la pantalla está apagada.
+            <center><img src="../images/estado/6.jpg" alt=""/></center>
+            </p>
+
+            <p>
+               Si la app incluye un receptor de emisión que usa un servicio a fin de realizar algunas tareas, puedes administrar el bloqueo de activación por medio de un WakefulBroadcastReceiver, como se describe en Cómo usar un receptor de emisión que mantiene activo el dispositivo. En el caso de que no sigue este patrón, aquí se muestra cómo configurar un bloqueo de activación directamente:
+            <center><img src="../images/estado/7.jpg" alt=""/></center>
+
+              <h3>Cómo usar un receptor de emisión que mantiene activo el dispositivo</h3>
+
+              <p>El uso de un receptor de emisión junto con un servicio te permite administrar el ciclo de vida de una tarea en segundo plano. Un WakefulBroadcastReceiver es un tipo especial de receptor de emisión que se encarga de crear y administrar un PARTIAL_WAKE_LOCK para tu app. Un WakefulBroadcastReceiver pasa la tarea a un Service (por lo general, un IntentService) y se asegura de que el dispositivo no se suspenda durante la transición.
+
+              <br>
+
+              El primer paso para usar un WakefulBroadcastReceiver es agregarlo a tu manifiesto, como lo harías con cualquier otro receptor de emisión:
+              <center><img src="../images/estado/8.jpg" alt=""/></center></p>
+
+
+
+
+
+              El siguiente código inicia MyIntentService con el método startWakefulService(). Este método puede compararse con startService(), salvo que WakefulBroadcastReceiver mantiene un bloqueo de activación cuando se inicia el servicio.
+              <center><img src="../images/estado/9.jpg" alt=""/></center>
+              Cuando finaliza el servicio, este llama a MyWakefulReceiver.completeWakefulIntent() a fin de retirar el bloqueo de activación. El método completeWakefulIntent() tiene como parámetro el mismo intent que se pasó desde el WakefulBroadcastReceiver:
+              <center><img src="../images/estado/10.jpg" alt=""/></center>
+              Indica al responsable de la llamada cualquier actualización de los progresos.
+              <h1>Cómo programar alarmas repetitivas</h1><p>Las alarmas (basadas en la clase AlarmManager) ofrecen una manera de realizar operaciones programadas fuera del ciclo de vida de tu app. Por ejemplo, puedes usar una alarma a fin de comenzar una operación prolongada, como iniciar un servicio una vez al día para descargar el pronóstico del tiempo.<br>
+                <ul><img src="../images/estado/11.jpg" align="right"/>
+                    <li>Te permiten activar intents en horas o intervalos determinados.</li>
+                    <li>Puedes usarlas junto con receptores de emisión a fin de iniciar servicios y realizar otras operaciones.</li>
+                    <li>Funcionan fuera de tu app, de modo que puedes usarlas para activar eventos o acciones</li>
+                    <li>Te ayudan a minimizar los requisitos de recursos de tu app</li>
+                 </ul>
+
+               <h3>Información sobre las desventajas</h3>
+               <p>Una alarma repetitiva es un mecanismo relativamente simple con flexibilidad limitada. Es posible que no sea la mejor opción para tu app, en especial si necesitas activar operaciones de red. Una alarma mal diseñada puede agotar la batería y sobrecargar los servidores.Una situación común para activar una operación fuera del ciclo de vida de tu app es la sincronización de datos con un servidor. Este es un caso en el que podría tentarte el uso de una alarma repetitiva. </p>
+               <h3>Prácticas recomendadas</h3>
+               <p>Cada decisión que tomes al diseñar tu alarma repetitiva puede afectar la manera en que tu app usa los recursos del sistema (o abusa de ellos). Sigue estas prácticas recomendadas para usar las alarmas:
+               <ul>
+                   <li>Agrega aleatorización (jitter) en cualquier solicitud de red que se active a causa de una alarma repetitiva.</li>
+                   <li>Mantén la frecuencia de la alarma al mínimo.</li>
+                   <li>No actives el dispositivo innecesariamente.</li>
+                   <li>No hagas que el tiempo de activación de tu alarma sea más preciso de lo necesario. Usa setInexactRepeating() en lugar de setRepeating().</li>
+                   <li>Si es posible, evita basar tu alarma en la hora del reloj. Las alarmas repetitivas que se basan en una hora de activación precisa no se escalan bien.</li>
+                </ul></p>
+               <h3>Cómo establecer una alarma repetitiva</h3>
+               <p>Una alarma repetitiva tiene las siguientes características:
+                  <li>Un tipo de alarma</li>
+                  <li>Una hora de activación</li>
+                  <li>El intervalo de la alarma</li>
+                  <li>Un intent pendiente que se activa cuando se activa la alarma</li></p>
+                  <p>Para cancelar un PendingIntent, pasa FLAG_NO_CREATE a PendingIntent.getService() a fin de obtener una instancia del intent (si existe). AlarmManager.cancel():
+                     <center><img src="../images/estado/12.jpg" alt=""/></center></p>
+                  <h3>Cómo elegir un tipo de alarma</h3>
+                  <p>Hay dos tipos de relojes generales para las alarmas: "tiempo real transcurrido" y "reloj en tiempo real" (RTC). El tiempo real transcurrido usa el "tiempo desde que se inició el sistema" como referencia, y el reloj en tiempo real usa la hora UTC (reloj de pared). Por lo tanto, el tiempo real transcurrido es apropiado para establecer una alarma basada en el paso del tiempo (por ejemplo, una alarma que se activa cada 30 segundos), ya que esta no se ve afectada por la zona horaria ni por la configuración regional.<br>Ambos tipos tienen una versión de "activación", que indica que se debe activar la CPU del dispositivo si la pantalla está apagada. De esta manera, se garantiza que la alarma se active a la hora programada. Este enfoque resulta útil si tu app tiene una dependencia de tiempo, por ejemplo, si tiene un período limitado para ejecutar una operación específica. Además, el uso de un tipo de alarma de reloj en tiempo real tampoco se escala bien, como se explicó anteriormente. Por lo tanto, te recomendamos que uses una alarma de "tiempo real transcurrido" si es posible.<br>A continuación, se muestra una lista de los tipos:
+                     <li>ELAPSED_REALTIME: Activa el intent pendiente en función de la cantidad de tiempo que transcurrió desde que se inició el dispositivo, pero no activa el dispositivo.</li>
+                     <li>ELAPSED_REALTIME_WAKEUP: Despierta el dispositivo y activa el intent pendiente luego de que transcurrió la cantidad de tiempo especificada desde que se inició el dispositivo.</li>
+                     <li>RTC: Activa el intent pendiente a la hora especificada, pero no activa el dispositivo.</li>
+                     <li>RTC_WAKEUP: Activa el dispositivo a fin de activar el intent pendiente a la hora especificada.</li>
+                  </p>
+
+               <h4>Ejemplos de alarmas de tiempo real transcurrido</h4>
+               Activa el dispositivo para activar la alarma en 30 minutos, y cada 30 minutos después de la primera activación:
+               <center><img src="../images/estado/13.jpg" alt=""/></center>
+               Activa el dispositivo para activar una única alarma (no repetitiva) en un minuto:
+               <center><img src="../images/estado/14.jpg" alt=""/></center>
+               <h3>Ejemplos de alarmas de reloj en tiempo real</h3>
+               A continuación, se muestran algunos ejemplos del uso de RTC_WAKEUP.Activa el dispositivo para activar la alarma aproximadamente a las 2:00 p.m. y que se repita una vez al día a la misma hora:
+               <center><img src="../images/estado/15.jpg" alt=""/></center>
+               <h3>Cómo cancelar una alarma</h3>
+               Según tu app, es posible que quieras incluir la capacidad para cancelar la alarma. Si quieres cancelar una alarma, llama a cancel() en el Administrador de alarmas y pasa el PendingIntent que ya no quieras activar.<br> Por ejemplo:
+               <center><img src="../images/estado/16.jpg" alt=""/></center>
+               <h3>Cómo iniciar una alarma cuando se reinicia el dispositivo</h3>
+               <p>De manera predeterminada, todas las alarmas se cancelan cuando se apaga un dispositivo. Si quieres evitarlo, puedes diseñar tu app para que reinicie automáticamente una alarma repetitiva en caso de que el usuario reinicie el dispositivo. <br>A continuación, se indican los pasos que debes seguir.
+                  <li>Configura el permiso RECEIVE_BOOT_COMPLETED en el manifiesto de tu app. De esta manera, tu app podrá recibir el ACTION_BOOT_COMPLETED que se transmite una vez que el sistema finalizó el inicio </li>
+                  <center><img src="../images/estado/17.jpg" alt=""/></center>
+                  <li>Implementa un BroadcastReceiver para recibir la transmisión</li>
+                  <center><img src="../images/estado/18.jpg" alt=""/></center>
+                  <li>Agrega el receptor al archivo de manifiesto de tu app con un filtro de intent que filtre la acción ACTION_BOOT_COMPLETED:</li>
+                  <center><img src="../images/estado/19.jpg" alt=""/></center>
+               <h3>Impactos de Descanso y App Standby</h3>
+               <img src="../images/estado/20.jpg" align="left"/><p>Cuando el dispositivo esté en modo Descanso, las alarmas estándar se pospondrán hasta que el dispositivo salga de este modo o se abra un período de mantenimiento. Si debes activar una alarma incluso en el modo Descanso, puedes usar setAndAllowWhileIdle() o setExactAndAllowWhileIdle(). Tu app entrará en modo App Standby cuando esté inactiva, lo que significa que el usuario no la usó por un tiempo y esta no tiene ningún proceso en primer plano. Cuando la app se encuentra en modo App Standby, las alarmas se posponen al igual que en el modo Descanso.</p>
+               <h3>Cómo optimizar el consumo de batería de tu app</h3>
+               <p>La duración de batería es el aspecto más importante de la experiencia del usuario en dispositivos móviles. Un dispositivo sin batería no ofrece ninguna funcionalidad. Por esta razón, es sumamente importante que las apps respeten este aspecto tanto como puedan.
+                  <li>Crea apps de inicialización retrasada.</li>
+                  <li>Aprovecha las funciones de la plataforma, ya que que pueden ayudarte a administrar el consumo de batería de tu app.</li>
+                  <li>Usa herramientas que te permitan identificar las causas del consumo de batería.</li></p>
+               <h4>Inicialización retrasada</h4>
+               <p>Si tu app es de "inicialización retrasada", significa que buscará maneras de reducir y optimizar las operaciones que tienen mayor consumo de batería. Las principales preguntas en torno a este método son las siguientes:
+                  <li>Reducir:¿puede almacenar en caché los datos descargados, en lugar de activar repetidamente la radio para volver a descargarlos?</li>
+                  <li>Diferir:  ¿puede esperar a que el dispositivo se esté cargando para crear una copia de seguridad de los datos en la nube?</li>
+                  <li>Fusionar:  ¿es realmente necesario que varias decenas de apps activen la radio en diferentes horarios para enviar sus mensajes?</li>
+               Hay que formularte estas preguntas cuando evalúes el uso de CPU, radio y pantalla. El diseño de inicialización retrasada es, con frecuencia, una forma eficiente de administrar los procesos que consumen tanta batería.
+               </p>
+
+            <h4>Funciones de la plataforma</h4>
+            <p>En términos generales, la plataforma de Android ofrece dos categorías que te ayudarán a optimizar el uso de batería de tu app. Primero, proporciona varias API que puedes implementar en la app. También hay mecanismos internos en la plataforma que te ayudarán a ahorrar batería. Si bien no son API que se implementan de manera programática, deberías conocerlos para que tu app pueda aplicarlos correctamente. Los fabricantes de dispositivos determinan las restricciones precisas que se imponen. Por ejemplo, en las compilaciones de AOSP, el sistema aplica las siguientes restricciones:
+
+
+               <li>El sistema activa el modo App Standby en las apps de manera más agresiva, en lugar de esperar a que estén inactivas.</li><img src="../images/estado/21.png" align="right"/>
+               <li>Los límites de ejecución en segundo plano se aplican a todas las apps, independientemente de su nivel objetivo de API.</li>
+               <li>Los límites de ejecución en segundo plano se aplican a todas las apps, independientemente de su nivel objetivo de API.</li>
+               <li>Las apps que se ejecutan en segundo plano no tienen acceso a la red.</li>
+            <br>
+
+            <h3>Cómo optimizar tu app para Descanso y App Standby</h3>
+            Android agrega dos funciones de ahorro de energía que prolongan la duración de batería mediante el control del comportamiento de las apps cuando un dispositivo no está conectado a una fuente de alimentación. La función Descanso reduce el consumo de batería aplazando la actividad de CPU y de red en segundo plano de las apps cuando el dispositivo no se usa durante períodos prolongados. La función App Standby aplaza la actividad de red en segundo plano de las apps con las cuales el usuario no interactuó recientemente.
+            <br> En las siguientes secciones, se proporciona información detallada.
+            <h4>Información sobre el modo Descanso</h4>
+            <p>En este modo, el sistema intenta conservar la carga de la batería restringiendo el acceso de las apps a servicios de uso intenso de CPU y de red. De forma periódica, el sistema desactiva el modo Descanso durante un tiempo breve para permitir que las apps completen las actividades aplazadas. Durante este período de mantenimiento, el sistema ejecuta todas las sincronizaciones, tareas y alarmas pendientes, y permite que las apps accedan a la red.</p>
+
+              <center><img src="../images/estado/22.jpg" alt=""/></center>
+            <p>Al finalizar cada período de mantenimiento, el sistema vuelve a activar el modo Descanso, es decir, suspende el acceso a la red aplaza tareas, sincronizaciones y alarmas. Con el paso del tiempo, el sistema programa los períodos de mantenimiento cada vez con menos frecuencia, lo que permite reducir el consumo de batería durante períodos de inactividad más largos cuando el dispositivo no está conectado a un cargador.</p>
+            <h4>Lista de comprobación del modo Descanso</h4>
+            <li>De ser posible, usa FCM para la mensajería descendente</li>
+            <li>Si los usuarios deben ver una notificación inmediatamente, asegúrate de usar un mensaje de prioridad alta de FCM</li>
+            <li>Proporciona suficiente información dentro de la carga útil del mensaje</li>
+            <li>Establece alarmas críticas con setAndAllowWhileIdle() y setExactAndAllowWhileIdle().</li>
+            <li>Prueba tu app en el modo Descanso.</li>
+            <h4>Cómo adaptar tu app a Descanso</h4>
+            <p>El modo Descanso puede afectar a las apps de distintas maneras, según las capacidades que ofrezcan y los servicios que usen. Muchas apps funcionan con normalidad durante los ciclos de Descanso sin sufrir modificaciones. En algunos casos, deberás optimizar la manera en que tu app administra la red, las alarmas, las tareas y las sincronizaciones. Las apps deben poder administrar con eficiencia las actividades durante cada período de mantenimiento.<br>Es posible que la restricción de acceso a la red aplicada por el modo Descanso también afecte a la app, en especial si depende de mensajes en tiempo real, como señales o notificaciones. Si la app requiere una conexión persistente a la red para recibir mensajes, debes usar Firebase Cloud Messaging (FCM), de ser posible.</p>
+            <h3>Información sobre App Standby</h3>
+            <p>La función App Standby permite al sistema determinar si una app se encuentra inactiva cuando el usuario no la usa activamente. El sistema lo determina cuando el usuario no toca la pantalla por un período determinado y no se aplica ninguna de las siguientes condiciones:</p>
+            <li>El usuario inicia de manera explícita la app.</li>
+            <li>Actualmente, la app tiene un proceso en primer plano</li>
+            <li>La app genera una notificación que los usuarios ven en la pantalla bloqueada</li>
+
+              <center><img src="../images/estado/23.jpg" alt=""/></center>
+              <h4>Cómo usar FCM para interactuar con tu app mientras el dispositivo está inactivo</h4>
+              <p>Firebase Cloud Messaging (FCM) es un servicio de nube a dispositivo que te permite admitir mensajería descendente en tiempo real entre servicios de backend y apps de dispositivos Android. FCM brinda una conexión única y persistente a la nube. Todas las apps que necesiten mensajería en tiempo real pueden compartir esta conexión. Esta conexión compartida optimiza ampliamente el consumo de batería, ya que elimina la necesidad de que varias apps mantengan su propia conexión independiente y persistente, lo cual puede agotar rápido la batería.<br>FCM está optimizado para trabajar con los modos de inactividad Descanso y App Standby mediante mensajes de FCM de prioridad alta. Estos permiten activar tu app de manera confiable para acceder a la red, incluso si el dispositivo del usuario está en modo Descanso o la app está en modo App Standby.</p>
+              <h4>Compatibilidad con otros casos prácticos</h4>
+              <p>Casi todas las apps deberían ser compatibles con el modo Descanso mediante la administración correcta de la conectividad de red, las alarmas, las tareas y las sincronizaciones, y el uso de mensajes de alta prioridad de FCM. Sin embargo, es posible que no sea suficiente para un pequeño grupo de casos prácticos. En estos casos, el sistema proporciona una lista blanca configurable de apps que están parcialmente exentas de las optimizaciones de Descanso y App Standby. <br>Los usuarios pueden configurar manualmente la lista blanca en Configuración > Batería > Optimización de la batería. De manera alternativa, el sistema proporciona métodos para que las apps soliciten a los usuarios que las agreguen a la lista blanca.</p>
+              <li>Una app puede activar la intent ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS para llevar al usuario directamente a Battery Optimization, donde puede agregar la app.</li>
+              <li>Una app con el permiso REQUEST_IGNORE_BATTERY_OPTIMIZATIONS puede activar un diálogo del sistema para permitir al usuario agregar la app a la lista blanca directamente, sin necesidad de acceder a la configuración. La app emite un intent ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS para activar el diálogo.</li>
+              <li>El usuario puede quitar apps de forma manual de la lista blanca según lo necesite.</li>
+              <h4>Pruebas con los modos Descanso y App Standby</h4>
+              <p>Para garantizar una excelente experiencia del usuario, debes probar tu app por completo en los modos Descanso y App Standby.</p>
+              <h5>Cómo probar tu app con el modo Descanso</h5>
+
+              <li>Configura un dispositivo de hardware o virtual con una imagen del sistema de Android 6.0 (API nivel 23) o versiones posteriores.</li>
+              <li>Conecta el dispositivo a la máquina de desarrollo y luego instala tu app</li>
+              <li>Ejecuta tu app y déjala activa.</li>
+              <li>Ejecuta el siguiente comando para forzar el modo de inactividad en el sistema:</li>
+              <center><img src="../images/estado/24.jpg" alt=""/></center>
+              <li>Cuando estés listo, ejecuta el siguiente comando para salir del modo de inactividad</li>
+               <center><img src="../images/estado/25.jpg" alt=""/></center>
+               <li>Ejecuta el siguiente comando para volver a activar el dispositivo</li>
+               <center><img src="../images/estado/26.jpg" alt=""/></center>
+               <li>Observa el comportamiento de tu app después de reactivar el dispositivo. Asegúrate de que esta se recupere correctamente cuando el dispositivo salga del modo Descanso.</li>
+               <h5>Cómo probar tu app con App Standby</h5>
+               <li>Configura un dispositivo de hardware o virtual con una imagen del sistema de Android 6.0 (API nivel 23) o versiones posteriores.</li>
+               <li>Conecta el dispositivo a la máquina de desarrollo y luego instala tu app.</li>
+               <li>Ejecuta tu app y déjala activa.</li>
+               <li>Ejecuta los siguientes comandos para forzar el modo App Standby en la app</li>
+               <center><img src="../images/estado/27.jpg" alt=""/></center>
+               <li>Simula la activación de tu app con los siguientes comandos</li>
+               <center><img src="../images/estado/28.jpg" alt=""/></center>
+               <li>Observa el comportamiento de tu app después de activarla. Asegúrate de que se reactive correctamente cuando salga del modo App Standby.</li>
+               <h3>Cómo supervisar el nivel de batería y el estado de carga</h3>
+               <p>El impacto que tienen las actualizaciones de apps en la duración de la batería varía según el estado de carga y el nivel de la batería del dispositivo. Cuando el dispositivo está conectado a la corriente, el impacto es insignificante. Por lo tanto, en la mayoría de los casos, puedes maximizar la frecuencia de actualización cuando el dispositivo está conectado a un cargador de pared. Por el contrario, si el dispositivo está en proceso de descarga, disminuir la frecuencia de actualización te permitirá aumentar la duración de la batería.</p>
+               <h4>Cómo determinar el estado de carga actual</h4>
+               <p>En primer lugar, determina el estado de carga actual. El BatteryManager envía los detalles de carga y de la batería en un Intent persistente que incluye el estado de carga. Puesto que se trata de un intent persistente, no necesitas registrar un BroadcastReceiver; con solo llamar a registerReceiver y pasar null como el receptor, como se muestra en el siguiente fragmento, se muestra el intent de estado actual de la batería. Se puede pasar un objeto BroadcastReceiver real, pero hablaremos sobre las actualizaciones en otra sección, por lo que no es necesario ahora.</p>
+               <center><img src="../images/estado/29.jpg" alt=""/></center>
+               <p>Puedes extraer el estado de carga actual y, si el dispositivo se está cargando, puedes ver si se está usando un cargador de CA o un USB.</p>
+               <center><img src="../images/estado/30.jpg" alt=""/></center>
+               <h4>Cómo supervisar los cambios en el estado de carga</h4>
+               <p>l BatteryManager emite una acción siempre que el dispositivo se conecta o desconecta de la corriente. Es importante recibir estos eventos, incluso si la aplicación no está en ejecución (especialmente porque pueden afectar la frecuencia con la que inicias tu app a fin de iniciar una actualización en segundo plano), por lo que debes registrar un BroadcastReceiver en el manifiesto para detectar ambos eventos mediante la definición de ACTION_POWER_CONNECTED y ACTION_POWER_DISCONNECTED en un filtro de intents.</p>
+               <center><img src="../images/estado/31.jpg" alt=""/></center>
+               <h4>Cómo determinar el nivel de batería actual</h4>
+               <p>En algunos casos, también es útil determinar el nivel de batería actual. Puedes disminuir la frecuencia de las actualizaciones en segundo plano si el nivel de carga de la batería es inferior a un valor determinado. Para ver el nivel actual de batería, se debe extraer la escala y el nivel de batería actual desde el intent de estado de la batería, como se muestra a continuación:</p>
+               <center><img src="../images/estado/32.jpg" alt=""/></center>
+               <h4>Cómo supervisar cambios importantes en el nivel de la batería</h4>
+               <p>En términos generales, verificar constantemente el nivel de batería afecta más el nivel de la batería que el comportamiento normal de tu app, por lo tanto, se recomienda solo supervisar los cambios importantes (en especial cuando el dispositivo entra o sale de un estado de carga bajo). <br> El fragmento de manifiesto que aparece a continuación se extrajo del elemento de filtro de intents de un receptor de emisión. Se activa el receptor cuando la carga de la batería del dispositivo alcanza un nivel bajo o se desactiva el estado de carga reducida de batería mediante la recepción de ACTION_BATTERY_LOW y ACTION_BATTERY_OKAY.</p>
+               <center><img src="../images/estado/33.jpg" alt=""/></center>
+               <p>En muchos casos, el hecho de cargar un dispositivo coincide con la acción de utilizar un conector. En la próxima lección, se explica cómo determinar el estado actual del conector y cómo supervisar los cambios que se producen cuando se conecta el dispositivo.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+           <br><br>
+         </div>
+    </div>
+
+
+
+      </div>
+    </section>
+    <div>
+      <a
+        href="process 2 plano.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="../index.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p>
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+
+      <div class="copyright">
+        Design: <a href="https://templated.co">TEMPLATED</a>
+      </div>
+    </footer>
+
+
+    <!-- Scripts -->
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+  </body>
+</html>
