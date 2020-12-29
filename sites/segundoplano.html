@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<!--Poner el titulo de la clase-->
+		<title>segundoplano</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header id="header">
+			<a href="../index.html" class="logo"
+			  ><strong>Aplicaciones móviles</strong></a
+			>
+		  </header>
+		  <div>
+			<a
+        href="process 2 plano.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="subproceso de IU.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+		  </div>
+
+		<!-- Main -->
+			<section id="main">
+				
+				<div class="inner">
+					<!--Usar el siguiente div para poner imagenes en el doc-->
+					<div class="image fit">
+						<img src="../images/2plano/sp.jpg"height="350"alt="" />
+					</div>
+					<!--Poner toda la informacion de la clase-->
+					<header>
+						<!--Poner el titulo de la clase-->
+						<h1>Optimizaciones en segundo plano</h1>
+						<!--Poner fecha de la clase-->
+						<p class="info">04 de Enero del 2021</p>
+					</header>
+					<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+                    <ol>
+					<li><a href="process 2 plano.html">Guía para el procesamiento de datos en segundo plano</a></li>
+					
+                    <li><a href="segundoplano.html">Optimizaciones en segundo plano</a></li>
+					<li><a href="subproceso de IU.html"></a></li>
+                    
+									
+									
+				</ol>
+					
+					<h2 align="center">Optimizaciones en segundo plano</h2><br><br>
+					
+	
+	
+	<p align="justify"><li>Los procesos en segundo plano pueden consumir mucha memoria y batería. Por ejemplo, una emisión implícita puede iniciar muchos procesos en segundo plano que se registraron para recibirla, incluso si esos procesos no realizan mucho trabajo.
+</p>
+
+
+					
+                    <h3>Soluciones</h3><p align="justify"><li>Las apps que se orientan a Android 7.0 (API nivel 24) y versiones posteriores no recibirán emisiones de CONNECTIVITY ACTION si declaran su receptor de emisión en el manifiesto. Las apps seguirán recibiendo emisiones de CONNECTIVITY ACTION. Si registran su BroadcastReceiver con Context. registerReceiver() y ese contexto sigue siendo válido.
+</li>
+<li>Las apps no pueden enviar ni recibir emisiones ACTION NEW PICTURE ni ACTION NEW VIDEO. Esta optimización afecta a todas las apps, no solo a las orientadas a Android 7.0 (API nivel 24).</li>
+</p>
+                    
+                    
+                    
+
+					<div class="card mb-3"><br><br>
+  <p align="center"><img src="../images/2plano/o1.jpg" width="400" height="300" ></p>
+  <div class="card-body">
+    <p class="card-text" ><p align="justify"><h3>Restricciones iniciadas por el usuario</h3>A partir de Android 9 (API nivel 28), si una app muestra comportamientos perjudiciales como los que se describen en Android vitals, el sistema le solicita al usuario que restrinja el acceso de esa app a los recursos del sistema. Si el sistema nota que una app está consumiendo recursos excesivos, le envia una notificación al usuario y le da la opción de restringir las acciones de la app.
+    <p class="card-text" ><p align="justify"><h3>Comportamientos</h3><li>Bloqueos de activación excesivos: 1 bloqueo de activación parcial retenido durante una hora cuando la pantalla está apagada.
+</li>
+<li>Servicios en segundo plano excesivos: Si la app está orientada a niveles de API inferiores a 26 y tiene demasiados servicios en segundo plano.</li>
+    
+  <p align="center"></p>
+  
+ <br>
+  </div>
+</div><br>
+					
+                    
+                    
+					
+					<h4 align="center">Restricciones para la recepción de emisiones de actividad en red</h4><br><br>
+					
+					<div class="card mb-3"><br><br>
+
+  <p align="center"><img src="../images/2plano/o2.png" alt="..." width="415" height="209"></p>
+  <div class="card-body">
+    <p class="card-text" ><p align="justify"><li>Las apps que se orienten a Android 7.0 (API nivel 24) no recibirán emisiones
+de CONNECTIVITY ACTION Si se registran para recibirlas en su manifiesto, y no se iniciarán los procesos que dependan de esta emisión.</li>
+
+<li>En el marco de trabajo de Android, ya existen varias soluciones para evitar esta restricción, pero elegir la correcta depende del objetivo de tu app.</li>
+
+<table class="default">
+
+  <tr>
+
+    <td>Nota: Un BroadcastReceiver registrado con Context.registerReceiver () continúa recibiendo estas emisiones mientras se ejecuta la app.</td>
+
+  </tr>
+
+</table>
+
+<h4 align="center">Cómo programar trabajos de red en conexiones no medidas</h4><li>Aplica el método setRequiredNetworkType () y pasa Jobinfo.NETWORK TYPE UNMETERED como parámetro de trabajo. En el siguiente ejemplo de código, se programa un servicio para que se ejecute cuando el dispositivo se conecte a una red no medida y se cargue:</li>
+<p align="center"><img src="../images/2plano/o3.png" alt="..." width="500" height="300"><p align="center">Cuando se cumplan las condiciones para el trabajo, la app recibirá una devolución de llamada para ejecutar el método onstart Job () en la Jobservice.class especificada. Para ver más ejemplos de la implementación de JobScheduler, consulta la app de ejemplo de JobScheduler.</p><li>WorkManager: una API que te permite programar tareas en segundo plano que necesitan una finalización garantizada, independientemente de si el proceso de la app está activo o no.</li>
+</p><br>
+  </div>
+</div><br>
+					
+					
+					
+					<h4 align="center">Como supervisar la conectividad de red mientras se ejecuta la app</h4><br><br>
+					
+					<div class="card mb-3"><br><br>
+  <p align="center"></p>
+  <div class="card-body">
+   <p class="card-text" ><p align="justify">Las apps que están en ejecución pueden detectar CONNECTIVITY CHANGE con un BroadcastReceiver registrado. Sin embargo, la API de connectivity Manager proporciona un método más sólido para solicitar una devolución de llamada solo cuando se cumplen las condiciones de red especificadas.</p>.
+   
+   
+   <h4 align="center">Restricciones para la recepción de emisiones de imagen y video</h4><br><br>
+					
+					<div class="card mb-3"><br><br>
+  <p align="center"></p>
+  <div class="card-body">
+   <p class="card-text" ><p align="justify">En Android 7.0 (API nivel 24), las apps no pueden enviar ni recibir emisiones de ACTION NEW PICTURE ni de ACTION NEW VIDEO. Esta restricción ayuda a aliviar el rendimiento y afecta la experiencia del usuario cuando se deben activar varias apps para procesar una nueva imagen o un nuevo video.</p>.
+   
+   
+   
+					
+					<div class="card mb-3"><br><h4 align="center">Cómo activar trabajos durante cambios URI de contenido</h4><br><br><br>
+  <p align="center"></p>
+  <div class="card-body">
+   <p class="card-text" ><p align="justify">Para activar trabajos durante cambios de URI de contenido, en Android 7.0 (API nivel 24) se extiende la API de JobInfo con los siguientes métodos:</p><li>JobInfo.TriggerContentUri(): Encapsula los parámetros necesarios para activar un trabajo durante los cambios de URI de contenido.</li>
+   <li>JobInc.Builder.adatriggercontenturi(): Pasa un objeto TriggerContenturi a Jobinfo. Un ContentObserver controla el URI de contenido encapsulado.</li>
+   
+   <img src="../images/2plano/o4.png" width="473" height="223">
+   </p>
+  </div>
+</div>
+					
+
+				  <br><br>
+				
+	<h2 align="center">Como supervisar la conectividad de red mientras se ejecuta la app </h2><br><br>
+<p align="justify">Las apps que están en ejecución pueden detectar CONNECTIVITY CHANGE con un BroadcastReceiver registrado. Sin embargo, la API de connectivity Manager proporciona un método más sólido para solicitar una devolución de llamada solo cuando se cumplen las condiciones de red especificadas.</p>
+
+					
+                    
+
+
+                   
+					
+					<h2 align="center">Restricciones para imagen y video</h2>
+		<p align="justify">En Android 7.0 (API nivel 24), las apps no pueden enviar ni recibir emisiones de ACTION NEW PICTURE ni de ACTION NEW VIDEO. Esta restricción ayuda a aliviar el rendimiento y afecta la experiencia del usuario cuando se deben activar varias apps para procesar una nueva imagen o un nuevo video.</p> 
+        <h3>Cómo activar trabajos durante cambios URI de contenido</h3><p align="justify">Para activar trabajos durante cambios de URI de contenido, en Android 7.0 (API nivel 24) se extiende la API de JobInfo con los siguientes métodos:
+        <li>JobInfo.TriggerContentUri(): Encapsula los parámetros necesarios para activar un trabajo durante los cambios de URI de contenido.</li>
+        <li>JobInc.Builder.adatriggercontenturi(): Pasa un objeto TriggerContenturi a Jobinfo. Un ContentObserver controla el URI de contenido encapsulado. </li>
+</p><img src="../images/2plano/o5.png" width="504" height="304"><br>
+					
+				
+					
+					
+					
+					
+					
+					<br><br>
+					
+					<div class="card mb-3" style="max-width: 1000px;">
+                    <h2 align="center">Cómo determinar qué autoridades de contenido activaron un trabajo </h2><p align="justify">En Android 7.0 (API nivel 24), también se extiende JobParameters para permitir que las apps reciban información útil sobre qué autoridades de contenido y URI activaron el trabajo:</p><li>Will get Triggered Contenturis(): Muestra un arreglo de URI que activaron el trabajo. Este será null si ninguno de los URI activa el trabajo (por ejemplo, se activó el trabajo debido a una fecha límite o a otro motivo), o si el número de URI modificados es mayor que 50.</li><li>String get Triggered Content Authorities: Muestra un arreglo de strings de autoridades de contenido que activaron el trabajo. Si el arreglo que se muestra no es null, usa getzriggeredContentUris () para recuperar los detalles de los URI que se modificaron.</li>
+  <div class="row no-gutters">
+    <div class="col-md-4">
+    <img src="../images/2plano/o6.png" width="464" height="268"><br>
+    <img src="../images/2plano/o7.png" width="518" height="335"><br>
+      
+    </div>
+		  </p>
+      
+  </div>
+</div><br><br>
+					
+					
+			<h2 align="center">Cómo optimizar aún más tu app</h2><br><br>
+					<p align="justify">Optimizar tus apps para que se ejecuten en dispositivos con poca memoria, o en condiciones de poca memoria, puede mejorar el rendimiento y la experiencia del usuario. Si quitas las dependencias de los servicios en segundo plano y los receptores de emisión implícita registrados en manifiestos, tu app funcionará mejor en esos dispositivos. </p><li>Para simular condiciones en las que las emisiones implícitas y los servicios en segundo plano no están disponibles, ingresa el siguiente comando:</li>
+<img src="../images/2plano/o8.png" height="30"><br>
+<li>Para volver a habilitar las emisiones implícitas y los servicios en segundo plano, ingresa el siguiente comando:</li>
+<img src="../images/2plano/o9.png" height="30"><br>
+
+
+ <h2 align="center">Conclusión</h2>
+ <p class="card-text"><p align="justify"><li>En conclusión se puedo decir que por medio del analisis se logra determinar la manera en la que los procesos de segundo plano se empiezan a ejecutar, y a su vez observamos las consecuencias que estos ocasionan, se analizaron metodos y procesos que se implementan en las distintas versiones de Android, los mismos que afectan directamente en las ejecuciones de aplicaciones, procesos y subprocesos.</li>
+  </div>
+</div><br>							
+  </div>
+</div><br>
+		
+			
+      </div>
+    </div>
+  </div>
+</div>
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+					
+					
+					
+					
+	
+
+			
+	</div></section>
+<section>
+	
+	
+	
+	
+	
+	
+
+</section>
+			<div>
+				
+				<a
+        href="process 2 plano.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="subproceso de IU.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+			  </div>
+		<!-- Footer -->
+		<footer id="footer">
+			<p style="color: white;">
+			  Trabajo del curso de Aplicaciones Móviles <br />
+			  <small>Universidad UTE</small>
+			</p>
+	  
+			<div class="copyright">
+			  Design: <a href="https://templated.co">TEMPLATED</a>
+			</div>
+		  </footer>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+	</body>
+</html>
+
