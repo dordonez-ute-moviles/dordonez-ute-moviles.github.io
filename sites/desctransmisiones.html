@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+	<head>
+		<!--Poner el titulo de la clase-->
+		<title>Descripción general de las transmisiones</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="../assets/css/main.css" />
+	</head>
+	<body>
+
+		<!-- Header -->
+		<header id="header">
+			<a href="../index.html" class="logo"
+			  ><strong>Aplicaciones móviles</strong></a
+			>
+		  </header>
+		  <div>
+			<a
+        href="segundoplano.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="alarmasyestado.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+		  </div>
+
+		<!-- Main -->
+			<section id="main">
+				
+				<div class="inner">
+					<!--Usar el siguiente div para poner imagenes en el doc-->
+					<div class="image fit">
+						<img src="../images/2plano/aand.jpg"height="250" width="400" alt="" />
+					</div>
+					<!--Poner toda la informacion de la clase-->
+					<header>
+						<!--Poner el titulo de la clase-->
+						<h1>Descripción general de las transmisiones</h1>
+						<!--Poner fecha de la clase-->
+						<p class="info">4 de Enero de 2021</p>
+					</header>
+					<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+                     <ol>
+					<li><a href="process 2 plano.html">Guía para el procesamiento de datos en segundo plano</a></li>
+					
+                    <li><a href="segundoplano.html">Optimizaciones en segundo plano</a></li>
+					<li><a href="desctransmisiones.html">Descripción general de las transmisiones</a></li><br></ol>
+					
+					<h2 align="center">Descripción general de las transmisiones</h2><br>
+					
+	<p align="justify">Las apps de Android pueden enviar o recibir mensajes de emisión desde el sistema de Android y otras apps para Android, de forma similar al patrón de diseño de publicación y suscripción. Estas emisiones se envían cuando ocurre un evento de interés. 
+Por ejemplo, el sistema Android envía emisiones cuando ocurren diferentes eventos del sistema, como cuando este se inicia o cuando el dispositivo comienza a cargarse.
+</p><br>
+<p align="center"><img src="../images/2plano/carga.png" alt="..." width="344" height="247"></p>
+
+<p align="justify">Las apps también pueden enviar emisiones personalizadas, por ejemplo, para notificar a otras apps sobre algo que podría interesarles.
+</p>
+
+<p align="justify">Las apps pueden registrarse para recibir emisiones específicas. Cuando se envía una emisión, el sistema redirige automáticamente las emisiones a las apps que se suscribieron para recibir ese tipo de emisión particular.
+</p>
+<br>
+
+<center><h2>Emisiones del sistema</h2><br>
+<p align="justify">El sistema envía emisiones automáticamente cuando se producen diferentes eventos del sistema, como cuando este activa o desactiva el modo de avión. Las emisiones del sistema se envían a todas las apps que se suscribieron para recibir el evento.
+El mensaje de emisión en sí está envuelto en un objeto Intent cuya string de acción identifica el evento que ocurrió por ejemplo, android.intent.action.AIRPLANE_MODE.
+</p>
+
+<div class="card mb-3"><br><br>
+  <p align="center"><img src="../images/2plano/avion.png" alt="..." width="438" height="257"></p>
+  <div class="card-body">
+    <p class="card-text" ><p align="justify">El intent también puede contener información adicional incluida en su campo adicional. Por ejemplo, el intent del modo de avión incluye un valor booleano adicional que indica si el modo está activado o no.
+</p><br>
+  </div>
+</div><br>
+
+<center><h2>Cómo recibir emisiones
+</h2></center><br>
+<p align="justify">Las apps pueden recibir emisiones de dos maneras: mediante receptores declarados en el manifiesto y mediante receptores registrados en el contexto.</p>
+<h2>Receptores declarados en el manifiesto</h2>
+<p align="justify">Si declaras un receptor de emisión en tu manifiesto, el sistema inicia la app (si aún no está en ejecución) cuando se envía la emisión.</p>
+<p align="justify">Para declarar un receptor de emisión en el manifiesto, realiza los siguientes pasos:
+</p>
+
+<div class="card mb-3"><br><br>
+  <p align="center"> <img src="../images/2plano/mani.png" width="200" height="246" class="card-img" alt="..."></p>
+  <div class="card-body">
+    <p class="card-text" ><p align="justify"> Especifica el elemento <receiver> en el manifiesto de tu app
+</p>
+<p align="justify">Los filtros de intents especifican las acciones de emisión a las que se suscribe tu receptor.</p>
+<p align="justify">Crea la subclase BroadcastReceiver y, luego, implementa onReceive(Context, Intent). El receptor de emisión del siguiente ejemplo registra y muestra el contenido de la emisión:
+El administrador de paquetes del sistema registra el receptor cuando se instala la app. Luego, el receptor se convierte en un punto de entrada a tu app independiente, lo que significa que el sistema puede iniciar la app y entregar la emisión si esta no está en ejecución.</p>
+<br>
+  </div>
+</div><br>
+
+<div class="card mb-3"><br><br>
+  <p align="center"> <img src="../images/2plano/mani2.png" width="200" height="350" class="card-img" alt="..."></p>
+  <div class="card-body">
+    <p class="card-text" ><p align="justify">A continuación, el sistema crea un nuevo objeto componente BroadcastReceiver para controlar cada emisión que recibe. Este objeto es válido solamente durante la llamada a onReceive(Context, Intent). Una vez que este método muestra tu código, el sistema considera que el componente ya no está activo.
+</p>
+<br>
+  </div>
+</div><br>
+
+<h2>Receptores registrados en el contexto</h2>
+<p align="justify">Para registrar un receptor con un contexto, realiza los siguientes pasos:</p>
+<p align="justify">Crea una instancia de BroadcastReceiver.</p><br>
+ <p align="center"> <img src="../images/2plano/cont.png" width="200" height="69" class="card-img" alt="..."></p>
+<p align="justify">Crea un IntentFilter y registra el receptor mediante una llamada a registerReceiver(BroadcastReceiver, IntentFilter). Los receptores registrados en el contexto reciben emisiones siempre que su contexto de registro sea válido. Por ejemplo, si te registras en un contexto Activity, recibirás emisiones siempre y cuando no se elimine la actividad. Si te registras con el contexto de la aplicación, recibirás emisiones mientras la app esté en ejecución.
+</p><br>
+ <p align="center"> <img src="../images/2plano/cont2.png" width="200" height="152" class="card-img" alt="..."></p>
+ <p align="justify">Para dejar de recibir emisiones, llama a unregisterReceiver (android.content.BroadcastReceiver).Asegúrese de anular el registro del receptor cuando ya no lo necesites o el contexto ya no sea válido.
+</p>
+
+<h2>Cómo enviar emisiones</h2>
+<p align="justify">Android ofrece tres maneras para que las apps envíen emisiones:</p>
+<table width="200" border="1">
+  <tr>
+    <th scope="row">El método sendOrderedBroadcast(Intent, String) </th>
+    <td><p align="justify"> envía emisiones a un receptor por vez. Como se ejecuta un receptor por vez, este puede propagar un resultado al siguiente o puede anular por completo la emisión de manera que no se transmita a otros. El orden en el que se ejecutan los receptores puede controlarse con el atributo android:priority del filtro de intent coincidente; los receptores con la misma prioridad se ejecutarán en orden aleatorio.
+</p></td>
+  </tr>
+  <tr>
+    <th scope="row">El método sendBroadcast(Intent)</th>
+    <td><p align="justify">envía emisiones a todos los receptores en un orden no especificado, lo que se denomina emisión normal. Este método es más eficiente, pero implica que los receptores no pueden leer los resultados de otros receptores, propagar los datos recibidos de la emisión ni anular la emisión.
+</p></td>
+  </tr>
+  <tr>
+    <th scope="row">El método LocalBroadcastManager.sendBroadcast</th>
+    <td><p align="justify">envía emisiones a los receptores que están en la misma app que el emisor. Si no necesitas enviar emisiones entre apps, usa emisiones locales. La implementación es mucho más eficiente (no se requiere comunicación entre procesos) y no tienes que preocuparte por ningún problema de seguridad relacionado con otras apps que puedan recibir o enviar emisiones.
+</p></td>
+  </tr>
+</table>
+<br>
+<center><h2>Cómo restringir emisiones con permisos</h2></center><br>
+<p align="justify">Los permisos te permiten restringir emisiones a un conjunto de apps que cuenta con permisos específicos. Puedes aplicar restricciones tanto en el emisor como en el receptor de una emisión.
+</p><br>
+<h2>Cómo enviar emisiones con permisos</h2><br>
+<p align="justify">Cuando llamas a sendBroadcast(Intent, String) o sendOrderedBroadcast(Intent, String, BroadcastReceiver, Handler, int, String, Bundle), puedes especificar un parámetro de permiso. Solo pueden recibir la emisión los receptores que solicitaron ese permiso con la etiqueta en su manifiesto
+</p><br>
+<p align="justify">Por ejemplo, el siguiente código envía una emisión:</p>
+<p align="center"> <img src="../images/2plano/per.png" width="200" height="86" class="card-img" alt="..."></p>
+<p align="justify">Para recibir la emisión, la app receptora debe solicitar el permiso como se indica a continuación:</p>
+<p align="center"> <img src="../images/2plano/per2.png" width="200" height="200" class="card-img" alt="..."></p>
+<p align="justify">Puedes especificar un permiso existente del sistema como SEND_SMS o definir un permiso personalizado con el elemento permission</p><br>
+
+<h2>Cómo restringir emisiones con permisos</h2><br>
+<p align="justify">con registerReceiver(BroadcastReceiver, IntentFilter, String, Handler) o en la etiqueta receiver en tu manifiesto), solo los emisores que solicitaron el permiso con la etiqueta uses-permission en su manifiesto (y a los que posteriormente se les otorgó el permiso si es peligroso) pueden enviar un intent al receptor.
+</p><br>
+<p align="justify">Por ejemplo, supongamos que tu app receptora tiene un receptor declarado en el manifiesto como se muestra a continuación:</p><br>
+<center><img src="../images/2plano/perr.png" width="200" height="200" class="card-img" alt="..."></center><br>
+<p align="justify">O bien la app receptora tiene un receptor registrado en el contexto, de la siguiente manera:
+</p><br>
+<center><img src="../images/2plano/perr2.png" width="200" height="129" class="card-img" alt="..."></center><br>
+<p align="justify">Luego, para poder enviar emisiones a esos receptores, la app que las envía debe solicitar el permiso como se indica a continuación:
+</p><br>
+<center><img src="../images/2plano/perr3.png" width="200" height="164" class="card-img" alt="..."></center>
+<br>
+<center><h2>Consideraciones de seguridad y prácticas recomendadas</h2></center>
+<br>
+<p align="justify">Consideraciones de seguridad y prácticas recomendadas
+</p>
+
+<div class="card mb-3" style="max-width: 1000px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="../images/2plano/local.png" width="200" height="300" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text"><p align="justify"> Especifica el elemento receiver en el manifiesto de tu app</p>
+        <p align="justify">Si no necesitas enviar emisiones a componentes fuera de tu app, puedes enviar y recibir emisiones locales con el LocalBroadcastManager que está disponible en la biblioteca de compatibilidad. El LocalBroadcastManager es mucho más eficiente (no se requiere comunicación entre procesos) y te permite evitar problemas de seguridad relacionados con otras apps que pueden recibir o enviar tus emisiones.
+ </p>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+
+<p align="justify">No emitas información sensible mediante un intent implícito, ya que cualquier app que se registre para recibir la emisión puede leer la información. </p>
+<p align="justify">Existen tres maneras de controlar quién puede recibir tus emisiones:</p>
+<p align="justify">Puedes especificar un permiso cuando envías una emisión.</p>
+<p align="justify">En Android 4.0 y versiones posteriores, puedes especificar un paquete con setPackage(String) cuando envías una <p align="justify"> El sistema restringe la emisión al conjunto de apps que coinciden con el paquete emisión.</p>
+<p align="justify">Puedes enviar emisiones locales con LocalBroadcastManager.</p>
+<p align="justify">El espacio de nombres para las acciones de emisión es global. Asegúrate de que los nombres de las acciones y otras strings estén escritos en un espacio de nombres del cual seas propietario; de lo contrario, podría generarse un conflicto con otras apps accidentalmente.</p>
+<p align="justify">No inicies actividades desde receptores de emisión porque la experiencia del usuario no es coherente, en especial, si hay varios receptores. En su lugar, considera mostrar una notificación.
+ </p>
+
+
+
+<center><h2>Excepciones de transmisiones implícitas
+</h2></center><br>
+
+
+<div class="card mb-3" style="max-width: 1000px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="../images/2plano/and.png" width="387" height="200" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text"><p align="justify"> Como parte de los Límites de ejecución en segundo plano de Android 8.0 (API nivel 26), las apps que se orientan a la API nivel 26 o superior ya no pueden registrar receptores de emisión para emisiones implícitas en su manifiesto. 
+
+ </p>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+<div class="card mb-3" style="max-width: 1000px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="../images/2plano/and2.png" width="387" height="200" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text"><p align="justify"> Sin embargo, varias emisiones actualmente están exentas de estas limitaciones. Las apps pueden seguir registrando objetos de escucha para las siguientes emisiones, sin importar el nivel de API al que se orienten las apps.
+
+ </p>
+ <p align="justify">Algunas apps necesitan conocer los cambios en las cuentas de acceso a fin de poder configurar operaciones programadas para las cuentas nuevas y modificadas.
+
+</p>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+
+<center><h2>Limitaciones de transmisión</h2></center><br>
+
+
+
+<div class="card mb-3"><br><br>
+  <p align="center"><img src="../images/2plano/app1.png" alt="..." width="387" height="194"></p>
+  <div class="card-body">
+    <p class="card-text" ><p align="justify">Si una app se registra para recibir transmisiones el receptor consume recursos cada vez que se realiza una transmisión. Esto puede causar problemas si demasiadas apps se registran para recibir transmisiones según los eventos del sistema un sistema que activa una transmisión puede hacer que todas las apps consuman recursos de manera rápida y sucesiva, lo cual puede afectar la experiencia del usuario.
+
+</p><br>
+  </div>
+</div><br>
+
+
+
+
+<div class="card mb-3" style="max-width: 1000px;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="../images/2plano/and.png" width="387" height="200" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text"><p align="justify"> Las aplicaciones dirigidas a Android 8.0 o versiones posteriores ya no pueden registrar receptores para transmisiones implícitas en su manifiesto.
+
+ </p>
+      </div>
+    </div>
+  </div>
+</div><br>
+
+
+
+
+
+
+<p align="justify">Una transmisión implícita es aquella que no está dirigida a esa app específicamente.
+</p>
+
+<b><p align="center">ACTION PACKAGE REPLACED</p></b>
+<p align="justify">Es una transmisión implícita , ya que se envía a todos los receptores registrados y comunica a estos que se reemplazó algún paquete en el dispositivo.</p>
+
+<b><p align="center">ACTION_MY PACKAGE_REPLACED</p></b>
+
+<p align="justify">No es una transmisión implícita ya que se envía solo a la app cuyo paquete se reemplazó, sin importar cuantas otras apps hayan registrado receptores para esa transmisión.
+</p>
+
+
+
+<p align="justify">Actualmente, varias transmisiones implícitas quedan exentas de esta limitación . Las apps puedes continuar registrando receptores para estas transiciones en un manifiesto sin importar el nivel de API a la cual se orienten.
+
+</p>
+
+
+					
+					
+	
+
+			
+	</div></section>
+<section>
+	
+	
+	
+	
+	
+	
+
+</section>
+			<div>
+				
+				<a
+        href="segundoplano.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="alarmasyestado.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+			  </div>
+		<!-- Footer -->
+		<footer id="footer">
+			<p style="color: white;">
+			  Trabajo del curso de Aplicaciones Móviles <br />
+			  <small>Universidad UTE</small>
+			</p>
+	  
+			<div class="copyright">
+			  Design: <a href="https://templated.co">TEMPLATED</a>
+			</div>
+		  </footer>
+
+		<!-- Scripts -->
+			<script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/jquery.scrolly.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+	</body>
+</html>
