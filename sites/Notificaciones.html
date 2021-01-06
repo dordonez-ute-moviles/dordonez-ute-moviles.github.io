@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Notificaciones</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a
+        href="./redes.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href=""
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img src="../images/notificaciones/notificaciones1.jpg"height="300" width="600" alt="" />
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1>Notificaciones</h1>
+          <!--Poner fecha de la clase-->
+          <p class="info">Consulta 4 05/01/2021</p>
+        </header>
+        <!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+        <h2>Descripción general de los avisos</h2>
+        <p>
+        Son ventanas emergentes que ocupan una pequeña cantidad de espacio y están ahí por una corta cantidad de tiempo para notificar al usuario
+          de una acción realizada. Esto se puede observar en el siguiente gráfico en el cual se muestra un aviso al haber enviado un mensaje </br>
+          En caso de necesitar una interacción de parte del usuario es mejor usar una notificación
+        </p>
+        <h3>Conceptos básicos</h3>
+        <p>
+        Primero crea una instancia de un objeto Toast con uno de los métodos  <b>makeText().</b>
+         Este método usa tres parámetros: el objeto Context de la aplicación, el mensaje de texto y la duración del aviso.
+          Muestra un objeto de aviso correctamente inicializado.   Se puede mostrar la notificación del aviso con<b> show().</b>
+        </p>
+        <img src="../images/notificaciones/avis1.jpg"height="200" width="700" alt="" />
+        <h3>Ubicación del aviso</h3>
+        <p>
+          Por defecto un aviso aparece cerca de la parte inferior de la pantalla y centrada horizontalmente, esto se puede cambiar con el método <b>“setGravity(int,int,int)” </b> .
+         Por ejemplo si se desea que el aviso aparezca en la esquina superior izquierda se debería establecer la constante de gravedad de la siguiente manera
+        </p>
+
+            <img src="../images/notificaciones/avis.jpg"height="100" width="700" alt="" />
+
+            <h3>Creación de una vista de aviso personalizada</h3>
+         <p>
+            En caso de que un mensaje no sea suficiente se puede definir un diseño de view en el archivo xml o en el código de la aplicación y
+             luego se pasa el objeto view raíz al método <b>setview().</b> </br>
+          En el ejemplo se observa cómo se recupera el objeto LayoutInflater, luego se crea una vista llamada layout la cual recupera un elemento de tipo LinearLayout, después se recupera el elemento de texto y se lo guarda en el objeto text y le asignamos un valor, por último creamos un objeto toast, con el método setGravity lo alineamos, con el método setDuration asignamos la duración del aviso, con el método setView asignamos el layout que creamos al aviso y para terminar se usa el método show para poder mostrar el aviso.
+        </p>
+        <img src="../images/notificaciones/avis2.jpg"height="200" width="700" alt="" />
+        <img src="../images/notificaciones/avis3.jpg"height="300" width="700" alt="" />
+        <h2>Descripción general de notificaciones</h2>
+        <p>Una notificación es un mensaje mostrado por android fuera de la interfaz de usuario para avisar al usuario ya sea de algún mensaje o recordatorio de una app en específico, un usuario puede presionar la notificación para acceder a la aplicación o en caso de que sea un mensaje se puede responder desde la notificación sin necesidad de ingresar a la aplicación.</p>
+        <h3>Presentación en un dispositivo</h3>
+        <p>Una notificación se puede manifestar en varios sitios, puede ser en el panel de notificaciones o una insignia en el ícono de la app.</p>
+        <img src="../images/notificaciones/avis4.jpg"height="300" width="700" alt="" />
+         <h3>Notificaciones emergentes</h3>
+         <p>A partir de android 5.0 las notificaciones pueden aparecer en la pantalla por un periodo corto de tiempo en el cual el usuario puede interactuar, esto mientras el dispositivo está desbloqueado.</p>
+         <img src="../images/notificaciones/avis5.jpg"height="300" width="700" alt="" />
+
+         <h3>Notificaciones con la pantalla bloqueada</h3>
+         <p>A partir de android 5.0 se pueden mostrar notificaciones en la pantalla bloqueada, se puede programar qué notificaciones se desea que aparezcan, en caso de que el dispositivo cuente con un bloqueo no se podrá acceder a la aplicación al interactuar con la notificación hasta que se desbloquee el dispositivo</p>
+         <img src="../images/notificaciones/avis6.jpg"height="300" width="700" alt="" />
+
+         <h3>Dispositivos con Wear OS</h3>
+         <p>Si un dispositivo está sincronizando con algún smart watch, las notificaciones deberán aparecer en dicho dispositivo, estas notificaciones deben adecuarse a las dimensiones del smart watch.</p>
+         <h3>Anatomiad de las notificaciones</h3>
+         <p>Las notificaciones por lo general cuentan con 6 elementos</p>
+         <ol>
+           <li>Ícono de la app, es obligatorio y se define con setSmallIcon().</li>
+           <li>Nombre de la app, es proporcionado por el sistema.</li>
+           <li>Hora a la que llegó la notificación, es proporcionada por el sistema, se puede anular con setWhen() y ocultar con setShowWhen(False)</li>
+           <li>Ícono grand, es opcional y se puede establecer con setLargeIcon().</li>
+           <li>Título, es opcional y se define con setContextTitle().</li>
+           <li>Texto, es opcional y se establece con setContextText().</li>
+
+         </ol>
+         <h3>Acciones de la notificación</h3>
+         <p>Cada notificación debería abrir una actividad de app adecuada cuando se la presiona, también se puede agregar botones de acción que ejecuten una tarea relacionada con la app desde la notificación, esto sin abrir una actividad.</p>
+         <img src="../images/notificaciones/avis7.jpg"height="200" width="600" alt="" />
+
+         <h3>Notificación expandible</h3>
+         <p>Si el contenido de la notificación es muy grande, se puede aplicar una plantilla adicional que expanda el área de la notificación para poder mostrar el contenido por completo</p>
+           <img src="../images/notificaciones/avis8.jpg"height="200" width="800" alt="" />
+          <h3>Actualizaciones de notificaciones y grupos</h3>
+          <p>Para evitar llenar el panel con notificaciones del mismo tipo, la mejor opción es hacer un grupo de notificaciones del mismo tipo, también en caso de que una actualización existente sufra algún cambio, lo correcto es actualizar la que ya existe en vez de crear una nueva.</p>
+          <img src="../images/notificaciones/avis9.jpg"height="300" width="700" alt="" />
+
+          <h3>Canales de notificaciones</h3>
+          <p>A partir de android 8.0 las notificaciones necesariamente deben estar asignadas a un canal, esto para que puedan aparecer, los usuarios pueden inhabilitar un canal en específico y de esta forma solo deshabilitarán las de una app en específico y no todas la notificaciones del dispositivo, también se pueden personalizar las notificaciones para cada canal, los usuarios pueden mantener aplastada una notificación para acceder a las configuraciones de su canal.</p>
+
+          <h3>Importancia de las notificaciones</h3>
+          <p>Android administra el nivel de interrupción visual y auditiva en el dispositivo según la importancia que se le asigne.</p>
+          <img src="../images/notificaciones/avis10.jpg"height="200" width="600" alt="" />
+           <h3>Modo no interrumpir</h3>
+           <p>Desde android 5.0 los usuarios pueden activar el modo no interrumpir que silencia los sonidos y desactiva la vibración del dispositivo, las notificaciones pueden ser desactivadas por el usuario si este lo desea.  <br>Tienes  3 niveles </p>
+
+           <ul>
+             <li>Silencio total</li>
+             <li>Solo alarmas</li>
+             <li>Solo prioridad</li>
+           </ul>
+            <h3>Compatibilidad de notificaciones</h3>
+            <p>Para mantener las características más recientes y compatibilidad con dispositivos antiguos, se utiliza la biblioteca Notification Compact y sus subclases. Está librería se actualiza a medida que evoluciona la plataforma para incluir los métodos más recientes. <br>Al avanzar las versiones de la API se han obtenido nuevas características cómo las notificaciones expandibles, notificaciones en pantalla bloqueada, prioridad de notificaciones, diferentes plantillas y desactivar las notificaciones por canal. </p>
+            <h2>Cómo crear una notificación</h2>
+            <p>Para esto se utiliza la API NotificationCompat. Esto permite agregar funciones disponibles sólo en versiones recientes de Android y dar compatibilidad con Android 4.0. Para usarla en el archivo build.gradle se le añade en dependencies lo siguiente  <b>‘implementation “com.android.support:support-compat:28.0.0”  ’.</b> </p>
+
+            <p>En su forma más básica y compacta una notificación muestra un icono, un título y una pequeña cantidad de texto conceptual</p>
+            <img src="../images/notificaciones/avis11.jpg"height="100" width="500" alt="" />
+            <h3>Cómo definir el contenido de la notificación</h3>
+            <p>Primero se debe configurar el contenido y el canal de la notificación con un objeto NotificationCompat.Builder y se le pone los diferentes elementos con la información de la notificación</p>
+            <img src="../images/notificaciones/avis12.jpg"height="200" width="500" alt="" />
+
+            <h3>Establecer la acción de toque de la notificación</h3>
+            <p>Se debe especificar un intent de contenido definido con un objeto PendingIntent y pasarlo a  <b>setContentIntent()</b></p>
+            <img src="../images/notificaciones/avis13.jpg"height="200" width="500" alt="" />
+            <h2>Comó crear una notificación expandible</h2>
+            <p>Para esto creamos una notificación y posteriormente  llamamos a stile() con un objeto de estilo y proporcina la informacion correspondiente a cada plantilla </p>
+            <p>Para  agregar una imagen grande  <b>setStyle()</b> se pasa una intancia <b>NotificationCompatBigPicturesatyle</b></p>
+            <img src="../images/notificaciones/avis14.jpg"height="300" width="700" alt="" />
+            <p>Para  establecer como miniatura a setLargeIcon () se pasa una instancia biglargeIcon() </p>
+            <img src="../images/notificaciones/avis15.jpg"height="300" width="500" alt="" />
+            <img src="../images/notificaciones/avis15.1.jpg"height="300" width="500" alt="" />
+
+            <p>Para agregar un bloque de texto grande  setStyle () se pasa una instancia NotificationCompat.BigTextStyle</p>
+            <img src="../images/notificaciones/avis16.jpg"height="300" width="500" alt="" />
+            <img src="../images/notificaciones/avis16.1.jpg"height="300" width="500" alt="" />
+
+            <p>Para crear una notificación con estilo de bandeja de entrada aplicamos NotificationCompat.InboxStyle y si se desea agregar una nueva línea se coloca addline()</p>
+            <img src="../images/notificaciones/avis17.jpg"height="200" width="500" alt="" />
+              <p>Para mostrar una conversación en una  notificacion aplicamos NotificationCompat.Messagingstyle  y llamamos a addMessage() para agregar un mensaje nuevo</p>
+              <img src="../images/notificaciones/avis18.jpg"height="300" width="500" alt="" />
+              <img src="../images/notificaciones/avis18.1.jpg"height="300" width="500" alt="" />
+            <p>Para crear una  notificacion de  contenido multimedia  aplicamos NotificationCompat.Media style   y llamamos a addAction() para mostrar los botones  y usamos setLargeicon() para  las miniaturas </p>
+            <img src="../images/notificaciones/avis19.jpg"height="300" width="500" alt="" />
+            <img src="../images/notificaciones/avis19.1.jpg"height="300" width="500" alt="" />
+            <h3>Cómo mostrar notificaciones sujetas a horarios específicos</h3>
+            <p>En situcaciones específicas, es posibpe que tu app nesesite llamar la  atención del ususario rápidamente , como cuando suena una alarma o  entra llamada
+             </p>
+             <h4>Crear una notificación de alta prioridad</h4>
+             <p>Para esto debemos asegurarnos  de incluir un titulo y un mensaje descritivos Tambien podras proporcionar un inten de pantalla completa usando el siguiente código</p>
+             <img src="../images/notificaciones/avis20.jpg"height="300" width="500" alt="" />
+             <h2>Como iniciar una actividad desde una notificación </h2>
+             <h4>actividad normal </h4>
+             <p>Corresponde a una actividad que forma parte del flujo normal de la experiencia de ususario , Por tanto cuando el ususrio llegue a  la actividad  desde la notificación , la proxima tarea deberia incluir una pila de actividades completa , que le permita  presionar Atras  y navegar hacia arriba en la gerarquia de la app</p>
+             <h5>Configurar un PendingIntent   de actividad normal</h5>
+             <p>Para iniciar una <b>"actividad normal" desde tu notificación </b> configura el PendingIntent con TasckStackBuilder de modo que se cree una nueva pila de actividades  de la siguiente manera  </p>
+
+              <h5>Definir la jeraquia de actividades de tu app</h5>
+              <p>Para iniciar una actividad normal  configura desde nuestra  notificación el PendingIntent con un TaskStackBuilder  <br>Para manejar  la jerarquía de natural de las actividades se agrega el atributo  android:parentActivityName en cada <activity > </p>
+                <img src="../images/notificaciones/avis21.jpg"height="300" width="500" alt="" />
+
+                <h5>Cómo compilar un PendingIntent con una pila de actividades</h5>
+                <p>Si queremos iniciar una actividad que incluya una pila de actividades creamos  TaskStackBuilder y realizamos la llamada un addNextIntentWithParentStack () y pasamo el intent  <br>  Una vez definida la actividad principal de para cada actividad  llamamos a getPendingIntent()  y recibiremos el PendingIntent con toda la pila </p>
+                <img src="../images/notificaciones/avis22.jpg"height="300" width="600" alt="" />
+
+                <h5>Configurar un PendingIntent de actividad especial</h5>
+                <p>En el <"activity> usamos android:taskAffinity junto con FLAG_ACTIVITY_NEW_TASK  que  garantiza que el atributo no se incluya en tareas  predeterminadas y android:excludeFromRecents para que el usuario no retroceda  accidentalmente hacia ella </br> Posteriormente crear3emos una notificación  , para locual creamos un Intent que inicie la actividad , luego usando el metodo <b>setflag()</b> con las marcas  <b>FLAG_ACTIVITY_NEW_TASK</b> y <b>FLAG_ACTIVITY_CLEAR_TASK</b>  para iniciar una tarea vacia  ; despues llamaremos a <b>getActivity()</b>  para crear un  <b>PendingIntent</b>  por ultimo pasamos normalmente el PendingIntent</p>
+
+                <img src="../images/notificaciones/avis23.jpg"height="300" width="500" alt="" />
+                <img src="../images/notificaciones/avis24.jpg"height="300" width="500" alt="" />
+                <img src="../images/notificaciones/avis25.jpg"height="300" width="500" alt="" />
+                <h2>Crear grupos de ntificaciones</h2>
+                <p>A partir de android 7(API nivel 24) se puede mostrar notificación relacionadas en un grupo para crear un grupo solo se tiene que llamar a setGroup() y pasar el nombre del grupo</p>
+                <img src="../images/notificaciones/avis26.jpg"height="300" width="500" alt="" />
+                <img src="../images/notificaciones/avis26.1.jpg"height="300" width="500" alt="" />
+                <h2>Como crear y administrar canales de notificaciones</h2>
+                <p>Las opciones de configuración del usuario de los canales de notificaciones están disponibles para cada app en la configuración del sistema.</p>
+                <img src="../images/notificaciones/avis27.jpg"height="300" width="500" alt="" />
+
+                <h3>Crear un canal de notificaciones</h3>
+                <p>Se construye un objeto NotificationChannel con un Id de canal único, un nombre visible para el usuario y un nivel de importancia y de manera opcional se especifica la descripción que el usuario ve en la configuración del sistema con setDescription() <br> Para registrar el canal de notificaciones se pasa a createNotificationChannel()</p>
+                <p>Se debe de proteger este código con una condición en la versión SDK INT para que se ejecute solo en Android 8.0 y versiones posteriores.</p>
+                <p>Cuando se crea un canal de notificaciones existente con sus valores originales, no se realiza ninguna operación, por lo que es seguro llamar a este código cuando inicias una app.</p>
+                <img src="../images/notificaciones/avis28.jpg"height="300" width="600" alt="" />
+                <img src="../images/notificaciones/avis28.1.jpg"height="300" width="600" alt="" />
+
+                  <p>De forma predeterminada, todas las notificaciones publicadas en este canal usan los componentes visuales y auditivos, definidos por el nivel de importancia de la clase NotificationManagerCompat.</p>
+                <h3>Establecer nivel de importancia</h3>
+                <p>La importancia del canal afecta el nivel de interrupción de todas las notificaciones publicadas en el canal. Se debe especificar en el constructor NotificationChannel. </br>IMPORTANCE_NONE(0)  hasta IMPORTANCE_HIGH(4)</br>El nivel de importancia que asignan a un canal se aplica a todos los mensajes de notificaciones que publicas en este.</p>
+                <h3>Nivel de Importancia del Canal</h3>
+                <img src="../images/notificaciones/avis29.jpg"height="400" width="700" alt="" />
+                <h3>Modificar una insignia de notificación</h3>
+                <p>Las insignias de notificaciones aparecen en un ícono de selecto cuando la app asociada tiene una notificación activa. Los usuarios pueden mantener presionado el ícono en la pp a fin de mostrar las notificaciones.</p>
+                <img src="../images/notificaciones/avis30.jpg"height="400" width="700" alt="" />
+
+                <h3>Inhabilitar las insignias</h3>
+                <p>Con el método setShowBadge(false) en tu objeto NoticationChannel <br>Si queremos deshabilitar insignias a las notificaciones en curso, a los recordatorios del calendario o eventos de alarma o reloj, para quitar las insignias en un canal de notificaciones es de la siguiente manera:</p>
+                <img src="../images/notificaciones/avis31.jpg"height="300" width="800" alt="" />
+                <h3>Crear un diseño personalizado para el área de contenido </h3>
+                <p>Se puede aplicar NotificationCompat.DecoratedCustomViewStyle a la notificación. Es una API que permite proporcionar diseño de vista personalizada para el área de contenido</p>
+                <ul>
+                  <li>Crea una notificación básica con NotificationCompat.Builder</li>
+                  <li>LLama a setStyle() y pasa una instancia de NotificationCompat.DecoratedCustomViewStyle</li>
+                  <li>Aumenta el diseño personalizado como una instancia de RemoteViews.</li>
+                  <li>Llama a setCustomContentView() para configurar el diseño de la notificación contraída.</li>
+                </ul>
+                <h3>Burbujas</h3>
+                <p>Las burbujas les permiten a los usuarios realizar varias tareas desde cualquier parte de su dispositivo.
+ <br>Las burbujas están integradas en el sistema de notificaciones. Flotan sobre el contenido de otra app y siguen al usuario a donde mueva el dedo.
+<br> Cuando el dispositivo está bloqueado o la pantalla siempre activa está habilitada, las burbujas aparecen del mismo modo que las notificaciones.
+<br> Las burbujas se pueden inhabilitar. Cuando aparece la primera en una app, se muestra el diálogo de permisos.
+</p>
+<h3>API de burbujas</h3>
+<p>Enviar una burbujas</p>
+<ul>
+  <li>Crear una notificación como lo haríamos normalmente.</li>
+<li>LLamar a Notification.BubbleMetadata.Builder para crear un objeto BubbleMetadata</li>
+<li>Usar el método setBubbleMetadata para agregar metadatos a la notificación.</li>
+
+</ul>
+<img src="../images/notificaciones/avis32.jpg"height="300" width="800" alt="" />
+
+
+
+
+
+
+      </div>
+    </section>
+    <div>
+      <a
+        href="./redes.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href=""
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p>
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+
+      <div class="copyright">
+        Design: <a href="https://templated.co">TEMPLATED</a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
