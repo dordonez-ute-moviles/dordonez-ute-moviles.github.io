@@ -8,7 +8,7 @@
 
 <head>
 	<!--Poner el titulo de la clase-->
-	<title>Persistencia</title>
+	<title>Servicios</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="../assets/css/main.css" />
@@ -414,7 +414,7 @@
 			<div class="card mb-3" style="max-width: 1000px">
 				<div class="row no-gutters">
 					<div class="col-md-12 col-lg-12 ">
-							
+
 						<img src="../images/Servicios/eserv_6.jpg" alt="..." width="250" height="280"
 							class="card-img " />
 						<img src="../images/Servicios/eserv_7.jpg" alt="..." width="150" height="35"
@@ -423,7 +423,207 @@
 
 				</div>
 			</div>
-			
+
+			<div class="card mb-3" style="max-width: 1000px">
+			<div class="row no-gutters">
+
+				<div class="col-md-6">
+				<div class="card-body">
+					<h3 >Lenguaje de definición de la interfaz de Android (AIDL)</h3>
+					<ul>
+					<br />
+					<p>
+						Te permite definir la interfaz de programación que el cliente y el
+						servicio acuerdan utilizar para establecer comunicación entre
+						procesos (IPC). Por lo general, en Android, un proceso no puede
+						acceder a la memoria de otro proceso. Por esto, para comunicarse,
+						tienen que descomponer sus objetos en primitivas que el sistema
+						operativo pueda comprender y tienen que ordenar los objetos entre
+						esos límites para ti.
+					</p>
+					</ul>
+				</div>
+				</div>
+				<div class="col-md-6">
+				<img
+					src="../images/Servicios/serv02.png"
+					alt="..."
+					width="767"
+					height="272"
+					class="card-img"
+				/>
+				</div>
+			</div>
+			</div>
+
+			<div class="card mb-3" style="max-width: 1000px">
+			<div class="row no-gutters">
+				<div >
+				<div class="card-body">
+					<h3 >Cómo definir una Interfaz AIDL?</h3>
+					<ul>
+					<br />
+					<p>
+						Debes definir la interfaz de AIDL en un archivo .aidl con sintaxis
+						del lenguaje de programación Java y guardarla en el código fuente
+						(en el directorio src/).</br>
+						Para crear un servicio enlazado con AIDL, sigue estos pasos:
+						<li>Crear el archivo .aidl</li>
+						<li>Implementar la interfaz</li>
+						<li>Exponer la interfaz a los clientes</li>
+
+					</p>
+					</ul>
+				</div>
+				</div>
+			</div>
+			</div>
+
+			<div class="card mb-3" style="max-width: 1000px">
+			<div class="row no-gutters">
+
+				<div class="col-md-6">
+				<div class="card-body">
+					<h3 >Crear el archivo .aidl</h3>
+					<ul>
+					<br />
+					<p>
+						El AIDL usa una sintaxis simple que te permite declarar una
+						interfaz con uno o más métodos que pueden tomar parámetros y
+						devolver valores.</br>
+						De manera predeterminada, el AIDL admite los siguientes tipos de datos:
+						<li>String</li>
+						<li>CharSequence</li>
+						<li>List</li>
+						<li>Map</li>
+						<li>Todos los tipos de primitivas en el lenguaje JAVA</li>
+					</p>
+					</ul>
+				</div>
+				</div>
+				<div class="col-md-6">
+				<img
+					src="../images/Servicios/serv03.png"
+					alt="..."
+					width="767"
+					height="272"
+					class="card-img"
+				/>
+				</div>
+			</div>
+			</div>
+
+			<div class="card mb-3" style="max-width: 1000px">
+			<div class="row no-gutters">
+				<div>
+				<div class="card-body">
+					<h3 >Implementa la interfaz</h3>
+					<ul>
+					<br />
+					<p>
+						Cuando crees tu aplicación, las herramientas del SDK de Android
+						generarán un archivo de interfaz .java, cuyo nombre se derivará
+						del archivo .aidl.</br>
+						La interfaz generada incluye una subclase denominada Stub, que es
+						una implementación abstracta de la interfaz principal (por ejemplo,
+						YourInterface.Stub) y declara todos los métodos del archivo .aidl.
+					</p>
+					</ul>
+				</div>
+				</div>
+
+				<div>
+				<div class="card-body">
+					<ul>
+					<br />
+					<p>
+						Para implementar la interfaz generada del .aidl, extiende la
+						interfaz Binder generada (por ejemplo, YourInterface.Stub) e
+						implementa los métodos heredados del archivo .aidl.
+					</p>
+					</ul>
+				</div>
+				</div>
+				<div>
+				<img
+					src="../images/Servicios/serv04.png"
+					alt="..."
+					width="767"
+					height="272"
+					class="card-img"
+				/>
+				</div>
+				<div>
+				<div class="card-body">
+					<ul>
+					<br />
+					<p>
+						Existen algunas reglas que debes tener en cuenta a la hora de
+						implementar tu interfaz de AIDL.
+						<li>No se garantiza que las llamadas entrantes se ejecuten en el
+							subproceso principal.</li>
+						<li>De manera predeterminada, las RPC son síncronas. Se debe
+							llamar desde un subproceso independiente del cliente.</li>
+						<li>No se devolverá al emisor ninguna excepción que produzcas.</li>
+					</p>
+					</ul>
+				</div>
+				</div>
+			</div>
+			</div>
+
+			<div class="card mb-3" style="max-width: 1000px">
+			<div class="row no-gutters">
+				<div class="col-md-6">
+				<div class="card-body">
+					<h3 >Expón la interfaz a los clientes</h3>
+					<ul>
+					<br />
+					<p>
+						Para exponer la interfaz de tu servicio, extiende el Service e
+						implementa onBind() para mostrar una instancia de la clase que
+						implemente el Stub generado (como en la sección anterior).
+					</p>
+					</ul>
+				</div>
+				</div>
+
+				<div class="col-md-6">
+				<img
+					src="../images/Servicios/serv05.png"
+					alt="..."
+					width="767"
+					height="272"
+					class="card-img"
+				/>
+				</div>
+
+				<div class="col-md-6">
+				<img
+					src="../images/Servicios/serv06.png"
+					alt="..."
+					width="767"
+					height="272"
+					class="card-img"
+				/>
+				</div>
+
+				<div class="col-md-6">
+				<div class="card-body">
+					<ul>
+					<br />
+					<p>
+						Cuando un cliente (como una actividad) llama a bindService() para
+						conectarse a este servicio, la devolución de llamada
+						onServiceConnected() del cliente recibe la instancia de binder que
+						muestra el método onBind() del servicio.
+					</p>
+					</ul>
+				</div>
+				</div>
+			</div>
+			</div>
+
 	</section>
 
 	<div>
