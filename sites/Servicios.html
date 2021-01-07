@@ -5,179 +5,456 @@
 	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
 -->
 <html>
-	<head>
-		<!--Poner el titulo de la clase-->
-		<title>Persistencia</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="../assets/css/main.css" />
-	</head>
-	<body>
 
-		<!-- Header -->
-		<header id="header">
-			<a href="../index.html" class="logo"
-			  ><strong>Aplicaciones móviles</strong></a
-			>
-		  </header>
-		  <div>
-			<a
-        href="Notificaciones.html"
-        style="float: left; background-color: black; padding: 1rem"
-        >Anterior</a
-      >
-      <a
-        href="process 2 plano.html"
-        style="float: right; background-color: black; padding: 1rem"
-        >Siguiente</a>
-		  </div>
+<head>
+	<!--Poner el titulo de la clase-->
+	<title>Persistencia</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="../assets/css/main.css" />
+</head>
 
-		<!-- Main -->
-		<section id="main">
-			<div class="inner">
-			  <!--Usar el siguiente div para poner imagenes en el doc-->
-			  <div class="image fit">
-				<img
-				  src="../images/Servicios/Servicios2.jpg"
-				  alt=""
-				  width="750"
-				  height="450"
-				/>
-			  </div>
-			  <!--Poner toda la informacion de la clase-->
-			  <header>
+<body>
+
+	<!-- Header -->
+	<header id="header">
+		<a href="../index.html" class="logo"><strong>Aplicaciones móviles</strong></a>
+	</header>
+	<div>
+		<a href="Notificaciones.html" style="float: left; background-color: black; padding: 1rem">Anterior</a>
+		<a href="process 2 plano.html" style="float: right; background-color: black; padding: 1rem">Siguiente</a>
+	</div>
+
+	<!-- Main -->
+	<section id="main">
+		<div class="inner">
+			<!--Usar el siguiente div para poner imagenes en el doc-->
+			<div class="image fit">
+				<img src="../images/Servicios/Servicios2.jpg" alt="" width="750" height="450" />
+			</div>
+			<!--Poner toda la informacion de la clase-->
+			<header>
 				<!--Poner el titulo de la clase-->
 				<h1 align="center">Servicios</h1>
 				<!--Poner fecha de la clase-->
 				<p class="info">04 de Enero de 2021</p>
-			  </header>
-			  <!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
-			  <h2></h2>
-			  <hr />
+			</header>
+			<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+			<h2></h2>
+			<hr />
 
-				 <h3>Descripción general de los servicios</h3>
+			<h3>Descripción general de los servicios</h3>
 
-				<p align="justify">
+			<p align="justify">
 
-					<li>Un Service es un componente de una aplicación que puede realizar operaciones de larga ejecución en segundo plano y que no proporciona una interfaz de usuario</li>
-					<li>Otro componente de la aplicación puede iniciar un servicio y continuar ejecutándose en segundo plano aunque el usuario cambie a otra aplicación. </li>
-					<li>Un componente puede enlazarse con un servicio para interactuar con él e incluso realizar una comunicación entre procesos</li>
-				</p>
-
-        <div class="card mb-3" style="max-width: 1000px">
-          <div class="row no-gutters">
-            <div class="col-md-4 col-lg-4">
-              <img
-				 src="../images/Servicios/Servicios3.png"
-                alt="..."
-                width="767"
-                height="472"
-                class="card-img"
-              />
-            </div>
-            <div class="col-md-8 ">
-              <div class="card-body col-lg-12 " align="justify">
-				  
-				  <h3>Estos son los tres tipos diferentes de servicios: </h3>
-				  <h4>Primer plano:</h4>
-                    <li>Un servicio en primer plano realiza una operación que el usuario puede notar.</li>
-					<h4>Segundo plano:</h4>
-                    <li>Un servicio en segundo plano realiza una operación que el usuario no nota directamente</li>
-				  <h4>Enlace</h4>
-                    <li>Un servicio es de enlace cuando un componente de la aplicación se vincula a él llamando  bindService(). </li>
-				  <li>Un servicio de enlace ofrece una interfaz cliente-servidor que permite que los componentes interactúen con el servicio, envíen solicitudes, reciban resultados e incluso lo hagan en distintos procesos con la comunicación entre procesos </li>
-				  <li>Un servicio de enlace se ejecuta solamente mientras otro componente de aplicación está enlazado a él. Se pueden enlazar varios componentes con el servicio a la vez </li>
-				  
-
-              </div>
-            </div>
-          </div>
-    </div>
-
-		<h4>Diferencia entre un servicio y un subproceso</h4>
-				<p>
-				<li>Un servicio es simplemente un componente que puede ejecutarse en segundo plano, incluso cuando el usuario no está interactuando con tu aplicación.</li>
-				<li>Es necesario crear un subproceso si debes trabajar fuera de tu subproceso principal solamente mientras el usuario interactúa con tu aplicación.</li>
-				</p>
-		<h4>Conceptos básicos</h4>
-				<p>
-				<li>Para crear un servicio, debes crear una subclase de Service o usar una de sus subclases existentes.</li>
-				<li>Se Debe anular algunos métodos de devolución de llamada que manejan aspectos fundamentales del ciclo de vida del servicio y proporcionar un mecanismo que permita que los componentes se enlacen con el servicio.</li>
-				</p>
-
-		<h4>Métodos de devolución de llamada más importantes que debes anular:</h4>
-				<p>
-				<b>onStartCommand()</b>
-				<li>El sistema invoca a este método llamando a startService() cuando otro componente, como una actividad, solicita que se inicie el servicio. </li>
-				<b>onBind()</b>
-				<li>El sistema invoca a este método llamando a bindService() cuando otro componente quiere enlazarse con el servicio.</li>
-				<b>onCreate()</b>
-				<li>El sistema invoca a este método para realizar procedimientos únicos de configuración cuando el servicio se crea por primera vez (antes de llamar a onStartCommand() o onBind()).</li>
-					<b>onDestroy()</b>
-				<li>El sistema invoca a este método cuando el servicio ya no se usa y se va a destruir. </li>
-				</p>
-				
-
-
-
-        <div class="card mb-3" style="max-width: 1000px">
-          <div class="row no-gutters">
-            <div class="col-md-8 col-lg-6">
-              <div class="card-body col-lg-12 pt-5">
-				  				<h3>Administrar el ciclo de vida de un servicio</h3>
-				  El ciclo de vida del servicio (desde el momento en que se crea hasta que se destruye) puede seguir dos rutas de acceso diferentes:
-				  <h4>Un servicio iniciado</h4>
-								<li>El servicio se crea cuando otro componente llama a startService(). El servicio se ejecuta de forma indefinida y se debe detener a sí mismo llamando a stopSelf(). </li>
-								<li>Otro componente también puede detener el servicio llamando a stopService(). Una vez que se detiene el servicio, el sistema lo destruye.</li>
-				  <h4>Un servicio enlazado</h4>
-								<li>El servicio se crea cuando otro componente (un cliente) llama a bindService(). Luego, el cliente se comunica con el servicio a través de una interfaz IBinder. </li>
-								<li>El cliente puede cerrar la conexión llamando a un bindService(). Se pueden enlazar varios clientes al mismo servicio y, cuando todos ellos se desenlazan, el sistema destruye el servicio (el servicio no necesita detenerse a sí mismo).</li>
-              </div>
-            </div>
-            <div class="col-md-4 col-lg-6">
-              <img
-                src="../images/Servicios/Servicios4.png"
-                alt="..."
-                width="350"
-                height="650"
-                class="card-img"
-              />
-            </div>
-          </div>
-        </div>
-
-
-		
-
-		  </section>
-
-			<div>
-
-		<a href="Notificaciones.html"
-        style="float: left; background-color: black; padding: 1rem">Anterior</a>
-      <a href="segundoplano.html"
-        style="float: right; background-color: black; padding: 1rem">Siguiente</a>
-			  </div>
-		<!-- Footer -->
-		<footer id="footer">
-			<p style="color: white;">
-			  Trabajo del curso de Aplicaciones Móviles <br />
-			  <small>Universidad UTE</small>
+				<li>Un Service es un componente de una aplicación que puede realizar operaciones de larga ejecución en
+					segundo plano y que no proporciona una interfaz de usuario</li>
+				<li>Otro componente de la aplicación puede iniciar un servicio y continuar ejecutándose en segundo plano
+					aunque el usuario cambie a otra aplicación. </li>
+				<li>Un componente puede enlazarse con un servicio para interactuar con él e incluso realizar una
+					comunicación entre procesos</li>
 			</p>
 
-			<div class="copyright">
-			  Design: <a href="https://templated.co">TEMPLATED</a>
+			<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+					<div class="col-md-4 col-lg-4">
+						<img src="../images/Servicios/Servicios3.png" alt="..." width="767" height="472"
+							class="card-img" />
+					</div>
+					<div class="col-md-8 ">
+						<div class="card-body col-lg-12 " align="justify">
+
+							<h3>Estos son los tres tipos diferentes de servicios: </h3>
+							<h4>Primer plano:</h4>
+							<li>Un servicio en primer plano realiza una operación que el usuario puede notar.</li>
+							<h4>Segundo plano:</h4>
+							<li>Un servicio en segundo plano realiza una operación que el usuario no nota directamente
+							</li>
+							<h4>Enlace</h4>
+							<li>Un servicio es de enlace cuando un componente de la aplicación se vincula a él llamando
+								bindService(). </li>
+							<li>Un servicio de enlace ofrece una interfaz cliente-servidor que permite que los
+								componentes interactúen con el servicio, envíen solicitudes, reciban resultados e
+								incluso lo hagan en distintos procesos con la comunicación entre procesos </li>
+							<li>Un servicio de enlace se ejecuta solamente mientras otro componente de aplicación está
+								enlazado a él. Se pueden enlazar varios componentes con el servicio a la vez </li>
+
+
+						</div>
+					</div>
+				</div>
 			</div>
-		  </footer>
 
-		<!-- Scripts -->
-			<script src="../assets/js/jquery.min.js"></script>
-			<script src="../assets/js/jquery.scrolly.min.js"></script>
-			<script src="../assets/js/skel.min.js"></script>
-			<script src="../assets/js/util.js"></script>
-			<script src="../assets/js/main.js"></script>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+			<h4>Diferencia entre un servicio y un subproceso</h4>
+			<p>
+				<li>Un servicio es simplemente un componente que puede ejecutarse en segundo plano, incluso cuando el
+					usuario no está interactuando con tu aplicación.</li>
+				<li>Es necesario crear un subproceso si debes trabajar fuera de tu subproceso principal solamente
+					mientras el usuario interactúa con tu aplicación.</li>
+			</p>
+			<h4>Conceptos básicos</h4>
+			<p>
+				<li>Para crear un servicio, debes crear una subclase de Service o usar una de sus subclases existentes.
+				</li>
+				<li>Se Debe anular algunos métodos de devolución de llamada que manejan aspectos fundamentales del ciclo
+					de vida del servicio y proporcionar un mecanismo que permita que los componentes se enlacen con el
+					servicio.</li>
+			</p>
 
-	</body>
+			<h4>Métodos de devolución de llamada más importantes que debes anular:</h4>
+			<p>
+				<b>onStartCommand()</b>
+				<li>El sistema invoca a este método llamando a startService() cuando otro componente, como una
+					actividad, solicita que se inicie el servicio. </li>
+				<b>onBind()</b>
+				<li>El sistema invoca a este método llamando a bindService() cuando otro componente quiere enlazarse con
+					el servicio.</li>
+				<b>onCreate()</b>
+				<li>El sistema invoca a este método para realizar procedimientos únicos de configuración cuando el
+					servicio se crea por primera vez (antes de llamar a onStartCommand() o onBind()).</li>
+				<b>onDestroy()</b>
+				<li>El sistema invoca a este método cuando el servicio ya no se usa y se va a destruir. </li>
+			</p>
+
+
+
+
+			<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+					<div class="col-md-8 col-lg-6">
+						<div class="card-body col-lg-12 pt-5">
+							<h3>Administrar el ciclo de vida de un servicio</h3>
+							El ciclo de vida del servicio (desde el momento en que se crea hasta que se destruye) puede
+							seguir dos rutas de acceso diferentes:
+							<h4>Un servicio iniciado</h4>
+							<li>El servicio se crea cuando otro componente llama a startService(). El servicio se
+								ejecuta de forma indefinida y se debe detener a sí mismo llamando a stopSelf(). </li>
+							<li>Otro componente también puede detener el servicio llamando a stopService(). Una vez que
+								se detiene el servicio, el sistema lo destruye.</li>
+							<h4>Un servicio enlazado</h4>
+							<li>El servicio se crea cuando otro componente (un cliente) llama a bindService(). Luego, el
+								cliente se comunica con el servicio a través de una interfaz IBinder. </li>
+							<li>El cliente puede cerrar la conexión llamando a un bindService(). Se pueden enlazar
+								varios clientes al mismo servicio y, cuando todos ellos se desenlazan, el sistema
+								destruye el servicio (el servicio no necesita detenerse a sí mismo).</li>
+						</div>
+					</div>
+					<div class="col-md-4 col-lg-6">
+						<img src="../images/Servicios/Servicios4.png" alt="..." width="350" height="650"
+							class="card-img" />
+					</div>
+				</div>
+			</div>
+
+
+			<h3>Servicos en primer plano </h3>
+
+			<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+					<div class="col-md-4 col-lg-4">
+						<img src="../images/Servicios/eserv_1.jpg" alt="..." width="767" height="272"
+							class="card-img" />
+					</div>
+					<div class="col-md-8 pt-5">
+						<div class="card-body col-lg-12 pt-5">
+
+							Los servicios en primer plano realizan operaciones que son notables para el usuario.
+							Cada servicio en primer plano debe mostrar una notificación de barra de estado que tenga una
+							prioridad de <b>PRIORITY_LOW</b> o superior.
+							Solo debe usar un servicio en primer plano cuando la aplicación necesite realizar una tarea
+							que el usuario pueda notar incluso cuando no esté interactuando directamente con la
+							aplicación.
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<h3>Solicitar el permiso de servicio en primer plano</h3>
+
+			<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+					<div class="col-md-12 col-lg-12">
+						<div class="card-body col-lg-12">
+							Las aplicaciones que requieren servicios en primer plano deben solicitar el permiso de <b>
+								FOREGROUND_SERVICE</b>
+						</div>
+					</div>
+					<div class="col-md-12 col-lg-12 pt-3">
+						<img src="../images/Servicios/eserv_2.jpg" alt="..." width="350" height="250"
+							class="card-img" />
+
+					</div>
+				</div>
+			</div>
+
+
+			<h3>Iniciar un servicio en primer plano</h3>
+
+
+			<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+
+					<div class="col-md-6 p-2">
+						<div class="card-body col-lg-12 ">
+
+							Para solicitar que el servicio se ejecute en primer plano, llame a <b>
+								startForeground()</b>, Este método toma dos parámetros: un entero positivo que
+							identifica de forma única la notificación en la barra de estado <b> Notification</b> y el
+							propio objeto. La notificación debe tener una prioridad <b> PRIORITY_LOW </b>o superior.
+
+						</div>
+					</div>
+
+					<div class="col-md-6 col-lg-6">
+						<img src="../images/Servicios/eserv_3.jpg" alt="..." width="767" height="272"
+							class="card-img" />
+					</div>
+				</div>
+			</div>
+
+
+
+			<h3>Quitar un servicio del primer plano</h3>
+
+
+			<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+					<div class="col-md-6 col-lg-6">
+						<img src="../images/Servicios/eserv_x.jpg" alt="..." width="767" height="272"
+							class="card-img" />
+					</div>
+					<div class="col-md-6 p-2">
+						<div class="card-body col-lg-12 ">
+
+							Para quitar el servicio del primer plano, llame a <b> stopForeground() </b>. Este método
+							toma un booleano, que indica si se debe quitar también la notificación de la barra de
+							estado. Tenga en cuenta que el servicio continúa ejecutándose.
+
+							Si detiene el servicio mientras se ejecuta en primer plano, se quita su notificación.
+
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+
+			<h3>Declarar tipos de servicio en primer plano</h3>
+
+
+			<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+
+					<div class="col-md-12 p-2">
+						<div class="card-body col-lg-12 ">
+
+							Si su aplicación accede a información de ubicación en un servicio en primer plano, declare
+							el tipo de servicio en primer plano de la ubicación como un atributo de su componente
+							<service>.
+
+								<h5> Ejemplo de uso de la ubicación y la cámara:</h5>
+								<img src="../images/Servicios/eserv_4.jpg" alt="..." width="150" height="75"
+									class="card-img" />
+
+
+						</div>
+					</div>
+
+					<div class="col-md-12 col-lg-12 p-2 m-4">
+						<p>Si el servicio en primer plano solo necesita acceso a un subconjunto de los tipos declarados
+							en el manifiesto, puede limitar el acceso del servicio mediante la lógica del siguiente
+							fragmento de código:</p>
+						<img src="../images/Servicios/eserv_5.jpg" alt="..." width="150" height="50"
+							class="card-img " />
+					</div>
+
+
+				</div>
+			</div>
+
+			<h3>Restricciones durante el uso</h3>
+
+			<p>Un servicio en primer plano mientras se ejecuta en segundo plano,el servicio tiene las siguientes
+				restricciones de acceso:</p>
+
+			<ul>
+				<li>
+					A menos que el usuario haya concedido el permiso de <b> ACCESS_BACKGROUND_LOCATION </b> a la
+					aplicación, el servicio no puede acceder a la ubicación.
+				</li>
+				<li>
+					El servicio no puede acceder al micrófono ni a la cámara.
+
+				</li>
+			</ul>
+
+			<p>Un servicio en primer plano mientras se ejecuta en primer plano, el servicio tiene las siguientes
+				asignaciones de acceso:</p>
+
+			<ul>
+				<li>
+					Si el usuario ha concedido el permiso <b> ACCESS_BACKGROUND_LOCATION </b> a la aplicación, el
+					servicio puede tener acceso a la ubicación todo el tiempo. De lo contrario, si el usuario ha
+					concedido el permiso de <b> ACCESS_FINE_LOCATION </b> o <b> ACCESS_COARSE_LOCATION</b> a la
+					aplicación, el servicio tiene acceso durante su uso a la ubicación.
+				</li>
+				<li>
+					Si el usuario ha concedido el permiso <b> CAMERA </b> a la aplicación, el servicio tiene acceso
+					durante su uso a la cámara.
+
+				</li>
+				<li>
+					Si el usuario ha concedido el permiso de <b> RECORD_AUDIO</b> a la aplicación, el servicio tiene
+					acceso durante su uso al micrófono.
+				</li>
+			</ul>
+
+			<h3>Descripción general de los servicios vinculados</h3>
+
+			<p>Un servicio vinculado es el servidor de una interfaz cliente-servidor.
+				Permite que los componentes (como actividades) se vinculen con el servicio, envíen solicitudes, reciban
+				respuestas y establezcan comunicaciones entre procesos (IPC).
+				Un servicio vinculado, por lo general, solo está activo mientras le presta servicio a otro componente de
+				la aplicación y no se ejecuta en segundo plano indefinidamente.
+			</p>
+
+			<h3>Conceptos básicos</h3>
+
+			<p>Un servicio vinculado es una implementación de la clase Service que permite que otras aplicaciones se
+				vinculen e interactúen con él.
+				Para vincular un servicio, debes implementar el método de devolución de llamada <b> onBind()</b>. Este
+				método muestra un objeto IBinder que define la interfaz de programación que los clientes pueden usar
+				para interactuar con el servicio.</p>
+
+			<h3>Cómo crear una vinculación con un servicio iniciado</h3>
+
+			<p>Puedes crear un servicio que ya se haya iniciado y vinculado. Es decir, el servicio se puede iniciar
+				llamando a <b> startService()</b>, lo que permite que el servicio se ejecute indefinidamente, y también
+				puedes permitir que un cliente establezca una vinculación con el servicio llamando a <b>
+					bindService()</b>.
+				El sistema Servicios lo destruirá cuando se desvinculen todos los clientes. En su lugar, debes detener
+				explícitamente el servicio llamando a <b> stopSelf()</b> o <b> stopService()</b> .
+			</p>
+
+			<h3>Cómo crear un servicio enlazado</h3>
+
+			<p>
+				Al crear un servicio que proporciona la capacidad de crear una vinculación, debes proporcionar un
+				IBinder que contenga la interfaz de programación que los clientes pueden usar para interactuar con el
+				servicio. Puedes definir la interfaz de las siguientes tres maneras:
+
+			</p>
+
+			<ul>
+				<li>
+					Extender la clase Binder
+
+				</li>
+				<li>
+					Utilizar un objeto Messenger
+
+				</li>
+				<li>
+					Utilizar AIDL
+				</li>
+			</ul>
+
+			<h3>Cómo crear una vinculación con un servicio</h3>
+
+			<p>
+				Los componentes de la aplicación (clientes) pueden establecer una vinculación con un servicio llamando a
+				<b> bindService() </b>. Luego, el sistema Android llama al método <b> onBind()</b> del servicio, que
+				muestra un <b>IBinder</b> para interactuar con él.
+				La vinculación es asíncrona, y <b> bindService()</b> se muestra inmediatamente sin mostrarle el IBinder
+				al cliente. Para recibir el <b>IBinder</b>, el cliente debe crear una instancia de <b> ServiceConnection
+				</b> y pasarla a <b>bindService() </b>. <b> ServiceConnection</b> incluye un método de devolución de
+				llamada al que el sistema llama para enviar el <b>IBinder</b>.
+			</p>
+
+			<p>Para establecer una vinculación con un servicio desde tu cliente, debes hacer lo siguiente:</p>
+
+			<ul>
+				<li>
+					Implementa <b> ServiceConnection</b>.
+					<p>Tu implementación debe anular dos métodos de devolución de llamada: </p>
+					<ol>
+						<li>
+							<p> onServiceConnected()</p>
+
+						</li>
+						<li>
+							<p> onServiceDisconnected()</p>
+						</li>
+					</ol>
+
+				</li>
+				<p>
+				Llama a <b>bindService()</b> y pasa la implementación de <b>ServiceConnection</b>.
+			</p>
+				<li>
+				<li>
+				<p>
+					Cuando el sistema llama a tu método de devolución de llamada <b>onServiceConnected() </b>, puedes comenzar a realizar llamadas al servicio usando los métodos definidos por la interfaz.
+				</p>
+				</li>
+
+				<li>
+					<p>
+					Para desconectarte del servicio, llama a <b>unbindService()</b>.
+				</p>
+				</li>
+
+				</li>
+			</ul>
+
+
+			<div class="card mb-3" style="max-width: 1000px">
+				<div class="row no-gutters">
+					<div class="col-md-12 col-lg-12 ">
+							
+						<img src="../images/Servicios/eserv_6.jpg" alt="..." width="250" height="280"
+							class="card-img " />
+						<img src="../images/Servicios/eserv_7.jpg" alt="..." width="150" height="35"
+							class="card-img " />
+					</div>
+
+				</div>
+			</div>
+			
+	</section>
+
+	<div>
+
+		<a href="Notificaciones.html" style="float: left; background-color: black; padding: 1rem">Anterior</a>
+		<a href="segundoplano.html" style="float: right; background-color: black; padding: 1rem">Siguiente</a>
+	</div>
+	<!-- Footer -->
+	<footer id="footer">
+		<p style="color: white;">
+			Trabajo del curso de Aplicaciones Móviles <br />
+			<small>Universidad UTE</small>
+		</p>
+
+		<div class="copyright">
+			Design: <a href="https://templated.co">TEMPLATED</a>
+		</div>
+	</footer>
+
+	<!-- Scripts -->
+	<script src="../assets/js/jquery.min.js"></script>
+	<script src="../assets/js/jquery.scrolly.min.js"></script>
+	<script src="../assets/js/skel.min.js"></script>
+	<script src="../assets/js/util.js"></script>
+	<script src="../assets/js/main.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+		integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+		crossorigin="anonymous"></script>
+
+</body>
+
 </html>
