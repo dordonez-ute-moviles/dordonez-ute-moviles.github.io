@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Tocuhscreen
+</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+
+  <body style="text-align: justify">
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a
+        href="./servicios.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="./alarmasyestado.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+      
+      
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img
+            src="../images/touchscreen/touchscreen.jpg"
+            alt=""
+            width="750"
+            height="450"
+          />
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1 align="center">Touchscreen</h1> 
+		  <!--Poner fecha de la clase-->
+          <p class="info">18 de Enero de 2021</p>
+        </header>
+					<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+                    <ol>
+					<li><a href="process 2 plano.html"></a></li>
+					
+                    <li><a href="segundoplano.html"></a></li>
+					<li><a href="desctransmisiones.html"></a></li><br></ol>
+                    
+								<h3>Cómo hacer un seguimiento de los movimientos de tocar y del puntero</h3>	<br>
+						<p>Un nuevo objeto onTouchEvent() se activa con un evento ACTION_MOVE cada vez que cambia la posición, la presión o el tamaño del contacto táctil actual.</p><p>Debido a que el toque con el dedo no siempre es la forma más precisa de interacción, la detección de eventos táctiles a menudo se basa más en el movimiento que en el simple contacto. Para ayudar a las apps a distinguir entre los gestos basados en movimientos (como un deslizamiento) y los gestos sin movimiento (como un solo toque), Android incluye la noción de "margen táctil". El margen táctil se refiere a la distancia en píxeles en que el toque de un usuario puede oscilar antes de que se interprete el gesto como un gesto basado en movimiento.</p>
+		 
+		  <p>Existen varias formas de hacer un seguimiento del movimiento de un gesto, según las necesidades de tu aplicación. Por ejemplo:</p>
+		  <ul>
+		  <li>La posición inicial y final de un puntero (por ejemplo, mover un objeto en pantalla del punto A al punto B).</li>
+		  <li>La dirección en la que viaja el puntero, según lo determinado por las coordenadas x e y.</li>
+		  <li>Historial. Puedes encontrar el tamaño del historial de un gesto llamando al método MotionEvent getHistorySize(). Luego, puedes obtener las posiciones, los tamaños, el tiempo y las presiones de cada uno de los eventos históricos con los métodos getHistorical<Value> del evento de movimiento. El historial es útil cuando se procesa un rastro del dedo del usuario, como en el dibujo táctil. Para obtener más detalles, consulta la referencia MotionEvent.</li>
+		  <li>La velocidad del puntero a medida que se mueve por la pantalla táctil.</li></ul>
+		  <hr/>
+		  <h3>Cómo hacer un seguimiento de la velocidad</h3><br>
+		  <p>Puedes tener un gesto basado en movimiento según la distancia o dirección que recorrió el puntero. Sin embargo, la velocidad suele ser un factor determinante para hacer un seguimiento de las características de un gesto o incluso para decidir si se produjo el gesto. A fin de facilitar el cálculo de la velocidad, Android proporciona la clase VelocityTracker. VelocityTracker te ayuda a rastrear la velocidad de los eventos táctiles, lo cual resulta útil para gestos en los que la velocidad es parte de los criterios del gesto, como arrastrar y soltar.</p>
+		  <p>El siguiente es un ejemplo simple que ilustra el propósito de los métodos en la API de VelocityTracker:</p>
+						
+						<center><img src="../images/touchscreen/1.png"></center><br>
+		  <hr/>
+		  <h3>Cómo usar la captura del puntero</h3><br>
+		  <p>Para algunas apps, como las de juegos, escritorio remoto y clientes de virtualización, el control del puntero del mouse representa un gran beneficio. La captura de puntero es una función disponible en Android 8.0 (API nivel 26) y versiones posteriores que proporciona dicho control al entregar todos los eventos del mouse en una vista seleccionada de tu app.</p>
+		  <br>
+		  <h4>Cómo solicitar la captura del puntero</h4><br>
+		  <p>Una vista de tu app puede solicitar la captura del puntero solo cuando la jerarquía de vista que la contiene tiene enfoque. Por este motivo, debes solicitar la captura del puntero cuando haya una acción específica del usuario en la vista, como durante un evento onClick() o en el controlador de eventos onWindowFocusChanged() de tu actividad.</p>
+		  <p>Para solicitar la captura del puntero, llama al método requestPointerCapture() de la vista. En el siguiente ejemplo de código, se muestra cómo solicitar la captura del puntero cuando el usuario hace clic en una vista:</p>
+		  <center><img src="../images/touchscreen/2.png"></center><br>
+		  
+		  <p>Una vez que se realiza correctamente la solicitud para capturar el puntero, Android llama a onPointerCaptureChange(true). El sistema envía los eventos del mouse a la vista seleccionada de tu app siempre que esté en la misma jerarquía de vistas que la vista que solicitó la captura. Otras apps dejan de recibir eventos del mouse hasta que se libera la captura, incluidos los eventos ACTION_OUTSIDE. Android envía los eventos del puntero de fuentes distintas al mouse normalmente, pero el puntero del mouse ya no es visible.</p><br>
+		  
+		  <h4>Cómo controlar eventos del puntero capturados</h4><br>
+		  <p>Cuando una vista haya adquirido correctamente la captura del puntero, Android comenzará a publicar los eventos del mouse. Tu vista seleccionada puede controlar los eventos mediante una de las siguientes tareas:</p>
+		  <ul><li>Si usas una vista personalizada, anula onCapturedPointerEvent(MotionEvent).</li>
+		  <li>De lo contrario, registra un elemento OnCapturedPointerListener.</li></ul>
+		  
+		  <p>En el siguiente ejemplo de código, se muestra cómo implementar onCapturedPointerEvent(MotionEvent):</p><br>
+		  <center><img src="../images/touchscreen/3.png"></center><br>
+		  
+		  <p>En el siguiente ejemplo de código, se muestra cómo registrar un OnCapturedPointerListener:</p>
+		  
+		  <center><img src="../images/touchscreen/4.png"></center><br>
+		  
+		  <p>Ya sea que uses una vista personalizada o que registres un objeto de escucha, tu vista recibe un objeto MotionEvent con coordenadas de puntero que especifican movimientos relativos, como deltas X/Y, similares a las coordenadas que envía un dispositivo de bola de seguimiento. Puedes recuperar las coordenadas con getX() y getY().</p><br>
+		  
+		  <h4>Cómo liberar la captura del puntero</h4><br>
+		  
+		  <p>La vista de tu app puede liberar la captura del puntero llamando a releasePointerCapture(), como se muestra en el siguiente ejemplo de código:</p>
+		  
+		  <center><img src="../images/touchscreen/5.png"></center><br>
+		  
+		  <p>El sistema puede quitar la captura de la vista sin llamar explícitamente a releasePointerCapture(), por lo general, porque la jerarquía que contiene la vista que solicitó la captura perdió el foco.</p>
+		  <hr/>
+		  <h3>Cómo administrar eventos táctiles en un ViewGroup</h3><br>
+		  <p>Es necesario tener un cuidado especial cuando se controlan eventos táctiles en un ViewGroup, ya que es común que un ViewGroup tenga elementos secundarios que sean objetivos para eventos táctiles diferentes a los del ViewGroup en sí mismo. A fin de asegurarte de que cada vista reciba correctamente los eventos táctiles destinados a ella, anula el método onInterceptTouchEvent().</p>
+		  <br>
+		  <h4>Como interceptar eventos táctiles en un ViewGroup</h4><br>
+		  <p>Cada vez que se detecta un evento táctil en la superficie de un onInterceptTouchEvent(), incluida la superficie de sus elementos secundarios, se llama al método ViewGroup. Si onInterceptTouchEvent() muestra true, se intercepta el MotionEvent, lo que significa que no se pasa al elemento secundario, sino al método onTouchEvent() del elemento superior.</p>
+		  <p>El método onInterceptTouchEvent() le da a un elemento superior la oportunidad de ver cualquier evento táctil antes de que lo hagan sus elementos secundarios. Si muestras true desde onInterceptTouchEvent(), la vista secundaria que antes controlaba eventos táctiles recibirá un objeto ACTION_CANCEL y los eventos que se produzcan a partir de ese momento, se enviarán al método onTouchEvent() del elemento superior para su control habitual. El método onInterceptTouchEvent() también puede mostrar false y simplemente espiar a los eventos mientras pasan por la jerarquía de vistas hacia sus objetivos habituales, que controlarán los eventos con su propio objeto onTouchEvent().</p>
+		  <p>En el siguiente fragmento, la clase MyViewGroup extiende ViewGroup. MyViewGroup contiene varias vistas secundarias. Si arrastraras el dedo horizontalmente sobre una vista secundaria, esta ya no debería recibir eventos táctiles, y MyViewGroup debería controlar los eventos táctiles desplazando su contenido. Sin embargo, si presionas botones en la vista secundaria o desplazas la vista secundaria verticalmente, el elemento superior no debe interceptar esos eventos táctiles, porque el elemento secundario es el objetivo pretendido. En esos casos, onInterceptTouchEvent() debería mostrar false y no se llamará al método onTouchEvent() de MyViewGroup.</p><br>
+		  
+		  <center><img src="../images/touchscreen/8.png"></center><br>
+		  <center><img src="../images/touchscreen/9.png"></center><br>
+		  
+		  <p>Ten en cuenta que ViewGroup también proporciona un método requestDisallowInterceptTouchEvent(). La clase ViewGroup llama a este método cuando un elemento secundario no quiere que el elemento superior y sus elementos superiores intercepten eventos táctiles con onInterceptTouchEvent().</p><br>
+		  
+		  <h4>Cómo procesar eventos ACTION_OUTSIDE</h4><br>
+		  
+		  <p>Si un ViewGroup recibe un MotionEvent con un ACTION_OUTSIDE, no se enviará el evento a sus elementos secundarios de forma predeterminada. Para procesar un MotionEvent con ACTION_OUTSIDE, anula dispatchTouchEvent(MotionEvent event) para enviarlo al objeto View correspondiente o contrólalo en el objeto Window.Callback relevante (por ejemplo, Activity).</p>
+		  <hr/>
+		  
+		  <h3>Cómo extender el área táctil de una vista secundaria</h3>		<br>  
+		
+		  <p>Android proporciona la clase TouchDelegate para permitir que un elemento superior extienda el área táctil de una vista secundaria más allá de los límites del elemento secundario. Esto resulta útil cuando el elemento secundario tiene que ser pequeño, pero debe tener una región táctil más grande. Si es necesario, también puedes usar este enfoque para reducir la región táctil del elemento secundario.
+
+<p>En el siguiente ejemplo, un objeto ImageButton es la "vista delegada" (es decir, el elemento secundario cuya área táctil extenderá el elemento superior). Aquí puedes ver el archivo de diseño:</p><br>
+		  <center><img src="../images/touchscreen/10.png"></center><br>
+		  
+		  
+		  
+		  <hr/>
+		  <h3>Cómo controlar gestos multitáctiles</h3><br>
+		  <p>Un gesto multitáctil se produce cuando varios punteros (dedos) tocan la pantalla al mismo tiempo.</p>
+		  
+		  <h4>Cómo rastrear varios punteros</h4><br>
+		  
+		  <p>Cuando varios punteros tocan la pantalla al mismo tiempo, el sistema genera los siguientes eventos táctiles:</p>
+		  <ul><li><strong>ACTION_DOWN</strong> para el primer puntero que toca la pantalla. Este evento comienza el gesto. Los datos del puntero para este puntero siempre están en el índice 0 de MotionEvent.</li>
+		  <li><strong>ACTION_POINTER_DOWN</strong> para punteros adicionales que ingresan a la pantalla además del primero. Los datos del puntero para este puntero están en el índice que muestra getActionIndex().</li>
+		  <li>ACTION_MOVE: Se produjo un cambio durante un gesto de prensa.
+</li>
+		  <li><strong>ACTION_POINTER_UP: </strong>Se envía cuando un puntero que no es principal va hacia arriba.</li>
+		  <li><strong>ACTION_UP:</strong> Se envía cuando el último puntero sale de la pantalla.</li></ul>
+		  
+		  <p>Puedes rastrear los punteros individuales dentro de un MotionEvent mediante el índice y el ID de cada puntero:</p>
+		  
+		  <ul><li><strong>Índice:</strong> Un MotionEvent almacena de manera eficaz información sobre cada puntero en un arreglo. El índice de un puntero es su posición dentro de este arreglo. La mayoría de los métodos MotionEvent que usas para interactuar con punteros toman el índice del puntero como un parámetro, no el ID del puntero.</li>
+		  <li><strong>ID:</strong> Cada puntero también tiene una asignación de ID que se mantiene constante en los eventos táctiles para permitir el rastreo de un puntero individual en todo el gesto.</li></ul>
+		  <p>El orden en que aparecen los punteros individuales dentro de un evento de movimiento no está definido. Por lo tanto, el índice de un puntero puede cambiar de un evento al siguiente, pero se garantiza que el ID del puntero de un puntero permanecerá constante mientras el puntero esté activo. Usa el método getPointerId() a fin de obtener un ID de puntero para rastrear el puntero en todos los eventos de movimiento posteriores en un gesto. Luego, para eventos de movimiento sucesivos, usa el método findPointerIndex() a fin de obtener el índice del puntero de un ID de puntero determinado en ese evento de movimiento. Por ejemplo:</p>
+		  
+		  <center><img src="../images/touchscreen/6.png"></center><br>
+		  <hr/>
+		  <h3>Cómo obtener la acción de MotionEvent</h3><br>
+		  <p>Siempre debes usar el método getActionMasked() (o, mejor aún, la versión de compatibilidad MotionEventCompat.getActionMasked()) para recuperar la acción de un MotionEvent. A diferencia del método getAction() antiguo, getActionMasked() está diseñado para funcionar con varios indicadores. Muestra la acción enmascarada que se realiza, sin incluir los bits de índice del puntero. Luego, puedes usar getActionIndex() para mostrar el índice del puntero asociado con la acción. Esto se ilustra en el siguiente fragmento.</p>
+		  
+		  <center><img src="../images/touchscreen/7.png"></center><br>
+  
+	
+	
+		 
+		
+
+  </div></div>
+
+        </div></div>
+			
+			
+			
+	
+    </section>
+    <div>
+      <a
+        href="./servicios.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="./alarmasyestado.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+      
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p style="text-align: center !important; color: white">
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
