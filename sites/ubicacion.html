@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Ubicación y GPS</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a href="" style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a href="" style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img src="../images/ubicacion/logo.jpg" alt="" />
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1>Ubicación y GPS</h1>
+          <!--Poner fecha de la clase-->
+          <p class="info">11 de Enero de 2021</p>
+        </header>
+        <!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+        <h2>Servicios de ubicación</h2>
+        <p>
+          En android el paquete “android.location” nos da acceso a servicios de
+          ubicación disponibles con el dispositivo. Location Manager es el
+          componente central que nos proporciona un API para determinar la
+          ubicación y orientación del dispositivo. Si la app ya tiene
+          LocationManager, tendrá las siguientes características:
+        </p>
+        <ul>
+          <li>
+            Consultar las instancias de LocationProvider para saber la ubicación
+            más reciente del usuario
+          </li>
+          <li>
+            Activar o desactivar actualizaciones periódicas de la ubicación del
+            usuario desde un proveedor de ubicación
+          </li>
+          <li>
+            Activar o desactivar un intent que se activará si el dispositivo se
+            aproxima a una ubicación determinada.
+          </li>
+        </ul>
+        <h2>API de Google Maps para android</h2>
+        <p>
+          Con esta API se puede agregar a la app mapas basados en los de google
+          maps incluyendo sus características como poner marcadores, gestos,
+          etc. La clase clave de la API es MapView la cual mostrará un mapa con
+          datos obtenidos de google maps ofreciendo también una interfaz de
+          usuario para que este se pueda desplazar a su gusto por el mapa
+          mediante gestos.
+        </p>
+        <h2>Estrategias de ubicación</h2>
+        <p>
+          Es importante para nuestra app saber donde se encuentra el usuario,
+          tenemos 2 opciones, usar el servicio de gps del dispositivo y el
+          proveedor de ubicación de red, el GPS es más preciso pero solo
+          funciona en exteriores y consume mayor batería, en cambió el proveedor
+          de ubicación de red se basa en señales de torre de telefonía celular y
+          Wi-fi para determinar la ubicación del usuario de una manera más
+          rápida, con un consumo menor de bateria y funciona en exteriores e
+          interiores, para el desarrollo de una app se puede considerar usar
+          solo una de las 2 opciones o las 2.
+        </p>
+        <h2>Desafíos para determinar la ubicación del usuario</h2>
+        <p>
+          Obtener la dirección exacta de un dispositivo no es tarea fácil ya que
+          se pueden tener varios errores y por lo tanto ofrecer resultados
+          inexactos, los factores que producen estos errores son los siguientes:
+        </p>
+        <ul>
+          <li>
+            <strong> Varias fuentes de ubicación:</strong> El GPS, id del
+            celular y red wi-fi pueden tener conflicto en la información que
+            ofrecen y tener un mayor consumo de batería en el dispositivo
+          </li>
+          <li>
+            <strong>Movimiento del usuario:</strong> Es necesario volver a
+            calcular la ubicación cada cierto tiempo ya que por lo general el
+            dispositivo no estará siempre en el mismo lugar
+          </li>
+          <li>
+            <strong>Precisión variable:</strong> Al obtener información de la
+            ubicación de distintas fuentes, puede haber cambios ligeros entre la
+            información entregada por cada una pero puede ser que una sea más
+            exacta que otra y generar conflicto.
+          </li>
+        </ul>
+        <h2>¿Cómo definir un modelo para obtener el mejor rendimiento?</h2>
+        <p>
+          Las apps de ubicación son muy comunes en la actualidad, pero es
+          complicado desarrollarlas por motivos de errores en la precisión y uso
+          excesivo de batería, por lo tanto el siguiente modelo es el adecuado
+          para tener un desarrollo correcto en este tipo de aplicaciones:
+        </p>
+        <ul>
+          <li>Iniciar la app</li>
+          <li>
+            Tiempo después detectar las actualizaciones de los proveedores de
+            ubicación
+          </li>
+          <li>Mantener la mejor estimación actual de la ubicación</li>
+          <li>Dejar de detectar las actualizaciones de la ubicación</li>
+          <li>Aprovechar la mejor estimación de ubicación más reciente</li>
+        </ul>
+        <h2>¿Cómo solicitar permisos de usuario?</h2>
+        <p>
+          Para poder recibir actualizaciones de ubicación desde NETWORK_PROVIDER
+          o GPS_PROVIDER hay que solicitar el permiso ACCESS_COARSE_LOCATION o
+          ACCESS_FINE_LOCATION en el archivo manifest de android, si estos
+          permisos no están declarados entonces la app fallará al momento de
+          solicitar actualizaciones de la ubicación.
+        </p>
+        <h2>¿Cómo ahorrar batería?</h2>
+        <ul>
+          <li>Reducir el tamaño de la ventana</li>
+          <li>
+            Aumentar el tiempo en el que se reciben actualizaciones de los
+            proveedores de ubicación
+          </li>
+          <li>Restringir a los proveedores</li>
+        </ul>
+        <h2>¿Cómo ayudar al usuario a decidir dónde ir?</h2>
+        <p>
+          Para ofrecer al usuario sugerencias basadas en su ubicación actual lo
+          que se puede hacer es:
+        </p>
+        <ul>
+          <li>
+            Reordenar las recomendaciones cuando se tenga una nueva mejor
+            aproximación
+          </li>
+          <li>
+            Dejar de detectar actualizaciones si se estabilizó el orden de las
+            aproximaciones
+          </li>
+        </ul>
+        <h2>Ubicación en primer plano</h2>
+        <p>
+          Si la app necesita acceder a la ubicación solo una vez o durante un
+          tiempo definido.
+        </p>
+        <h2>Ubicación en segundo plano</h2>
+        <p>
+          Si la app comparte constantemente la ubicación del usuario aunque esta
+          se encuentre en segundo plano.
+        </p>
+        <h2>Especificar permisos de apps</h2>
+        <p>Android ofrece tres tipos</p>
+        <ul>
+          <li>
+            <strong>ACCESS_COARSE_LOCATION :</strong> La API usa datos o wifi
+            para dar una ubicación con una precisión de una manzana
+            aproximadamente
+          </li>
+          <li>
+            <strong>ACCESS_FINE_LOCATION:</strong> la Api puede determinar una
+            ubicación lo más precisa posible de los proveedores de ubicación
+            disponibles (GPS,Datos,Wifi)
+          </li>
+          <li>
+            <strong>ACCESS_BACKGROUND_LOCATION :</strong> A Partir de Android 10
+            (Api 29) se puede acceder a la ubicación mientras esta está en
+            segundo plano
+          </li>
+        </ul>
+        <p>Para solicitar los permisos usamos use-permission</p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img1.PNG" alt="" />
+        </div>
+        <h2>Crear un cliente de ubicación</h2>
+        <p>
+          Usamos el método onCreate() que crea una instancia del cliente de una
+          ubicación combinada
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img2.PNG" alt="" />
+        </div>
+        <h2>Conocer la ubicación más reciente</h2>
+        <p>
+          Para esto usamos el método getLastLocation() , éste muestra un Task
+          con un Location con las coordenadas de una ubicación geográfica
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img3.PNG" alt="" />
+        </div>
+        <h2>Cambiar la configuración de la ubicación</h2>
+        <p>
+          El objeto que define la configuración es el Locationrequest. Para
+          configurar los servicios de ubicación usamos use permission
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img4.PNG" alt="" />
+        </div>
+        <h2>Configura solicitud de ubicación</h2>
+        <p>
+          Para esto creamos un LocationRequest y le asignamos los parámetros:
+        </p>
+        <ul>
+          <li>
+            <strong>Intervalo de actualización:</strong> Usamos setinterval()
+            que define la tasa de segundos a la que tu app prefiere recibir
+            actualizaciones de ubicación
+          </li>
+          <li>
+            <strong>Intervalo de actualización más rápido:</strong> Usamos
+            setFastInterval() que define la tasa mas rapida de velocidad de
+            segundos de actualización
+          </li>
+          <li>
+            Prioridad Usamos setpriority() que define la prioridad de la
+            solicitud , esta puede ser
+            <ul>
+              <li>
+                <strong>PRIORITY_BALANCED_POWER_ACCURACY :</strong> Precisión de
+                ubicación de una manzana o 100 m
+              </li>
+              <li>
+                <strong>PRIORITY_HIGH_ACCURACY:</strong> Ubicación más precisa
+                posible
+              </li>
+              <li>
+                <strong>PRIORITY_LOW_POWER:</strong> Ubicación precisa
+                a10k(nivel ciudad),usa poca energía
+              </li>
+              <li>
+                <strong>PRIORITY_NO_POWER:</strong> Devuelve solo cuando es
+                solicitada la ubicación
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <div class="image fit">
+          <img src="../images/ubicacion/img5.PNG" alt="" />
+        </div>
+        <h2>Obtener la configuración la de ubicación actual</h2>
+        <p>
+          Para esto creamos un LocationSettingRequest.Builder yagregamos una o
+          mas solicitudes de ubicación
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img6.PNG" alt="" />
+        </div>
+        <p>
+          Una vez completo el Task podemos verificar la configuración de la
+          ubicación
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img7.PNG" alt="" />
+        </div>
+        <h2>Pedirle al usuario que cambie la configuración</h2>
+        <p>
+          Para esto a nuestro Task le agregaremos un OnFailureListener que
+          valida la configuración Comprobamos que el objeto Exception que nos
+          pasa el metodo onFalure() sea una instancia de ResolvableApiException
+          , esto permite realizar la petición de cambio de configuración si se
+          necesita
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img8.PNG" alt="" />
+        </div>
+        <h2>Solicitar actualización de ubicación</h2>
+        <p>
+          Para esto usaremos el método requestLocationUpdate () que solicita
+          actualizaciones periódicas Para obtener la última ubicación se usamos
+          getLastLocation()
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img9.PNG" alt="" />
+        </div>
+        <h2>Detener actualizaciones de ubicación</h2>
+        <p>
+          Para esto usaremos el método onPause() , llamaremos también a
+          removeLocatioUpdates() y kle pasaremos ek LocationCallback
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img10.PNG" alt="" />
+        </div>
+        <p>
+          Usaremos el método onResume() para verificar si las actualizaciones
+          están activadas
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img11.PNG" alt="" />
+        </div>
+        <h2>Guardar el estado de la actividad</h2>
+        <p>
+          Podemos hacerlo usando el objeto Bundle y con una llamada de
+          onSaveInstanceState()
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img12.PNG" alt="" />
+        </div>
+        <p>
+          Definiremos también un método updateValuesFromBundle para restablecer
+          valores guardados
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img13.PNG" alt="" />
+        </div>
+        <h2>Lista de tareas para el acceso a la ubicación en segundo plano</h2>
+        <ul>
+          <li>
+            En el manifesto busca el permiso ACCESS_COARSE_LOCATION y
+            ACCESS_FINE_LOCATION.
+          </li>
+          <li>
+            Si la app usa la API 29 o anterior busca el permiso
+            ACCESS_BACKGROUND_LOCATION
+          </li>
+          <li>Crear servicios en segundo plano</li>
+          <li>Crear tareas WorkManager o JobScheduler</li>
+        </ul>
+        <h2>Cómo crear y supervisar el goevallado</h2>
+        <p>
+          Combina el conocimiento de la ubicación actual con el conocimiento de
+          la proximidad del usuario a ubicaciones que podrían ser de su interés.
+          Para esto se marca la latitud y longitud, luego se ajusta la
+          proximidad con un radio y estos definen un geovallado. Se puede tener
+          varios geovallas activos.
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img14.PNG" alt="" />
+        </div>
+        <h2>Configuración de supervisión de geovallas</h2>
+        <p>
+          Para esto se necesita solicitar ACCESS_FINE_LOCATION y de ser
+          necesario ACCESS_BACKGROUND_LOCATION dependiendo de la versión en el
+          manifest.
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img15.PNG" alt="" />
+        </div>
+        <p>
+          Para acceder a las API de ubicación se debe crear una instancia del
+          cliente de vallado. Una vez que se tiene el cliente se puede utilizar
+          diferentes opciones para poder manipularlo y configurarlo.
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img16.PNG" alt="" />
+        </div>
+        <h2>Prácticas recomendadas para el goevallado</h2>
+        <ul>
+          <li>
+            Definir la capacidad de respuesta de las notificaciones en un valor
+            superior. Valores más altos cómo 5 minutos en vez de 5 segundos
+            ayudan a reducir el consumo de energía
+          </li>
+          <li>
+            Radio de geovallas más amplio. Ayuda a reducir la frecuencia en que
+            la app verifica la entrada o salida
+          </li>
+          <li>
+            Explicar el porqué se utiliza el geovalla. Esto ayuda a aumentar la
+            comprensión y la transparencia con el usuario
+          </li>
+          <li>
+            Evitar que el usuario reciba varias alertas. Esto se puede usar un
+            tipo de transición GEOFENCE TRANSITION DWELL en lugar de GEOFENCE
+            TRANSITION ENTER.
+          </li>
+        </ul>
+        <h2>Cómo procesar eventos de transición de actividad</h2>
+        <p>
+          Al producir una transición de actividad solicitada la app recibe una
+          devolución llamada Intent, se puede extraer un objeto
+          ActivityTransitionResult de Intent, que incluye una lista de objetos
+          ActivityTransitionEvent. Este se muestra de manera cronológica.
+        </p>
+        <h2>
+          Cómo anular el registro de las actualizaciones de transición de
+          actividad
+        </h2>
+        <p>
+          Se puede anular el registro de las actualizaciones de transición de
+          actividad invocando el método removeActivityTransitionUpdates() de
+          ActivityRecogintionCliente y pasando tu objeto PendingIntent como
+          parámetro
+        </p>
+        <div class="image fit">
+          <img src="../images/ubicacion/img17.PNG" alt="" />
+        </div>
+        <h2>Cómo interpretar el agotamiento de la batería</h2>
+        <p>
+          La recopilación de la ubicación y el agotamiento de la batería se
+          relaciona de forma directa con los siguientes aspectos.
+        </p>
+        <p>
+          <strong>Precisión:</strong> Es la precisión de los datos de ubicación.
+          Cuanto mayor sea la precisión, mayor será el agotamiento de la
+          batería.
+        </p>
+        <p>
+          <strong>Frecuencia:</strong> Indica con qué frecuencia se calcula la
+          ubicación. Cuanto más frecuente sea el cálculo de la ubicación, mayor
+          será el uso de la batería.
+        </p>
+        <p>
+          <strong>Latencia:</strong> Es la rapidez con la que se entregan los
+          datos de ubicación. Por lo general, una menor latencia requiere más
+          batería.
+        </p>
+        <h2>Detectar la ubicación del dispositivo</h2>
+        <p>
+          Se utiliza el método getLastLocation(), que muestra la ubicación más
+          reciente disponible. Este método proporciona una forma sencilla de
+          obtener la ubicación y no implica costos asociados con la solicitud
+          activa de actualizaciones de ubicación.
+        </p>
+        <h2>
+          Iniciar actualizaciones cuando un usuario se encuentra en una
+          ubicación específica
+        </h2>
+        <p>
+          Se utiliza el geovallado junto con las actualizaciones de proveedores
+          de ubicación fusionada, se solicitan actualizaciones cuando la app
+          recibe un activador de entrada de geovallado y se quitan cuando recibe
+          uno de salida.
+        </p>
+        <h2>Quitar actualizaciones de ubicación</h2>
+        <p>
+          Una fuente común de agotamiento innecesario de la batería es la falta
+          de eliminación de las actualizaciones de ubicación cuando ya no son
+          necesarias. Por ejemplo esto ocurre cuando el objeto onStart() de una
+          actividad o métodos de ciclo de vida onResume() contiene una llamada a
+          requestLocationUpdates() sin una llamada correspondiente a
+          removeLocationUpdates() en los métodos de ciclo de vida o onStop()
+        </p>
+        <h2>Usar la API de configuración de ubicación</h2>
+        <p>
+          Cuando se utiliza la API de configuración de ubicación, las apps
+          proporcionan del nivel QoS deseado y la API solicita al usuario los
+          cambios apropiados de la configuración del sistema. Los pasos para
+          usar la API de configuración de ubicación:
+        </p>
+        <ul>
+          <li>Solicita permisos de ubicación en el manifiesto de la app</li>
+          <li>
+            Configurar un objeto LocationRequest, que especifica de QoS deseado.
+          </li>
+          <li>
+            Usa la API de configuración de la ubicación para comprobar la
+            configuración actual.
+          </li>
+        </ul>
+      </div>
+    </section>
+    <div>
+      <a href="" style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a href="" style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p>
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+
+      <div class="copyright">
+        Design: <a href="https://templated.co">TEMPLATED</a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
