@@ -240,6 +240,212 @@
         <p>Los mapas de la API de inserción de mapas son fáciles de agregar a su página web; simplemente configure la URL que cree como el valor del src atributo de un iframe . Se puede controlar el tamaño del mapa con los atributos height y width. No se requiere JavaScript.</p>
 
 
+        <p>
+          <h2>API Places para Web</h2>
+          <center><img src="../images/Googlemaps/placesapi.png" alt=""></center>
+          <p>Es un servicio que devuelve información sobre lugares mediante solicitudes HTTP. Los lugares se definen dentro de esta API como establecimientos, ubicaciones geográficas o puntos de interés destacados.</p>
+          <br>
+          <p>Se accede a cada uno de los servicios como una solicitud HTTP y devuelve una respuesta JSON o XML. La API Places utiliza un ID de lugar para identificar un lugar de forma única. </p>
+          <p>
+            Están disponibles las siguientes solicitudes de lugar:
+            <ul>
+              <li>Búsqueda de lugar</li>
+              <li>Detalles de lugar</li>
+              <li>Fotos de lugar</li>
+              <li>Autocompletar</li>
+              <li>Autocompletar consultas</li>
+            </ul>
+          </p>
+          <br>
+          <h4>Búsqueda de lugar</h4>
+          <p>Permite buscar información de lugares utilizando una variedad de categorías, incluidos establecimientos, puntos de interés destacados y ubicaciones geográficas. Puede buscar lugares por proximidad o por una cadena de texto.</p>
+          <center><img src="../images/Googlemaps/busqueda.png" alt=""></center>
+          <br>
+          <p>Una <b>solicitud Find Place</b> toma una entrada de texto y devuelve un lugar. La entrada puede ser cualquier tipo de datos de texto de lugares, como un nombre, una dirección o un número de teléfono, en caso de que los datos que no sean cadenas, como latitud o longitud, se generará un error.</p>
+          <p>Una solicitud Find Place es una URL HTTP con el siguiente formato:</p>
+          <center><img src="../images/Googlemaps/busqueda1.png" alt=""></center>
+          <p>
+            Parámetros requeridos:
+            <ul>
+              <li>key: Clave API de su aplicación </li>
+              <li>input: Entrada de texto que identifica el objetivo de la búsqueda, como un nombre, dirección o número de teléfono.</li>
+              <li>inputtype: El tipo de entrada. Este puede ser uno de textquery o phonenumber.</li>
+            </ul>
+          </p>
+          <p>Respuesta</p>
+          <center><img src="../images/Googlemaps/busqueda2.JPG" alt=""></center>
+          <br><br>
+          <p>Una <b>solicitud de búsqueda cercana</b> permite buscar lugares dentro de un área específica. Puede refinar su solicitud de búsqueda proporcionando palabras clave o especificando el tipo de lugar que está buscando.</p>
+          <p>Una solicitud de búsqueda cercana es una URL HTTP con el siguiente formato:</p>
+          <center><img src="../images/Googlemaps/busqueda3.png" alt=""></center>
+          <p>
+            Parámetros requeridos:
+            <ul>
+              <li>key: Clave API de su aplicación.</li>
+              <li>location: La latitud / longitud alrededor de la cual recuperar la información del lugar. Esto debe especificarse como latitud, longitud.</li>
+              <li>radius: Define la distancia (en metros) dentro de la cual devolver los resultados del lugar. El radio máximo permitido es de 50 000 metros. </li>
+            </ul>
+          </p>
+          <br>
+          <p>Las <b>solicitudes de búsqueda de texto</b> es un servicio web que devuelve información sobre un conjunto de lugares en función de una cadena, por ejemplo, "pizza en Nueva York" o "zapaterías cerca de Ottawa" o "123 Main Street". El servicio responde con una lista de lugares que coinciden con la cadena de texto y cualquier sesgo de ubicación que se haya establecido.</p>
+          <p>El servicio es especialmente útil para realizar consultas de direcciones ambiguas en un sistema automatizado, y los componentes de la cadena que no son direcciones pueden coincidir con empresas y direcciones. Ejemplos de consultas de direcciones ambiguas son direcciones incompletas, direcciones con formato deficiente o una solicitud que incluye componentes que no son direcciones, como nombres comerciales.</p>
+          <br>
+          <p>La respuesta a la búsqueda incluirá una lista de lugares. Puede enviar una solicitud de detalles del lugar para obtener más información sobre cualquiera de los lugares en la respuesta.</p>
+          <p>Una solicitud de búsqueda de texto es una URL HTTP con el siguiente formato:</p>
+          <center><img src="../images/Googlemaps/busqueda4.png" alt=""></center>
+          <p>
+            <ul>
+              <li>query: La cadena de texto en la que buscar, por ejemplo: "restaurante" o "123 Main Street". El servicio devolverá coincidencias de candidatos en función de esta cadena y ordenará los resultados según su relevancia percibida.</li>
+              <li>key: Clave API de su aplicación.</li>
+            </ul>
+          </p>
+          <p>Respuestas de búsqueda cercana y búsqueda de texto</p>
+          <center><img src="../images/Googlemaps/busqueda5.JPG" alt=""></center>
+        </p>
+
+        <br>
+        <h4>Detalles de lugar</h4>
+        <p>Una <b>solicitud de detalles del lugar</b>  devuelve información más completa sobre el lugar indicado, como su dirección completa, número de teléfono, calificación de los usuarios y reseñas.</p>
+        <center><img src="../images/Googlemaps/bus6.png" alt=""></center>
+        <p>Una solicitud de detalles de lugar es una URL HTTP con el siguiente formato:</p>
+        <center><img src="../images/Googlemaps/bus7.png" alt=""></center>
+        <p>
+          Parámetros requeridos:
+          <ul>
+            <li>place_id: Un identificador textual que identifica de forma única un lugar, devuelto de una búsqueda de lugares . </li>
+            <li>key: La clave API de su aplicación.</li>
+          </ul>
+        </p>
+        <p>Respuesta</p>
+        <center><img src="../images/Googlemaps/bus8.JPG" alt=""></center>
+
+        <br>
+        <h4>Fotos de lugar</h4>
+        <p>El <b>servicio Place Photo</b>, es una API de solo lectura que permite agregar contenido fotográfico de alta calidad a la aplicación. El servicio Place Photo brinda acceso a millones de fotos almacenadas en la base de datos de Lugares. Cuando obtenga información sobre un lugar mediante una solicitud de detalles del lugar, se devolverán las referencias fotográficas para el contenido fotográfico relevante. </p>
+        <center><img src="../images/Googlemaps/bus9.png" alt=""></center>
+        <p>Todas las solicitudes al servicio de Fotos de lugares deben incluir un photoreference, devuelto en la respuesta a una solicitud de Buscar lugar, Búsqueda cercana, Búsqueda de texto o Detalles del lugar.</p>
+        <p>Una solicitud de foto de lugar es una URL HTTP con el siguiente formato:</p>
+        <center><img src="../images/Googlemaps/bus10.png" alt=""></center>
+        <p>
+          Parámetros requeridos:
+          <ul>
+            <li>photoreference: Un identificador de cadena que identifica de forma exclusiva una foto. Las referencias fotográficas se obtienen de una solicitud de búsqueda de lugar o de detalles de lugar.</li>
+            <li>maxheight o maxwidth: Especifica el alto o ancho máximo deseado, en píxeles, de la imagen devuelta por el servicio Fotos de lugares. </li>
+            <li>key: Clave API de su aplicación. </li>
+          </ul>
+        </p>
+        <p>Respuesta</p>
+        <p>La respuesta de una solicitud de foto de lugar exitosa será una imagen. El tipo de imagen dependerá del tipo de foto enviada originalmente.</p>
+
+        <br>
+        <h4>Autocompletar</h4>
+        <p>El <b>servicio Place Autocomplete</b> devuelve predicciones de lugares en respuesta a una solicitud HTTP. La solicitud especifica una cadena de búsqueda textual y límites geográficos opcionales. El servicio se puede utilizar para proporcionar la funcionalidad de autocompletar para búsquedas geográficas basadas en texto, devolviendo lugares como negocios, direcciones y puntos de interés a medida que el usuario escribe.</p>
+        <center><img src="../images/Googlemaps/bus11.png" alt=""></center>
+        <p>El servicio puede hacer coincidir palabras completas y subcadenas, resolviendo nombres de lugares, direcciones y códigos más. Por lo tanto, las aplicaciones pueden enviar consultas a medida que el usuario escribe, para proporcionar predicciones de lugares sobre la marcha.</p>
+        <p>Las predicciones devueltas están diseñadas para ser presentadas al usuario para ayudarlo a seleccionar el lugar deseado.</p>
+        <p>Una solicitud de Autocompletar de lugar es una URL HTTP con el siguiente formato:</p>
+        <center><img src="../images/Googlemaps/bus12.png" alt=""></center>
+        <p>
+          Parámetros requeridos:
+          <ul>
+            <li>input: La cadena de texto en la que buscar. El servicio de Autocompletar de lugares devolverá coincidencias de candidatos en función de esta cadena y ordenará los resultados según su relevancia percibida.</li>
+            <li>key: Clave API de su aplicación.</li>
+          </ul>
+        </p>
+        <p>Respuesta</p>
+        <center><img src="../images/Googlemaps/bus13.JPG" alt=""></center>
+
+        <br>
+        <h4>Autocompletar consultas</h4>
+        <p>El servicio se puede utilizar para proporcionar una predicción de consulta para búsquedas geográficas basadas en texto, al devolver las consultas sugeridas a medida que escribe.</p>
+        <center><img src="../images/Googlemaps/bus14.png" alt=""></center>
+        <p>En lugar de buscar una ubicación específica, un usuario puede escribir una búsqueda categórica, como "pizza cerca de Nueva York" y el servicio responde con una lista de consultas sugeridas que coinciden con la cadena. Como el servicio de Autocompletar de consultas puede coincidir tanto en palabras completas como en subcadenas, las aplicaciones pueden enviar consultas a medida que el usuario escribe para proporcionar predicciones sobre la marcha.</p>
+        <p>Una solicitud de Autocompletar de consulta es una URL HTTP con el siguiente formato:</p>
+        <center><img src="../images/Googlemaps/bus15.png" alt=""></center>
+        <p>
+          Parámetros requeridos:
+          <ul>
+            <li>input: La cadena de texto en la que buscar. El servicio devolverá coincidencias de candidatos en función de esta cadena y ordenará los resultados en función de su relevancia percibida.</li>
+            <li>key: Clave API de su aplicación.</li>
+          </ul>
+        </p>
+        <p>Respuesta</p>
+        <center><img src="../images/Googlemaps/bus16.JPG" alt=""></center>
+
+        <br><br>
+        <h2>API de codificación geográfica</h2>
+        <center><img src="../images/Googlemaps/bus17.png" alt=""></center>
+        <p>La codificación geográfica es el proceso de conversión de direcciones (como "1600 Amphitheatre Parkway, Mountain View, CA") en coordenadas geográficas (como latitud 37.423021 y longitud -122.083739), que puede usar para colocar marcadores en un mapa o posicionar el mapa.</p>
+        <p>La codificación geográfica inversa es el proceso de convertir coordenadas geográficas en una dirección legible por humanos.</p>
+        <p>Una solicitud de API de codificación geográfica tiene la siguiente forma:</p>
+        <center><img src="../images/Googlemaps/bus18.png" alt=""></center>
+        <p>
+          Parámetros obligatorios en una solicitud de codificación geográfica:
+          <ul>
+            <li>address: La dirección postal o el código plus que desea geocodificar. Especifique las direcciones de acuerdo con el formato utilizado por el servicio postal nacional del país en cuestión. Deben evitarse elementos de dirección adicionales como nombres comerciales y números de unidad, suite o piso. </li>
+            <li>components: El filtro de componentes también se acepta como parámetro opcional si address no se incluye en la solicitud. Cada elemento del filtro de componentes consta de un component:valuepar y restringe completamente los resultados del geocodificador.</li>
+            <li>key: Clave API de su aplicación.</li>
+          </ul>
+        </p>
+        <p>Respuesta</p>
+        <center><img src="../images/Googlemaps/bus19.JPG" alt=""></center>
+
+        <br><br>
+        <h2>API de geolocalización</h2>
+        <center><img src="../images/Googlemaps/bus20.png" alt=""></center>
+        <p>La API de geolocalización devuelve una ubicación y un radio de precisión basados en información sobre torres de telefonía celular y nodos WiFi que el cliente móvil puede detectar.</p>
+        <p>Las solicitudes de geolocalización se envían mediante POST a la siguiente URL:</p>
+        <center><img src="../images/Googlemaps/bus21.png" alt=""></center>
+        <p>
+          El cuerpo de la solicitud debe tener el formato JSON. Se admiten los siguientes campos y todos los campos son opcionales:
+          <ul>
+            <li>homeMobileCountryCode: El código de país móvil (MCC) de la red doméstica del dispositivo.</li>
+            <li>homeMobileNetworkCode: El código de red móvil (MNC) de la red doméstica del dispositivo.</li>
+            <li>radioType: El tipo de radio móvil. Los valores admitidos son lte, gsm, cdma, y wcdma. Si bien este campo es opcional, debe incluirse si hay un valor disponible para obtener resultados más precisos.</li>
+            <li>carrier: El nombre del operador.</li>
+            <li>considerIp: Especifica si se debe recurrir a la geolocalización de IP si las señales de torre celular y wifi no están disponibles. Por defecto es true. Configure considerIp en false para deshabilitar el retroceso.</li>
+            <li>cellTowers: Una serie de objetos de torres de telefonía móvil. </li>
+            <li>wifiAccessPoints: Una serie de objetos de punto de acceso WiFi. </li>
+          </ul>
+          <center><img src="../images/Googlemaps/bus22.png" alt=""></center>
+          <p>La <b>cellTowersmatriz</b> del cuerpo de la solicitud contiene cero o más objetos de torre celular.</p>
+          <ul>
+            <li>cellId(obligatorio): Identificador único de la celda. En GSM, este es el ID de celda (CID); Las redes CDMA utilizan el ID de la estación base (BID). Las redes WCDMA utilizan la identidad de celda UTRAN / GERAN (UC-Id), que es un valor de 32 bits que concatena el controlador de red de radio (RNC) y la ID de celda. Especificar solo el valor de ID de celda de 16 bits en redes WCDMA puede generar resultados inexactos.</li>
+            <li>locationAreaCode(obligatorio para radioType gsmy cdma, de lo contrario opcional): el código de área de ubicación (LAC) para redes GSM y WCDMA. El ID de red (NID) para redes CDMA.</li>
+            <li>mobileCountryCode (obligatorio): el código de país móvil (MCC) de la torre de telefonía móvil.</li>
+            <li>mobileNetworkCode(obligatorio): el código de red móvil de la torre de telefonía móvil. Este es el MNC para GSM y WCDMA; CDMA usa el ID del sistema (SID).</li>
+          </ul>
+          <center><img src="../images/Googlemaps/bus23.png" alt=""></center>
+          <p>La <b>wifiAccessPoints</b> matriz del cuerpo de la solicitud debe contener dos o más objetos de punto de acceso WiFi.</p>
+          <ul>
+            <li>macAddress: ( obligatorio ) La dirección MAC del nodo WiFi. Por lo general, se llama dirección BSS, BSSID o MAC. Los separadores deben ser :(dos puntos).</li>
+            <li>signalStrength: La intensidad de la señal actual medida en dBm.</li>
+            <li>age: El número de milisegundos desde que se detectó este punto de acceso.</li>
+            <li>channel: El canal a través del cual el cliente se comunica con el punto de acceso.</li>
+            <li>signalToNoiseRatio: La relación señal / ruido actual medida en dB.</li>
+          </ul>
+          <center><img src="../images/Googlemaps/bus24.png" alt=""></center>
+        </p>
+        <p>Respuesta</p>
+        <center><img src="../images/Googlemaps/bus27.JPG" alt=""></center>
+
+        <br><br>
+        <h2>API de zona horaria</h2>
+        <center><img src="../images/Googlemaps/bus25.png" alt=""></center>
+        <p>La API de zona horaria proporciona una interfaz sencilla para solicitar la zona horaria de las ubicaciones en la superficie de la tierra, así como la diferencia horaria de UTC para cada una de esas ubicaciones. Solicita la información de la zona horaria para una fecha y un par de latitud / longitud específicos. La API devuelve el nombre de esa zona horaria, la diferencia horaria de UTC y la diferencia de horario de verano.</p>
+        <p>Las solicitudes de la API de zona horaria se construyen como una cadena de URL.Se debe tener en cuenta que es posible que los datos de la zona horaria no estén disponibles para ubicaciones sobre el agua, como océanos o mares.</p>
+        <p>Una solicitud de API de zona horaria tiene la siguiente forma:</p>
+        <center><img src="../images/Googlemaps/bus26.png" alt=""></center>
+        <p>
+          Parámetros requeridos:
+          <ul>
+            <li>location: una tupla lat, lng separada por comas (p. ej. location=-33.86,151.20), que representa la ubicación para buscar.</li>
+            <li>timestamp: especifica el tiempo deseado en segundos desde la medianoche del 1 de enero de 1970 UTC. La API de zona horaria utiliza timestamp para determinar si se debe aplicar o no el horario de verano, según la zona horaria de location. Tenga en cuenta que la API no tiene en cuenta las zonas horarias históricas. Es decir, si especificas un pasado timestamp, la API no tiene en cuenta la posibilidad de que location estuviera anteriormente en una zona horaria diferente.</li>
+            <li>key: Clave API de su aplicación. </li>
+          </ul>
+        </p>
+        <p>Respuesta</p>
+        <center><img src="../images/Googlemaps/bus28.JPG" alt=""></center>
 
     </div>
 
