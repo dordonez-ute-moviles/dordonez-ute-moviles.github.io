@@ -239,6 +239,154 @@
         </p>
         <p>Los mapas de la API de inserción de mapas son fáciles de agregar a su página web; simplemente configure la URL que cree como el valor del src atributo de un iframe . Se puede controlar el tamaño del mapa con los atributos height y width. No se requiere JavaScript.</p>
 
+        <h2>API Directions</h2>
+
+        <p>La API de direcciones es un servicio que calcula direcciones entre ubicaciones mediante una solicitud HTTP. Con la API de indicaciones, puede:</p><img align="right" src="../images/Googlemaps/a1.png" alt="">
+        <ul><li>Busque direcciones para varios modos de transporte, incluido el tránsito, la conducción, a pie o en bicicleta.</li>
+        <li>Devuelve direcciones de varias partes mediante una serie de puntos de referencia.</li>
+        <li>Especifique orígenes, destinos y puntos de referencia como cadenas de texto (por ejemplo, "Chicago, IL" o "Darwin, NT, Australia"), como ID de lugares o como coordenadas de latitud / longitud.</li></ul>
+
+        <h4>HTTPS o HTTP</h4>
+        <p>La seguridad es importante y se recomienda HTTPS siempre que sea posible, especialmente para aplicaciones que incluyen datos confidenciales del usuario, como la ubicación. El uso de la encriptación HTTPS hace que su aplicación sea más segura y más resistente a intrusiones o alteraciones. <br> Si HTTPS no es posible, para acceder a la API de indicaciones a través de HTTP, utilice:
+        </p>
+       <center><img src="../images/Googlemaps/a2.png" alt=""></center>
+       <h4>Solicitar parámetros</h4>
+
+       <p>Algunos parámetros son obligatorios mientras que otros son opcionales. Como es estándar en las URL, todos los parámetros se separan mediante el carácter comercial ( &).
+      
+      </p>
+
+      <h5>Parámetros requeridos</h5><img align="right" src="../images/Googlemaps/a3.jpg" alt="">
+      <ul> 
+        <li>origin: El ID del lugar, la dirección o el valor textual de latitud / longitud a partir del cual desea calcular las direcciones.</li>
+        <li>destination: El ID del lugar, la dirección o el valor textual de latitud / longitud para el que desea calcular las direcciones. Las opciones para el destination parámetro son las mismas que para el originparámetro, descrito anteriormente.</li>
+        <li>key: Clave API de su aplicación. Esta clave identifica su aplicación para fines de gestión de cuotas. Aprenda a obtener una llave .</li>
+      </ul>
+      <h4>Modos de viaje</h4>
+
+      <p>De forma predeterminada, las indicaciones se calculan como driving indicaciones. Se admiten los siguientes modos de viaje:
+      </p>
+
+      <ul> 
+        <li>driving: (predeterminado) indica direcciones de conducción estándar utilizando la red de carreteras.</li>
+        <li>walking: solicita direcciones para caminar a través de senderos peatonales y aceras (donde estén disponibles). </li>
+        <li>bicycling: solicita indicaciones para ir en bicicleta a través de carriles bici y calles preferidas (donde estén disponibles).</li>
+        <li>Transit: direcciones a través de rutas de transporte público (donde estén disponibles). 
+        </li>
+      </ul>
+      <center><img src="../images/Googlemaps/a4.png" alt=""></center>
+
+      <br>
+      <h2>API de matriz de distancia</h2>
+      <center><img src="../images/Googlemaps/a5.png" alt=""></center><p>Es un servicio que proporciona la distancia y el tiempo de viaje para una matriz de orígenes y destinos. La API devuelve información basada en la ruta recomendada entre los puntos de inicio y final, calculada por la API de Google Maps, y consta de filas que contienen valores.
+      </p> 
+      <h4>Solicitudes de matriz de distancia
+      </h4>
+
+      <p> Una solicitud de API de matriz de distancia tiene la siguiente forma:
+      </p>
+
+      <center><img src="../images/Googlemaps/a6.png" alt=""></center>
+
+      <p>Las URL deben estar codificadas correctamente para que sean válidas y están limitadas a 8192 caracteres para todos los servicios web duration y distance para cada par. </p>
+
+      <h4>Parámetros</h4>
+      <img align='right'src="../images/Googlemaps/a7.png" alt="">
+
+      <li>mode: especifica el modo de transporte que se utilizará al calcular la distancia.</li>
+      <li>language: El idioma en el que se devuelven los resultados</li>
+      <li>region:El código de región, especificado como un valor de dos caracteres ccTLD (dominio de nivel superior de código de país).</li>
+      <li>avoid: Introduce restricciones a la ruta. Los valores válidos se especifican en la sección Restricciones de este documento. </li>
+      <li>units: Especifica el sistema de unidades que se utilizará al expresar la distancia como texto.</li>
+      <li>arrival_time: Especifica la hora deseada de llegada para las solicitudes de tránsito, en segundos desde la medianoche del 1 de enero.</li>
+      <li>departure_time: La hora de salida deseada. Puede especificar la hora como un número entero en segundos </li>
+      <li>traffic_model: especifica las suposiciones que se utilizarán al calcular el tiempo en el tráfico.</li>
+      <li>transit_routing_preference:Especifica preferencias para solicitudes de tránsito. Con este parámetro, puede sesgar las opciones devueltas</li> <br>
+
+      <h4>Elementos de respuesta de la matriz de distancia</h4>
+      <p>Las respuestas de la matriz de distancia contienen los siguientes elementos raíz:
+      </p>
+      <img align='right'src="../images/Googlemaps/a8.png" alt="">
+
+      <p><b>status:</b> contiene metadatos sobre la solicitud. Consulte los códigos de estado a continuación.<br>
+      <b>origin_addresses:</b> contiene una matriz de direcciones devuelta por la API de su solicitud original. Estos son formateados por el geocodificador y localizados de acuerdo con el languageparámetro pasado con la solicitud.<br>
+      <b>destination_addresses: </b>contiene una matriz de direcciones devuelta por la API de su solicitud original. Al igual que con origin_addresses, estos están localizados si corresponde.<br>
+      <b>rows :</b> contiene una matriz de elements, que a su vez contienen cada una status, durationy distanceelemento.</p>
+
+      <h2>API de carreteras</h2>
+
+      <p>Identifica las carreteras por las que viajaba un vehículo y proporciona metadatos adicionales sobre esas carreteras, como los límites de velocidad. Los Roads API permiten asignar coordenadas GPS a la geometría de la carretera y determinar el límite de velocidad a lo largo de esos segmentos de la carretera.<center><img src="../images/Googlemaps/a9.png" alt=""></center></p><br>
+     
+     <h4>Visión general</h4>
+     <p> La API está disponible a través de una interfaz HTTPS simple y expone los siguientes servicios:
+       <ul>
+         <li>Ajustar a carreteras</li>
+         <li>Carreteras más cercanas</li>
+         <li>Límites de velocidad</li>
+       </ul>
+      <h4>Ajustar a carreteras</h4>
+      <p>Este servicio devuelve la geometría de carretera que mejor se ajusta a un conjunto determinado de coordenadas GPS. Este servicio toma hasta 100 puntos GPS recopilados a lo largo de una ruta y devuelve un conjunto similar de datos con los puntos ajustados a las carreteras más probables por las que viajaba el vehículo.</p>
+      <h4>Carreteras más cercanas</h4>
+      <p>Este servicio devuelve tramos de carretera individuales para un conjunto determinado de coordenadas GPS. Este servicio toma hasta 100 puntos GPS y devuelve el segmento de carretera más cercano para cada punto.</p>
+      <h4>	Límites de velocidad </h4>
+      <p>Este servicio devuelve el límite de velocidad publicado para un segmento de la carretera. </p>
+
+    </p>
+
+    <h2>SDK de Places para Android</h2>
+    <p>Permite crear aplicaciones que reconocen la ubicación y que responden contextualmente a las empresas locales y otros lugares cercanos al dispositivo del usuario. Esto significa que puede crear aplicaciones enriquecidas basadas en lugares que significan algo para el usuario.
+    </p> <center><img src="../images/Googlemaps/a10.png" alt=""></center></p><br>
+
+    <h4>Conceptos</h4>
+    <p>Las siguientes interfaces proporcionan los puntos de entrada principales al SDK de Places para Android:</p><img align='left' src="../images/Googlemaps/a11.png" alt=""></p><br><br>
+    <ul>
+      <li>Places</li>
+      <li>Autocomplete</li>
+    </ul>
+    <br><br><br><br>
+    <h4>	Places</h4>
+          <p>Proporciona acceso programático a la base de datos de Google de información comercial y de lugares locales, así como la ubicación actual del dispositivo.</p>
+          <h4>Autocomplete</h4>
+          <p>Proporciona widgets prediseñados para devolver predicciones de lugares en respuesta a las consultas de búsqueda de los usuarios.</p>
+    <h2> SDK de Places para iOS</h2>
+    <p>En la API, un lugar está representado por GMSPlace Class Reference. Incluye información como el nombre del lugar y su dirección, ubicación geográfica, identificación del lugar, número de teléfono, tipo de lugar, URL del sitio web. Ayuda a los clientes a explorar dónde están y que les rodea:</p><img align='left' src="../images/Googlemaps/a12.png" alt="">
+    <h4>	El lugar actual</h4>
+          <p>Devuelve una lista de lugares donde se sabe que el dispositivo del usuario se ubicó por última vez junto con una indicación de la probabilidad relativa para cada lugar.</p>
+          <h4>Place Autocomplete</h4>
+          <p>Completa automáticamente el nombre y / o la dirección de un lugar a medida que los usuarios escriben.</p>
+          <img align='right' src="../images/Googlemaps/a13.jpg" alt=""><h4>	Place Photos </h4>
+          <p>Devuelve imágenes de alta calidad de un lugar.</p>
+          <h4>	Place IDs </h4>
+          <p>Almacena la identificación única de uno o más lugares para la recuperación de información del lugar a pedido.</p><br><br><br>
+          <h2>Biblioteca de Places, API de JavaScript de Maps</h2>
+          <p>Las funciones en la Biblioteca de lugares, API de JavaScript de Maps permiten que su aplicación busque lugares (definidos en esta API como establecimientos, ubicaciones geográficas o puntos de interés destacados) contenidos dentro de un área definida, como los límites de un mapa, o alrededor un punto fijo.</p>
+
+          <h4>Cargando la biblioteca</h4>
+          <p>El servicio Places es una biblioteca autónoma, separada del código principal de la API de JavaScript de Maps. Para usar la funcionalidad contenida en esta biblioteca, primero debe cargarla usando el libraries parámetro en la URL de arranque de la API de Maps: <center><img src="../images/Googlemaps/a14.png" alt=""></center></p> <br>
+
+          <h4>Respuestas de búsqueda</h4>
+          <p>El PlacesServiceStatus objeto de respuesta contiene el estado de la solicitud y puede contener información de depuración para ayudarlo a rastrear por qué falló la solicitud de lugar.
+          </p>
+          <ul>
+            <li><b>INVALID_REQUEST:</b>Esta solicitud no es válida.</li>
+            <li><b>OK:</b>La respuesta contiene un resultado válido.</li>
+            <li><b>OVER_QUERY_LIMIT:</b>La página web ha superado su cuota de solicitudes.</li>
+            <li><b>REQUEST_DENIED:</b>La página web no puede utilizar PlacesService.</li>
+            <li><b>UNKNOWN_ERROR:</b>La solicitud de PlacesService no se pudo procesar debido a un error del servidor. La solicitud puede tener éxito si vuelve a intentarlo.</li>
+            <li><b>ZERO_RESULTS:</b>No se encontró ningún resultado para esta solicitud.</li>
+          </ul>
+          <h4>Detalles del lugar</h4>
+          <p>Además de proporcionar una lista de lugares dentro de un área, el servicio Lugares también puede devolver información detallada sobre un lugar específico. Una vez que se ha devuelto un lugar en una respuesta de búsqueda de lugar, su ID de lugar se puede utilizar para solicitar detalles adicionales sobre ese lugar, como su dirección completa, número de teléfono, calificación de usuarios y reseñas, etc</p>
+          <p>Los detalles del lugar se solicitan con una llamada al getDetails()método del servicio .</p>
+
+          <center><img src="../images/Googlemaps/a15.png" alt=""></center></p> <br>
+
+          <p>Este método toma una solicitud, que contiene los lugares deseados placeIdy los campos que indican qué tipos de datos de lugares devolver. Obtenga más información sobre cómo hacer referencia a un lugar con un ID de lugar . También toma un método de devolución de llamada, que necesita manejar el código de estado pasado en la google.maps.places.PlacesServiceStatusrespuesta, así como el google.maps.places.PlaceResultobjeto.</p>
+
+          <center><img src="../images/Googlemaps/a16.png" alt=""></center></p> <br>
+
+
+
 
         <p>
           <h2>API Places para Web</h2>
