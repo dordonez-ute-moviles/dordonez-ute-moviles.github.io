@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Tocuhscreen
+</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+
+  <body style="text-align: justify">
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a
+        href="./servicios.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="touchscreen2.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+      
+      
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img
+            src="../images/touchscreen/tsp.jpg"
+            alt=""
+            width="750"
+            height="450"
+          />
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1 align="center">Touchscreen</h1> 
+		  <!--Poner fecha de la clase-->
+          <p class="info">18 de Enero de 2021</p>
+        </header>
+					<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+                    <ol>
+					<li><a href="touchscreen1.html">Eventos Táctiles / Eventos de entrada</a></li>
+					
+                    <li><a href="touchscreen2.html">Controladores de eventos</a></li>
+					<li><a href="touchscreen.html">Seguimiento de los movimientos de tocar y del puntero</a></li>
+					<br></ol>
+                    
+								<h4>Cualquier evento que involucre tocar la pantalla</h4>	<br>
+						<p align="justify"><li>Poner el dedo en la pantalla</li><li>Levantar el dedo de la pantalla</li>
+<li>Mover el dedo mientras se toca la pantalla</li></p>
+<center><img src="../images/touchscreen/ts4.JPG"></center>
+
+
+<h4>Estos eventos pueden involucrar uno o más dedos</h4>
+<p align="justify"><li>Dependerá del dispositivo hasta cuántos dedos se puedan rastrear al mismo tiempo</li></p>
+
+<h4>De manera genérica, una vista(o una actividad) proporciona el método</h4>
+<p align="justify"><li>Public boolean onTouchEvent(MotionEvent event)</li></p>
+
+<h4>Este método es llamado cuando se produce un evento táctil</h4>
+<p align="justify"><li>El evento se recibe en el argumento</li>
+<li>MotionEvent event</li><li>Para capturar dichos eventos hay que sobreescribir este método al crear nuestra vista personalizada</li></p>
+
+<h4>O, en una vista existente, registrar el listener</h4><li>setOnTouchListener</li></p>
+
+
+<h4>onTouchEvent(MotionEvent)</h4><br>
+<p align="justify">Al producirse cualquier evento táctil, este se pasa a onTouchEvent, de manera que es necesario discriminar de qué evento se trata, analizando MotionEvent.
+</p>
+<p align="justify">Nota: un evento puede tener varias acciones relacionadas!; on TouchEvent devuelve un booleano y este influye en si se procesarán más acciones en el evento.
+<li>True: el evento SÍ se capturó y SÍ se procesarán más acciones en el evento</li><li>False:el evento NO se capturó y NO se procesarán más acciones en el evento</li></p>
+<p>Para obtener el tipo de evento hay que usar getActionMasked.
+<li>event.getActionMasked()</li><li>O..</li><li>MotionEvebtCompat.getActionMasked(event)</li><li>Estos métodos devuelven una constante(int)</li></p>
+
+<h4>MotionEvent</h4><br>
+<p align="justify">Algunas constantes típicas en MotinEvent son
+</p><br>
+<p align="justify"><h6>MotionEvent.ACTION_DOWN</h6><li>Se apoyó un dedo en la pantalla(el primer dedo que se apoya)</li></p>
+<p align="justify"><h6>MotionEvent.ACTION_MOVE</h6><li>Se movió un dedo mientras estaba apoyado en la pantalla</li></p>
+<p align="justify"><h6>MotionEvent.ACTION_UP</h6><li>Se levantó un dedo de la pantalla(cuando el último dedo apoyado se levanta)</li></p>
+<p align="justify"><h6>MotionEvent.ACTION_POINTER_DOWN</h6><li>Por cada dedo adicional que se apoye</li></p>
+<p align="justify"><h6>MotionEvent.ACTION_POINTER_UP</h6><li>Cuando algún dedo se levante, menos el ultimo (aún quedan dedos apoyados)</li></p>
+
+<h4 align="center">Eventos Multi-touch</h4>
+<p align="justify">Para conocer cuántos dedos están apoyados<li>int s=event.getPointerCount();</li></p>
+<p align="justify">Todos los dedos apoyados en la pantalla tendrán un índice.El evento siempre da el índice del dedo que acaba de hacer algo, generado el evento<li>int i=event.getActionIndex();</li></p>
+<p align="justify">Este índice nos permite conocer más información sobre cada dedo trabajando en la pantalla<li>getX(i);getY(i):posición en la pantalla</li>
+<li>Hay muchos métodos más, revise!</li>
+<li>Hay también versiones sin índice, para cuando sabemos que hay un solo dedo</li></p>
+
+
+<h3 align="center">Eventos de entrada</h3>
+<p align="justify">En Android, existe más de una forma de interceptar los eventos desde una interacción del usuario  con tu aplicación. Al considerar los eventos dentro de tu interfaz de usuario, el enfoque consiste  en capturar los eventos desde el objeto de vista específico con el que el usuario interactúa. La  clase de vista proporciona los medios para hacerlo.</p>
+<li>Dentro de las diversas clases de objetos View que usarás para componer tu diseño, quizá  observes varios métodos de callback públicos que pueden ser útiles para eventos de IU</li>
+<li> El  framework de Android llama a estos métodos cuando la acción respectiva ocurre en ese objeto.  Por ejemplo, cuando se toca una vista (por ejemplo, un botón), se llama al  método onTouchEvent() en ese objeto.</li>
+<li>Extender la  clase y reemplazar el método.</li>
+<li>Extender todos los objetos de vista para manejar tal  evento no sería práctico.</li>
+<li>La clase de vista también contiene una colección de  interfaces anidadas con callbacks que puedes definir más fácilmente.</li>
+
+<p align="justify">Generalmente usarás los receptores de eventos para escuchar la interacción del usuario,  es posible que en algún momento desees ampliar una clase de objeto View para crear un  componente personalizado.</p>
+<center><img src="../images/touchscreen/t5.jpg" width="400" height="300"></center>
+
+
+<h4 align="center">Gestores de eventos</h4>
+<p align="justify">Un receptor de eventos es una interfaz en la clase View que contiene un solo método de callback.  Estos métodos serán llamados por el framework de Android cuando la vista con la cual se ha  registrado el gestor sea iniciada por la interacción del usuario con el elemento en la IU.</p>
+<p align="justify"><h6>onClick() </h6><li>Desde View.OnClickListener. Este método se llama cuando el usuario toca el elemento (en el  modo táctil), o selecciona el elemento con las teclas de navegación o la bola de  seguimiento y presiona la tecla “Entrar” adecuada o la bola de seguimiento.</li></p>
+
+<p align="justify" ><h6>onLongClick()</h6><li>Desde View.OnLongClickListener. Este método se llama cuando el usuario toca y mantiene  presionado el elemento (en el modo táctil), o selecciona el elemento con las teclas de  navegación o la bola de seguimiento y mantiene presionada la tecla “Entrar” adecuada o la  bola de seguimiento (durante un segundo).</li></p>
+
+<p align="justify"><h6>onFocusChange()</h6><li>Desde View.OnFocusChangeListener. Este método se llama cuando el usuario navega hacia el  elemento o sale de este utilizando las teclas de navegación o la bola de seguimiento.</li></p>
+
+<p align="justify"><h6>onKey()</h6><li>Desde View.OnKeyListener. Este método se llama cuando el usuario se centra en el elemento  y presiona o libera una tecla física en el dispositivo.</li></p>
+
+<p align="justify"><h6>onTouch()</h6><li>Desde View.OnTouchListener. Este método se llama cuando el usuario realiza una acción  calificada como un evento táctil, por ejemplo, presionar, liberar o cualquier gesto de  movimiento en la pantalla (dentro de los límites del elemento).</li></p>
+
+<p align="justify"><h6>onCreateContextMenu()</h6><li>Desde View.OnCreateContextMenuListener. Este método es llamado cuando se crea un Context  Menu (como resultado de un "clic largo" sostenido).</li></p>
+
+<p align="justify">Estos métodos son los únicos habitantes de su respectiva interfaz. Para definir uno de estos  métodos y manejar sus eventos, implementa la interfaz anidada en su actividad o defínela como  una clase anónima. Luego, pasa una instancia de tu implementación al  
+método View.set...Listener() respectivo. (P. ej., llama a setOnClickListener() y pasa tu  implementación deOnClickListener).</p>
+		 
+<center><img src="../images/touchscreen/ts2.JPG"></center>
+
+<p align="justify">Quizá también te parezca más conveniente implementar OnClickListener como parte de tu  actividad. Esto evitará la carga extra de la clase y la asignación de objetos. Por ejemplo:</p>
+<center><img src="../images/touchscreen/ts3.JPG"></center>
+
+<p align="justify">Ten en cuenta que el callback onClick() del ejemplo anterior no tiene valor de retorno, pero  algunos otros métodos de gestores de eventos deben devolver un valor booleano. El motivo  depende del evento. A continuación, se explican los motivos de los pocos casos que lo hacen:</p>
+<p align="justify"><h6>onLongClick():</h6>este método muestra un valor booleano para indicar si has consumido el evento y si  no debe continuar. Es decir, muestra un valor true para indicar que has usado el evento y que  debe detenerse aquí; muestra false si no has usado el evento, o si el evento debe continuar para  otros receptores de clic.</p>
+
+<p align="justify"><h6>onKey():</h6>este método muestra un valor booleano para indicar si has consumido el evento y si no  debe continuar. Es decir, devuelve un valor true para indicar que has usado el evento y que debe  detenerse aquí; devuelve false si no has usado el evento, o si el evento debe continuar para otros  receptores de tecla.</p>
+
+<p align="justify"><h6>onTouch():</h6>este método muestra un valor booleano para indicar si tu receptor consume este evento.  Lo importante es que este evento puede tener múltiples acciones una después de la otra. Por lo  tanto, si devuelve false cuando se recibe el evento de acción de abajo, tú indicas que no has  consumido el evento y también que no estás interesado en las acciones subsiguientes de este  evento. Por ende, no se te llamará para otras acciones dentro del evento, como un gesto del  dedo, o el evento de acción de arriba final. 
+</p>
+
+<p><li>Los eventos de teclas de hardware siempre se entregan a la vista actualmente en  foco.</li>
+<li>Se distribuyen comenzando desde la parte superior de la jerarquía de vistas y luego hacia  abajo, hasta llegar al destino correspondiente.</li>
+<li>Como  
+alternativa a capturar eventos de teclas a través de tu vista, también puedes recibir todos los  eventos dentro de tu actividad con onKeyDown() y onKeyUp(). 
+</li></p>
+
+<li>Android llamará en primer lugar a los controladores de eventos, y en segundo lugar, a los controladores  predeterminados correspondientes de la definición de clase. Por lo tanto, al devolver true desde estos gestores  de eventos, se detendrá la propagación del evento a otros gestores de eventos y también se bloqueará el  callback al controlador de eventos predeterminado en la vista. Por lo tanto, asegúrate de que deseas finalizar el  evento cuando devuelvas true.</li>
+
+  </div></div>
+
+        </div></div>
+			
+			
+			
+	
+    </section>
+    <div>
+      <a
+        href="./servicios.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="touchscreen2.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+      
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p style="text-align: center !important; color: white">
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

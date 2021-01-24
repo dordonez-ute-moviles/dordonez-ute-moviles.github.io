@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Tocuhscreen
+</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+
+  <body style="text-align: justify">
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a
+        href="touchscreen1.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="touchscreen2.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+      
+      
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img
+            src="../images/touchscreen/tsin.png"
+            alt=""
+            width="750"
+            height="450"
+          />
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1 align="center">Touchscreen</h1> 
+		  <!--Poner fecha de la clase-->
+          <p class="info">18 de Enero de 2021</p>
+        </header>
+					<!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+                    <ol>
+					<li><a href="touchscreen1.html">Eventos Táctiles / Eventos de entrada</a></li>
+					
+                    <li><a href="touchscreen2.html">Controladores de eventos</a></li>
+					<li><a href="touchscreen.html">Seguimiento de los movimientos de tocar y del puntero</a></li>
+					<br></ol>
+                    
+								<h5 align="center">Controladores de eventos</h5>	<br>
+						<p align="justify">Si estás creando un componente personalizado desde Vista, podrás definir varios métodos de  callback utilizados como controladores de eventos predeterminados.
+<li>onKeyDown(int, KeyEvent): Se llama cuando se produce un nuevo evento de tecla. ∙</li>
+<li>onKeyUp(int, KeyEvent): Se llama cuando se produce un evento KeyUp. </li><li>onTrackballEvent(MotionEvent): Se llama cuando se produce un evento de movimiento de la bola de  seguimiento.</li><li>onTouchEvent(MotionEvent). Se llama cuando se produce un evento de movimiento de la pantalla táctil.</li>
+<li>onFocusChanged(boolean, int, Rect). Se llama cuando la vista gana o pierde foco</li></p>
+
+<p align="justify">Existen otros métodos que debes conocer; métodos que no forman parte de la clase de vista,  pero que pueden afectar directamente la forma en la que puedes usar los eventos. Por lo tanto,  cuando administres eventos más complejos dentro de un diseño, considera estos otros métodos:</p>
+
+<p align="justify"><li>Activity.dispatchTouchEvent(MotionEvent): este método permite que tu Activity intercepte todos los eventos  táctiles antes de que se envíen a la ventana.</li><li> ViewGroup.onInterceptTouchEvent(MotionEvent): este método permite que un ViewGroup observe los eventos  mientras se envían a las vistas secundarias. </li>
+<li>ViewParent.requestDisallowInterceptTouchEvent(boolean). Llama a este método en una vista primaria para  indicar que no debes interceptar eventos táctiles con onInterceptTouchEvent(MotionEvent). </li></p>
+
+<h4 align="center">Modo Táctil</h4>
+<p align="justify"><li>Cuando un usuario navega en una interfaz de usuario con teclas direccionales o una bola de  seguimiento, es necesario poner el foco en los elementos que se pueden accionar (como los  botones) para que el usuario pueda ver lo que aceptará una entrada.</li><li>Si el  dispositivo tiene funciones táctiles y el usuario comienza a interactuar con la interfaz tocándola, ya  no es necesario resaltar los elementos o poner el foco en una vista determinada.</li><li>Cuando un usuario toca una tecla direccional o se desplaza con una bola de seguimiento, el  dispositivo saldrá del modo táctil y encontrará una vista para poner el foco.</li>
+<li>El estado del modo táctil se mantiene en todo el sistema (todas las ventanas y actividades).</li>
+<li>Para  consultar el estado actual, puedes llamar a isInTouchMode() a fin de ver si el dispositivo se  encuentra actualmente en el modo táctil.
+</li></p>
+
+<h4 align="center">Cómo manejar el foco</h4>
+<p align="justify"><li>El framework manejará el movimiento del foco de rutina en respuesta a las entradas del usuario.</li>
+<li>A medida que se eliminan o se ocultan las vistas, o a medida que  existen vistas nuevas disponibles.</li>
+<li>Para cambiar si una vista puede tomar foco, llama a setFocusable(). En el modo  táctil, puedes consultar si una vista permite el foco con isFocusableInTouchMode(). Puedes cambiar esto  con setFocusableInTouchMode(). </li></p>
+<br>
+<p align="justify">El movimiento del foco se basa en un algoritmo que encuentra el vecino más próximo en una  dirección determinada. En casos poco frecuentes, es posible que el algoritmo predeterminado no  coincida con el comportamiento previsto del desarrollador.</p>
+<center><img src="../images/touchscreen/t6.JPG"></center>
+
+<p align="justify">Si deseas declarar una vista como enfocable en tu IU (cuando tradicionalmente no lo es), agrega  el atributo XML android:focusable a la vista en tu declaración de diseño. Fija el valor en true.  También puedes declarar una vista como enfocable en el modo táctil  
+con android:focusableInTouchMode.</p>
+<p align="justify">Para solicitar que se enfoque una vista en particular, llama a requestFocus().</p>
+<p align="justify">Para escuchar eventos de foco (ser notificado cuando una vista recibe o pierde foco),  utilizaonFocusChange(), como se explica en la sección Gestores de eventos que aparece  anteriormente. 
+</p>
+
+<h4 align="center">Detecta gestos comunes</h4>
+<p align="justify">Un "gesto táctil" ocurre cuando un usuario coloca uno o más dedos en la pantalla táctil y su aplicación interpreta ese patrón de toques como un gesto particular. En consecuencia, hay dos fases para la detección de gestos:<li>Reúna datos sobre eventos táctiles.</li><li>Interprete los datos para ver si cumplen con los criterios de alguno de los gestos que admite su aplicación.</li></p>
+
+<h4>Clases de biblioteca de apoyo</h4>
+<p align="justify">Estas clases están en la biblioteca de soporte. Debe utilizar las clases de la biblioteca de compatibilidad siempre que sea posible para proporcionar compatibilidad con dispositivos que ejecutan Android 1.6 y superior.<li>MotionEventCompat no sustituye a la clase MotionEvent.</li>
+<li>Proporciona métodos de utilidad estáticos a los que pasa su MotionEventobject para recibir la acción deseada asociada con ese evento.</li></p>
+<h4>
+Reunir datos</h4>
+<p align="justify">uando un usuario coloca uno o más dedos en la pantalla, esto activa la
+callback onTouchEvent () en la Vista que recibió los eventos táctiles.<li>Para cada secuencia de eventos táctiles (posición, presión, tamaño, adición de otro dedo, etc.) que finalmente se identifica como un gesto, onTouchEvent () se activa varias veces.</li><li>El gesto comienza cuando el usuario toca la pantalla por primera vez, continúa mientras el sistema rastrea la posición de los dedos del usuario y termina capturando el evento final de los dedos del usuario que abandonan la pantalla.</li><li>A lo largo de esta interacción, MotionEvent entregado a onTouchEvent () proporciona los detalles de cada interacción. </li><li>u aplicación puede usar los datos proporcionados por MotionEvent para determinar si ocurrió un gesto que le importa.</li></p>
+<h4>Capture eventos táctiles para una actividad o vista</h4>
+<p align="justify">Para interceptar eventos táctiles en una actividad o vista, anule la devolución de llamada onTouchEvent ().</p>
+<center><img src="../images/touchscreen/ts5.JPG"></center>
+<p align="justify"><li>Puede hacer su propio procesamiento de estos eventos para determinar si ocurrió un gesto.</li><li>Este es el tipo de procesamiento que tendría que hacer para un gesto personalizado.</li><li>GestureDetector le facilita la detección de gestos comunes sin procesar usted mismo los eventos táctiles individuales. Esto se analiza a continuación en Detectar gestos.</li></p>
+<h4>Capture eventos táctiles para una sola vista</h4>
+<p align="justify">Como alternativa a onTouchEvent (), puede adjuntar un objeto View.OnTouchListener a cualquier objeto View utilizando el método setOnTouchListener (). <li>Esto hace posible escuchar eventos táctiles sin subclasificar una Vista existente.</li></p>
+<center><img src="../images/touchscreen/ts6.JPG"></center>
+<p align="justify"><li>Tenga cuidado con la creación de un oyente que devuelva falso para el evento ACTION_DOWN.</li><li>Si hace esto, no se llamará al oyente para la siguiente cadena de eventos ACTION_MOVE y ACTION_UP. Esto se debe a que ACTION_DOWN es el punto de partida para todos los eventos táctiles.</li><li>Si está creando una vista personalizada, puede anular onTouchEvent (), como se describe anteriormente.</li></p>
+<h4>Detectar gestos</h4>
+<p align="justify">Android proporciona la clase GestureDetector para detectar gestos comunes. Algunos de los gestos que admite incluyen onDown (), onLongPress (), onFling (), etc. Puede utilizar GestureDetector junto con el método onTouchEvent () descrito anteriormente.</p>
+<h4>Detecta todos los gestos admitidos</h4>
+<p align="justify">Cuando crea una instancia de un objeto GestureDetectorCompat, uno de los parámetros que toma es una clase que implementa
+la interfaz.<li >GestureDetector.OnGestureListener. </li><li>GestureDetector.OnGestureListenern notifica a los usuarios cuando se ha producido un evento táctil en particular. </li><li>Para hacer posible que su objeto GestureDetector reciba eventos, anula la Vista o
+El método onTouchEvent () de Activity y pasar todos los eventos </li></p>
+<br>
+<p align="justify" >En el siguiente fragmento, un valor de retorno verdadero de la persona en los métodos <TouchEvent> indica que ha manejado el evento táctil. <li>n valor de retorno de falso pasa los eventos a través de la pila de vistas hasta que el toque se maneja con éxito.</li></p>
+<center><img src="../images/touchscreen/ts7.JPG"></center>
+<center><img src="../images/touchscreen/ts8.JPG"></center>
+<center><img src="../images/touchscreen/ts9.JPG"></center>
+<h4>Detecta un subconjunto de gestos compatibles</h4>
+<p align="justify">Si solo desea procesar algunos gestos, puede
+extienda GestureDetector.SimpleOnGestureListener en lugar de implementar la interfaz GestureDetector.OnGestureListener.<li>
+Detecta un subconjunto de gestos compatibles
+Si solo desea procesar algunos gestos, puede
+extienda GestureDetector.SimpleOnGestureListener en lugar de implementar la interfaz GestureDetector.OnGestureListener.
+GestureDetector.SimpleOnGestureListener proporciona una implementación para todos los métodos on <TouchEvent> devolviendo false para todos ellos. </li><li>Puede anular solo los métodos que le interesan.</li></p>
+<center><img src="../images/touchscreen/ts10.JPG"></center>
+<center><img src="../images/touchscreen/ts11.JPG"></center>
+
+<p align="justify"><li>rea una clase que amplía GestureDetector.SimpleOnGestureListener y
+anula onFling () y onDown ().</li><li>Ya sea que use GestureDetector.OnGestureListener o no, la mejor práctica es implementar un método onDown () que devuelva verdadero. </li><li>Esto se debe a que todos los gestos comienzan con un mensaje onDown (). Si regresa falso de onDown (),
+como lo hace GestureDetector.SimpleOnGestureListener de forma predeterminada, el sistema asume que desea ignorar el resto del gesto y los otros métodos
+ofGestureDetector.OnGestureListener nunca se llama.</li><li>Esto tiene el potencial de causar problemas inesperados en su aplicación. </li><li>La única vez que debe devolver falso desde onDown () es si realmente desea ignorar un gesto completo.</li></p>
+
+
+
+
+
+
+
+
+
+
+
+
+  </div></div>
+
+
+        </div></div>
+			
+			
+			
+	
+    </section>
+    <div>
+      <a
+        href="touchscreen1.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="touchscreen.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+      
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p style="text-align: center !important; color: white">
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
