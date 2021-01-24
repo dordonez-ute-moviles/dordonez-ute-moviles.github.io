@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Webhooks</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a href="" style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a href="" style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img src="../images/pic11.jpg" alt="" />
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1>Webhooks</h1>
+          <!--Poner fecha de la clase-->
+          <p class="info">14 de Enero de 2021</p>
+        </header>
+        <!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+        <p>
+          Un webhook (o WebHook), en desarrollo web, es un método de alteración
+          del funcionamiento de una página o aplicación web, con callbacks
+          personalizados. Estos se pueden mantener, modificar y gestionar por
+          terceros; desarrolladores que no tienen por qué estar afiliados a la
+          web o aplicación. El término "webhook" fue inventado por Jeff Lindsay
+          en 2007,​ a partir del término de programación Hook.
+        </p>
+        <p>
+          Los webhooks son retrollamadas HTTP de usuario.​ Estos se registran en
+          algunas ocasiones, como al publicar un comentario en un blog.​ Cuando
+          esto ocurre, la web envía una solicitud HTTP a la URL configurada para
+          el webhook. Los usuarios pueden configurarlos para que la web se
+          comporte de una forma u otra. Como usan HTTP, pueden integrarse en
+          servicios web sin añadir una nueva infraestructura.​
+        </p>
+        <h2>Añadir Websockets a un servidor NodeJS</h2>
+        <ol>
+          <li>
+            Se inicia un proyecto en NodeJS usando el comando “npm init -y”
+          </li>
+          <li>
+            Se instalaron los módulos “morgan” “express” “mongoose” “nodemon”
+            “socket.io” y “multer” con npm i --save junto con los nombres de los
+            modulos mencionados
+          </li>
+          <li>
+            Crear una carpeta "src" para almacenar el codigo que utilizara el
+            servidor
+          </li>
+          <li>
+            Crear un archivo “index.js” en el cual irá todo lo del servidor.
+          </li>
+          <li>
+            Configurar los puertos y conexiones a la base de datos que se
+            utlizara para el proyecto
+            <div class="image fit">
+              <img src="../images/webhooks/img1.PNG" alt="" />
+            </div>
+          </li>
+          <li>
+            En este caso se creo un un middleware usando el módulo multer para
+            poder subir imágenes al servidor al entrar en la ruta /upload
+            <div class="image fit">
+              <img src="../images/webhooks/img2.PNG" alt="" />
+            </div>
+          </li>
+          <li>
+            Se usa el módulo socket.io para que con el método “io.on()” detecte
+            cuando alguien se conecta. Este nos permitira controlar la accion
+            del Websocket
+          </li>
+          <li>
+            Dentro de “io.on()” ponemos un método llamado “socket.on()” en el
+            cual recibiremos datos de un cliente y con ayuda del método
+            “io.sockets.emit()” reenviamos esos datos a todos los demás usuarios
+            menos al emisor.
+            <div class="image fit">
+              <img src="../images/webhooks/img3.PNG" alt="" />
+            </div>
+          </li>
+          <li>
+            Luego se crean rutas con express para obtener la informacion que
+            ofrece el servidor
+            <div class="image fit">
+              <img src="../images/webhooks/img4.PNG" alt="" />
+            </div>
+            <div class="image fit">
+              <img src="../images/webhooks/img5.PNG" alt="" />
+            </div>
+          </li>
+          <li>
+            Hacer la peticion a las rutas creadas y ver como funciona el
+            websocket creado. En este ejemplo si uno ve la ruta en images podra
+            ver como el servidor muestra imagenes cuando estas se van agregando
+            a la base de datos
+          </li>
+        </ol>
+        <h2>Añadir websocket a una aplicación movil en Android</h2>
+        <ol>
+          <li>
+            En el archivo de build.gradle añadir las dependecia
+            'org.java-websocket:Java-WebSocket:1.1.1'
+          </li>
+          <li>
+            Luego de importar la dependencia hay que dirigirse al archivo donde
+            se va a aplicar la conexion al WebSocket
+          </li>
+          <li>
+            En este inicializar una variable URI la cual se le guarda la
+            dirección del websocket del servidor y luego iniciar un objeto
+            WebSocketClient pasando la URI iniciada
+          </li>
+          <li>
+            Dentro del WebScoketClient se inicializan los metodos necesarios
+            para que este funcione los cuales son onMessage y onOpen
+          </li>
+          <li>
+            El metodo onMessage nos permitira poner el codigo de lo que queremos
+            que muestre o haga la aplicacion cuando recibe información del
+            servidor.
+          </li>
+          <div class="image fit">
+            <img src="../images/webhooks/img6.PNG" alt="" />
+          </div>
+        </ol>
+      </div>
+    </section>
+    <div>
+      <a href="" style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a href="" style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p>
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+
+      <div class="copyright">
+        Design: <a href="https://templated.co">TEMPLATED</a>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
