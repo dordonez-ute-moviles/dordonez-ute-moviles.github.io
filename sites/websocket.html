@@ -7,7 +7,7 @@
 <html>
   <head>
     <!--Poner el titulo de la clase-->
-    <title>Webhooks</title>
+    <title>WebSocket</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="../assets/css/main.css" />
@@ -21,10 +21,14 @@
     </header>
 
     <div>
-      <a href="" style="float: left; background-color: black; padding: 1rem"
+      <a
+        href="sensores.html"
+        style="float: left; background-color: black; padding: 1rem"
         >Anterior</a
       >
-      <a href="" style="float: right; background-color: black; padding: 1rem"
+      <a
+        href="../index.html"
+        style="float: right; background-color: black; padding: 1rem"
         >Siguiente</a
       >
     </div>
@@ -38,27 +42,27 @@
         <!--Poner toda la informacion de la clase-->
         <header>
           <!--Poner el titulo de la clase-->
-          <h1>Webhooks</h1>
+          <h1>WebSocket</h1>
           <!--Poner fecha de la clase-->
           <p class="info">14 de Enero de 2021</p>
         </header>
         <!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
         <p>
-          Un webhook (o WebHook), en desarrollo web, es un método de alteración
-          del funcionamiento de una página o aplicación web, con callbacks
-          personalizados. Estos se pueden mantener, modificar y gestionar por
-          terceros; desarrolladores que no tienen por qué estar afiliados a la
-          web o aplicación. El término "webhook" fue inventado por Jeff Lindsay
-          en 2007,​ a partir del término de programación Hook.
+          WebSocket es una tecnología que proporciona un canal de comunicación
+          bidireccional y full-duplex sobre un único socket TCP. Está diseñada
+          para ser implementada en navegadores y servidores web, pero puede
+          utilizarse por cualquier aplicación cliente/servidor. La API de
+          WebSocket está siendo normalizada por el W3C, mientras que el
+          protocolo WebSocket ya fue normalizado por la IETF como el RFC 6455.
+          Debido a que las conexiones TCP comunes sobre puertos diferentes al 80
+          son habitualmente bloqueadas por los administradores de redes, el uso
+          de esta tecnología proporcionaría una solución a este tipo de
+          limitaciones proveyendo una funcionalidad similar a la apertura de
+          varias conexiones en distintos puertos, pero multiplexando diferentes
+          servicios WebSocket sobre un único puerto TCP (a costa de una pequeña
+          sobrecarga del protocolo).
         </p>
-        <p>
-          Los webhooks son retrollamadas HTTP de usuario.​ Estos se registran en
-          algunas ocasiones, como al publicar un comentario en un blog.​ Cuando
-          esto ocurre, la web envía una solicitud HTTP a la URL configurada para
-          el webhook. Los usuarios pueden configurarlos para que la web se
-          comporte de una forma u otra. Como usan HTTP, pueden integrarse en
-          servicios web sin añadir una nueva infraestructura.​
-        </p>
+
         <h2>Añadir Websockets a un servidor NodeJS</h2>
         <ol>
           <li>
@@ -152,10 +156,14 @@
       </div>
     </section>
     <div>
-      <a href="" style="float: left; background-color: black; padding: 1rem"
+      <a
+        href="sensores.html"
+        style="float: left; background-color: black; padding: 1rem"
         >Anterior</a
       >
-      <a href="" style="float: right; background-color: black; padding: 1rem"
+      <a
+        href="./../index.html"
+        style="float: right; background-color: black; padding: 1rem"
         >Siguiente</a
       >
     </div>
