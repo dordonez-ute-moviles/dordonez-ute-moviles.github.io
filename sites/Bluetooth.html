@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Bluetooh</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+
+    <style media="screen">
+
+      h2{
+        color:#339036;
+      }
+       body .back{
+        background-image: url(../images/bluetooth/b_2.png);
+       background-repeat: no-repeat;
+       background-size: 100%;
+       background-attachment: fixed;
+       padding-top: 50px;
+       padding-bottom: 40px;
+       padding-left: 40px;
+       padding-right: 60px;
+
+      }
+
+      dt{
+         color: #4F4D52;
+      }
+      ul, li{
+         padding-left: 40px;
+      }
+      .uno{
+        background-color: rgba(255, 255, 255, 0.8);
+        color:black;
+        padding:20px;
+      }
+      .dos{
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding:20px;
+      }
+
+      .tres{
+        background-color: rgba(255, 255, 255, 0.8);
+        color:black;
+        padding:20px;
+      }
+
+      .cuatro{
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding:20px;
+      }
+      .cinco{
+        background-color: rgba(255, 255, 255, 0.9);
+        color:black;
+        padding:20px;
+      }
+
+      .uno h3{
+        color: #4F4D52;
+      }
+
+    .dos h3{
+      color:#078FAE;
+      text-decoration:underline;
+    }
+
+    .tres h3{
+      color:#1EC69F;
+    }
+
+    .cuatro h3{
+      color:#576CBE;
+    }
+    .cuatro h4{
+      color:#267C83
+    }
+
+    .cinco h3{
+    color:#E5702A;
+    }
+
+    body{
+      text-align: justify;
+    }
+    </style>
+
+
+
+  </head>
+  <body>
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a
+        href="/sites/googlemaps.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="/sites/touchscreen.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img src="../images/bluetooth/b_1.png" width="50px" alt="" height="300px" />
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1>Bluetooth</h1>
+          <!--Poner fecha de la clase-->
+          <p class="info">14 de Enero de 2021</p>
+        </header>
+        <!--Ingresar toda la informacion necesaria usando las diferentes etiquetas-->
+
+        <div class="back">
+
+
+
+
+            <div class="uno">
+
+
+
+          <h2>Bluetooh en Android</h2>
+
+            <p>
+              Utiliza el protocolo RFCOMM
+            <ul>
+
+               <li>Radio Frequency COMMunication</li>
+               <li>Emula un puerto serial </li>
+               <li>Similar a TCP: usa sockets</li>
+               <li>Un dispositivo puede establacer conexión con hasta 60 dispositivos simultaneamente (depende de la capa de android) </li>
+               <ul><li>Cada conexión usa su propio canal independiente</li></ul>
+               <li>Un dispositivo es servidor y otro cliente</li>
+               <li>El servidor abre un socket y queda a la escucha</li>
+               <li>El cliente no puede Recibir mas clientes por dicho socket</li>
+               <ul><li>Pero puede abrir otros sockets para recibir mas clientes</li>
+              <ul><li>O conectarse como cliente con otros dispositivos</li></ul></ul>
+              
+
+            </ul></p>
+   <h4>Actividades pricipales</h4>
+   
+   <ul>
+     <li>Configuración</li>
+     <li>Busqueda</li>
+     <li>Conexión</li>
+     <li>Tansferencia de datos</li>
+    </ul>
+
+    <img src="../images/bluetooth/b_3.jpg" width="450px" alt="" height="300px" />
+    
+    <h4>Permisos</h4>
+   <p>Para usar bluetooth se debe incluir en el manifest</p>
+    <ul>
+      <li><b>-android.permission.BLUETOOTH</b></li>
+      <li><b>-android.permission.BLUETOOTH_ADMIN</b></li>
+     </ul>
+    <p>Este último solo es necesario para búsqueda y configuración</p>
+ <p>Es muy recomendable tambien incluir</p>
+ <ul>
+  <li><b>-android.permission.ACCESS_FINE_LOCATION</b></li>
+
+ </ul>
+     <img src="../images/bluetooth/b_3.png" class="text-center" width="300px" alt="" height="300px" />
+      
+    <h4>Adaptador Bluetooth</h4>
+    <p>Para usar bluettoth es necesario tomar una referencia al adaptador.</p>
+    <ul>
+      <li><b>
+        BluetoothAdapter btAdapter= </li>
+      </b><li><b>  BluetoothAdapter.getDefaultAdapter();</b></li>
+    </ul>
+    <p>Si la referencia devuelta es null no se puede usar bluetooth en el dispositivo</p>
+    <ul><li><b>btAdapter == null</b></li></ul>
+
+    <img src="../images/bluetooth/b-4.webp" class="text-center" width="450px" alt="" height="300px" />
+    
+    <h4>Adaptador Activo</h4>
+    <p>Verificar si está activo</p>
+    <ul>
+      <li><b>
+        btAdapter.isEnabled()</b></li>
+    </ul>
+    <p>Caso contrario solicitar activación</p>
+    <ul><li><b>Intent intetn = new</b></li>
+    <li><b>  Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);</b></li>
+    <li><b>startActivityForResult(intent, REQUEST_ENABLE_BT);</b></li>
+    </ul>
+
+    <p>Un cuadro de diálogo le pedira permiso al usuario</p>
+    <p>Si se activa, <b>onActivityResult()</b> recibirá</p>
+
+    <ul><li><b>RESULT_OK</b> </li></ul>
+    <p>Caso contrario recibirá</p>
+    <ul><li> <b>RESULT_CANCEL</b> </li></ul>
+
+    <img src="../images/bluetooth/b_4.jpg" class="text-center" width="450px" alt="" height="300px" />
+    
+  
+       
+    </section>
+    <div>
+      <a
+        href="/sites/googlemaps.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="/sites/touchscreen.html"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p>
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+
+      <div class="copyright">
+        Design: <a href="https://templated.co">TEMPLATED</a>
+      </div>
+    </footer>
+
+
+    <!-- Scripts -->
+
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+
+  </body>
+</html>
