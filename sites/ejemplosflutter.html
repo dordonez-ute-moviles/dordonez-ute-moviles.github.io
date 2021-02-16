@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--
+	Binary by TEMPLATED
+	templated.co @templatedco
+	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+-->
+<html>
+  <head>
+    <!--Poner el titulo de la clase-->
+    <title>Tocuhscreen
+</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../assets/css/main.css" />
+  </head>
+
+  <body style="text-align: justify">
+    <!-- Header -->
+    <header id="header">
+      <a href="../index.html" class="logo"
+        ><strong>Aplicaciones Móviles</strong></a
+      >
+    </header>
+
+    <div>
+      <a
+        href="fluttercontenido.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="#"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+      
+      
+    </div>
+    <!-- Main -->
+    <section id="main">
+      <div class="inner">
+        <!--Usar el siguiente div para poner imagenes en el doc-->
+        <div class="image fit">
+          <img
+            src="../images/FLUTTER/flut1.png"
+            alt=""
+            width="750"
+            height="450"
+          />
+        </div>
+        <!--Poner toda la informacion de la clase-->
+        <header>
+          <!--Poner el titulo de la clase-->
+          <h1 align="center">Flutter</h1> 
+		  <!--Poner fecha de la clase-->
+          <p class="info">04 de Febrero de 2021</p>
+        </header>
+					
+                    
+								<h3>Stateful Widgets</h3>	<br>
+						<p>Tenemos una carpeta de Android qué contiene el proyecto nativo de Android y dónde estará la actividad principal y lo mismo sucede con IOS, donde vamos a trabajar será en la carpeta lib en el archivo main.dart que será donde tendremos todo nuestro código, las clases los widgets y todo lo que tenga que ver con flutter para crear nuestra aplicación </p><br>
+		  
+		  <center><img src="../images/FLUTTER/f1.png"></center><br>
+		  <p>Creamos una función main, ésta se ejecuta automáticamente cuando lanzamos la aplicación. Usamos otra función que se encuentra en el paquete llamada a runApp, esta lanza la aplicación y dentro de esta pondremos MyApp que será la que lancemos para probar en este caso el lanzaremos un widget que es el componente de la aplicación como botones imágenes campos de texto.</p><p>Dentro de la clase MyApp utilizaremos del widget material app, no es necesario importar nada porque todo esto ya proviene del paquete, dentro de este widget tenemos muchos parametros que podemos modificar, en este caso utilizaremos title título, el tema que nos proporcionará un color y el home éste será con el cual lanzaremos la aplicación y lanzara lo que esté dentro de esta cuando demos clic, es como la página de inicio </p><br>
+		  
+		  <center><img src="../images/FLUTTER/f2.png"</center><br><br>
+			  
+			  <p align="justify">Dentro de la clase homepage El código es el constructor del MyHomepagewidget aquí se Declara dos parámetros con nombre opcionales (con nombre opcional debido a {}) donde</p>
+			  <ul><li><p align="left">el primero es de nombre keycon tipoKey</p></li>
+<li><p align="left">el segundo es de nombre title con el tipo de campo this.title y se inicializa automáticamente this.title con el valor pasado.</p></li></ul>
+<p align="justify">Luego se crea el estado mutable de este widget en una ubicación determinada del árbol. El framework puede llamar a este método varias veces durante la vida útil de un StatefulWidget
+</p><br>
+			  <center><img src="../images/FLUTTER/f3.png"</center><br>
+				  <br>
+				  <p align="justify">Dentro de la clase Homepagestate extendida de state home page utilizaremos la Variable counter que registrara el número de veces que se pulsa el botón y el Metodo que incrementa el valor de la varaible `_counter`.</p>
+<p align="justify">Cada widget en Flutter se crea a partir de un build método, y cada método de construcción toma BuildContextcomo argumento, este retornara un widget 
+</p><br>
+		 <center><img src="../images/FLUTTER/f4.png"</center><br><br>
+			 
+			 <p align="justify">Utiizaremos el widget Scafold este tiene varios parámetros con son el appbar….</p>
+<p align="justify">Utilizamos el appbar qué es la barra que se encuentra arriba de la aplicación, Y llamamos al widget appbar que está ya hecho dentro de flutter sin necesidad de que tengamos que volverlo a hacer a este le implementamos un título que en este caso sera state widgets,  tambien le  podemos poner un logo, un título, menú, opciones</p>
+<p align="justify">Utilizamos otro parámetro de scafol qué será el Body, aquí se mostrará todo el cuerpo de la aplicación utilizaremos el widget center y le pasamos la propiedad llamada child que se utiliza para aquellos widgets que tienen algo dentro, utilizamos columna y La mainAxisAlignment es la propiedad determina cómo una fila o Column puede colocar a sus hijos en ese espacio adicional. En este caso utilizaremos MainAxisAlignment.center los Coloca en el medio del eje principal, dentro de este pondremos el texto que queremos mostrar en la aplicación que será cuantas veces se ha tocado el botón y el numero.</p>
+
+<p align="justify">Ahora llamamos al widget floatingActionButton dentro de este ya esta el diseño y los métodos qué vamos a utilizar </p>
+
+<p align="justify">Ya que flutter nos ofrecen una gran cantidad de widgets qué podemos reutilizar sin tener que reescribir código para utilizar un elemento o diseño, llamamos a la función onpressed ya que es requerida y se ejecutara cuando se de clic en el botón y nos incrementara el contador cada que demos clic en este, tooltip nos ayuda a explicar la función de un botón u otra acción de la interfaz de usuario y luego llamamos la propiedad child y ponemos un icono que se mostrara dentro del botón, utilizaremos la clase icon y utilizaremos el icono + el cual se llama add.
+</p><br>
+			 
+			 
+			 <center><img src="../images/FLUTTER/f5.png"</center><br><br>
+				 <hr/><br>
+			 <h3>ESTA APLICACION MUESTRA UN EJEMPLO DE CÓMO CONSTRUIR UNA CALCULADORA.</h3>
+		<p align="justify">Creamos una función main, ésta se ejecuta automáticamente cuando lanzamos la aplicación </p>
+<p align="justify">Usamos otra función que se encuentra en el paquete llamada a runApp, esta lanza la aplicación y dentro de esta pondremos MyApp qué será la que lancemos para probar lanzaremos un widget.</p>
+<p align="justify">Dentro de la clase MyApp utilizaremos del widget material app, en este caso utilizaremos title título, el tema que nos proporcionará un color y el home éste será con el cual lanzaremos la aplicación.
+</p>
+				 
+				 <center><img src="../images/FLUTTER/f6.png"</center><br><br>
+					 
+					 <p align="justify">Dentro de la clase Homepagestate extendida de state home page utilizaremos tres variables para la calculadora, dos para los numeros y otra para el resultado</p>
+<p align="justify">Utiizaremos el widget Scafold  y el appbar qué es la barra que se encuentra arriba de la aplicación, llamamos al widget appbar a este le implementamos un título que será Calculadora y centramos el titulo.
+</p>
+					 
+					 
+		  <center><img src="../images/FLUTTER/f7.png"</center><br><br>
+		 
+			  <p align="justify">Utilizamos otro parámetro de scafol qué será el Body, le pasamos el widget padding se establece un espacio alrededor de los elementos de la interfaz de tamaño 16 le pasamos la propiedad llamada child donde todos los elementos hijo de la columna de estableceran de arriba abajo, utilizaremos MainAxisAlignment.center que los coloca en el medio del eje principal,luego este texto muestra el resultado final con su correspondiente estilo, tamaño 32 y la clase FontWeigth que nos da el grosor utilizados para dibujar el texto.</p>
+ <p align="justify">Luego el campo de texto que establece el valor del primer numero, insertamos el numero, centrado, tamaño 23 y llamamos a la propiedad onchanged que Se llama cuando el usuario inicia un cambio en el valor de TextField.
+</p>
+			  
+  <center><img src="../images/FLUTTER/f8.png"</center><br><br>
+	  <p align="justify">Luego viene el campo de texto que establece el valor del segundo numero insertamos el numero, centrado, tamaño 23 y llamamos a la propiedad onchanged llamamos a SizedBox que nos dará una caja con un tamaño específico.</p>
+<p align="justify">Establecemos una fila y utilizamos que MainAxisAlignment.spaceEvenly, coloca el espacio libre de manera uniforme, así como antes y después del primer y último child.  Esta vista se encargara de realizar la operación indicada por el usuario
+</p>
+	  <center><img src="../images/FLUTTER/f9.png"</center><br><br>
+		  
+		  <p align="justify">Utilizamos Materialbutton que nos servirá para construir botones de Material que dependen del tema en este caso lo usaremos para sumar restar multiplicar y dividir.</p>
+<p align="justify">Establecemos el child, el texto, el estilo, el color y creamos una función cuando demos clic en el botón utilizando la propiedad onpressed donde obtendremos el resultado. Esto lo hacemos para cada operación.
+</p>
+	<center><img src="../images/FLUTTER/f10.png"</center><br><br>
+	
+		 
+		
+
+  </div></div>
+
+        </div></div>
+			
+			
+			
+	
+    </section>
+    <div>
+      <a
+        href="fluttercontenido.html"
+        style="float: left; background-color: black; padding: 1rem"
+        >Anterior</a
+      >
+      <a
+        href="#"
+        style="float: right; background-color: black; padding: 1rem"
+        >Siguiente</a
+      >
+      
+    </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <p style="text-align: center !important; color: white">
+        Trabajo del curso de Aplicaciones Móviles <br />
+        <small>Universidad UTE</small>
+      </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/jquery.scrolly.min.js"></script>
+    <script src="../assets/js/skel.min.js"></script>
+    <script src="../assets/js/util.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
