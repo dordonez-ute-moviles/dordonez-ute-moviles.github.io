@@ -24,7 +24,7 @@
        padding-bottom: 40px;
        padding-left: 40px;
        padding-right: 60px;
-       
+
 
       }
 
@@ -286,6 +286,76 @@
 
 </ul>
 
+<p>Al ejecutar este comando se creará una carpeta con el nombre que le hayamos indicado, "myapp" en este caso, con todo el contenido necesario para empezar a desarrollar nuestra aplicación. La estructura de carpetas generada es la siguiente:
+</p>
+<ul style="text-align: justify">
+  <li>hooks - Esta carpeta se utiliza para añadir scripts que se ejecutarán cuando se produzcan determinados eventos</li>
+  <li>merges - Esta carpeta se utiliza para añadir código que nos permitirá modificar o personalizar nuestra aplicación para determinadas plataformas.</li>
+  <li>platforms - Contiene el código específico de las plataformas para las cuales se va a compilar. </li>
+  <li>plugings - Contiene los plugins o módulos instalados para nuestra aplicación</li>
+  <li>res - Contiene los recursos de iconos y splashcreen para cada una de las plataformas de compilación.
+</li>
+  <li>www - Contiene el código fuente de nuestra aplicación web. Esta carpeta es donde tendremos que desarrollar nuestra aplicación web de forma centralizada. Posteriormente, al compilar nuestro proyecto para las plataformas deseadas, se copiará la última versión del contenido de esta carpeta.
+</li></ul>
+
+<h2>Gestión de plataformas</h2>
+
+<p style="text-align: justify"> Antes de poder compilar el proyecto tenemos que especificar las plataformas para las cuales se va a generar. Las plataformas disponibles dependerán del sistema operativo que utilicemos, si soporta el SDK en cuestión o si lo tiene instalado (y si no lo tiene lo tendremos que instalar). En general soporta las siguientes combinaciones:
+</p>
+<center><img src="../images/apache/10.png" align=""/></center>
+
+<h2>Añadir plataformas</h2>
+<p>Para añadir una plataforma para la cual queremos compilar nuestro proyecto usaremos el siguiente comando:</p>
+<center><img src="../images/apache/11.png" align=""/></center>
+<p>Por ejemplo, en un Linux podremos añadir las siguientes plataformas a nuestro proyecto:</p>
+<center><img src="../images/apache/12.png" align=""/></center>
+<p>La plataforma "browser" es una plataforma especial (disponible en todos los sistemas operativos) que nos permitirá depurar nuestras aplicaciones en el navegador, no sólo mostrando la apariencia del código web sino también permitiéndonos usar algunos de los plugins que veremos más adelante.</p>
+<h2>Listar plataformas</h2>
+<p>Para obtener un listado con las plataformas disponibles para nuestro sistema operativo además de un listado con las plataformas que ya hemos añadido a nuestra aplicación tenemos que ejecutar el comando:</p>
+<center><img src="../images/apache/13.png" align=""/></center>
+<p>Lo que nos mostraría (en ambos casos) un resultado similar al siguiente:</p>
+<center><img src="../images/apache/14.png" align=""/></center>
+<h2>Eliminar una plataforma</h2>
+<p>Para eliminar una plataforma añadida podemos ejecutar alguno de los siguientes comandos (los cuales son equivalentes):</p>
+<center><img src="../images/apache/15.png" align=""/></center>
+<h2>Contenido de la carpeta "platforms"</h2>
+<p style="text-align:justify">Al añadir una plataforma o eliminarla, únicamente estamos trabajando sobre la carpeta "platforms" de nuestro proyecto. Al añadir una nueva se genera un subdirectorio con el nombre de la plataforma en cuestión, con el código fuente para esa plataforma. Cada vez que se compile o ejecute el proyecto se copiará el contenido de la carpeta "www" (la cual contiene el código de nuestro proyecto) a una subcarpeta de cada plataforma (borrando todo lo que hubiese en ella). Por ejemplo, para Android se copiaría en la ruta platforms/android/assets/www/ y para iOS en la ruta platforms/ios/www. <br> Por este motivo es importante que no modifiquemos el contenido de nuestro proyecto o aplicación directamente en la carpeta platforms, ya que se borrará en la siguiente compilación. Cualquier cambio que queramos hacer lo tendremos que realizar siempre dentro de la carpeta base www.
+</p>
+
+<h2>Actualización de Cordova</h2>
+<p>Cuando queramos actualizar Cordova o cuando nos aparezca un mensaje como el de la siguiente figura, también podemos usar el Package Manager de Node.Js (npm).</p>
+<center><img src="../images/apache/16.png" align=""/></center>
+<p>Para ello simplemente tenemos que ejecutar la siguiente orden en una consola:</p>
+<center><img src="../images/apache/17.jpg" align=""/></center>
+<p>Después de ejecutar este comando es posible que tengamos que actualizar también las plataformas de nuestros proyectos. En este caso tendremos que situarnos dentro de la carpeta de cada proyecto que queramos actualizar y ejecutar los siguientes comandos para cada plataforma:
+</p>
+<center><img src="../images/apache/18.png" align=""/></center>
+<h2>Compilar y probar una aplicación</h2>
+<p>Para compilar un proyecto ejecutamos el comando:</p>
+<center><img src="../images/apache/19.png" align=""/></center>
+<p>Este comando solo lo podemos ejecutar dentro de la carpeta del proyecto a compilar y además tenemos que haber añadido las plataformas para las que queremos compilar previamente, en otro caso nos mostraría el error: Error: No platforms added to this project. Please use `cordova platform add platform. Este comando generará el código del proyecto para todas las plataformas que tengamos añadidas, en caso de querer compilar solamente para una plataforma lo podríamos indicar de la forma:
+</p>
+<center><img src="../images/apache/20.png" align=""/></center>
+<p>El comando build en realidad realiza dos operaciones, que son las de preparar el código (copiar el código actual del proyecto desde la carpeta www a todas las plataformas destino) y compilarlo. Estos dos comandos también los podríamos ejecutar por separado:</p>
+<center><img src="../images/apache/21.png" align=""/></center>
+<h2>Probar una aplicación en un emulador o dispositivo real</h2>
+<p>Cada SDK para una plataforma móvil suele incluir un emulador que permite probar las aplicaciones desarrolladas. Estos emuladores también se pueden llamar desde el CLI de Cordova mediante el siguiente comando:</p>
+<center><img src="../images/apache/22.png" align=""/></center>
+<p>Para que se abra el emulador correspondiente debe de estar bien configurado. Algunas plataformas ya traen uno por defecto (como iPhone), pero en otras será necesario configurar el emulador por defecto a utilizar (como en Android). Es importante que antes de llamar al emulador ejecutemos el comando build, el cual copiará la última versión de nuestro código, generará los proyectos correspondientes y los compilará. En otro caso podríamos tener errores. Por lo tanto, cuando actualicemos el código de "www" tendremos que llamar de nuevo a build y a emulate, el cual actualizará los emuladores abiertos con la última versión. </br> También podemos probar nuestro código en un dispositivo real mediante el comando:
+</p>
+<center><img src="../images/apache/23.png" align=""/></center>
+<p>El comando run en realidad es una combinación de los comandos build (por lo que no haría falta llamarlo previamente) e install (el cual instala un proyecto en una plataforma). Por defecto run instala y ejecuta el proyecto en una plataforma real (lo cual podemos forzar mediante el parámetro --device), o también lo podemos utilizar para ejecutar en un emulador añadiendo el parámetro --emulator.
+</br>Antes de ejecutar en un dispositivo real tenemos que configurarlo para permitir la instalación de aplicaciones de prueba. Este proceso varía para cada plataforma, por ejemplo, para Android tendremos que habilitar las opciones de desarrollador y la depuración a través de USB, además, dependiendo del sistema operativo que utilicemos, es posible que tengamos que instalar drivers o realizar alguna configuración adicional.
+</p>
+<h2>Probar en un navegador</h2>
+<p>Es importante recordar también que podemos probar nuestra aplicación en un navegador. Para esto en primer lugar instalaremos la plataforma "browser" y a continuación ejecutaremos el comando:</p>
+<center><img src="../images/apache/24.png" align=""/></center>
+<h2>Configuración</h2>
+<p>Cordova permite configurar nuestras aplicaciones desde un fichero centralizado para indicar, por ejemplo, el icono de la aplicación, una imagen o splashscreen de inicio, los plugins a utilizar, etc.</p>
+<h2>Fichero de configuración</h2>
+<p>En cada proyecto se incluye un fichero de configuración config.xml (situado en la carpeta raíz del proyecto) que nos permite establecer las principales opciones de configuración de nuestra aplicación de forma global (para todas las plataformas destino). Al compilar un proyecto (mediante el comando build o run del CLI) se crean versiones específicas de este fichero de configuración para cada plataforma, lo que nos permite establecer configuraciones más especializadas. La ruta donde el fichero es copiado varía dependiendo de la plataforma, por ejemplo:
+</p>
+<center><img src="../images/apache/25.png" align=""/></center>
 <h2>Elementos de configuración principales</h2>
 
 <p>A continuación se muestran las primeras líneas del fichero config.xml generado por defecto al crear un nuevo proyecto de Cordova. Esta configuración es compatible para todas las plataformas:
@@ -339,7 +409,7 @@
   En general todos los eventos se utilizan de la misma forma: definiendo un listener en JavaScript que se lanzará cada vez que se produzca el evento. Sin embargo, para poder añadir este listener es importante que se haya terminado de cargar tanto el código web como la librería de Cordova, ya que en otro caso no funcionará.
   <br>
   Para esto añadiremos el evento "onload" a la etiqueta HTML "<body>", de la forma: <body onload="onLoad()">. Esto producirá que se llame a la función JavaScript "onLoad" cuando haya finalizado la carga. Dentro de esta función "onLoad" tendremos que añadir un listener al evento "deviceready" para esperar que se haya terminado de cargar la librería de Cordova.  El uso de este evento es esencial para cualquier aplicación con Cordova y lo tendremos que utilizar de forma inicial para asegurarnos de que la API se ha cargado completamente.
-  
+
     <center><img src="../images/apache/e.JPG" alt=""></center>
     <br>
     Al ejecutar el código anterior en primer lugar se llamaría a la función "onLoad" cuando se termine de cargar la propia Web. Dentro de esta función se define el listener al evento "deviceready", el cual se lanzará cuando se haya terminado de cargar la librería de Cordova, llamando a la función "onDeviceReady". Una vez se ha cargado la API de Cordova ya podremos añadir listeners a los eventos que queramos. Para suscribirnos a un evento utilizaremos el siguiente código:
@@ -435,6 +505,13 @@
  El desarrollo de nuestra aplicación lo podemos realizar como queramos: con HTML nativo (con funcionalidades de HTML5, CSS3, JavaScript, etc.), o también podemos utilizar algunos de los frameworks existentes para el desarrollo de aplicaciones web para móviles, como por ejemplo:
  <center><img src="../images/apache/m.JPG" alt=""></center>
 </p>
+<h2>Visualización de nuestra aplicación</h2>
+<p>Para ello, y como se ha visto en secciones anteriores, tendríamos que ejecutar:</p>
+<center><img src="../images/apache/27.png" alt=""></center>
+<p>Y en nuestro emulador nuestra interfaz se verá de la siguiente manera</p>
+<center><img src="../images/apache/28.png" alt=""></center>
+
+
 
 
 
