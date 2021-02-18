@@ -24,17 +24,18 @@
        padding-bottom: 40px;
        padding-left: 40px;
        padding-right: 60px;
+       
 
       }
 
       dt{
-         color: #4F4D52;
+         color: #FFFFFF/*#4F4D52*/;
       }
       ul, li{
          padding-left: 40px;
       }
       .uno{
-        background-color: rgba(255, 255, 255, 0.8);
+        background-color: rgba(255, 255, 255, 0.93);
         color:black;
         padding:20px;
       }
@@ -79,7 +80,7 @@
       <div class="inner">
         <!--Usar el siguiente div para poner imagenes en el doc-->
         <div class="image fit">
-          <img src="../images/apache/1.jpg" width="50px" alt="" height="300px" />
+          <center><img src="../images/apache/1.png" width="25%" alt="" height="290px" /></center>
         </div>
         <!--Poner toda la informacion de la clase-->
         <header>
@@ -147,7 +148,7 @@
 
 </p>
 
-  <center><img src="../images/apache/2.jpg" width="800px" alt=""/></center>
+  <center><img src="../images/apache/2.png" width="800px" alt=""/></center>
 
 <p>Es importante utilizar estándares web para que nuestra aplicación funcione en la mayoría de dispositivos móviles. Para el desarrollo de la aplicación, además de poder utilizar lenguajes de programación web HTML 5, CSS 3 y JavaScript, también soporta perfectamente el uso de frameworks de desarrollo web móvil como: Twitter Bootstrap, jQuery Mobile, Sencha Touch, Dojo, jQTouch, SprountCore, GloveBox, XUI, iScroll, entre otros.
 </p>
@@ -284,6 +285,164 @@
 <li>El tercer argumento, "HelloWorld", es el nombre del proyecto que se generará para las distintas plataformas (por ejemplo, el nombre del proyecto que se abrirá en Android Studio o XCode). Este argumento es opcional y también se puede modificar después desde el fichero "config.xml" (pero hay que llevar cuidado ya que se utiliza en el código generado). El valor por defecto es "HelloWorld", por lo que se recomienda indicar un valor adecuado. Este nombre no puede contener espacios y debe de empezar con mayúsculas.</li>
 
 </ul>
+
+<h2>Elementos de configuración principales</h2>
+
+<p>A continuación se muestran las primeras líneas del fichero config.xml generado por defecto al crear un nuevo proyecto de Cordova. Esta configuración es compatible para todas las plataformas:
+  <center><img src="../images/apache/a.JPG" alt=""></center>
+</p>
+<p>
+  Donde:
+  <ul>
+    <li> <b>widget:</b> Su atributo id especifica el paquete de la aplicación (usando el reverse-domain-name), y su atributo version es el número completo de versión de la app (siguiendo la notación major/minor/patch, ver más información en la sección "Versión de la aplicación").</li>
+    <li> <b>name:</b> Especifica el nombre del proyecto y de la app, es el que aparecería al instalar la app junto a su icono y en los markets</li>
+    <li> <b>description y author:</b> Son metadatos e información de contacto que se utilizará al publicar la app en los markets.</li>
+    <li> <b>content:</b> Es un atributo opcional para indicar la página inicial de nuestro código. Por defecto se utilizará index.html.</li>
+    <li> <b>access:</b> Define un conjunto de dominios externos a los que se le permite acceder. Por defecto, al indicar * se le permite acceder a cualquier servidor. Para más información consultar la ayuda sobre Domain Whitelist.
+    </li>
+    <li> <b>allow-intent:</b> Controla las URLs que la aplicación puede pedir al sistema que abra. De forma predeterminada, no se permiten URLs externas. En el ejemplo superior se indica "...", pero por defecto se añadirán seis tipos de URLs permitidas: http, https, tel, sms, mailto y geo.</li>
+    <li> <b>platform:</b> En el fichero de configuración por defecto también encontraremos dos sección "platform", las cuales nos sirven para indicar opciones de configuración específicas de una plataforma. En el ejemplo se añade un intent adicional para Android y otro para iOS.</li>
+    <li> <b>engine:</b> Mediante esta etiqueta se indican las plataformas añadidas y la versión concreta que se ha instalado. Al crear un proyecto por defecto no aparecerá ninguna.</li>
+    <li> <b>plugin:</b> La etiqueta plugin especifica los plugins instalados junto con su versión.</li>
+  </ul>
+</p>
+
+<br>
+<h2>Versión de la aplicación</h2>
+<p>Tanto Android como iOS soportan una cadena con una nombre (o número) de versión alternativo además del que se utiliza en el market. En Android es el versionCode y en iOS el CFBundleVersion. A continuación se muestra como podemos establecer estas versiones en el config.xml:
+
+  <center><img src="../images/apache/b.JPG" alt=""></center>
+</p>
+
+<br>
+<h2>Almacenamiento</h2>
+<p>
+  Para el almacenamiento de la información la opción más sencilla es utilizar el "localStorage", que es una característica nativa de HTML 5. Esta utilidad nos permitirá almacenar datos tipo cadena con el formato de pares "clave / valor", es decir, usaremos una clave para indexar cada uno de los valores.
+  <br>
+  Podemos utilizar esta herramienta utilizando JavaScript desde cualquier parte de nuestro código. Simplemente tendremos que usar la variable "window.localStorage" y una serie de métodos para almacenar, recuperar o eliminar la información:
+
+  <center><img src="../images/apache/c.JPG" alt=""></center>
+  <br>
+  Como podemos ver, esta herramienta nos permite almacenar nuestra información de forma muy sencilla, y además funcionará en todas las plataformas destino de Cordova. Como contrapartida podemos decir que solo permite almacenar cadenas (o datos serializados), que no es muy óptimo cuando queremos trabajar con muchos datos, y que tiene un límite de almacenamiento de 5MB.
+</p>
+
+<br>
+<h2>Eventos</h2>
+<p>
+  La librería de Cordova incluye una serie de eventos JavaScript a los cuales podemos escuchar para lanzar determinadas acciones cuando se produzcan estos eventos. A continuación se incluye una tabla con la lista de los eventos incluidos por defecto en la librería y las plataformas que los soportan:
+  <center><img src="../images/apache/d.JPG" alt=""></center>
+</p>
+
+<br>
+<h2>Uso de eventos</h2>
+<p>
+  En general todos los eventos se utilizan de la misma forma: definiendo un listener en JavaScript que se lanzará cada vez que se produzca el evento. Sin embargo, para poder añadir este listener es importante que se haya terminado de cargar tanto el código web como la librería de Cordova, ya que en otro caso no funcionará.
+  <br>
+  Para esto añadiremos el evento "onload" a la etiqueta HTML "<body>", de la forma: <body onload="onLoad()">. Esto producirá que se llame a la función JavaScript "onLoad" cuando haya finalizado la carga. Dentro de esta función "onLoad" tendremos que añadir un listener al evento "deviceready" para esperar que se haya terminado de cargar la librería de Cordova.  El uso de este evento es esencial para cualquier aplicación con Cordova y lo tendremos que utilizar de forma inicial para asegurarnos de que la API se ha cargado completamente.
+  
+    <center><img src="../images/apache/e.JPG" alt=""></center>
+    <br>
+    Al ejecutar el código anterior en primer lugar se llamaría a la función "onLoad" cuando se termine de cargar la propia Web. Dentro de esta función se define el listener al evento "deviceready", el cual se lanzará cuando se haya terminado de cargar la librería de Cordova, llamando a la función "onDeviceReady". Una vez se ha cargado la API de Cordova ya podremos añadir listeners a los eventos que queramos. Para suscribirnos a un evento utilizaremos el siguiente código:
+    <center><img src="../images/apache/f.JPG" alt=""></center>
+</p>
+
+<br>
+<h2>Plugins</h2>
+<p>Cordova, además de permitir encapsular aplicaciones Web y compilarlas como aplicaciones nativas para distintas plataformas móviles, nos brinda el acceso a características hardware de los dispositivos a través de su sistema de plugins. Por ejemplo tenemos disponibles plugins para trabajar con la cámara, brújula, geolocalización, etc.</p>
+
+<br>
+<h2>Buscar plugins</h2>
+<p>En la dirección <a href="http://plugins.cordova.io">http://plugins.cordova.io</a> podemos consultar la lista completa de todos los plugins, incluyendo los que han sido desarrollados por la comunidad. Esta web nos permite buscar tanto por nombre como por descripción y además filtrar los resultados por plataforma, eligiendo por ejemplo que aparezcan sólo los disponibles para Android, o para Android e iOS.
+  <br>
+  Es posible utilizar el CLI de Cordova para buscar plugins en este registro. Por ejemplo, para buscar un plugin para códigos de barras usaríamos:
+
+  <center><img src="../images/apache/g.JPG" alt=""></center>
+  Al ejecutar este comando se abrirá una ventana del navegador con los resultados.
+</p>
+
+<br>
+<h2>Añadir un plugin</h2>
+<p>Para añadir un plugin a un proyecto simplemente tenemos que indicar el repositorio o nombre del plugin que deseemos y el sistema se encargará de descargarlo e instalarlo.
+
+  <br>
+  <h3>Acelerómetro, brújula y geolocalización:</h3>
+  <center><img src="../images/apache/h.JPG" alt=""></center>
+
+  <br>
+  Los plugins se descargarán para las plataformas que tenga el proyecto actualmente instaladas. Si posteriormente se añaden más plataformas estos plugins se descargarán también de forma automática para la nueva plataforma.
+  <br>
+  Al instalar un plugin de forma automática también se actualizarán los permisos necesarios para cada plataforma. Por ejemplo, en Android se actualizará el Manifest para solicitar los permisos necesarios.
+
+</p>
+
+<br>
+<h2>Eliminar un plugin</h2>
+<p>
+  Para eliminar un plugin simplemente tenemos que referirnos a él por el mismo nombre del paquete que utilizamos para su instalación (o que podemos ver si ejecutamos cordova plugin ls).
+
+  <center><img src="../images/apache/i.JPG" alt=""></center>
+</p>
+
+<br>
+<h2>Uso de la API de Cordova</h2>
+<br>
+<h2>Información del dispositivo (cordova-plugin-device)</h2>
+<p>Este plugin permite obtener información del dispositivo, como el modelo, el sistema operativo, etc. Para su utilización tenemos que esperar que se cargue la API de Cordova y ya podremos acceder a estos valores a través de las propiedades de la variable "device"
+  <center><img src="../images/apache/j.JPG" alt=""></center>
+
+  <br>
+  Las propiedades que podemos utilizar son:
+  <ul>
+    <li> <b>device.cordova:</b> Obtiene la versión de Cordova</li>
+    <li> <b>device.model:</b> Obtiene el nombre o modelo del dispositivo.</li>
+    <li> <b>device.platform:</b> Obtiene el nombre del sistema operativo.</li>
+    <li> <b>device.uuid:</b> Devuelve el Universally Unique Identifier (UUID) del dispositivo.</li>
+    <li> <b>device.version:</b> Obtiene la versión del sistema operativo utilizado.</li>
+  </ul>
+</p>
+
+<br>
+<h2>Información sobre la conexión (cordova-plugin-network-information)</h2>
+<p>
+  Este plugin proporciona información sobre el tipo de conexión a la red y además añade eventos para saber cuándo el dispositivo se conecta o se desconecta de la red.
+  <br>
+  Para obtener información sobre el tipo de conexión utilizamos el objeto connection.type, el cual podrá contener los siguientes valores indicando el tipo de conexión:
+  <ul>
+    <li>Connection.UNKNOWN</li>
+    <li>Connection.ETHERNET</li>
+    <li>Connection.WIFI</li>
+    <li>Connection.CELL_2G</li>
+    <li>Connection.CELL_3G</li>
+    <li>Connection.CELL_4G</li>
+    <li>Connection.CELL</li>
+    <li>Connection.NONE</li>
+  </ul>
+  <br>
+  A continuación se incluye un ejemplo de uso:
+  <center><img src="../images/apache/k.JPG" alt=""></center>
+</p>
+
+<h2>Crear nuestra primera aplicación</h2>
+<p>Instalado Node.Js y Cordova ya podemos crear nuestra primera aplicación. Para ello, y como se ha visto en secciones anteriores, tendríamos que ejecutar:
+  <center><img src="../images/apache/l.JPG" alt=""></center>
+  <br>
+  Este comando creará una carpeta llamada myapp con las subcarpetas: hooks, platforms, plugins, res y www. La carpeta www es la que contendrá el código fuente de nuestra aplicación web, la cual por defecto incluye una aplicación "Hola Mundo" de ejemplo con las subcarpetas css, js e img con los recursos correspondientes. El nombre de estas carpetas y código son los que se utilizan de forma común en el desarrollo web, pero se pueden modificar como queramos.
+ <br>
+ Es importante destacar que todo el contenido que se incluya dentro de la carpeta www se copiarán dentro de las aplicaciones que se generen para cada plataforma.
+ <br>
+ El archivo "index.html" es el que se abrirá por defecto al iniciar nuestra aplicación. Este archivo, al igual que el resto de contenidos, se pueden modificar como queramos, incluso el nombre del html inicial, siempre que lo indiquemos en el fichero de configuración "config.xml".
+ <br>
+ El desarrollo de nuestra aplicación lo podemos realizar como queramos: con HTML nativo (con funcionalidades de HTML5, CSS3, JavaScript, etc.), o también podemos utilizar algunos de los frameworks existentes para el desarrollo de aplicaciones web para móviles, como por ejemplo:
+ <center><img src="../images/apache/m.JPG" alt=""></center>
+</p>
+
+
+
+
+<br>
+
+
+
 
 
 
